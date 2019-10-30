@@ -1,8 +1,11 @@
 package com.dermacon.model.data;
 
+import com.dermacon.model.data.visitor.Token;
+import com.dermacon.model.data.visitor.TokenVisitor;
+
 import java.util.List;
 
-public class Card {
+public class Card implements Token {
 
     private final List<Token> front;
     private final List<Token> back;
@@ -18,5 +21,10 @@ public class Card {
 
     public List<Token> getBack() {
         return back;
+    }
+
+    @Override
+    public void visit(TokenVisitor<?> visitor) {
+
     }
 }

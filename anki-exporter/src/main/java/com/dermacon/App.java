@@ -11,11 +11,11 @@ import com.dermacon.fileIO.InvalidArgs;
 public class App 
 {
     public static void main( String[] args ) {
-        try {
+//        try {
             System.out.println("Anki-Pdf-Parser v1.0");
-            ExporterFactory.create(args).export();
-        } catch (IncompleteExportInfo invalidArgs) {
-            System.err.println(invalidArgs.getMessage());
-        }
+//            ExporterFactory.create(args).export();
+//        } catch (IncompleteExportInfo invalidArgs) {
+//            System.err.println(invalidArgs.getMessage());
+//        }
     }
 }
