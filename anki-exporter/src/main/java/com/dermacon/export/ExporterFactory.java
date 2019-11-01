@@ -27,12 +27,9 @@ public class ExporterFactory {
         String outputPath = args[1];
         Parser parser = new TexParser(computeMediaPath());
 
-        String content = Filehandler.read(inputPath);
-        List<Card> deck = StackFactory.createStack(content);
         return new Exporter.ExporterBuilder()
                 .setInputPath(inputPath)
                 .setOutputPath(outputPath)
-                .setDeck(deck)
                 .setParser(parser)
                 .build();
     }

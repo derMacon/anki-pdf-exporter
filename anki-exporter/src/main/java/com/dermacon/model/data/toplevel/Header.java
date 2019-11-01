@@ -19,4 +19,9 @@ public class Header implements Token {
     public void visit(TokenVisitor<?> visitor) {
         visitor.process(this);
     }
+
+    @Override
+    public String toString() {
+        return "Header{title:" + title + "}";
+    }
 }

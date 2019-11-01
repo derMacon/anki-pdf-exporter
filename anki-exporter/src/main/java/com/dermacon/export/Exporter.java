@@ -3,24 +3,27 @@ package com.dermacon.export;
 import com.dermacon.fileIO.Filehandler;
 import com.dermacon.fileIO.IncompleteExportInfo;
 import com.dermacon.fileIO.InvalidArgs;
+import com.dermacon.model.data.toplevel.Document;
+import com.dermacon.model.data.visitor.TexVisitor;
+import com.dermacon.model.data.visitor.TokenVisitor;
 import com.dermacon.model.generate.Parser;
 import com.dermacon.model.generate.StackFactory;
 import com.dermacon.model.data.Card;
 
+import javax.print.Doc;
 import java.util.List;
+import java.util.logging.FileHandler;
 
 public class Exporter {
 
     private final String inputPath;
     private final String outputPath;
-    private final List<Card> deck;
     private final Parser parser;
 
     public static class ExporterBuilder {
 
         private String inputPath;
         private String outputPath;
-        private List<Card> deck;
         private Parser parser;
 
         public ExporterBuilder setInputPath(String inputPath) {
@@ -33,11 +36,6 @@ public class Exporter {
             return this;
         }
 
-        public ExporterBuilder setDeck(List<Card> deck) {
-            this.deck = deck;
-            return this;
-        }
-
         public ExporterBuilder setParser(Parser parser) {
             this.parser = parser;
             return this;
@@ -45,7 +43,7 @@ public class Exporter {
 
         public Exporter build() throws IncompleteExportInfo {
             if (inputPath == null || outputPath == null
-                    || deck == null || parser == null) {
+                    || parser == null) {
                 throw new IncompleteExportInfo("one of the export info components is null");
             }
             return new Exporter(this);
@@ -55,13 +53,15 @@ public class Exporter {
     public Exporter(ExporterBuilder builder) {
         this.inputPath = builder.inputPath;
         this.outputPath = builder.outputPath;
-        this.deck = builder.deck;
         this.parser = builder.parser;
     }
 
     public void export() {
-        String output = parser.parse(deck);
-        Filehandler.writeFile(outputPath, output);
+        String fileContent = Filehandler.read(inputPath);
+        Document document = parser.parse(fileContent);
+        TokenVisitor<String> visitor = new TexVisitor();
+        document.visit(visitor);
+        Filehandler.writeFile(outputPath, visitor.getResult());
     }
 
 }

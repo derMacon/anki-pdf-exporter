@@ -22,7 +22,16 @@ public class Document implements Token {
 
     @Override
     public void visit(TokenVisitor<?> visitor) {
-        header.visit(visitor);
+        System.out.println("todo visit header");
         body.visit(visitor);
+        visitor.process(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Document{"
+                + header.toString()
+                + body.toString()
+                + "}";
     }
 }
