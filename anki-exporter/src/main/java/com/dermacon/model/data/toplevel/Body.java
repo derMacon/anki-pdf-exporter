@@ -20,6 +20,7 @@ public class Body implements Token {
         for (BodyElement elem : elements) {
             elem.visit(visitor);
         }
+        visitor.process(this);
     }
 
     @Override

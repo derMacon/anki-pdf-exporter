@@ -1,5 +1,7 @@
 package com.dermacon.model.generate;
 
+import com.dermacon.model.data.element.BodyElement;
+import com.dermacon.model.data.element.Card;
 import com.dermacon.model.data.element.PlainText;
 import com.dermacon.model.data.element.Section;
 import com.dermacon.model.data.toplevel.Body;
@@ -28,18 +30,25 @@ public class ParserTest {
                 new Body(
                         new Section(
                                 "section",
-                                new PlainText("text")
+                                new PlainText("text"),
+                                new Card(
+                                        new BodyElement[]{
+                                                new PlainText("front"),
+                                        }, new BodyElement[]{
+                                        new PlainText("back")
+                                }
+                                )
+                        ), new Section(
+                        "section",
+                            new PlainText("text")
                         )
                 )
         );
 
-//        System.out.println(doc);
+        System.out.println(doc);
         TokenVisitor<String> visitor = new TexVisitor();
         doc.visit(visitor);
         System.out.println(visitor.getResult());
-//        String expOutput = "Document{\n"
-//                "Header";
-//        Assert.assertEquals();
     }
 
 }

@@ -1,13 +1,8 @@
 package com.dermacon.export;
 
-import com.dermacon.fileIO.Filehandler;
 import com.dermacon.fileIO.IncompleteExportInfo;
-import com.dermacon.model.data.Card;
 import com.dermacon.model.generate.Parser;
-import com.dermacon.model.generate.StackFactory;
 import com.dermacon.model.generate.TexParser;
-
-import java.util.List;
 
 public class ExporterFactory {
 

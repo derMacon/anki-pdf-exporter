@@ -19,6 +19,10 @@ public class Section implements BodyElement {
         return value;
     }
 
+    public List<BodyElement> getChildren() {
+        return children;
+    }
+
     @Override
     public void visit(TokenVisitor<?> visitor) {
         for (BodyElement elem : children) {
@@ -27,4 +31,16 @@ public class Section implements BodyElement {
         visitor.process(this);
     }
 
+    @Override
+    public String toString() {
+        return "section:" + value + ";" + "{" + iterate(children) + "}";
+    }
+
+    private static String iterate(List<?> lst) {
+        String out = "";
+        for (Object o : lst) {
+            out += o.toString();
+        }
+        return out;
+    }
 }

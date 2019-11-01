@@ -1,6 +1,6 @@
 package com.dermacon.model.generate;
 
-import com.dermacon.model.data.Card;
+import com.dermacon.model.data.element.Card;
 
 import java.util.List;
 

@@ -3,6 +3,9 @@ package com.dermacon.model.data.toplevel;
 import com.dermacon.model.data.visitor.Token;
 import com.dermacon.model.data.visitor.TokenVisitor;
 
+/**
+ * Header containing infos for the title page of the document.
+ */
 public class Header implements Token {
 
     private final String title;
@@ -16,12 +19,12 @@ public class Header implements Token {
     }
 
     @Override
-    public void visit(TokenVisitor<?> visitor) {
-        visitor.process(this);
+    public String toString() {
+        return "Header{title:" + title + "}";
     }
 
     @Override
-    public String toString() {
-        return "Header{title:" + title + "}";
+    public void visit(TokenVisitor<?> visitor) {
+        visitor.process(this);
     }
 }

@@ -2,17 +2,10 @@ package com.dermacon.export;
 
 import com.dermacon.fileIO.Filehandler;
 import com.dermacon.fileIO.IncompleteExportInfo;
-import com.dermacon.fileIO.InvalidArgs;
 import com.dermacon.model.data.toplevel.Document;
 import com.dermacon.model.data.visitor.TexVisitor;
 import com.dermacon.model.data.visitor.TokenVisitor;
 import com.dermacon.model.generate.Parser;
-import com.dermacon.model.generate.StackFactory;
-import com.dermacon.model.data.Card;
-
-import javax.print.Doc;
-import java.util.List;
-import java.util.logging.FileHandler;
 
 public class Exporter {
 

@@ -1,5 +1,6 @@
 package com.dermacon.model.data.visitor;
 
+import com.dermacon.model.data.element.Card;
 import com.dermacon.model.data.element.ListItem;
 import com.dermacon.model.data.element.OrderedList;
 import com.dermacon.model.data.element.PlainText;
@@ -23,45 +24,68 @@ public class TexVisitor implements TokenVisitor<String> {
             + "\\graphicspath{ {./img/} }\n"
             + "\n"
             + "%s\n"
-            + "\n"
-            + "\\begin{document}\n"
-            + "%s\n"
-            + "\\end{document}\n"
             + "\n";
 
-    private static final String TITLE_TEMPLATE = "\\title{%s}\n";
+    private static final String BODY_TEMPLATE = "\\begin{document}\n"
+                    + "%s\n"
+                    + "\\end{document}\n";
 
-    private static final String SECTION_DELIMITER = "%%-------------------------\n";
+    private static final String HEADER_TEMPLATE = "\\title{%s}\n%s";
+    private static final String SECTION_DELIMITER = "%%*********************\n";
     private static final String SECTION_TEMPLATE = SECTION_DELIMITER
             + "\\section{%s}\n%s\n\n";
 
+    private static final String CARD_DELIMITER = "%%---------------------\n";
+    private static final String CARD_TEMPLATE = CARD_DELIMITER
+            + "\\begin{tcolorbox}"
+            + "[colback=white!10!white,colframe=lightgray!75!black,\n"
+            + "  savelowerto=\\jobname_ex.tex]\n"
+            + "\n"
+            + "  \\begin{center}\n"
+            + "    %s\n"
+            + "  \\end{center}\n"
+            + "\n"
+            + "  \\tcblower\n"
+            + "\n"
+            + "  \\justifying\n"
+            + "  %s\n"
+            + "\n"
+            + "\\end{tcolorbox}\n";
 
     String output = "";
 
     @Override
     public void process(Document doc) {
-        String title = String.format(TITLE_TEMPLATE, doc.getHeader().getTitle());
-        output = String.format(DOC_TEMPLATE, title, output);
+        output = String.format(DOC_TEMPLATE, output);
     }
 
     @Override
     public void process(Header header) {
-        // todo
+        output = String.format(HEADER_TEMPLATE, header.getTitle(), output);
     }
 
     @Override
     public void process(Body body) {
-
+        output = String.format(BODY_TEMPLATE, output);
     }
 
     @Override
     public void process(Section section) {
-        output += String.format(SECTION_TEMPLATE, section.getValue(), output);
+//        String childrenOutput =
+//                section.getChildren().stream().forEach(e -> process(e));
+//        output += String.format(SECTION_TEMPLATE, section.getValue(),
+//                process(section.getChildren()));
     }
 
     @Override
-    public void process(PlainText text) {
-        output += text.getValue() + "\n\n";
+    public void process(Card card) {
+        output += String.format(CARD_TEMPLATE, card.getFront(),
+                card.getBack());
+    }
+
+    @Override
+    public String process(PlainText text) {
+        return text.getValue() + "\n\n";
     }
 
     @Override

@@ -21,6 +21,6 @@ public class PlainText implements BodyElement {
 
     @Override
     public String toString() {
-        return "value:" + value;
+        return "value:" + value + ";";
     }
 }
