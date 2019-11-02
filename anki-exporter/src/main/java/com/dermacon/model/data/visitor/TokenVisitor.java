@@ -17,7 +17,7 @@ public interface TokenVisitor<R> {
     R process(Section section);
     R process(Card card);
     R process(PlainText text);
-    R process(OrderedList lstItem);
-    R process(UnorderedList lstItem);
+    R process(OrderedList lst);
+    R process(UnorderedList lst);
     R process(ListItem lstItem);
 }

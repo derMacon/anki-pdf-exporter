@@ -35,7 +35,7 @@ public class TexVisitor implements TokenVisitor<String> {
                     + "%s\n"
                     + "\\end{document}\n";
 
-    private static final String HEADER_TEMPLATE = "\\title{%s}\n%s";
+    private static final String HEADER_TEMPLATE = "\\title{%s}";
     private static final String SECTION_DELIMITER = "%%*********************\n";
     private static final String SECTION_TEMPLATE = SECTION_DELIMITER
             + "\\section{%s}\n%s\n\n";
@@ -46,18 +46,26 @@ public class TexVisitor implements TokenVisitor<String> {
             + "[colback=white!10!white,colframe=lightgray!75!black,\n"
             + "  savelowerto=\\jobname_ex.tex]\n"
             + "\n"
-            + "  \\begin{center}\n"
-            + "    %s\n"
-            + "  \\end{center}\n"
+            + "\\begin{center}\n"
+            + "%s\n"
+            + "\\end{center}\n"
             + "\n"
-            + "  \\tcblower\n"
+            + "\\tcblower\n"
             + "\n"
-            + "  \\justifying\n"
-            + "  %s\n"
+            + "\\justifying\n"
+            + "%s\n"
             + "\n"
             + "\\end{tcolorbox}\n";
 
-    String output = "";
+    private static final String UL_TEMPLATE = "\\begin{itemize}\n"
+            + "%s"
+            + "\\end{itemize}";
+
+    private static final String OL_TEMPLATE = "\\begin{enumerate}\n"
+            + "%s"
+            + "\\end{enumerate}";
+
+    private static final String LST_ITEM_TEMPLATE = "\\item %s";
 
     @Override
     public String process(Document doc) {
@@ -68,12 +76,13 @@ public class TexVisitor implements TokenVisitor<String> {
 
     @Override
     public String process(Header header) {
-        return String.format(HEADER_TEMPLATE, header.getTitle(), output);
+        return String.format(HEADER_TEMPLATE, header.getTitle());
     }
 
     @Override
     public String process(Body body) {
-        return String.format(BODY_TEMPLATE, iterateChildren(body.getChildren()));
+        return String.format(BODY_TEMPLATE,
+                iterateChildren(body.getChildren()));
     }
 
     private String iterateChildren(List<BodyElement> children) {
@@ -104,18 +113,19 @@ public class TexVisitor implements TokenVisitor<String> {
     }
 
     @Override
-    public String process(OrderedList lstItem) {
-        return null;
+    public String process(OrderedList lst) {
+        return String.format(OL_TEMPLATE, iterateChildren(lst.getChildren()));
     }
 
     @Override
-    public String process(UnorderedList lstItem) {
-        return null;
+    public String process(UnorderedList lst) {
+        return String.format(UL_TEMPLATE, iterateChildren(lst.getChildren()));
     }
 
     @Override
     public String process(ListItem lstItem) {
-        return null;
+       return String.format(LST_ITEM_TEMPLATE,
+                iterateChildren(lstItem.getChildren()));
     }
 
 }

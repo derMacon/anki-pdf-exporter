@@ -52,8 +52,7 @@ public class Exporter {
     public void export() {
         String fileContent = Filehandler.read(inputPath);
         Document document = parser.parse(fileContent);
-        TokenVisitor<String> visitor = new TexVisitor();
-        String formated = document.accept(visitor);
+        String formated = document.accept(new TexVisitor());
         Filehandler.writeFile(outputPath, formated);
     }
 
