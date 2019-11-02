@@ -1,4 +1,4 @@
-package com.dermacon;
+package com.dermacon.fileIO;
 
 import java.io.File;
 

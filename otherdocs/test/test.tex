@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{tikz,lipsum,lmodern}
+\usepackage[most]{tcolorbox}
+\usepackage[paperheight=10.75in,paperwidth=7.25in,margin=1in,heightrounded]{geometry}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{ragged2e}
+\usepackage[space]{grffile}
+
+\graphicspath{ {./img/} }
+
+\title{title}
+
+
+\begin{document}
+%*********************
+\section{section}
+text
+
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex]
+
+  \begin{center}
+    front
+
+
+  \end{center}
+
+  \tcblower
+
+  \justifying
+  back
+
+
+
+\end{tcolorbox}
+
+
+%*********************
+\section{section}
+text
+
+
+
+
+\end{document}
