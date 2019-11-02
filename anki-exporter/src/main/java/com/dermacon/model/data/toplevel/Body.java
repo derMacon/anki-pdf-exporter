@@ -7,7 +7,7 @@ import com.dermacon.model.data.visitor.TokenVisitor;
 import java.util.Arrays;
 import java.util.List;
 
-public class Body implements Token {
+public class Body implements BodyElement {
 
     private final List<BodyElement> elements;
 
@@ -16,11 +16,13 @@ public class Body implements Token {
     }
 
     @Override
-    public void visit(TokenVisitor<?> visitor) {
-        for (BodyElement elem : elements) {
-            elem.visit(visitor);
-        }
-        visitor.process(this);
+    public List<BodyElement> getChildren() {
+        return elements;
+    }
+
+    @Override
+    public <E> E accept(TokenVisitor<E> visitor) {
+        return visitor.process(this);
     }
 
     @Override
@@ -31,4 +33,5 @@ public class Body implements Token {
         }
         return output + "}";
     }
+
 }

@@ -1,5 +1,6 @@
 package com.dermacon.model.data.visitor;
 
+import com.dermacon.model.data.element.BodyElement;
 import com.dermacon.model.data.element.Card;
 import com.dermacon.model.data.element.ListItem;
 import com.dermacon.model.data.element.OrderedList;
@@ -9,6 +10,8 @@ import com.dermacon.model.data.element.UnorderedList;
 import com.dermacon.model.data.toplevel.Body;
 import com.dermacon.model.data.toplevel.Document;
 import com.dermacon.model.data.toplevel.Header;
+
+import java.util.List;
 
 public class TexVisitor implements TokenVisitor<String> {
 
@@ -22,6 +25,8 @@ public class TexVisitor implements TokenVisitor<String> {
             + "\\usepackage[space]{grffile}\n"
             + "\n"
             + "\\graphicspath{ {./img/} }\n"
+            + "\n"
+            + "%s\n"
             + "\n"
             + "%s\n"
             + "\n";
@@ -55,32 +60,42 @@ public class TexVisitor implements TokenVisitor<String> {
     String output = "";
 
     @Override
-    public void process(Document doc) {
-        output = String.format(DOC_TEMPLATE, output);
+    public String process(Document doc) {
+        return String.format(DOC_TEMPLATE,
+                doc.getHeader().accept(this),
+                doc.getBody().accept(this));
     }
 
     @Override
-    public void process(Header header) {
-        output = String.format(HEADER_TEMPLATE, header.getTitle(), output);
+    public String process(Header header) {
+        return String.format(HEADER_TEMPLATE, header.getTitle(), output);
     }
 
     @Override
-    public void process(Body body) {
-        output = String.format(BODY_TEMPLATE, output);
+    public String process(Body body) {
+        return String.format(BODY_TEMPLATE, iterateChildren(body.getChildren()));
+    }
+
+    private String iterateChildren(List<BodyElement> children) {
+        StringBuilder out = new StringBuilder();
+        for (BodyElement elem : children) {
+            out.append(elem.accept(this));
+        }
+        return out.toString();
     }
 
     @Override
-    public void process(Section section) {
-//        String childrenOutput =
-//                section.getChildren().stream().forEach(e -> process(e));
-//        output += String.format(SECTION_TEMPLATE, section.getValue(),
-//                process(section.getChildren()));
+    public String process(Section section) {
+        return String.format(SECTION_TEMPLATE,
+                section.getValue(),
+                iterateChildren(section.getChildren()));
     }
 
     @Override
-    public void process(Card card) {
-        output += String.format(CARD_TEMPLATE, card.getFront(),
-                card.getBack());
+    public String process(Card card) {
+        return String.format(CARD_TEMPLATE,
+                iterateChildren(card.getFront()),
+                iterateChildren(card.getBack()));
     }
 
     @Override
@@ -89,22 +104,18 @@ public class TexVisitor implements TokenVisitor<String> {
     }
 
     @Override
-    public void process(OrderedList lstItem) {
-
+    public String process(OrderedList lstItem) {
+        return null;
     }
 
     @Override
-    public void process(UnorderedList lstItem) {
-
+    public String process(UnorderedList lstItem) {
+        return null;
     }
 
     @Override
-    public void process(ListItem lstItem) {
-
+    public String process(ListItem lstItem) {
+        return null;
     }
 
-    @Override
-    public String getResult() {
-        return output;
-    }
 }

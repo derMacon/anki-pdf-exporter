@@ -12,11 +12,17 @@ public class Document implements Token {
         this.body = body;
     }
 
+    public Header getHeader() {
+        return header;
+    }
+
+    public Body getBody() {
+        return body;
+    }
+
     @Override
-    public void visit(TokenVisitor<?> visitor) {
-        body.visit(visitor);
-        header.visit(visitor);
-        visitor.process(this);
+    public <E> E accept(TokenVisitor<E> visitor) {
+        return visitor.process(this);
     }
 
     @Override

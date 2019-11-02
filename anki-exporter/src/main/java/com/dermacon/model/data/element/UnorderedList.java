@@ -13,10 +13,13 @@ public class UnorderedList implements BodyElement {
     }
 
     @Override
-    public void visit(TokenVisitor<?> visitor) {
-        for (ListItem elem : children) {
-            elem.visit(visitor);
-        }
-        visitor.process(this);
+    public List<BodyElement> getChildren() {
+        return null;
     }
+
+    @Override
+    public <E> E accept(TokenVisitor<E> visitor) {
+        return visitor.process(this);
+    }
+
 }

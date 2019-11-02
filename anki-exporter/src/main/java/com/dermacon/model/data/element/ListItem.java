@@ -13,10 +13,13 @@ public class ListItem implements BodyElement {
     private final List<BodyElement> children;
 
     @Override
-    public void visit(TokenVisitor<?> visitor) {
-        for (BodyElement elem : children) {
-            elem.visit(visitor);
-        }
-        visitor.process(this);
+    public List<BodyElement> getChildren() {
+        return null;
     }
+
+    @Override
+    public <E> E accept(TokenVisitor<E> visitor) {
+        return visitor.process(this);
+    }
+
 }

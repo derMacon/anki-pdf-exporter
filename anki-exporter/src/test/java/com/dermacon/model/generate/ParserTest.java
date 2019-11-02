@@ -47,8 +47,7 @@ public class ParserTest {
 
         System.out.println(doc);
         TokenVisitor<String> visitor = new TexVisitor();
-        doc.visit(visitor);
-        System.out.println(visitor.getResult());
+        System.out.println(doc.accept(visitor));
     }
 
 }

@@ -24,11 +24,6 @@ public class Card implements BodyElement {
     }
 
     @Override
-    public void visit(TokenVisitor<?> visitor) {
-        visitor.process(this);
-    }
-
-    @Override
     public String toString() {
         return "card{front:{" + iterate(front) + "}"
             + "back:{" + iterate(front) + "}}";
@@ -40,5 +35,15 @@ public class Card implements BodyElement {
             out += o.toString();
         }
         return out;
+    }
+
+    @Override
+    public List<BodyElement> getChildren() {
+        return null;
+    }
+
+    @Override
+    public <E> E accept(TokenVisitor<E> visitor) {
+        return visitor.process(this);
     }
 }

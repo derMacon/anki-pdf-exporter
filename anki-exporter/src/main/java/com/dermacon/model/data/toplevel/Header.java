@@ -24,7 +24,7 @@ public class Header implements Token {
     }
 
     @Override
-    public void visit(TokenVisitor<?> visitor) {
-        visitor.process(this);
+    public <E> E accept(TokenVisitor<E> visitor) {
+        return visitor.process(this);
     }
 }

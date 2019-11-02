@@ -19,16 +19,14 @@ public class Section implements BodyElement {
         return value;
     }
 
+    @Override
     public List<BodyElement> getChildren() {
         return children;
     }
 
     @Override
-    public void visit(TokenVisitor<?> visitor) {
-        for (BodyElement elem : children) {
-            elem.visit(visitor);
-        }
-        visitor.process(this);
+    public <E> E accept(TokenVisitor<E> visitor) {
+        return visitor.process(this);
     }
 
     @Override
@@ -43,4 +41,5 @@ public class Section implements BodyElement {
         }
         return out;
     }
+
 }

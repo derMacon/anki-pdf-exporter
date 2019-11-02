@@ -11,15 +11,13 @@ import com.dermacon.model.data.toplevel.Document;
 import com.dermacon.model.data.toplevel.Header;
 
 public interface TokenVisitor<R> {
-    void process(Document doc);
-    void process(Header header);
-    void process(Body body);
-    void process(Section section);
-    void process(Card card);
-    String process(PlainText text);
-    void process(OrderedList lstItem);
-    void process(UnorderedList lstItem);
-    void process(ListItem lstItem);
-
-    R getResult();
+    R process(Document doc);
+    R process(Header header);
+    R process(Body body);
+    R process(Section section);
+    R process(Card card);
+    R process(PlainText text);
+    R process(OrderedList lstItem);
+    R process(UnorderedList lstItem);
+    R process(ListItem lstItem);
 }
