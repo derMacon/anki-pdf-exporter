@@ -1,6 +1,5 @@
 package com.dermacon.model.data.visitor;
 
-import com.dermacon.model.data.element.BodyElement;
 import com.dermacon.model.data.element.Card;
 import com.dermacon.model.data.element.ListItem;
 import com.dermacon.model.data.element.OrderedList;
@@ -38,7 +37,7 @@ public class TexVisitor implements TokenVisitor<String> {
     private static final String HEADER_TEMPLATE = "\\title{%s}";
     private static final String SECTION_DELIMITER = "%%*********************\n";
     private static final String SECTION_TEMPLATE = SECTION_DELIMITER
-            + "\\section{%s}\n%s\n\n";
+            + "\\section{%s}\n%s";
 
     private static final String CARD_DELIMITER = "%%---------------------\n";
     private static final String CARD_TEMPLATE = CARD_DELIMITER
@@ -54,7 +53,6 @@ public class TexVisitor implements TokenVisitor<String> {
             + "\n"
             + "\\justifying\n"
             + "%s\n"
-            + "\n"
             + "\\end{tcolorbox}\n";
 
     private static final String UL_TEMPLATE = "\\begin{itemize}\n"
@@ -85,9 +83,9 @@ public class TexVisitor implements TokenVisitor<String> {
                 iterateChildren(body.getChildren()));
     }
 
-    private String iterateChildren(List<BodyElement> children) {
+    private String iterateChildren(List<Token> children) {
         StringBuilder out = new StringBuilder();
-        for (BodyElement elem : children) {
+        for (Token elem : children) {
             out.append(elem.accept(this));
         }
         return out.toString();
@@ -109,7 +107,7 @@ public class TexVisitor implements TokenVisitor<String> {
 
     @Override
     public String process(PlainText text) {
-        return text.getValue() + "\n\n";
+        return text.getValue() + "\n";
     }
 
     @Override

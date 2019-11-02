@@ -1,10 +1,11 @@
 package com.dermacon.model.data.element;
 
 import com.dermacon.model.data.visitor.TokenVisitor;
+import com.dermacon.model.data.visitor.Token;
 
 import java.util.List;
 
-public class UnorderedList implements BodyElement {
+public class UnorderedList implements Token {
 
     private final List<ListItem> children;
 
@@ -13,7 +14,7 @@ public class UnorderedList implements BodyElement {
     }
 
     @Override
-    public List<BodyElement> getChildren() {
+    public List<Token> getChildren() {
         return null;
     }
 
@@ -22,4 +23,13 @@ public class UnorderedList implements BodyElement {
         return visitor.process(this);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        UnorderedList other = null;
+        if (o instanceof UnorderedList) {
+            other = (UnorderedList) o;
+        }
+        return other != null
+                && this.children.equals(other.children);
+    }
 }

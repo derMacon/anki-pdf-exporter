@@ -1,10 +1,11 @@
 package com.dermacon.model.data.element;
 
 import com.dermacon.model.data.visitor.TokenVisitor;
+import com.dermacon.model.data.visitor.Token;
 
 import java.util.List;
 
-public class PlainText implements BodyElement {
+public class PlainText implements Token {
 
     private String value;
 
@@ -17,7 +18,7 @@ public class PlainText implements BodyElement {
     }
 
     @Override
-    public List<BodyElement> getChildren() {
+    public List<Token> getChildren() {
         return null;
     }
 
@@ -29,6 +30,16 @@ public class PlainText implements BodyElement {
     @Override
     public String toString() {
         return "value:" + value + ";";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        PlainText other = null;
+        if (o instanceof PlainText) {
+            other = (PlainText) o;
+        }
+        return other != null
+                && this.value.equals(other.value);
     }
 
 }

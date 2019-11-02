@@ -1,25 +1,27 @@
 package com.dermacon.model.data.element;
 
+import com.dermacon.model.data.toplevel.Body;
 import com.dermacon.model.data.visitor.TokenVisitor;
+import com.dermacon.model.data.visitor.Token;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Card implements BodyElement {
+public class Card implements Token {
 
-    private final List<BodyElement> front;
-    private final List<BodyElement> back;
+    private final List<Token> front;
+    private final List<Token> back;
 
-    public Card(BodyElement[] front, BodyElement[] back) {
+    public Card(Token[] front, Token[] back) {
         this.front = Arrays.asList(front);
         this.back = Arrays.asList(back);
     }
 
-    public List<BodyElement> getFront() {
+    public List<Token> getFront() {
         return front;
     }
 
-    public List<BodyElement> getBack() {
+    public List<Token> getBack() {
         return back;
     }
 
@@ -38,12 +40,23 @@ public class Card implements BodyElement {
     }
 
     @Override
-    public List<BodyElement> getChildren() {
+    public List<Token> getChildren() {
         return null;
     }
 
     @Override
     public <E> E accept(TokenVisitor<E> visitor) {
         return visitor.process(this);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Card other = null;
+        if (o instanceof Card) {
+            other = (Card)o;
+        }
+        return other != null
+                && this.front.equals(other.front)
+                && this.back.equals(other.back);
     }
 }

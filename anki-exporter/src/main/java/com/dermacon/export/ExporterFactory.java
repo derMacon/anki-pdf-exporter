@@ -16,13 +16,13 @@ public class ExporterFactory {
         return "todo";
     }
 
-    public static Exporter create(String[] args) throws IncompleteExportInfo {
+    public static FileExporter create(String[] args) throws IncompleteExportInfo {
         // todo analyse / validate args...
         String inputPath = args[0];
         String outputPath = args[1];
         Parser parser = new TexParser(computeMediaPath());
 
-        return new Exporter.ExporterBuilder()
+        return new FileExporter.ExporterBuilder()
                 .setInputPath(inputPath)
                 .setOutputPath(outputPath)
                 .setParser(parser)

@@ -1,16 +1,17 @@
 package com.dermacon.model.data.element;
 
 import com.dermacon.model.data.visitor.TokenVisitor;
+import com.dermacon.model.data.visitor.Token;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Section implements BodyElement {
+public class Section implements Token {
 
     private final String value;
-    private final List<BodyElement> children;
+    private final List<Token> children;
 
-    public Section(String value, BodyElement... children) {
+    public Section(String value, Token... children) {
         this.value = value;
         this.children = Arrays.asList(children);
     }
@@ -20,7 +21,7 @@ public class Section implements BodyElement {
     }
 
     @Override
-    public List<BodyElement> getChildren() {
+    public List<Token> getChildren() {
         return children;
     }
 
@@ -40,6 +41,17 @@ public class Section implements BodyElement {
             out += o.toString();
         }
         return out;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        Section other = null;
+        if (o instanceof Section) {
+            other = (Section) o;
+        }
+        return other != null
+                && this.value.equals(other.value)
+                && this.children.equals(other.children);
     }
 
 }
