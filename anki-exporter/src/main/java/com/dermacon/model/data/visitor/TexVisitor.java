@@ -65,6 +65,12 @@ public class TexVisitor implements TokenVisitor<String> {
 
     private static final String LST_ITEM_TEMPLATE = "\\item %s";
 
+    private final String mediaPath;
+
+    public TexVisitor(String mediaPath) {
+        this.mediaPath = mediaPath;
+    }
+
     @Override
     public String process(Document doc) {
         return String.format(DOC_TEMPLATE,
