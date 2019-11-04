@@ -7,11 +7,13 @@ import com.dermacon.model.generate.Parser;
  */
 public class MockExporter extends Exporter {
 
+//    private final String MEDIA_PATH = "path/to/media/";
+
     private final String in;
     private final StringBuilder out;
 
     protected MockExporter(Parser parser, String in, StringBuilder out) {
-        super(parser);
+        super(parser, "path/to/media/");
         this.in = in;
         this.out = out;
     }

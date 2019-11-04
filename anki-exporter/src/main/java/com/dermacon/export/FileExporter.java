@@ -17,6 +17,7 @@ public class FileExporter extends Exporter {
 
         private String inputPath;
         private String outputPath;
+        private String mediaPath;
         private Parser parser;
 
         public ExporterBuilder setInputPath(String inputPath) {
@@ -26,6 +27,11 @@ public class FileExporter extends Exporter {
 
         public ExporterBuilder setOutputPath(String outputPath) {
             this.outputPath = outputPath;
+            return this;
+        }
+
+        public ExporterBuilder setMediaPath(String mediaPath) {
+            this.mediaPath = mediaPath;
             return this;
         }
 
@@ -44,7 +50,7 @@ public class FileExporter extends Exporter {
     }
 
     public FileExporter(ExporterBuilder builder) {
-        super(builder.parser);
+        super(builder.parser, builder.mediaPath);
         this.inputPath = builder.inputPath;
         this.outputPath = builder.outputPath;
     }

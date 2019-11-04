@@ -23,6 +23,7 @@ public class ExporterFactory {
         Parser parser = new CSVParser(computeMediaPath());
 
         return new FileExporter.ExporterBuilder()
+                .setMediaPath(computeMediaPath())
                 .setInputPath(inputPath)
                 .setOutputPath(outputPath)
                 .setParser(parser)
