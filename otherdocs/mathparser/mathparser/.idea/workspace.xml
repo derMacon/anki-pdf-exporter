@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f76837a-01ea-4653-8dcb-1287906bef76" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../parser_test/anki-exporter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../parser_test/anki-exporter/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/antlr4/CardStack.g4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/ASTCard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/ASTNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/BuildAstVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
