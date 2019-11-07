@@ -1,19 +1,19 @@
 package com.dermacon.model.data.visitor;
 
-import com.dermacon.model.data.element.BodyElement;
-import com.dermacon.model.data.element.Card;
-import com.dermacon.model.data.element.ListItem;
-import com.dermacon.model.data.element.OrderedList;
-import com.dermacon.model.data.element.PlainText;
-import com.dermacon.model.data.element.Section;
-import com.dermacon.model.data.element.UnorderedList;
-import com.dermacon.model.data.toplevel.Body;
-import com.dermacon.model.data.toplevel.Document;
-import com.dermacon.model.data.toplevel.Header;
+import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.nodes.document.Card;
+import com.dermacon.model.data.nodes.sideElem.ListItem;
+import com.dermacon.model.data.nodes.sideElem.OrderedList;
+import com.dermacon.model.data.nodes.sideElem.PlainText;
+import com.dermacon.model.data.nodes.document.Section;
+import com.dermacon.model.data.nodes.sideElem.UnorderedList;
+import com.dermacon.model.data.nodes.document.Body;
+import com.dermacon.model.data.nodes.document.Document;
+import com.dermacon.model.data.nodes.document.Header;
 
 import java.util.List;
 
-public class TexVisitor implements TokenVisitor<String> {
+public class TexVisitor implements FormatVisitor<String> {
 
     private static final String DOC_TEMPLATE = "\\documentclass{article}\n"
             + "\\usepackage{tikz,lipsum,lmodern}\n"
@@ -35,10 +35,10 @@ public class TexVisitor implements TokenVisitor<String> {
                     + "%s\n"
                     + "\\end{document}\n";
 
-    private static final String HEADER_TEMPLATE = "\\title{%s}\n%s";
+    private static final String HEADER_TEMPLATE = "\\title{%s}";
     private static final String SECTION_DELIMITER = "%%*********************\n";
     private static final String SECTION_TEMPLATE = SECTION_DELIMITER
-            + "\\section{%s}\n%s\n\n";
+            + "\\section{%s}\n%s";
 
     private static final String CARD_DELIMITER = "%%---------------------\n";
     private static final String CARD_TEMPLATE = CARD_DELIMITER
@@ -46,18 +46,31 @@ public class TexVisitor implements TokenVisitor<String> {
             + "[colback=white!10!white,colframe=lightgray!75!black,\n"
             + "  savelowerto=\\jobname_ex.tex]\n"
             + "\n"
-            + "  \\begin{center}\n"
-            + "    %s\n"
-            + "  \\end{center}\n"
+            + "\\begin{center}\n"
+            + "%s\n"
+            + "\\end{center}\n"
             + "\n"
-            + "  \\tcblower\n"
+            + "\\tcblower\n"
             + "\n"
-            + "  \\justifying\n"
-            + "  %s\n"
-            + "\n"
+            + "\\justifying\n"
+            + "%s\n"
             + "\\end{tcolorbox}\n";
 
-    String output = "";
+    private static final String UL_TEMPLATE = "\\begin{itemize}\n"
+            + "%s"
+            + "\\end{itemize}";
+
+    private static final String OL_TEMPLATE = "\\begin{enumerate}\n"
+            + "%s"
+            + "\\end{enumerate}";
+
+    private static final String LST_ITEM_TEMPLATE = "\\item %s";
+
+    private final String mediaPath;
+
+    public TexVisitor(String mediaPath) {
+        this.mediaPath = mediaPath;
+    }
 
     @Override
     public String process(Document doc) {
@@ -68,17 +81,18 @@ public class TexVisitor implements TokenVisitor<String> {
 
     @Override
     public String process(Header header) {
-        return String.format(HEADER_TEMPLATE, header.getTitle(), output);
+        return String.format(HEADER_TEMPLATE, header.getTitle());
     }
 
     @Override
     public String process(Body body) {
-        return String.format(BODY_TEMPLATE, iterateChildren(body.getChildren()));
+        return String.format(BODY_TEMPLATE,
+                iterateChildren(body.getChildren()));
     }
 
-    private String iterateChildren(List<BodyElement> children) {
+    private String iterateChildren(List<Node> children) {
         StringBuilder out = new StringBuilder();
-        for (BodyElement elem : children) {
+        for (Node elem : children) {
             out.append(elem.accept(this));
         }
         return out.toString();
@@ -100,22 +114,23 @@ public class TexVisitor implements TokenVisitor<String> {
 
     @Override
     public String process(PlainText text) {
-        return text.getValue() + "\n\n";
+        return text.getValue() + "\n";
     }
 
     @Override
-    public String process(OrderedList lstItem) {
-        return null;
+    public String process(OrderedList lst) {
+        return String.format(OL_TEMPLATE, iterateChildren(lst.getChildren()));
     }
 
     @Override
-    public String process(UnorderedList lstItem) {
-        return null;
+    public String process(UnorderedList lst) {
+        return String.format(UL_TEMPLATE, iterateChildren(lst.getChildren()));
     }
 
     @Override
     public String process(ListItem lstItem) {
-        return null;
+       return String.format(LST_ITEM_TEMPLATE,
+                iterateChildren(lstItem.getChildren()));
     }
 
 }

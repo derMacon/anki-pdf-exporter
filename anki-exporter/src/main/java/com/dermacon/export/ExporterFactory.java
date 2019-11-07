@@ -2,7 +2,7 @@ package com.dermacon.export;
 
 import com.dermacon.fileIO.IncompleteExportInfo;
 import com.dermacon.model.generate.Parser;
-import com.dermacon.model.generate.TexParser;
+import com.dermacon.model.generate.CSVParser;
 
 public class ExporterFactory {
 
@@ -16,13 +16,14 @@ public class ExporterFactory {
         return "todo";
     }
 
-    public static Exporter create(String[] args) throws IncompleteExportInfo {
+    public static FileExporter create(String[] args) throws IncompleteExportInfo {
         // todo analyse / validate args...
         String inputPath = args[0];
         String outputPath = args[1];
-        Parser parser = new TexParser(computeMediaPath());
+        Parser parser = new CSVParser(computeMediaPath());
 
-        return new Exporter.ExporterBuilder()
+        return new FileExporter.ExporterBuilder()
+                .setMediaPath(computeMediaPath())
                 .setInputPath(inputPath)
                 .setOutputPath(outputPath)
                 .setParser(parser)

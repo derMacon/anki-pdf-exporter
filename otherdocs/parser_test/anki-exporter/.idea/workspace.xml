@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2f76837a-01ea-4653-8dcb-1287906bef76" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JUnit4 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1StaKQUQdc3U3buWVYqEbMIneOM" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../anki-exporter (copy)" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.dermacon.model.data.toplevel" />
+      <recent name="com.dermacon.model.generate" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/dermacon" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App" />
+      <module name="anki-exporter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dermacon.export.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.testExampleField" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="anki-exporter" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AppTest" />
+      <option name="METHOD_NAME" value="testExampleField" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DocumentTest.testEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="anki-exporter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dermacon.model.data.toplevel.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dermacon.model.data.toplevel" />
+      <option name="MAIN_CLASS_NAME" value="com.dermacon.model.data.toplevel.DocumentTest" />
+      <option name="METHOD_NAME" value="testEquals" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserTest.testEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="anki-exporter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dermacon.model.generate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dermacon.model.generate" />
+      <option name="MAIN_CLASS_NAME" value="com.dermacon.model.generate.ParserTest" />
+      <option name="METHOD_NAME" value="testEquals" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ParserTest.testVisitor_simple" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="anki-exporter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dermacon.model.generate.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.dermacon.model.generate" />
+      <option name="MAIN_CLASS_NAME" value="com.dermacon.model.generate.ParserTest" />
+      <option name="METHOD_NAME" value="testVisitor_simple" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.AppTest.testExampleField" />
+        <item itemvalue="JUnit.DocumentTest.testEquals" />
+        <item itemvalue="JUnit.ParserTest.testEquals" />
+        <item itemvalue="JUnit.ParserTest.testVisitor_simple" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2f76837a-01ea-4653-8dcb-1287906bef76" name="Default Changelist" comment="" />
+      <created>1572385281949</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1572385281949</updated>
+      <workItem from="1572385283023" duration="727000" />
+      <workItem from="1572393824632" duration="5125000" />
+      <workItem from="1572566501179" duration="9629000" />
+      <workItem from="1572645361228" duration="10543000" />
+      <workItem from="1572793366253" duration="1723000" />
+      <workItem from="1572897352588" duration="1004000" />
+      <workItem from="1572898370831" duration="2484000" />
+      <workItem from="1572985013041" duration="1356000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
