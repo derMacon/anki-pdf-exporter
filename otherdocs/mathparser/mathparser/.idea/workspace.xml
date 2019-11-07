@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f76837a-01ea-4653-8dcb-1287906bef76" name="Default Changelist" comment="" />
+    <list default="true" id="2f76837a-01ea-4653-8dcb-1287906bef76" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../parser_test/anki-exporter/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../parser_test/anki-exporter/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +36,10 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../anki-exporter (copy)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RecentsManager">
@@ -88,6 +93,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest.testExampleJson" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="anki-exporter" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AppTest" />
+      <option name="METHOD_NAME" value="testExampleJson" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DocumentTest.testEquals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="anki-exporter" />
       <extension name="coverage">
@@ -120,29 +135,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ParserTest.testVisitor_simple" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="anki-exporter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.dermacon.model.generate.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.dermacon.model.generate" />
-      <option name="MAIN_CLASS_NAME" value="com.dermacon.model.generate.ParserTest" />
-      <option name="METHOD_NAME" value="testVisitor_simple" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.AppTest.testExampleJson" />
         <item itemvalue="JUnit.AppTest.testExampleField" />
         <item itemvalue="JUnit.DocumentTest.testEquals" />
         <item itemvalue="JUnit.ParserTest.testEquals" />
-        <item itemvalue="JUnit.ParserTest.testVisitor_simple" />
       </list>
     </recent_temporary>
   </component>
@@ -163,7 +162,11 @@
       <workItem from="1572793366253" duration="1723000" />
       <workItem from="1572897352588" duration="1004000" />
       <workItem from="1572898370831" duration="2484000" />
-      <workItem from="1572985013041" duration="1356000" />
+      <workItem from="1572985013041" duration="1142000" />
+      <workItem from="1572986371785" duration="2887000" />
+      <workItem from="1573134640593" duration="935000" />
+      <workItem from="1573135970426" duration="239000" />
+      <workItem from="1573136266092" duration="3405000" />
     </task>
     <servers />
   </component>
@@ -182,5 +185,31 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/AppTest.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/AppTest.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/AppTest.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/AstVisitor.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
