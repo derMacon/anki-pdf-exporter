@@ -1,8 +1,8 @@
 package com.dermacon.export;
 
-import com.dermacon.model.data.toplevel.Document;
+import com.dermacon.model.data.nodes.document.Document;
 import com.dermacon.model.data.visitor.TexVisitor;
-import com.dermacon.model.data.visitor.TokenVisitor;
+import com.dermacon.model.data.visitor.FormatVisitor;
 import com.dermacon.model.generate.Parser;
 
 /**
@@ -39,7 +39,7 @@ public abstract class Exporter {
     public void export() {
         String content = read();
         Document document = parser.parse(content);
-        TokenVisitor<String> visitor = new TexVisitor(mediaPath);
+        FormatVisitor<String> visitor = new TexVisitor(mediaPath);
         String formated = document.accept(visitor);
         write(formated);
     }

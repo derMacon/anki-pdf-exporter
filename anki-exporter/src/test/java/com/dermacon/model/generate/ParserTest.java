@@ -1,13 +1,12 @@
 package com.dermacon.model.generate;
 
-import com.dermacon.model.data.element.Card;
-import com.dermacon.model.data.element.PlainText;
-import com.dermacon.model.data.element.Section;
-import com.dermacon.model.data.toplevel.Body;
-import com.dermacon.model.data.toplevel.Document;
-import com.dermacon.model.data.toplevel.Header;
-import com.dermacon.model.data.visitor.Token;
-import org.junit.Assert;
+import com.dermacon.model.data.nodes.document.Card;
+import com.dermacon.model.data.nodes.ast.PlainText;
+import com.dermacon.model.data.nodes.document.Section;
+import com.dermacon.model.data.nodes.document.Body;
+import com.dermacon.model.data.nodes.document.Document;
+import com.dermacon.model.data.nodes.document.Header;
+import com.dermacon.model.data.nodes.Node;
 import org.junit.Test;
 
 public class ParserTest {
@@ -21,9 +20,9 @@ public class ParserTest {
                                 "section",
                                 new PlainText("text"),
                                 new Card(
-                                        new Token[]{
+                                        new Node[]{
                                                 new PlainText("front"),
-                                        }, new Token[]{
+                                        }, new Node[]{
                                         new PlainText("back")
                                 }
                                 )

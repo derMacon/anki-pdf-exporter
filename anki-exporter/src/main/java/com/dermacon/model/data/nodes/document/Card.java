@@ -1,27 +1,26 @@
-package com.dermacon.model.data.element;
+package com.dermacon.model.data.nodes.document;
 
-import com.dermacon.model.data.toplevel.Body;
-import com.dermacon.model.data.visitor.TokenVisitor;
-import com.dermacon.model.data.visitor.Token;
+import com.dermacon.model.data.visitor.FormatVisitor;
+import com.dermacon.model.data.nodes.Node;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Card implements Token {
+public class Card implements Node {
 
-    private final List<Token> front;
-    private final List<Token> back;
+    private final List<Node> front;
+    private final List<Node> back;
 
-    public Card(Token[] front, Token[] back) {
+    public Card(Node[] front, Node[] back) {
         this.front = Arrays.asList(front);
         this.back = Arrays.asList(back);
     }
 
-    public List<Token> getFront() {
+    public List<Node> getFront() {
         return front;
     }
 
-    public List<Token> getBack() {
+    public List<Node> getBack() {
         return back;
     }
 
@@ -40,12 +39,12 @@ public class Card implements Token {
     }
 
     @Override
-    public List<Token> getChildren() {
+    public List<Node> getChildren() {
         return null;
     }
 
     @Override
-    public <E> E accept(TokenVisitor<E> visitor) {
+    public <E> E accept(FormatVisitor<E> visitor) {
         return visitor.process(this);
     }
 

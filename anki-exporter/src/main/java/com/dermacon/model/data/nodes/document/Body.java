@@ -1,33 +1,33 @@
-package com.dermacon.model.data.toplevel;
+package com.dermacon.model.data.nodes.document;
 
-import com.dermacon.model.data.visitor.TokenVisitor;
-import com.dermacon.model.data.visitor.Token;
+import com.dermacon.model.data.visitor.FormatVisitor;
+import com.dermacon.model.data.nodes.Node;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Body implements Token {
+public class Body implements Node {
 
-    private final List<Token> elements;
+    private final List<Node> elements;
 
-    public Body(Token... elements) {
+    public Body(Node... elements) {
         this.elements = Arrays.asList(elements);
     }
 
     @Override
-    public List<Token> getChildren() {
+    public List<Node> getChildren() {
         return elements;
     }
 
     @Override
-    public <E> E accept(TokenVisitor<E> visitor) {
+    public <E> E accept(FormatVisitor<E> visitor) {
         return visitor.process(this);
     }
 
     @Override
     public String toString() {
         String output = "Body{";
-        for (Token elem : elements) {
+        for (Node elem : elements) {
             output += "elem{" + elem.toString() + "}";
         }
         return output + "}";

@@ -1,13 +1,14 @@
 package com.dermacon.model.data.toplevel;
 
-import com.dermacon.model.data.element.Card;
-import com.dermacon.model.data.element.PlainText;
-import com.dermacon.model.data.element.Section;
-import com.dermacon.model.data.visitor.Token;
+import com.dermacon.model.data.nodes.document.Body;
+import com.dermacon.model.data.nodes.document.Card;
+import com.dermacon.model.data.nodes.ast.PlainText;
+import com.dermacon.model.data.nodes.document.Document;
+import com.dermacon.model.data.nodes.document.Header;
+import com.dermacon.model.data.nodes.document.Section;
+import com.dermacon.model.data.nodes.Node;
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class DocumentTest {
 
@@ -20,9 +21,9 @@ public class DocumentTest {
                                 "section",
                                 new PlainText("text"),
                                 new Card(
-                                        new Token[]{
+                                        new Node[]{
                                                 new PlainText("front"),
-                                        }, new Token[]{
+                                        }, new Node[]{
                                         new PlainText("back")
                                 }
                                 )
@@ -39,9 +40,9 @@ public class DocumentTest {
                                 "section",
                                 new PlainText("text"),
                                 new Card(
-                                        new Token[]{
+                                        new Node[]{
                                                 new PlainText("front"),
-                                        }, new Token[]{
+                                        }, new Node[]{
                                         new PlainText("back")
                                 }
                                 )

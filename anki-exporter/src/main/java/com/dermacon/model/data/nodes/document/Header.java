@@ -1,14 +1,14 @@
-package com.dermacon.model.data.toplevel;
+package com.dermacon.model.data.nodes.document;
 
-import com.dermacon.model.data.visitor.Token;
-import com.dermacon.model.data.visitor.TokenVisitor;
+import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.visitor.FormatVisitor;
 
 import java.util.List;
 
 /**
  * Header containing infos for the title page of the document.
  */
-public class Header implements Token {
+public class Header implements Node {
 
     private final String title;
 
@@ -26,12 +26,12 @@ public class Header implements Token {
     }
 
     @Override
-    public <E> E accept(TokenVisitor<E> visitor) {
+    public <E> E accept(FormatVisitor<E> visitor) {
         return visitor.process(this);
     }
 
     @Override
-    public List<Token> getChildren() {
+    public List<Node> getChildren() {
         return null;
     }
 

@@ -1,3 +1,7 @@
+import com.dermacon.model.data.nodes.ast.ASTCard;
+import com.dermacon.model.data.nodes.ast.ASTNode;
+import com.dermacon.model.data.nodes.ast.ASTStack;
+
 public class BuildAstVisitor extends CardStackBaseVisitor<ASTNode> {
 
     @Override

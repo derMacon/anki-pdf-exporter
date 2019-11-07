@@ -1,11 +1,11 @@
-package com.dermacon.model.data.element;
+package com.dermacon.model.data.nodes.ast;
 
-import com.dermacon.model.data.visitor.TokenVisitor;
-import com.dermacon.model.data.visitor.Token;
+import com.dermacon.model.data.visitor.FormatVisitor;
+import com.dermacon.model.data.nodes.Node;
 
 import java.util.List;
 
-public class UnorderedList implements Token {
+public class UnorderedList implements Node {
 
     private final List<ListItem> children;
 
@@ -14,12 +14,12 @@ public class UnorderedList implements Token {
     }
 
     @Override
-    public List<Token> getChildren() {
+    public List<Node> getChildren() {
         return null;
     }
 
     @Override
-    public <E> E accept(TokenVisitor<E> visitor) {
+    public <E> E accept(FormatVisitor<E> visitor) {
         return visitor.process(this);
     }
 

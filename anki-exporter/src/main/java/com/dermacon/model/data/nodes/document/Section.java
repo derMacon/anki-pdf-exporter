@@ -1,17 +1,17 @@
-package com.dermacon.model.data.element;
+package com.dermacon.model.data.nodes.document;
 
-import com.dermacon.model.data.visitor.TokenVisitor;
-import com.dermacon.model.data.visitor.Token;
+import com.dermacon.model.data.visitor.FormatVisitor;
+import com.dermacon.model.data.nodes.Node;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Section implements Token {
+public class Section implements Node {
 
     private final String value;
-    private final List<Token> children;
+    private final List<Node> children;
 
-    public Section(String value, Token... children) {
+    public Section(String value, Node... children) {
         this.value = value;
         this.children = Arrays.asList(children);
     }
@@ -21,12 +21,12 @@ public class Section implements Token {
     }
 
     @Override
-    public List<Token> getChildren() {
+    public List<Node> getChildren() {
         return children;
     }
 
     @Override
-    public <E> E accept(TokenVisitor<E> visitor) {
+    public <E> E accept(FormatVisitor<E> visitor) {
         return visitor.process(this);
     }
 

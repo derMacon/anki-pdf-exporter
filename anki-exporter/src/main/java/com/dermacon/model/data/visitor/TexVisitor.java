@@ -1,18 +1,19 @@
 package com.dermacon.model.data.visitor;
 
-import com.dermacon.model.data.element.Card;
-import com.dermacon.model.data.element.ListItem;
-import com.dermacon.model.data.element.OrderedList;
-import com.dermacon.model.data.element.PlainText;
-import com.dermacon.model.data.element.Section;
-import com.dermacon.model.data.element.UnorderedList;
-import com.dermacon.model.data.toplevel.Body;
-import com.dermacon.model.data.toplevel.Document;
-import com.dermacon.model.data.toplevel.Header;
+import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.nodes.document.Card;
+import com.dermacon.model.data.nodes.ast.ListItem;
+import com.dermacon.model.data.nodes.ast.OrderedList;
+import com.dermacon.model.data.nodes.ast.PlainText;
+import com.dermacon.model.data.nodes.document.Section;
+import com.dermacon.model.data.nodes.ast.UnorderedList;
+import com.dermacon.model.data.nodes.document.Body;
+import com.dermacon.model.data.nodes.document.Document;
+import com.dermacon.model.data.nodes.document.Header;
 
 import java.util.List;
 
-public class TexVisitor implements TokenVisitor<String> {
+public class TexVisitor implements FormatVisitor<String> {
 
     private static final String DOC_TEMPLATE = "\\documentclass{article}\n"
             + "\\usepackage{tikz,lipsum,lmodern}\n"
@@ -89,9 +90,9 @@ public class TexVisitor implements TokenVisitor<String> {
                 iterateChildren(body.getChildren()));
     }
 
-    private String iterateChildren(List<Token> children) {
+    private String iterateChildren(List<Node> children) {
         StringBuilder out = new StringBuilder();
-        for (Token elem : children) {
+        for (Node elem : children) {
             out.append(elem.accept(this));
         }
         return out.toString();

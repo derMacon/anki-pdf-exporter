@@ -2,11 +2,7 @@ package com.dermacon.export;
 
 import com.dermacon.fileIO.Filehandler;
 import com.dermacon.fileIO.IncompleteExportInfo;
-import com.dermacon.model.data.toplevel.Document;
-import com.dermacon.model.data.visitor.TexVisitor;
 import com.dermacon.model.generate.Parser;
-
-import java.util.logging.FileHandler;
 
 public class FileExporter extends Exporter {
 

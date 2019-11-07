@@ -1,11 +1,11 @@
-package com.dermacon.model.data.toplevel;
+package com.dermacon.model.data.nodes.document;
 
-import com.dermacon.model.data.visitor.Token;
-import com.dermacon.model.data.visitor.TokenVisitor;
+import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.visitor.FormatVisitor;
 
 import java.util.List;
 
-public class Document implements Token {
+public class Document implements Node {
     private Header header;
     private Body body;
 
@@ -23,12 +23,12 @@ public class Document implements Token {
     }
 
     @Override
-    public <E> E accept(TokenVisitor<E> visitor) {
+    public <E> E accept(FormatVisitor<E> visitor) {
         return visitor.process(this);
     }
 
     @Override
-    public List<Token> getChildren() {
+    public List<Node> getChildren() {
         return null;
     }
 

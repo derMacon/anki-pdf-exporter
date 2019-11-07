@@ -1,3 +1,5 @@
+package com.dermacon.model.data.nodes.ast;
+
 import java.util.LinkedList;
 import java.util.List;
 

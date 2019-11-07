@@ -1,3 +1,5 @@
+package com.dermacon.model.data.nodes.ast;
+
 public class ASTCard extends ASTNode {
     private String front;
     private String back;
