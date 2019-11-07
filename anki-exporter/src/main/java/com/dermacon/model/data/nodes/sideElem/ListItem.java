@@ -5,32 +5,29 @@ import com.dermacon.model.data.nodes.Node;
 
 import java.util.List;
 
-public class ListItem implements Node {
+public class ListItem extends SideElem {
 
-    public ListItem(List<Node> children) {
-        this.children = children;
+    private SideContainer container;
+
+    public ListItem(SideContainer container) {
+        this.container = container;
     }
 
-    private final List<Node> children;
+    public SideContainer getContainer() {
+        return container;
+    }
+
+    public void setContainer(SideContainer container) {
+        this.container = container;
+    }
+
+    @Override
+    public <E> E accept(FormatVisitor<E> visitor) {
+        return null;
+    }
 
     @Override
     public List<Node> getChildren() {
         return null;
     }
-
-    @Override
-    public <E> E accept(FormatVisitor<E> visitor) {
-        return visitor.process(this);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        ListItem other = null;
-        if (o instanceof ListItem) {
-            other = (ListItem) o;
-        }
-        return other != null
-                && this.children.equals(other.children);
-    }
-
 }

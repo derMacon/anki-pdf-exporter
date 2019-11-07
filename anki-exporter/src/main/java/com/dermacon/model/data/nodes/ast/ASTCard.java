@@ -5,27 +5,27 @@ import com.dermacon.model.data.nodes.sideElem.SideElem;
 import java.util.List;
 
 public class ASTCard extends ASTNode {
-    private List<SideElem> front;
-    private List<SideElem> back;
+    private SideElem front;
+    private SideElem back;
 
-    public ASTCard(List<SideElem> front, List<SideElem> back) {
+    public ASTCard(SideElem front, SideElem back) {
         this.front = front;
         this.back = back;
     }
 
-    public List<SideElem> getFront() {
+    public SideElem getFront() {
         return front;
     }
 
-    public List<SideElem> getBack() {
+    public SideElem getBack() {
         return back;
     }
 
-    public void setFront(List<SideElem> front) {
+    public void setFront(SideElem front) {
         this.front = front;
     }
 
-    public void setBack(List<SideElem> back) {
+    public void setBack(SideElem back) {
         this.back = back;
     }
 }

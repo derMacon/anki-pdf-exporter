@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f76837a-01ea-4653-8dcb-1287906bef76" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/sideElem/SideElem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/sideElem/BoldItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/sideElem/SideContainer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/antlr4/CardStack.g4" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/antlr4/CardStack.g4" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/BuildAstVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/BuildAstVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/MainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/ast/ASTCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/ast/ASTCard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/ast/ListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/sideElem/ListItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/ast/OrderedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/sideElem/OrderedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/ast/PlainText.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/sideElem/PlainText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/ast/UnorderedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/sideElem/UnorderedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/visitor/FormatVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/visitor/FormatVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/visitor/TexVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/visitor/TexVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/test/java/com/dermacon/model/data/toplevel/DocumentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/test/java/com/dermacon/model/data/toplevel/DocumentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/test/java/com/dermacon/model/generate/ParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/test/java/com/dermacon/model/generate/ParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/sideElem/ListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/sideElem/ListItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/sideElem/OrderedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/com/dermacon/model/data/nodes/sideElem/OrderedList.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

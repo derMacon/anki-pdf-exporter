@@ -5,7 +5,7 @@ import com.dermacon.model.data.nodes.Node;
 
 import java.util.List;
 
-public class OrderedList implements Node {
+public class OrderedList extends SideElem {
 
     private final List<ListItem> children;
 

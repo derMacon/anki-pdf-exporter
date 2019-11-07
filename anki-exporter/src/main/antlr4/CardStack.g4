@@ -5,24 +5,34 @@ stack
     ;
 
 card
-    : front+=side '\t' back+=side
+    : front=sideContainer '\t' back=sideContainer
     ;
 
-side
-    : htmlTag
+sideContainer
+    : elems+=sideNode*
+    ;
+
+sideNode
+    : orderedList
+    | unorderedList
+    | boldItem
     | plainText
     ;
 
-htmlTag
-    : '<' () '>'
+boldItem
+    : '<b>' sideContainer '</b>'
+    ;
+
+orderedList
+    : '<ol>' elems+=listItem '</ol>'
     ;
 
 unorderedList
-    : elems+=listItem
+    : '<ul>' elems+=listItem '</ul>'
     ;
 
 listItem
-    : '<li>' side '</li>'
+    : '<li>' sideContainer '</li>'
     ;
 
 plainText
