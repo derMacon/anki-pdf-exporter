@@ -9,7 +9,7 @@ card
     ;
 
 TEXT
-    : ~[\])]+
+    : [a-zA-Z0-9]*
     ;
 
 //WS  :   [ \t\r\n] -> channel(HIDDEN);

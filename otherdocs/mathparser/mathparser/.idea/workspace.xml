@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2f76837a-01ea-4653-8dcb-1287906bef76" name="Default Changelist" comment="" />
+    <list default="true" id="2f76837a-01ea-4653-8dcb-1287906bef76" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/ASTStack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/antlr4/CardStack.g4" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/antlr4/CardStack.g4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/BuildAstVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/BuildAstVisitor.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
