@@ -5,7 +5,7 @@ public class MainTest {
 
     public static void main(String[] args) {
         System.out.println("here");
-        String input = "front\tback";
+        String input = "front\tback\n2\t3\n";
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
 

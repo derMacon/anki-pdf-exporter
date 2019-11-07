@@ -6,6 +6,7 @@
       <change afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/ASTCard.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/ASTNode.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/BuildAstVisitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../anki-exporter/src/main/java/MainTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../anki-exporter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../anki-exporter/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

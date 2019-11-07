@@ -1,7 +1,7 @@
 grammar CardStack;
 
 stack
-    : card EOF
+    : (card '\n')* EOF
     ;
 
 card
@@ -12,4 +12,4 @@ TEXT
     : ~[\])]+
     ;
 
-WS  :   [ \t\r\n] -> channel(HIDDEN);
+//WS  :   [ \t\r\n] -> channel(HIDDEN);
