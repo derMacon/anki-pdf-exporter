@@ -1,4 +1,4 @@
-package com.dermacon.model.data.nodes.ast;
+package com.dermacon.model.data.nodes.sideElem;
 
 import com.dermacon.model.data.visitor.FormatVisitor;
 import com.dermacon.model.data.nodes.Node;

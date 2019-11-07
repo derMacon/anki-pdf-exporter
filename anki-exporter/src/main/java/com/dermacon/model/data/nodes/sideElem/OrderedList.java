@@ -1,15 +1,15 @@
-package com.dermacon.model.data.nodes.ast;
+package com.dermacon.model.data.nodes.sideElem;
 
 import com.dermacon.model.data.visitor.FormatVisitor;
 import com.dermacon.model.data.nodes.Node;
 
 import java.util.List;
 
-public class UnorderedList implements Node {
+public class OrderedList implements Node {
 
     private final List<ListItem> children;
 
-    public UnorderedList(List<ListItem> children) {
+    public OrderedList(List<ListItem> children) {
         this.children = children;
     }
 
@@ -25,11 +25,12 @@ public class UnorderedList implements Node {
 
     @Override
     public boolean equals(Object o) {
-        UnorderedList other = null;
-        if (o instanceof UnorderedList) {
-            other = (UnorderedList) o;
+        OrderedList other = null;
+        if (o instanceof OrderedList) {
+            other = (OrderedList)o;
         }
         return other != null
                 && this.children.equals(other.children);
     }
+
 }

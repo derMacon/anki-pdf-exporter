@@ -5,7 +5,28 @@ stack
     ;
 
 card
-    : front=TEXT '\t' back=TEXT
+    : front+=side '\t' back+=side
+    ;
+
+side
+    : htmlTag
+    | plainText
+    ;
+
+htmlTag
+    : '<' () '>'
+    ;
+
+unorderedList
+    : elems+=listItem
+    ;
+
+listItem
+    : '<li>' side '</li>'
+    ;
+
+plainText
+    : TEXT
     ;
 
 TEXT

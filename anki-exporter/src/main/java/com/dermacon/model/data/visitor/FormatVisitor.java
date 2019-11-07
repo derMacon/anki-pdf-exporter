@@ -1,11 +1,11 @@
 package com.dermacon.model.data.visitor;
 
 import com.dermacon.model.data.nodes.document.Card;
-import com.dermacon.model.data.nodes.ast.OrderedList;
+import com.dermacon.model.data.nodes.sideElem.OrderedList;
 import com.dermacon.model.data.nodes.document.Section;
-import com.dermacon.model.data.nodes.ast.UnorderedList;
-import com.dermacon.model.data.nodes.ast.ListItem;
-import com.dermacon.model.data.nodes.ast.PlainText;
+import com.dermacon.model.data.nodes.sideElem.UnorderedList;
+import com.dermacon.model.data.nodes.sideElem.ListItem;
+import com.dermacon.model.data.nodes.sideElem.PlainText;
 import com.dermacon.model.data.nodes.document.Body;
 import com.dermacon.model.data.nodes.document.Document;
 import com.dermacon.model.data.nodes.document.Header;

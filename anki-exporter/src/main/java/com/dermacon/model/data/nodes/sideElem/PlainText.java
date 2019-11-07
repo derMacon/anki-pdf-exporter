@@ -1,11 +1,11 @@
-package com.dermacon.model.data.nodes.ast;
+package com.dermacon.model.data.nodes.sideElem;
 
-import com.dermacon.model.data.visitor.FormatVisitor;
 import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.visitor.FormatVisitor;
 
 import java.util.List;
 
-public class PlainText implements Node {
+public class PlainText extends SideElem {
 
     private String value;
 

@@ -1,7 +1,7 @@
 package com.dermacon.model.generate;
 
 import com.dermacon.model.data.nodes.document.Card;
-import com.dermacon.model.data.nodes.ast.PlainText;
+import com.dermacon.model.data.nodes.sideElem.PlainText;
 import com.dermacon.model.data.nodes.document.Section;
 import com.dermacon.model.data.nodes.document.Body;
 import com.dermacon.model.data.nodes.document.Document;
