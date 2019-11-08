@@ -1,3 +1,7 @@
+package com.dermacon.model.generate;
+
+import com.dermacon.antlr.CardStackBaseVisitor;
+import com.dermacon.antlr.CardStackParser;
 import com.dermacon.model.data.nodes.ast.ASTCard;
 import com.dermacon.model.data.nodes.ast.ASTNode;
 import com.dermacon.model.data.nodes.ast.ASTStack;
