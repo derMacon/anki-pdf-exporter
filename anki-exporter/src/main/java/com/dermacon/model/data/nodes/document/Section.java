@@ -8,8 +8,14 @@ import java.util.List;
 
 public class Section implements Node {
 
+    private static final String DEFAULT_TITLE = "Generelles";
+
     private final String value;
     private final List<Node> children;
+
+    public Section(Node... children) {
+        this(DEFAULT_TITLE, children);
+    }
 
     public Section(String value, Node... children) {
         this.value = value;

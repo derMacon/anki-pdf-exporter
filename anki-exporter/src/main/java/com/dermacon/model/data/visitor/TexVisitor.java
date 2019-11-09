@@ -107,9 +107,10 @@ public class TexVisitor implements FormatVisitor<String> {
 
     @Override
     public String process(Card card) {
-        return String.format(CARD_TEMPLATE,
-                iterateChildren(card.getFront()),
-                iterateChildren(card.getBack()));
+//        return String.format(CARD_TEMPLATE,
+//                iterateChildren(card.getFront()),
+//                iterateChildren(card.getBack()));
+        return null;
     }
 
     @Override

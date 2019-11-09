@@ -20,7 +20,8 @@ public class ExporterFactory {
         // todo analyse / validate args...
         String inputPath = args[0];
         String outputPath = args[1];
-        Parser parser = new TXTParser(computeMediaPath());
+        String deckname = "todo extract deck name";
+        Parser parser = new TXTParser(computeMediaPath(), deckname);
 
         return new FileExporter.ExporterBuilder()
                 .setMediaPath(computeMediaPath())
