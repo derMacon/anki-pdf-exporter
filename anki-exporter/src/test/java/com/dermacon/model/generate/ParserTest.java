@@ -33,7 +33,7 @@ public class ParserTest {
                 )
         );
 
-        Parser parser = new CSVParser("path/to/media/");
+        Parser parser = new TXTParser("path/to/media/");
         String content = "todo test parser";
 
 //        Assert.assertEquals(exp_output, parser.parse(content));

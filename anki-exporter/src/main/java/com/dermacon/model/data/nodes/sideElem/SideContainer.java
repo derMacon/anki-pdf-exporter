@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class SideContainer extends SideElem {
-    private List<SideElem> elems;
+    protected List<SideElem> elems;
 
     public SideContainer(List<SideElem> elems) {
         this.elems = elems;
@@ -29,5 +29,20 @@ public class SideContainer extends SideElem {
     @Override
     public List<Node> getChildren() {
         return null;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        SideContainer other = null;
+        if (o instanceof SideContainer) {
+            other = (SideContainer) o;
+        }
+        return other != null
+                && this.elems.equals(other.elems);
+    }
+
+    @Override
+    public String toString() {
+        return "sideElemContainer(" + this.elems.toString() + ")";
     }
 }

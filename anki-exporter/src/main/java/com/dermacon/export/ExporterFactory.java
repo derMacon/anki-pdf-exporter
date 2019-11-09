@@ -2,7 +2,7 @@ package com.dermacon.export;
 
 import com.dermacon.fileIO.IncompleteExportInfo;
 import com.dermacon.model.generate.Parser;
-import com.dermacon.model.generate.CSVParser;
+import com.dermacon.model.generate.TXTParser;
 
 public class ExporterFactory {
 
@@ -20,7 +20,7 @@ public class ExporterFactory {
         // todo analyse / validate args...
         String inputPath = args[0];
         String outputPath = args[1];
-        Parser parser = new CSVParser(computeMediaPath());
+        Parser parser = new TXTParser(computeMediaPath());
 
         return new FileExporter.ExporterBuilder()
                 .setMediaPath(computeMediaPath())

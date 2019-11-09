@@ -2,9 +2,9 @@ package com.dermacon.model.generate;
 
 import com.dermacon.model.data.nodes.document.Document;
 
-public class CSVParser implements Parser {
+public class TXTParser implements Parser {
 
-    public CSVParser(String mediaPath) {
+    public TXTParser(String mediaPath) {
         this.mediaPath = mediaPath;
     }
 
