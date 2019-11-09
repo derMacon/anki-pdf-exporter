@@ -4,11 +4,13 @@ import com.dermacon.model.data.nodes.document.Document;
 
 public class TXTParser implements Parser {
 
-    public TXTParser(String mediaPath) {
-        this.mediaPath = mediaPath;
-    }
-
     private final String mediaPath;
+    private final String deckName;
+
+    public TXTParser(String mediaPath, String deckName) {
+        this.mediaPath = mediaPath;
+        this.deckName = deckName;
+    }
 
     @Override
     public Document parse(String content) {

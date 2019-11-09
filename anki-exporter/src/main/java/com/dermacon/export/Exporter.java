@@ -34,7 +34,7 @@ public abstract class Exporter {
      * - Parser generates a abstract syntax tree
      * - A visitor will be created the wraps the abstract syntax in a
      * specified format.
-     * - writes the output via a implemented subclass method
+     * - writes the output via an implemented subclass method
      */
     public void export() {
         String content = read();

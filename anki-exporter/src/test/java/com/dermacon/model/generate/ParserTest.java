@@ -13,28 +13,19 @@ public class ParserTest {
 
     @Test
     public void testVisitor_simple() {
+        String title = "title";
+        String txt = "content";
+        String input = "front\tback\n";
+
         Document exp_output = new Document(
-                new Header("title"),
+                new Header(title),
                 new Body(
-                        new Section(
-                                "section",
-                                new PlainText("text"),
-                                new Card(
-                                        new Node[]{
-                                                new PlainText("front"),
-                                        }, new Node[]{
-                                        new PlainText("back")
-                                }
-                                )
-                        ), new Section(
-                        "section",
-                            new PlainText("text")
-                        )
+                        new Card()
                 )
         );
 
-        Parser parser = new TXTParser("path/to/media/");
-        String content = "todo test parser";
+        Parser parser = new TXTParser("path/to/media/", title);
+        String content = parser.parse()
 
 //        Assert.assertEquals(exp_output, parser.parse(content));
     }
