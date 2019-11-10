@@ -1,6 +1,5 @@
 package com.dermacon.model.data.nodes.sideElem;
 
-import com.dermacon.model.data.nodes.Node;
-import com.dermacon.model.data.nodes.ast.ASTNode;
+import com.dermacon.model.data.nodes.DocNode;
 
-public abstract class SideElem extends ASTNode implements Node {}
+public abstract class SideElem implements DocNode {}

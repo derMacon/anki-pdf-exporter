@@ -1,15 +1,5 @@
 package com.dermacon.model.data.toplevel;
 
-import com.dermacon.model.data.nodes.document.Body;
-import com.dermacon.model.data.nodes.document.Card;
-import com.dermacon.model.data.nodes.sideElem.PlainText;
-import com.dermacon.model.data.nodes.document.Document;
-import com.dermacon.model.data.nodes.document.Header;
-import com.dermacon.model.data.nodes.document.Section;
-import com.dermacon.model.data.nodes.Node;
-import org.junit.Assert;
-import org.junit.Test;
-
 public class DocumentTest {
 // todo
 //    @Test

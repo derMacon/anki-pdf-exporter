@@ -1,25 +1,34 @@
-package com.dermacon.model.data.nodes.ast;
+package com.dermacon.model.data.nodes.document;
+
+import com.dermacon.model.data.nodes.DocNode;
+import com.dermacon.model.data.visitor.FormatVisitor;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class ASTStack extends ASTNode {
-    private List<ASTNode> nodes;
+public class ASTStack implements DocNode {
+    private List<DocNode> nodes;
 
     public ASTStack() {
         nodes = new LinkedList<>();
     }
 
-    public ASTStack(List<ASTNode> nodes) {
+    public ASTStack(List<DocNode> nodes) {
         this.nodes = nodes;
     }
 
-    public void addNode(ASTNode node) {
+    public void addNode(DocNode node) {
         nodes.add(node);
     }
 
-    public List<ASTNode> getNodes() {
-        return nodes;
+    @Override
+    public List<DocNode> getChildren() {
+        return this.nodes;
+    }
+
+    @Override
+    public <E> E accept(FormatVisitor<E> visitor) {
+        return null;
     }
 
     @Override
@@ -36,4 +45,5 @@ public class ASTStack extends ASTNode {
     public String toString() {
         return "stack(" + nodes.toString() + ")";
     }
+
 }

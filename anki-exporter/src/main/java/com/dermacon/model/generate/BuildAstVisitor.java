@@ -2,9 +2,9 @@ package com.dermacon.model.generate;
 
 import com.dermacon.antlr.CardStackBaseVisitor;
 import com.dermacon.antlr.CardStackParser;
-import com.dermacon.model.data.nodes.ast.ASTCard;
-import com.dermacon.model.data.nodes.ast.ASTNode;
-import com.dermacon.model.data.nodes.ast.ASTStack;
+import com.dermacon.model.data.nodes.DocNode;
+import com.dermacon.model.data.nodes.document.ASTStack;
+import com.dermacon.model.data.nodes.document.Card;
 import com.dermacon.model.data.nodes.sideElem.BoldItem;
 import com.dermacon.model.data.nodes.sideElem.ListItem;
 import com.dermacon.model.data.nodes.sideElem.OrderedList;
@@ -15,7 +15,13 @@ import com.dermacon.model.data.nodes.sideElem.SideElem;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BuildAstVisitor extends CardStackBaseVisitor<ASTNode> {
+public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
+
+    private final String mediaPath;
+
+    public BuildAstVisitor(String mediaPath) {
+        this.mediaPath = mediaPath;
+    }
 
     @Override
     public ASTStack visitStack(CardStackParser.StackContext ctx) {
@@ -27,8 +33,8 @@ public class BuildAstVisitor extends CardStackBaseVisitor<ASTNode> {
     }
 
     @Override
-    public ASTCard visitCard(CardStackParser.CardContext ctx) {
-        return new ASTCard(visitSideContainer(ctx.front),
+    public Card visitCard(CardStackParser.CardContext ctx) {
+        return new Card(visitSideContainer(ctx.front),
                 visitSideContainer(ctx.back));
     }
 
@@ -67,7 +73,7 @@ public class BuildAstVisitor extends CardStackBaseVisitor<ASTNode> {
     }
 
     @Override
-    public ASTNode visitUnorderedList(CardStackParser.UnorderedListContext ctx) {
+    public DocNode visitUnorderedList(CardStackParser.UnorderedListContext ctx) {
         return visitChildren(ctx);
     }
 

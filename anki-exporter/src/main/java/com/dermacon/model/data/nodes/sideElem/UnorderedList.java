@@ -1,11 +1,11 @@
 package com.dermacon.model.data.nodes.sideElem;
 
 import com.dermacon.model.data.visitor.FormatVisitor;
-import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.nodes.DocNode;
 
 import java.util.List;
 
-public class UnorderedList implements Node {
+public class UnorderedList implements DocNode {
 
     private final List<ListItem> children;
 
@@ -14,7 +14,7 @@ public class UnorderedList implements Node {
     }
 
     @Override
-    public List<Node> getChildren() {
+    public List<DocNode> getChildren() {
         return null;
     }
 

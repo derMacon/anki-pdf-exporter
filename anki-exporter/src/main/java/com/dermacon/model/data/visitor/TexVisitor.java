@@ -1,6 +1,6 @@
 package com.dermacon.model.data.visitor;
 
-import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.nodes.document.Card;
 import com.dermacon.model.data.nodes.sideElem.ListItem;
 import com.dermacon.model.data.nodes.sideElem.OrderedList;
@@ -24,7 +24,8 @@ public class TexVisitor implements FormatVisitor<String> {
             + "\\usepackage{ragged2e}\n"
             + "\\usepackage[space]{grffile}\n"
             + "\n"
-            + "\\graphicspath{ {./img/} }\n"
+            + "\\graphicspath{ {%s} }\n"
+//            + "\\graphicspath{ {./img/} }\n"
             + "\n"
             + "%s\n"
             + "\n"
@@ -75,6 +76,7 @@ public class TexVisitor implements FormatVisitor<String> {
     @Override
     public String process(Document doc) {
         return String.format(DOC_TEMPLATE,
+                mediaPath,
                 doc.getHeader().accept(this),
                 doc.getBody().accept(this));
     }
@@ -90,9 +92,9 @@ public class TexVisitor implements FormatVisitor<String> {
                 iterateChildren(body.getChildren()));
     }
 
-    private String iterateChildren(List<Node> children) {
+    private String iterateChildren(List<? extends DocNode> children) {
         StringBuilder out = new StringBuilder();
-        for (Node elem : children) {
+        for (DocNode elem : children) {
             out.append(elem.accept(this));
         }
         return out.toString();
@@ -107,10 +109,10 @@ public class TexVisitor implements FormatVisitor<String> {
 
     @Override
     public String process(Card card) {
-//        return String.format(CARD_TEMPLATE,
-//                iterateChildren(card.getFront()),
-//                iterateChildren(card.getBack()));
-        return null;
+        return String.format(CARD_TEMPLATE,
+                iterateChildren(card.getFront().getChildren()),
+                iterateChildren(card.getBack().getChildren()));
+//        return null;
     }
 
     @Override

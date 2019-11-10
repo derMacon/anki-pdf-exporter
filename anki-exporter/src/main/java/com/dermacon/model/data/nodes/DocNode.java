@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Single node of the abstract syntax tree.
  */
-public interface Node {
+public interface DocNode {
     <E> E accept(FormatVisitor<E> visitor);
-    List<Node> getChildren();
+    List<? extends DocNode> getChildren();
 }

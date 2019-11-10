@@ -1,9 +1,8 @@
 package com.dermacon.model.data.nodes.sideElem;
 
-import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.visitor.FormatVisitor;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class SideContainer extends SideElem {
@@ -27,8 +26,8 @@ public class SideContainer extends SideElem {
     }
 
     @Override
-    public List<Node> getChildren() {
-        return null;
+    public List<SideElem> getChildren() {
+        return this.elems;
     }
 
     @Override

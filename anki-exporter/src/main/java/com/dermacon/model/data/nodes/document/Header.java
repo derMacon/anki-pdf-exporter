@@ -1,6 +1,6 @@
 package com.dermacon.model.data.nodes.document;
 
-import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.visitor.FormatVisitor;
 
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Header containing infos for the title page of the document.
  */
-public class Header implements Node {
+public class Header implements DocNode {
 
     private final String title;
 
@@ -31,7 +31,7 @@ public class Header implements Node {
     }
 
     @Override
-    public List<Node> getChildren() {
+    public List<DocNode> getChildren() {
         return null;
     }
 

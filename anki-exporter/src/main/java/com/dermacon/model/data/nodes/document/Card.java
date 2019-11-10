@@ -2,12 +2,11 @@ package com.dermacon.model.data.nodes.document;
 
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.visitor.FormatVisitor;
-import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.nodes.DocNode;
 
-import java.util.Arrays;
 import java.util.List;
 
-public class Card implements Node {
+public class Card implements DocNode {
 
     private final SideContainer front;
     private final SideContainer back;
@@ -32,7 +31,7 @@ public class Card implements Node {
     }
 
     @Override
-    public List<Node> getChildren() {
+    public List<DocNode> getChildren() {
         return null;
     }
 

@@ -6,7 +6,6 @@ import com.dermacon.model.data.nodes.document.Section;
 import com.dermacon.model.data.nodes.document.Body;
 import com.dermacon.model.data.nodes.document.Document;
 import com.dermacon.model.data.nodes.document.Header;
-import com.dermacon.model.data.nodes.Node;
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.nodes.sideElem.SideElem;
 import org.junit.Assert;

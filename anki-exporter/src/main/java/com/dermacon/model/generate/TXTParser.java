@@ -2,13 +2,16 @@ package com.dermacon.model.generate;
 
 import com.dermacon.antlr.CardStackLexer;
 import com.dermacon.antlr.CardStackParser;
-import com.dermacon.model.data.nodes.ast.ASTNode;
-import com.dermacon.model.data.nodes.ast.ASTStack;
-import com.dermacon.model.data.nodes.document.Body;
+import com.dermacon.model.data.nodes.DocNode;
+import com.dermacon.model.data.nodes.document.ASTStack;
 import com.dermacon.model.data.nodes.document.Document;
-import com.dermacon.model.data.nodes.document.Header;
+import com.dermacon.model.data.nodes.document.DocumentBuilder;
+import com.dermacon.model.data.nodes.document.Section;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class TXTParser implements Parser {
 
@@ -23,27 +26,22 @@ public class TXTParser implements Parser {
     @Override
     public Document parse(String content) {
         ASTStack ast = createAST(content);
-        ast = sortStackByTags(ast);
-//        return new Document(new Header(deckName), new Body())
-        return null;
+        return new DocumentBuilder()
+                .setDeckname(deckName)
+                .setNodes(sortStackByTags(ast))
+                .build();
     }
 
     private ASTStack createAST(String input) {
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
-        ASTStack ast = null;
-        try {
-            CardStackParser.StackContext cst = p.stack();
-            ast = new BuildAstVisitor().visitStack(cst);
-        } catch (Exception e) {
-            // todo
-            System.out.println(e.getStackTrace());
-        }
+        CardStackParser.StackContext cst = p.stack();
+        ASTStack ast = new BuildAstVisitor(mediaPath).visitStack(cst);
         return ast;
     }
 
-    private ASTStack sortStackByTags(ASTStack ast) {
+    private List<DocNode> sortStackByTags(ASTStack ast) {
         // todo
-        return ast;
+        return Arrays.asList(new Section[] {new Section(ast.getChildren())});
     }
 }
