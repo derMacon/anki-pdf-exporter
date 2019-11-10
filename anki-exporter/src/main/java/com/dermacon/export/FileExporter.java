@@ -4,7 +4,12 @@ import com.dermacon.fileIO.Filehandler;
 import com.dermacon.fileIO.IncompleteExportInfo;
 import com.dermacon.model.generate.Parser;
 
+import java.io.File;
+import java.io.IOException;
+
 public class FileExporter extends Exporter {
+
+    private final String TEX_PDF_COMMAND = "pdflatex %s";
 
     private final String inputPath;
     private final String outputPath;
@@ -52,13 +57,18 @@ public class FileExporter extends Exporter {
     }
 
     @Override
-    protected String read() {
+    protected String read() throws IOException {
         return Filehandler.read(inputPath);
     }
 
     @Override
-    protected void write(String content) {
+    protected void write(String content) throws IOException {
         Filehandler.writeFile(outputPath, content);
+        generatePdf();
+    }
+
+    private void generatePdf() throws IOException {
+        Runtime.getRuntime().exec(TEX_PDF_COMMAND);
     }
 
 }
