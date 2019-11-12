@@ -76,7 +76,7 @@ public class FileExporter extends Exporter {
                 + removeExtension(this.inputPath)
                 + OUTPUT_EXTENSION;
         Filehandler.writeFile(outputPath, content);
-        generatePdf(outputPath);
+//        generatePdf(outputPath);
     }
 
     private void generatePdf(String outputPath) throws IOException {

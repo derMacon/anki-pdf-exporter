@@ -1,6 +1,9 @@
 # anki-pdf-exporter
 Exports a given anki deck to a tex / pdf file.
 
+# Build executable jar
+`mvn clean compile assembly:single`
+
 ### Resources:
 - [Game template](https://www.alexecollins.com/antlr4-and-maven-tutorial/)
 - [antlr-mega-tutorial](https://tomassetti.me/antlr-mega-tutorial/#java-setup)
