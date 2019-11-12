@@ -1,45 +1,37 @@
 package com.dermacon.model.data.nodes.document;
 
+import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.visitor.FormatVisitor;
-import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.nodes.DocNode;
 
-import java.util.Arrays;
 import java.util.List;
 
-public class Card implements Node {
+public class Card implements DocNode {
 
-    private final List<Node> front;
-    private final List<Node> back;
+    private final SideContainer front;
+    private final SideContainer back;
 
-    public Card(Node[] front, Node[] back) {
-        this.front = Arrays.asList(front);
-        this.back = Arrays.asList(back);
+    public Card(SideContainer front, SideContainer back) {
+        this.front = front;
+        this.back = back;
     }
 
-    public List<Node> getFront() {
+    public SideContainer getFront() {
         return front;
     }
 
-    public List<Node> getBack() {
+    public SideContainer getBack() {
         return back;
     }
 
     @Override
     public String toString() {
-        return "card{front:{" + iterate(front) + "}"
-            + "back:{" + iterate(front) + "}}";
-    }
-
-    private static String iterate(List<?> lst) {
-        String out = "";
-        for (Object o : lst) {
-            out += o.toString();
-        }
-        return out;
+        return "Card(front:" + this.front.toString()
+                + ";back:" + this.back.toString() + ")";
     }
 
     @Override
-    public List<Node> getChildren() {
+    public List<DocNode> getChildren() {
         return null;
     }
 

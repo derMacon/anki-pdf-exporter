@@ -1,19 +1,33 @@
 package com.dermacon.model.data.nodes.document;
 
 import com.dermacon.model.data.visitor.FormatVisitor;
-import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.nodes.DocNode;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Section implements Node {
+public class Section implements DocNode {
+
+    private static final String DEFAULT_TITLE = "Generelles";
 
     private final String value;
-    private final List<Node> children;
+    private final List<DocNode> children;
 
-    public Section(String value, Node... children) {
+    public Section(DocNode... children) {
+        this(DEFAULT_TITLE, children);
+    }
+
+    public Section(String value, DocNode... children) {
+        this(value, Arrays.asList(children));
+    }
+
+    public Section(List<DocNode> children) {
+        this(DEFAULT_TITLE, children);
+    }
+
+    public Section(String value, List<DocNode> children) {
         this.value = value;
-        this.children = Arrays.asList(children);
+        this.children = children;
     }
 
     public String getValue() {
@@ -21,7 +35,7 @@ public class Section implements Node {
     }
 
     @Override
-    public List<Node> getChildren() {
+    public List<DocNode> getChildren() {
         return children;
     }
 

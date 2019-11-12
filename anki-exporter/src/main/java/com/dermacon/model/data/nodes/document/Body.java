@@ -1,21 +1,25 @@
 package com.dermacon.model.data.nodes.document;
 
 import com.dermacon.model.data.visitor.FormatVisitor;
-import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.nodes.DocNode;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class Body implements Node {
+public class Body implements DocNode {
 
-    private final List<Node> elements;
+    private final List<DocNode> elements;
 
-    public Body(Node... elements) {
-        this.elements = Arrays.asList(elements);
+    public Body(DocNode... elements) {
+        this(Arrays.asList(elements));
+    }
+
+    public Body(List<DocNode> elements) {
+        this.elements = elements;
     }
 
     @Override
-    public List<Node> getChildren() {
+    public List<DocNode> getChildren() {
         return elements;
     }
 
@@ -27,7 +31,7 @@ public class Body implements Node {
     @Override
     public String toString() {
         String output = "Body{";
-        for (Node elem : elements) {
+        for (DocNode elem : elements) {
             output += "elem{" + elem.toString() + "}";
         }
         return output + "}";

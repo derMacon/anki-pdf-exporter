@@ -1,11 +1,11 @@
 package com.dermacon.model.data.nodes.document;
 
-import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.visitor.FormatVisitor;
 
 import java.util.List;
 
-public class Document implements Node {
+public class Document implements DocNode {
     private Header header;
     private Body body;
 
@@ -28,7 +28,7 @@ public class Document implements Node {
     }
 
     @Override
-    public List<Node> getChildren() {
+    public List<DocNode> getChildren() {
         return null;
     }
 

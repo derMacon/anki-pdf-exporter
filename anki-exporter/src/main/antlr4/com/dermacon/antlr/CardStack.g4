@@ -1,5 +1,9 @@
 grammar CardStack;
 
+//@header {
+//package com.dermacon.antlr;
+//}
+
 stack
     : (card '\n')* EOF
     ;

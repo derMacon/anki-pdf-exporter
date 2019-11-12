@@ -1,7 +1,7 @@
 package com.dermacon.model.data.nodes.sideElem;
 
 import com.dermacon.model.data.visitor.FormatVisitor;
-import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.nodes.DocNode;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class OrderedList extends SideElem {
     }
 
     @Override
-    public List<Node> getChildren() {
+    public List<DocNode> getChildren() {
         return null;
     }
 

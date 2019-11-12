@@ -6,37 +6,40 @@ import com.dermacon.model.data.nodes.document.Section;
 import com.dermacon.model.data.nodes.document.Body;
 import com.dermacon.model.data.nodes.document.Document;
 import com.dermacon.model.data.nodes.document.Header;
-import com.dermacon.model.data.nodes.Node;
+import com.dermacon.model.data.nodes.sideElem.SideContainer;
+import com.dermacon.model.data.nodes.sideElem.SideElem;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Arrays;
 
 public class ParserTest {
 
+    private SideContainer createCon(SideElem... elems) {
+        return new SideContainer(Arrays.asList(elems));
+    }
+
     @Test
     public void testVisitor_simple() {
-        Document exp_output = new Document(
-                new Header("title"),
+        String title = "title";
+        String input = "front\tback\n";
+
+        Document expOutput = new Document(
+                new Header(title),
                 new Body(
-                        new Section(
-                                "section",
-                                new PlainText("text"),
-                                new Card(
-                                        new Node[]{
-                                                new PlainText("front"),
-                                        }, new Node[]{
-                                        new PlainText("back")
-                                }
-                                )
-                        ), new Section(
-                        "section",
-                            new PlainText("text")
+                    new Section(
+                        new Card(
+                                createCon(new PlainText("front")),
+                                createCon(new PlainText("back"))
                         )
+                    )
                 )
         );
 
-        Parser parser = new CSVParser("path/to/media/");
-        String content = "todo test parser";
+        Parser parser = new TXTParser("path/to/media/", title);
+        Document actOutput = parser.parse(input);
 
-//        Assert.assertEquals(exp_output, parser.parse(content));
+        Assert.assertEquals(expOutput, actOutput);
     }
 
 }

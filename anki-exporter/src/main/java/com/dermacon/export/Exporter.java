@@ -5,6 +5,8 @@ import com.dermacon.model.data.visitor.TexVisitor;
 import com.dermacon.model.data.visitor.FormatVisitor;
 import com.dermacon.model.generate.Parser;
 
+import java.io.IOException;
+
 /**
  * Supertype for the Exporter:
  * -
@@ -34,9 +36,9 @@ public abstract class Exporter {
      * - Parser generates a abstract syntax tree
      * - A visitor will be created the wraps the abstract syntax in a
      * specified format.
-     * - writes the output via a implemented subclass method
+     * - writes the output via an implemented subclass method
      */
-    public void export() {
+    public void export() throws IOException {
         String content = read();
         Document document = parser.parse(content);
         FormatVisitor<String> visitor = new TexVisitor(mediaPath);
@@ -48,11 +50,12 @@ public abstract class Exporter {
      * Reads a string from a source
      * @return string generated from source
      */
-    protected abstract String read();
+    protected abstract String read() throws IOException;
 
     /**
      * Writes a given string to its original content
      * @param content formated content
      */
-    protected abstract void write(String content);
+    protected abstract void write(String content) throws IOException;
+
 }

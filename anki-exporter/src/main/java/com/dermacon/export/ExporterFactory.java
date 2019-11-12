@@ -1,8 +1,9 @@
 package com.dermacon.export;
 
 import com.dermacon.fileIO.IncompleteExportInfo;
+import com.dermacon.fileIO.WrongInputTypeException;
 import com.dermacon.model.generate.Parser;
-import com.dermacon.model.generate.CSVParser;
+import com.dermacon.model.generate.TXTParser;
 
 public class ExporterFactory {
 
@@ -16,16 +17,15 @@ public class ExporterFactory {
         return "todo";
     }
 
-    public static FileExporter create(String[] args) throws IncompleteExportInfo {
+    public static FileExporter create(String[] args) throws IncompleteExportInfo, WrongInputTypeException {
         // todo analyse / validate args...
         String inputPath = args[0];
-        String outputPath = args[1];
-        Parser parser = new CSVParser(computeMediaPath());
+        String deckname = "todo extract deck name";
+        Parser parser = new TXTParser(computeMediaPath(), deckname);
 
         return new FileExporter.ExporterBuilder()
                 .setMediaPath(computeMediaPath())
                 .setInputPath(inputPath)
-                .setOutputPath(outputPath)
                 .setParser(parser)
                 .build();
     }
