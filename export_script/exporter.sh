@@ -10,27 +10,16 @@ exporter.sh INPUT
 }
 
 
-# die Variable ERROR wird zum speichern des Fehlercodes verwendet,
-# initial mit 0 belegt
-ERROR=0
-
 # Pruefung, ob die Parameteranzahl 1 ist, wenn ja:
 # Pruefung, ob eines der beiden Hilfe-Flags gesetzt wurde
 # ggf. Ausgabe des Hilfetextes, sonst wird ERROR auf 1 gesetzt
-
-if [ "$#" -eq 1 ]
+if [ "$#" -ne 1 ] || [ "X$1" = "X-h" ] || [ "X$1" = "X--help" ]
 then
-    if [ "X$1" = "X-h" ] || [ "X$1" = "X--help" ]
-    then
-        func_usage
-    else
-				java -jar .txt-to-tex-exporter.jar ./test.txt
-
-				cd output/
-				./../.tex-to-pdf-exporter.sh ./test.tex
-    fi
-else 
 		func_usage
-fi
+else
+		java -jar .txt-to-tex-exporter.jar ./test.txt
 
+		cd output/
+		./../.tex-to-pdf-exporter.sh ./test.tex
+fi
 
