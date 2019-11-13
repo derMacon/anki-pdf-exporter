@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 func_usage() {
 (echo "Usage:
 exporter.sh -h | exporter.sh --help
@@ -20,6 +19,7 @@ else
 		java -jar .txt-to-tex-exporter.jar ./test.txt
 
 		cd output/
-		./../.tex-to-pdf-exporter.sh ./test.tex
+		file_name=$(basename "$1" .txt)
+		./../.tex-to-pdf-exporter.sh $file_name.tex
 fi
 
