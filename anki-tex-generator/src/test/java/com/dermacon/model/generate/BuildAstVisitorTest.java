@@ -75,4 +75,33 @@ public class BuildAstVisitorTest {
         Assert.assertEquals(expOutput, actOutput);
     }
 
+    @Test
+    public void testVisitStack_recursiveText() {
+//        String input = "<i>front</i>\t<b>bold</b>back\n2\t3\n";
+//        String mockMediaPath = "path/to/media/";
+//
+//        DocNode expOutput = createStack(
+//                new Card(
+//                        createCon(new PlainText("front")),
+//                        createCon(
+//                                new BoldItem(
+//                                        createCon(new PlainText("bold"))
+//                                ),
+//                                new PlainText("back")
+//                        )
+//                ),
+//                new Card(
+//                        createCon(new PlainText("2")),
+//                        createCon(new PlainText("3"))
+//                )
+//        );
+//
+//        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+//        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+//        CardStackParser.StackContext cst = p.stack();
+//        DocNode actOutput = new BuildAstVisitor(mockMediaPath).visitStack(cst);
+//
+//        Assert.assertEquals(expOutput, actOutput);
+    }
+
 }
