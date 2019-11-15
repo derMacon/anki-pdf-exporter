@@ -14,16 +14,25 @@ if [ "$#" -ne 1 ] || [ "X$1" = "X-h" ] || [ "X$1" = "X--help" ]
 then
 		func_usage
 else
-		FILE=$(basename "$1" .txt)
-		DIR="${FILE}-export/"
+		# generate the fully qualified input path
+		FQ_INPUT="$(realpath $1)"
+
+		# remove extension, but keep fully qualified input path
+		FQ_FILE=$(basename ${FQ_INPUT} .txt)
+
+		# generate output directory
+		OUTPUT_DIR="${FQ_FILE}-export/"
+
+		# get the script directory
+		SCRIPT_DIR="$(dirname $0)"
 
 		# delete last generated output
-		rm -rf ${DIR}
+		# rm -rf ${OUTPUT_DIR}
 
 		# genrate tex file
-		java -jar .txt-to-tex-exporter.jar ./test.txt ${DIR}
+		java -jar $SCRIPT_DIR/.txt-to-tex-exporter.jar ${FQ_INPUT} ${OUTPUT_DIR}
 
-		cd ${DIR}
-		./../.tex-to-pdf-exporter.sh $FILE.tex >/dev/null 
+		cd ${OUTPUT_DIR}
+		./../.tex-to-pdf-exporter.sh $FQ_FILE.tex >/dev/null 
 fi
 
