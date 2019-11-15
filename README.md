@@ -7,3 +7,6 @@ Exports a given anki deck to a tex / pdf file.
 - [Bealdung article](https://www.baeldung.com/java-antlr)
 - [antlr4 grammer examples](https://github.com/antlr/grammars-v4/tree/master/java8)
 
+### Todo
+* revise the normalize path method in the java proj
+

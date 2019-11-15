@@ -14,10 +14,16 @@ if [ "$#" -ne 1 ] || [ "X$1" = "X-h" ] || [ "X$1" = "X--help" ]
 then
 		func_usage
 else
-		java -jar .txt-to-tex-exporter.jar ./test.txt
+		FILE=$(basename "$1" .txt)
+		DIR="${FILE}-export/"
 
-		cd output/
-		file_name=$(basename "$1" .txt)
-		./../.tex-to-pdf-exporter.sh $file_name.tex
+		# delete last generated output
+		rm -rf ${DIR}
+
+		# genrate tex file
+		java -jar .txt-to-tex-exporter.jar ./test.txt ${DIR}
+
+		cd ${DIR}
+		./../.tex-to-pdf-exporter.sh $FILE.tex >/dev/null 
 fi
 

@@ -20,12 +20,14 @@ public class ExporterFactory {
     public static FileExporter create(String[] args) throws IncompleteExportInfo, WrongInputTypeException {
         // todo analyse / validate args...
         String inputPath = args[0];
+        String outputPath = args[1];
         String deckname = "todo extract deck name";
         Parser parser = new TXTParser(computeMediaPath(), deckname);
 
         return new FileExporter.ExporterBuilder()
                 .setMediaPath(computeMediaPath())
                 .setInputPath(inputPath)
+                .setOutputDir(outputPath)
                 .setParser(parser)
                 .build();
     }

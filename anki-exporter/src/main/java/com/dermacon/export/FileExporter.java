@@ -2,18 +2,17 @@ package com.dermacon.export;
 
 import com.dermacon.fileIO.Filehandler;
 import com.dermacon.fileIO.IncompleteExportInfo;
+import com.dermacon.fileIO.WrongFilePathException;
 import com.dermacon.fileIO.WrongInputTypeException;
 import com.dermacon.model.generate.Parser;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class FileExporter extends Exporter {
 
-    private static final String OUTPUT_DIR = System.getProperty("user.dir")
-            + File.separator + "output" + File.separator;
     private static final String TEX_PDF_COMMAND = "pdflatex %s";
     private static final String OUTPUT_EXTENSION = ".tex";
     private static final String INPUT_EXTENSION = ".txt";
@@ -24,10 +23,12 @@ public class FileExporter extends Exporter {
     };
 
     private final String inputPath;
+    private final String outputDir;
 
     public static class ExporterBuilder {
 
         private String inputPath;
+        private String outputDir;
         private String mediaPath;
         private Parser parser;
 
@@ -37,6 +38,15 @@ public class FileExporter extends Exporter {
                         "extendsion");
             }
             this.inputPath = inputPath;
+            return this;
+        }
+
+        public ExporterBuilder setOutputDir(String outputDir) throws WrongInputTypeException {
+            if (!new File(outputDir).isDirectory()) {
+                new WrongInputTypeException("output path: \"" + outputDir
+                + "\" is not a directory");
+            }
+            this.outputDir = outputDir;
             return this;
         }
 
@@ -51,7 +61,7 @@ public class FileExporter extends Exporter {
         }
 
         public FileExporter build() throws IncompleteExportInfo {
-            if (inputPath == null || parser == null) {
+            if (inputPath == null || outputDir == null || parser == null) {
                 throw new IncompleteExportInfo("one of the file " +
                         "exporter components is empty");
             }
@@ -63,6 +73,7 @@ public class FileExporter extends Exporter {
     public FileExporter(ExporterBuilder builder) {
         super(builder.parser, builder.mediaPath);
         this.inputPath = builder.inputPath;
+        this.outputDir = builder.outputDir;
     }
 
     @Override
@@ -72,33 +83,40 @@ public class FileExporter extends Exporter {
 
     @Override
     protected void write(String content) throws IOException {
-        String outputPath = OUTPUT_DIR
-                + removeExtension(this.inputPath)
-                + OUTPUT_EXTENSION;
+        String outputPath = createOutputPath();
+        System.out.println("full: " + FilenameUtils.getFullPath(inputPath));
         Filehandler.writeFile(outputPath, content);
-        generatePdf(outputPath);
     }
 
-    private void generatePdf(String outputPath) throws IOException {
-        String command = String.format(TEX_PDF_COMMAND, outputPath);
-        System.out.println("command: " + command);
-        Runtime.getRuntime().exec(command);
-//        Runtime.getRuntime().exec(command, null, new File(OUTPUT_DIR));
+    // todo revise method
+    private String createOutputPath() throws WrongFilePathException {
+        String output = inputPath;
+        if (inputPath.startsWith("../")) {
+            output = output.replace("../",
+                    new File(System.getProperty("user.dir")).getParent()
+                    + File.separator);
 
-//        String fileName = removeExtension(outputPath);
-//        for (String ext : TEMP_EXTENSIONS) {
-//            Filehandler.saveDelete(fileName + ext);
-//        }
-    }
-
-    public static String removeExtension(String fullFileName) {
-        String regex = "((.*/)*|.\\/)?(.*)" + INPUT_EXTENSION;
-        Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(fullFileName);
-
-        if (m.find()) {
-            return m.group(3);
+            if (output.contains("../")) {
+                throw new WrongFilePathException("path: " + inputPath + " " +
+                        "cannot contain multiple \"../\"");
+            }
         }
-        return fullFileName;
+
+        output = System.getProperty("user.dir")
+                + File.separator
+                + normalizePath(outputDir)
+                + normalizePath(output)
+                + OUTPUT_EXTENSION;
+
+        return output;
+    }
+
+    public static String normalizePath(String fullFileName) {
+        String output = FilenameUtils.normalize(fullFileName);
+        if (!fullFileName.endsWith(INPUT_EXTENSION)
+                && !fullFileName.endsWith(OUTPUT_EXTENSION)) {
+            return output;
+        }
+        return FilenameUtils.removeExtension(FilenameUtils.getName(output));
     }
 }
