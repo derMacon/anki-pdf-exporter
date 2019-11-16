@@ -34,6 +34,16 @@ public class ListItem extends SideElem {
     }
 
     @Override
+    public boolean equals(Object o) {
+        ListItem other = null;
+        if (o instanceof ListItem) {
+            other = (ListItem) o;
+        }
+        return other != null
+                && this.container.equals(other.container);
+    }
+
+    @Override
     public String toString() {
         return "listelem(" + this.container.toString() + ")";
     }

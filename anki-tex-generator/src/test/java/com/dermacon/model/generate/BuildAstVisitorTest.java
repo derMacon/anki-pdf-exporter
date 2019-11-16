@@ -155,15 +155,16 @@ public class BuildAstVisitorTest {
 
         DocNode expOutput = createStack(
                 new Card(
-                        createCon(new PlainText("front")),
                         createCon(
+                                new PlainText("front"),
                                 createOL(
                                         new ListItem(createCon(new PlainText(
                                                 "firstItem"))),
                                         new ListItem(createCon(new PlainText(
                                                 "second")))
                                 )
-                        )
+                        ),
+                        createCon(new PlainText("back"))
                 )
         );
 
