@@ -17,11 +17,17 @@ sideContainer
     ;
 
 sideNode
-    : orderedList
+    : divBlock
+    | orderedList
     | unorderedList
     | boldItem
     | recursiveItem
     | plainText
+    | imageItem
+    ;
+
+divBlock
+    : DIV_OPENING_TAG sideContainer DIV_CLOSING_TAG
     ;
 
 boldItem
@@ -44,13 +50,19 @@ listItem
     : LI_OPENING_TAG sideContainer LI_CLOSING_TAG
     ;
 
-plainText
-    : TEXT
-    ;
+plainText: TEXT;
 
-TEXT: [a-zA-Z0-9]*;
+imageItem: IMG_OPENING_TAG TEXT IMG_CLOSING_TAG;
+
+TEXT: [a-zA-Z0-9.]*;
 
 DELIMITER: '\t' | '\n';
+
+IMG_OPENING_TAG: '<img src=';
+IMG_CLOSING_TAG: '>';
+
+DIV_OPENING_TAG: '<div>';
+DIV_CLOSING_TAG: '</div>';
 
 UL_OPENING_TAG: '<ul>';
 UL_CLOSING_TAG: '</ul>';
@@ -66,6 +78,5 @@ B_CLOSING_TAG: '</b>';
 
 I_OPENING_TAG: '<i>';
 I_CLOSING_TAG: '</i>';
-
 
 //WS  :   [ \t\r\n] -> channel(HIDDEN);

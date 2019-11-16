@@ -6,6 +6,8 @@ import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.nodes.document.ASTStack;
 import com.dermacon.model.data.nodes.document.Card;
 import com.dermacon.model.data.nodes.sideElem.BoldItem;
+import com.dermacon.model.data.nodes.sideElem.DivBlock;
+import com.dermacon.model.data.nodes.sideElem.ImageItem;
 import com.dermacon.model.data.nodes.sideElem.ListItem;
 import com.dermacon.model.data.nodes.sideElem.OrderedList;
 import com.dermacon.model.data.nodes.sideElem.PlainText;
@@ -175,5 +177,51 @@ public class BuildAstVisitorTest {
 
         Assert.assertEquals(expOutput, actOutput);
     }
+
+    @Test
+    public void testVisitStack_divBlock() {
+        String mockMediaPath = "path/to/media/";
+        String input = "<div>front</div>\t<div>back1</div><div>back2</div>\n";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(new DivBlock(createCon(new PlainText("front")))),
+                        createCon(
+                                new DivBlock(createCon(new PlainText("back1"))),
+                                new DivBlock(createCon(new PlainText("back2")))
+                        )
+                )
+        );
+
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor(mockMediaPath).visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
+    public void testVisitStack_img() {
+        String mockMediaPath = "path/to/media/";
+        String input = "front\t<img src=test.png>\n";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(new PlainText("front")),
+                        createCon(
+                                new ImageItem("test.png")
+                        )
+                )
+        );
+
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor(mockMediaPath).visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
 
 }

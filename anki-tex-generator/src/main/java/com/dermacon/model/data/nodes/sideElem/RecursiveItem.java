@@ -3,7 +3,7 @@ package com.dermacon.model.data.nodes.sideElem;
 public class RecursiveItem extends SideContainer {
 
     public RecursiveItem(SideContainer elem) {
-        super(elem.getElems());
+        super(elem.getChildren());
     }
 
     @Override

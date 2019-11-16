@@ -1,8 +1,10 @@
 package com.dermacon.model.data.visitor;
 
 import com.dermacon.model.data.nodes.document.Card;
+import com.dermacon.model.data.nodes.sideElem.ImageItem;
 import com.dermacon.model.data.nodes.sideElem.OrderedList;
 import com.dermacon.model.data.nodes.document.Section;
+import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.nodes.sideElem.UnorderedList;
 import com.dermacon.model.data.nodes.sideElem.ListItem;
 import com.dermacon.model.data.nodes.sideElem.PlainText;
@@ -20,4 +22,6 @@ public interface FormatVisitor<R> {
     R process(OrderedList lst);
     R process(UnorderedList lst);
     R process(ListItem lstItem);
+    R process(ImageItem img);
+    R process(SideContainer cont);
 }

@@ -2,10 +2,13 @@ package com.dermacon.model.data.visitor;
 
 import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.nodes.document.Card;
+import com.dermacon.model.data.nodes.sideElem.ImageItem;
 import com.dermacon.model.data.nodes.sideElem.ListItem;
 import com.dermacon.model.data.nodes.sideElem.OrderedList;
 import com.dermacon.model.data.nodes.sideElem.PlainText;
 import com.dermacon.model.data.nodes.document.Section;
+import com.dermacon.model.data.nodes.sideElem.SideContainer;
+import com.dermacon.model.data.nodes.sideElem.SideElem;
 import com.dermacon.model.data.nodes.sideElem.UnorderedList;
 import com.dermacon.model.data.nodes.document.Body;
 import com.dermacon.model.data.nodes.document.Document;
@@ -36,11 +39,6 @@ public class TexVisitor implements FormatVisitor<String> {
                     + "%s\n"
                     + "\\end{document}\n";
 
-    private static final String HEADER_TEMPLATE = "\\title{%s}";
-    private static final String SECTION_DELIMITER = "%%*********************\n";
-    private static final String SECTION_TEMPLATE = SECTION_DELIMITER
-            + "\\section{%s}\n%s";
-
     private static final String CARD_DELIMITER = "%%---------------------\n";
     private static final String CARD_TEMPLATE = CARD_DELIMITER
             + "\\begin{tcolorbox}"
@@ -57,6 +55,12 @@ public class TexVisitor implements FormatVisitor<String> {
             + "%s\n"
             + "\\end{tcolorbox}\n";
 
+    private static final String HEADER_TEMPLATE = "\\title{%s}";
+    private static final String SECTION_DELIMITER = "%%*********************\n";
+    private static final String SECTION_TEMPLATE = SECTION_DELIMITER
+            + "\\section{%s}\n%s";
+
+
     private static final String UL_TEMPLATE = "\\begin{itemize}\n"
             + "%s"
             + "\\end{itemize}";
@@ -66,6 +70,8 @@ public class TexVisitor implements FormatVisitor<String> {
             + "\\end{enumerate}";
 
     private static final String LST_ITEM_TEMPLATE = "\\item %s";
+
+    private static final String IMG_TEMPLATE = "\\includegraphics{%s}";
 
     private final String mediaPath;
 
@@ -135,5 +141,16 @@ public class TexVisitor implements FormatVisitor<String> {
        return String.format(LST_ITEM_TEMPLATE,
                 iterateChildren(lstItem.getChildren()));
     }
+
+    @Override
+    public String process(ImageItem img) {
+        return String.format(IMG_TEMPLATE, img.getName());
+    }
+
+    @Override
+    public String process(SideContainer cont) {
+        return iterateChildren(cont.getChildren());
+    }
+
 
 }

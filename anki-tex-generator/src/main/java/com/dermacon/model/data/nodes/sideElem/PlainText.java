@@ -19,6 +19,7 @@ public class PlainText extends SideElem {
 
     @Override
     public List<DocNode> getChildren() {
+        System.err.println("plain text has no further children");
         return null;
     }
 

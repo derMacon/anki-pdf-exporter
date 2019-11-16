@@ -12,17 +12,13 @@ public class SideContainer extends SideElem {
         this.elems = elems;
     }
 
-    public List<SideElem> getElems() {
-        return elems;
-    }
-
     public void setElems(List<SideElem> elems) {
         this.elems = elems;
     }
 
     @Override
     public <E> E accept(FormatVisitor<E> visitor) {
-        return null;
+        return visitor.process(this);
     }
 
     @Override

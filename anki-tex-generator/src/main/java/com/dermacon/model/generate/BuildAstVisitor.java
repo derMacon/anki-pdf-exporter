@@ -6,6 +6,8 @@ import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.nodes.document.ASTStack;
 import com.dermacon.model.data.nodes.document.Card;
 import com.dermacon.model.data.nodes.sideElem.BoldItem;
+import com.dermacon.model.data.nodes.sideElem.DivBlock;
+import com.dermacon.model.data.nodes.sideElem.ImageItem;
 import com.dermacon.model.data.nodes.sideElem.ListItem;
 import com.dermacon.model.data.nodes.sideElem.OrderedList;
 import com.dermacon.model.data.nodes.sideElem.PlainText;
@@ -51,6 +53,7 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
 
     @Override
     public SideElem visitSideNode(CardStackParser.SideNodeContext ctx) {
+        // todo rewrite
         SideElem out = null;
         if (ctx.boldItem() != null) {
             out = visitBoldItem(ctx.boldItem());
@@ -62,13 +65,19 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
             out = visitUnorderedList(ctx.unorderedList());
         } else if (ctx.orderedList() != null) {
             out = visitOrderedList(ctx.orderedList());
+        } else if (ctx.divBlock() != null) {
+            out = visitDivBlock(ctx.divBlock());
+        } else if (ctx.imageItem() != null) {
+            out = visitImageItem(ctx.imageItem());
         }
 
-
-        if (out == null) {
-            System.err.println("this should not happen");
-        }
+        assert (out != null) : "given context could not be interpreted";
         return out;
+    }
+
+    @Override
+    public SideContainer visitDivBlock(CardStackParser.DivBlockContext ctx) {
+        return new DivBlock(visitSideContainer(ctx.sideContainer()));
     }
 
     @Override
@@ -114,4 +123,8 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
         return new PlainText(ctx.getText());
     }
 
+    @Override
+    public ImageItem visitImageItem(CardStackParser.ImageItemContext ctx) {
+        return new ImageItem(ctx.TEXT().getText());
+    }
 }
