@@ -9,8 +9,10 @@ import com.dermacon.model.data.nodes.sideElem.BoldItem;
 import com.dermacon.model.data.nodes.sideElem.ListItem;
 import com.dermacon.model.data.nodes.sideElem.OrderedList;
 import com.dermacon.model.data.nodes.sideElem.PlainText;
+import com.dermacon.model.data.nodes.sideElem.RecursiveItem;
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.nodes.sideElem.SideElem;
+import com.dermacon.model.data.nodes.sideElem.UnorderedList;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -52,8 +54,19 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
         SideElem out = null;
         if (ctx.boldItem() != null) {
             out = visitBoldItem(ctx.boldItem());
+        } else if (ctx.recursiveItem() != null) {
+            out = visitRecursiveItem(ctx.recursiveItem());
         } else if (ctx.plainText() != null) {
             out = visitPlainText(ctx.plainText());
+        } else if (ctx.unorderedList() != null) {
+            out = visitUnorderedList(ctx.unorderedList());
+        } else if (ctx.orderedList() != null) {
+            out = visitOrderedList(ctx.orderedList());
+        }
+
+
+        if (out == null) {
+            System.err.println("this should not happen");
         }
         return out;
     }
@@ -61,6 +74,11 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
     @Override
     public SideContainer visitBoldItem(CardStackParser.BoldItemContext ctx) {
         return new BoldItem(visitSideContainer(ctx.sideContainer()));
+    }
+
+    @Override
+    public SideContainer visitRecursiveItem(CardStackParser.RecursiveItemContext ctx) {
+        return new RecursiveItem(visitSideContainer(ctx.sideContainer()));
     }
 
     @Override
@@ -72,9 +90,18 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
         return new OrderedList(elems);
     }
 
+//    private <T> List<ListItem> iterateChildren() {
+//
+//    }
+
     @Override
-    public DocNode visitUnorderedList(CardStackParser.UnorderedListContext ctx) {
-        return visitChildren(ctx);
+    public UnorderedList visitUnorderedList(CardStackParser.UnorderedListContext ctx) {
+        // todo implement using helper
+        List<ListItem> elems = new LinkedList<>();
+        for (CardStackParser.ListItemContext lstCtx : ctx.elems) {
+            elems.add(visitListItem(lstCtx));
+        }
+        return new UnorderedList(elems);
     }
 
     @Override

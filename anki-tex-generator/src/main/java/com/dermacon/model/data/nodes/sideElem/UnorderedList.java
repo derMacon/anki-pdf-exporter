@@ -32,4 +32,13 @@ public class UnorderedList extends SideElem {
         return other != null
                 && this.children.equals(other.children);
     }
+
+    @Override
+    public String toString() {
+        StringBuilder out = new StringBuilder("ul(");
+        for (ListItem item : children) {
+            out.append(item);
+        }
+        return out.toString() + ")";
+    }
 }

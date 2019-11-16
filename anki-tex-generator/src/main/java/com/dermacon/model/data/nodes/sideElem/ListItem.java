@@ -23,11 +23,18 @@ public class ListItem extends SideElem {
 
     @Override
     public <E> E accept(FormatVisitor<E> visitor) {
+        System.out.println("todo implementation");
         return null;
     }
 
     @Override
     public List<DocNode> getChildren() {
+        System.out.println("todo implementation");
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "listelem(" + this.container.toString() + ")";
     }
 }

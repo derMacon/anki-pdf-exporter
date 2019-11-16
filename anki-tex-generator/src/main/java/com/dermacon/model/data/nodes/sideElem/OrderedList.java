@@ -33,4 +33,13 @@ public class OrderedList extends SideElem {
                 && this.children.equals(other.children);
     }
 
+    @Override
+    public String toString() {
+        StringBuilder out = new StringBuilder("ol(");
+        for (ListItem item : children) {
+            out.append(item);
+        }
+        return out.toString() + ")";
+    }
+
 }
