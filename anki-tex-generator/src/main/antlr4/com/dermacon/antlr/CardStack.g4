@@ -9,7 +9,7 @@ stack
     ;
 
 card
-    : front=sideContainer '\t' back=sideContainer
+    : front=sideContainer DELIMITER back=sideContainer
     ;
 
 sideContainer
@@ -20,23 +20,28 @@ sideNode
     : orderedList
     | unorderedList
     | boldItem
+    | recursiveItem
     | plainText
     ;
 
 boldItem
-    : '<b>' sideContainer '</b>'
+    : B_OPENING_TAG sideContainer B_CLOSING_TAG
+    ;
+
+recursiveItem
+    : I_OPENING_TAG sideContainer I_CLOSING_TAG
     ;
 
 orderedList
-    : '<ol>' elems+=listItem '</ol>'
+    : OL_OPENING_TAG elems+=listItem OL_CLOSING_TAG
     ;
 
 unorderedList
-    : '<ul>' elems+=listItem '</ul>'
+    : UL_OPENING_TAG elems+=listItem UL_CLOSING_TAG
     ;
 
 listItem
-    : '<li>' sideContainer '</li>'
+    : LI_OPENING_TAG sideContainer LI_CLOSING_TAG
     ;
 
 plainText
@@ -44,10 +49,23 @@ plainText
     ;
 
 TEXT: [a-zA-Z0-9]*;
+
+DELIMITER: '\t' | '\n';
+
 UL_OPENING_TAG: '<ul>';
 UL_CLOSING_TAG: '</ul>';
+
 OL_OPENING_TAG: '<ol>';
 OL_CLOSING_TAG: '</ol>';
+
+LI_OPENING_TAG: '<li>';
+LI_CLOSING_TAG: '</li>';
+
+B_OPENING_TAG: '<b>';
+B_CLOSING_TAG: '</b>';
+
+I_OPENING_TAG: '<i>';
+I_CLOSING_TAG: '</i>';
 
 
 //WS  :   [ \t\r\n] -> channel(HIDDEN);

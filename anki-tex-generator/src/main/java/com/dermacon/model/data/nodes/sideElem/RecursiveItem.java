@@ -1,10 +1,9 @@
 package com.dermacon.model.data.nodes.sideElem;
 
-import java.util.List;
-
 public class RecursiveItem extends SideContainer {
-    public RecursiveItem(List<SideElem> elems) {
-        super(elems);
+
+    public RecursiveItem(SideContainer elem) {
+        super(elem.getElems());
     }
 
     @Override

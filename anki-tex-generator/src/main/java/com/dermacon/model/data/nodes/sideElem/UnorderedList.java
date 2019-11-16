@@ -5,7 +5,7 @@ import com.dermacon.model.data.nodes.DocNode;
 
 import java.util.List;
 
-public class UnorderedList implements DocNode {
+public class UnorderedList extends SideElem {
 
     private final List<ListItem> children;
 

@@ -6,9 +6,13 @@ import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.nodes.document.ASTStack;
 import com.dermacon.model.data.nodes.document.Card;
 import com.dermacon.model.data.nodes.sideElem.BoldItem;
+import com.dermacon.model.data.nodes.sideElem.ListItem;
+import com.dermacon.model.data.nodes.sideElem.OrderedList;
 import com.dermacon.model.data.nodes.sideElem.PlainText;
+import com.dermacon.model.data.nodes.sideElem.RecursiveItem;
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.nodes.sideElem.SideElem;
+import com.dermacon.model.data.nodes.sideElem.UnorderedList;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.junit.Assert;
@@ -25,6 +29,16 @@ public class BuildAstVisitorTest {
     private SideContainer createCon(SideElem... elems) {
         return new SideContainer(Arrays.asList(elems));
     }
+
+    private UnorderedList createUL(ListItem... elems) {
+        return new UnorderedList(Arrays.asList(elems));
+    }
+
+    private OrderedList createOL(ListItem... elems) {
+        return new OrderedList(Arrays.asList(elems));
+    }
+
+
 
     @Test
     public void testVisitStack_simple() {
@@ -77,15 +91,15 @@ public class BuildAstVisitorTest {
 
     @Test
     public void testVisitStack_recursiveText() {
-//        String input = "<i>front</i>\t<b>bold</b>back\n2\t3\n";
 //        String mockMediaPath = "path/to/media/";
+//        String input = "front\t<i>rec</i>back\n2\t3\n";
 //
 //        DocNode expOutput = createStack(
 //                new Card(
 //                        createCon(new PlainText("front")),
 //                        createCon(
-//                                new BoldItem(
-//                                        createCon(new PlainText("bold"))
+//                                new RecursiveItem(
+//                                        createCon(new PlainText("rec"))
 //                                ),
 //                                new PlainText("back")
 //                        )
@@ -101,6 +115,45 @@ public class BuildAstVisitorTest {
 //        CardStackParser.StackContext cst = p.stack();
 //        DocNode actOutput = new BuildAstVisitor(mockMediaPath).visitStack(cst);
 //
+//        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
+    public void testVisitStack_List() {
+//        String mockMediaPath = "path/to/media/";
+//        String input = "front<ol><li>firstItem</li><li>second</li></ol>\tback" +
+//                "<ul><li>unordered</li><li>list</li></ul>\n";
+//
+//        DocNode expOutput = createStack(
+//                new Card(
+//                        createCon(new PlainText("front")),
+//                        createCon(
+//                                createOL(
+//                                        new ListItem(createCon(new PlainText(
+//                                                "firstItem"))),
+//                                        new ListItem(createCon(new PlainText(
+//                                                "second")))
+//                                )
+//                        )
+//                ),
+//                new Card(
+//                        createCon(new PlainText("back")),
+//                        createCon(
+//                                createUL(
+//                                        new ListItem(createCon(new PlainText(
+//                                                "unordered"))),
+//                                        new ListItem(createCon(new PlainText(
+//                                                "list")))
+//                                )
+//                        )
+//                )
+//        );
+//
+//        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+//        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+//        CardStackParser.StackContext cst = p.stack();
+//        DocNode actOutput = new BuildAstVisitor(mockMediaPath).visitStack(cst);
+
 //        Assert.assertEquals(expOutput, actOutput);
     }
 
