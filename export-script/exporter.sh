@@ -24,15 +24,18 @@ else
 		OUTPUT_DIR="${FQ_FILE}-export/"
 
 		# get the script directory
-		SCRIPT_DIR="$(dirname $0)"
+		SCRIPT_DIR="$(realpath $(dirname $0))"
 
 		# delete last generated output
 		# rm -rf ${OUTPUT_DIR}
 
 		# genrate tex file
-		java -jar $SCRIPT_DIR/.txt-to-tex-exporter.jar ${FQ_INPUT} ${OUTPUT_DIR} path/to/img/
+		java -jar ${SCRIPT_DIR}/txt-to-tex-exporter.jar ${FQ_INPUT} ${OUTPUT_DIR} path/to/img/
 
 		cd ${OUTPUT_DIR}
-		./../.tex-to-pdf-exporter.sh $FQ_FILE.tex >/dev/null 
+		echo dir:  ${SCRIPT_DIR}
+		./${SCRIPT_DIR}/tex-to-pdf-exporter.sh $FQ_FILE.tex
+
+		#>/dev/null 
 fi
 

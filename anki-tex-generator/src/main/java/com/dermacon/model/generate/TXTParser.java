@@ -34,6 +34,7 @@ public class TXTParser implements Parser {
     }
 
     private ASTStack createAST(String input) {
+        System.out.println("content to parse: " + input);
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
         CardStackParser.StackContext cst = p.stack();

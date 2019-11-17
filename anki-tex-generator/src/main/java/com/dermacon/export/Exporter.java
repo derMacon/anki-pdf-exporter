@@ -34,7 +34,7 @@ public abstract class Exporter {
      * - writes the output via an implemented subclass method
      */
     public void export() throws IOException {
-        String content = read();
+        String content = read().replaceAll("\"", "");
         Document document = parser.parse(content);
         FormatVisitor<String> visitor = new TexVisitor();
         String formated = document.accept(visitor);
