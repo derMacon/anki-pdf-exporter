@@ -21,4 +21,5 @@ Exports a given anki deck to a tex / pdf file.
 ### Todo
 * revise the normalize path method in the java proj
 * add arg check in java proj
+* nachfragen, kann man vor dem parsen direkte ueber die grammar Datei eine Textersetzung durchfuehren?
 

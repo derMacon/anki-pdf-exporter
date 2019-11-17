@@ -71,7 +71,8 @@ public class TexVisitor implements FormatVisitor<String> {
 
     private static final String LST_ITEM_TEMPLATE = "\\item %s";
 
-    private static final String IMG_TEMPLATE = "\\includegraphics{%s}";
+    private static final String IMG_TEMPLATE =
+            "\\includegraphics[width=.9\\textwidth]{%s}";
 
     @Override
     public String process(Document doc) {
