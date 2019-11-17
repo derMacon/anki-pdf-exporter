@@ -30,11 +30,11 @@ else
 		# rm -rf ${OUTPUT_DIR}
 
 		# genrate tex file
-		java -jar ${SCRIPT_DIR}/txt-to-tex-exporter.jar ${FQ_INPUT} ${OUTPUT_DIR} path/to/img/
+		java -jar ${SCRIPT_DIR}/.txt-to-tex-exporter.jar ${FQ_INPUT} ${OUTPUT_DIR} /home/silasUser/Documents/projects/anki-pdf-exporter/otherdocs/realword_example/img/
 
 		cd ${OUTPUT_DIR}
 		echo dir:  ${SCRIPT_DIR}
-		bash ${SCRIPT_DIR}/tex-to-pdf-exporter.sh $FQ_FILE.tex
+		bash ${SCRIPT_DIR}/.tex-to-pdf-exporter.sh $FQ_FILE.tex
 
 		#>/dev/null 
 fi
