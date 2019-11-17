@@ -29,14 +29,14 @@ public class TexVisitor implements FormatVisitor<String> {
             + "\\usepackage[utf8]{inputenc}\n"
             + "\n"
             + "\\graphicspath{{\"%s\"}}\n"
-//            + "\\graphicspath{ {./img/} }\n"
             + "\n"
             + "%s\n"
             + "\n"
             + "%s\n"
             + "\n";
 
-    private static final String BODY_TEMPLATE = "\\begin{document}\n"
+    private static final String BODY_TEMPLATE =
+            "\\begin{document}\n"
                     + "%s\n"
                     + "\\end{document}\n";
 
@@ -55,6 +55,20 @@ public class TexVisitor implements FormatVisitor<String> {
             + "\\justifying\n"
             + "%s\n"
             + "\\end{tcolorbox}\n";
+
+    /*
+    todo
+    \title{todo extract deck name}
+    \author{Silas Hoffmann, inf103088}
+    \date{\today}
+
+    \begin{document}
+    \maketitle
+    \tableofcontents
+    \clearpage
+
+     */
+
 
     private static final String HEADER_TEMPLATE = "\\title{%s}";
     private static final String SECTION_DELIMITER = "%%*********************\n";

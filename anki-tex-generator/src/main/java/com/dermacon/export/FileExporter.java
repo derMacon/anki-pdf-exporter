@@ -72,8 +72,11 @@ public class FileExporter extends Exporter {
         // prepares the the string for the actual parsing
         // process declared in the .g4 grammar.
         // &nbsp; / \" not allowed.
+        // todo revise
         return content.replaceAll("\"", "")
-                .replaceAll("&nbsp;", "");
+                .replaceAll("&nbsp;", "")
+                .replaceAll("<br />", "\n\n")
+                .replaceAll("<br/>", "\n\n");
     }
 
     @Override

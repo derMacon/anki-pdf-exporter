@@ -33,7 +33,7 @@ else
 		SCRIPT_DIR="$(realpath $(dirname $0))"
 
 		# delete last generated output
-		# rm -rf ${OUTPUT_DIR}
+		#rm -rf ${OUTPUT_DIR}
 
 		# generate tex file
 		java -jar ${SCRIPT_DIR}/.txt-to-tex-exporter.jar ${FQ_INPUT} ${OUTPUT_DIR} "${MEDIA_DIR}"

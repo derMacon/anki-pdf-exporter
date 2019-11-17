@@ -6,12 +6,20 @@
 \usepackage{blindtext}
 \usepackage{ragged2e}
 \usepackage[space]{grffile}
+\usepackage[utf8]{inputenc}
 
 \graphicspath{{"/home/silasUser/.local/share/Anki2/User 1/collection.media/"}}
 
+% cover page
+
 \title{todo extract deck name}
+\author{Silas Hoffmann, inf103088}
+\date{\today}
 
 \begin{document}
+\maketitle
+\tableofcontents
+\clearpage
 %*********************
 \section{Generelles}
 %---------------------
@@ -30,7 +38,102 @@ ist.
 \tcblower
 
 \justifying
-\includegraphics{paste-3440268804097.jpg}
+\includegraphics[width=.9\textwidth]{paste-3440268804097.jpg}
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex]
+
+\begin{center}
+ Erläutern Sie das 
+ANSI-SPARC
+Schema. Welches Ziel wird hierbei verfolgt. 
+
+\end{center}
+
+\tcblower
+
+\justifying
+\includegraphics[width=.9\textwidth]{paste-4144643440641.jpg}
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex]
+
+\begin{center}
+ Wie werden Daten auf einer Magnetplatte 
+adressiert?
+Nennen Sie sowohl den Überbegriff als auch die einzelnen Komponenten aus denen sich dieser zusammensetzt. 
+
+\end{center}
+
+\tcblower
+
+\justifying
+\includegraphics[width=.9\textwidth]{paste-11072425689089.jpg}
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex]
+
+\begin{center}
+ Wägen Sie ab warum es sinnvoll sein kann bei der Speicherung von Daten auf einer Magnetplatte auf größere Datenblöcke zu setzen. 
+
+\end{center}
+
+\tcblower
+
+\justifying
+Bei zu kleinen Datenblöcken müssen die zu speichernden Daten öfter aufgeteilt werden. Da diese im Zweifelsfall über die gesamte Platte verteilt sein können wird viel Zeit für diverse Schreib- und Lesevorgänge benötigt.
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex]
+
+\begin{center}
+Bei zu großen Datenblöcken kann es vorkommen, dass eine kleines Datum (z.B. eine Zahl) nur einen geringen Teil der verfügbaren Blockgröße verwendet.
+
+\end{center}
+
+\tcblower
+
+\justifying
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex]
+
+\begin{center}
+ Erläutern Sie grob wie ein Raid-System funktioniert. Was versteht man unter dem sog. 
+Striping
+sowie dem 
+Mirroring
+? 
+
+\end{center}
+
+\tcblower
+
+\justifying
+\includegraphics[width=.9\textwidth]{paste-12695923326977.jpg}
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex]
+
+\begin{center}
+ Erläutern Sie was man unter einem 
+Raid-4 System
+versteht. Wie wird hierbei die Parität ermittelt? 
+
+\end{center}
+
+\tcblower
+
+\justifying
+\includegraphics[width=.9\textwidth]{paste-13030930776065.jpg}\includegraphics[width=.9\textwidth]{paste-13597866459137.jpg}
 \end{tcolorbox}
 
 \end{document}
