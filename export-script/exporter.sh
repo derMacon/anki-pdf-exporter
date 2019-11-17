@@ -34,7 +34,7 @@ else
 
 		cd ${OUTPUT_DIR}
 		echo dir:  ${SCRIPT_DIR}
-		./${SCRIPT_DIR}/tex-to-pdf-exporter.sh $FQ_FILE.tex
+		bash ${SCRIPT_DIR}/tex-to-pdf-exporter.sh $FQ_FILE.tex
 
 		#>/dev/null 
 fi
