@@ -10,6 +10,12 @@ public class PlainText extends SideElem {
     private String value;
 
     public PlainText(String value) {
+//        this.value = value.replaceAll("ö", "\"o")
+//                .replaceAll("Ö", "\"O")
+//                .replaceAll("ü", "\"u")
+//                .replaceAll("Ü", "\"U")
+//                .replaceAll("ä", "\"a")
+//                .replaceAll("Ä", "\"A");
         this.value = value;
     }
 

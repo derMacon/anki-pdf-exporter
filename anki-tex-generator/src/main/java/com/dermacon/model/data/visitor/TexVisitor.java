@@ -26,6 +26,7 @@ public class TexVisitor implements FormatVisitor<String> {
             + "\\usepackage{blindtext}\n"
             + "\\usepackage{ragged2e}\n"
             + "\\usepackage[space]{grffile}\n"
+            + "\\usepackage[utf8]{inputenc}\n"
             + "\n"
             + "\\graphicspath{{\"%s\"}}\n"
 //            + "\\graphicspath{ {./img/} }\n"
