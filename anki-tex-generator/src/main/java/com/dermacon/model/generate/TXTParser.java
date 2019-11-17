@@ -28,6 +28,7 @@ public class TXTParser implements Parser {
         ASTStack ast = createAST(content);
         return new DocumentBuilder()
                 .setDeckname(deckName)
+                .setMediaPath(mediaPath)
                 .setNodes(sortStackByTags(ast))
                 .build();
     }
@@ -36,7 +37,7 @@ public class TXTParser implements Parser {
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
         CardStackParser.StackContext cst = p.stack();
-        ASTStack ast = new BuildAstVisitor(mediaPath).visitStack(cst);
+        ASTStack ast = new BuildAstVisitor().visitStack(cst);
         return ast;
     }
 

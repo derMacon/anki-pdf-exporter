@@ -30,7 +30,7 @@ else
 		# rm -rf ${OUTPUT_DIR}
 
 		# genrate tex file
-		java -jar $SCRIPT_DIR/.txt-to-tex-exporter.jar ${FQ_INPUT} ${OUTPUT_DIR}
+		java -jar $SCRIPT_DIR/.txt-to-tex-exporter.jar ${FQ_INPUT} ${OUTPUT_DIR} path/to/img/
 
 		cd ${OUTPUT_DIR}
 		./../.tex-to-pdf-exporter.sh $FQ_FILE.tex >/dev/null 

@@ -73,16 +73,10 @@ public class TexVisitor implements FormatVisitor<String> {
 
     private static final String IMG_TEMPLATE = "\\includegraphics{%s}";
 
-    private final String mediaPath;
-
-    public TexVisitor(String mediaPath) {
-        this.mediaPath = mediaPath;
-    }
-
     @Override
     public String process(Document doc) {
         return String.format(DOC_TEMPLATE,
-                mediaPath,
+                doc.getMediaPath(),
                 doc.getHeader().accept(this),
                 doc.getBody().accept(this));
     }

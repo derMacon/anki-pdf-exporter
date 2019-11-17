@@ -21,12 +21,6 @@ import java.util.List;
 
 public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
 
-    private final String mediaPath;
-
-    public BuildAstVisitor(String mediaPath) {
-        this.mediaPath = mediaPath;
-    }
-
     @Override
     public ASTStack visitStack(CardStackParser.StackContext ctx) {
         ASTStack stack = new ASTStack();

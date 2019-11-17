@@ -6,12 +6,14 @@ import com.dermacon.model.data.visitor.FormatVisitor;
 import java.util.List;
 
 public class Document implements DocNode {
-    private Header header;
-    private Body body;
+    private final Header header;
+    private final Body body;
+    private final String mediaPath;
 
-    public Document(Header header, Body body) {
+    public Document(Header header, Body body, String mediaPath) {
         this.header = header;
         this.body = body;
+        this.mediaPath = mediaPath;
     }
 
     public Header getHeader() {
@@ -20,6 +22,10 @@ public class Document implements DocNode {
 
     public Body getBody() {
         return body;
+    }
+
+    public String getMediaPath() {
+        return mediaPath;
     }
 
     @Override

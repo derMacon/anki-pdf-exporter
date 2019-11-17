@@ -13,23 +13,17 @@ import java.io.IOException;
 
 public class FileExporter extends Exporter {
 
-    private static final String TEX_PDF_COMMAND = "pdflatex %s";
     private static final String OUTPUT_EXTENSION = ".tex";
     private static final String INPUT_EXTENSION = ".txt";
 
-
-    private static final String[] TEMP_EXTENSIONS = new String[] {
-        ".aux", ".log"
-    };
-
     private final String inputPath;
     private final String outputDir;
+
 
     public static class ExporterBuilder {
 
         private String inputPath;
         private String outputDir;
-        private String mediaPath;
         private Parser parser;
 
         public ExporterBuilder setInputPath(String inputPath) throws WrongInputTypeException {
@@ -50,11 +44,6 @@ public class FileExporter extends Exporter {
             return this;
         }
 
-        public ExporterBuilder setMediaPath(String mediaPath) {
-            this.mediaPath = mediaPath;
-            return this;
-        }
-
         public ExporterBuilder setParser(Parser parser) {
             this.parser = parser;
             return this;
@@ -71,7 +60,7 @@ public class FileExporter extends Exporter {
     }
 
     public FileExporter(ExporterBuilder builder) {
-        super(builder.parser, builder.mediaPath);
+        super(builder.parser);
         this.inputPath = builder.inputPath;
         this.outputDir = builder.outputDir;
     }
@@ -84,33 +73,39 @@ public class FileExporter extends Exporter {
     @Override
     protected void write(String content) throws IOException {
         String outputPath = createOutputPath();
-        System.out.println("full: " + FilenameUtils.getFullPath(inputPath));
+        System.out.println("full: " + outputPath);
         Filehandler.writeFile(outputPath, content);
     }
 
-    // todo revise method
-    private String createOutputPath() throws WrongFilePathException {
-        String output = inputPath;
-        if (inputPath.startsWith("../")) {
-            output = output.replace("../",
-                    new File(System.getProperty("user.dir")).getParent()
-                    + File.separator);
-
-            if (output.contains("../")) {
-                throw new WrongFilePathException("path: " + inputPath + " " +
-                        "cannot contain multiple \"../\"");
-            }
-        }
-
-        output = System.getProperty("user.dir")
-                + File.separator
-                + normalizePath(outputDir)
-                + normalizePath(output)
-                + OUTPUT_EXTENSION;
-
-        return output;
+    private String createOutputPath() {
+        return this.outputDir + FilenameUtils.getName(inputPath).replace(INPUT_EXTENSION, OUTPUT_EXTENSION);
     }
 
+
+    // todo revise method
+//    private String createOutputPath() throws WrongFilePathException {
+//        String output = inputPath;
+//        if (inputPath.startsWith("../")) {
+//            output = output.replace("../",
+//                    new File(System.getProperty("user.dir")).getParent()
+//                    + File.separator);
+//
+//            if (output.contains("../")) {
+//                throw new WrongFilePathException("path: " + inputPath + " " +
+//                        "cannot contain multiple \"../\"");
+//            }
+//        }
+//
+//        output = System.getProperty("user.dir")
+//                + File.separator
+//                + normalizePath(outputDir)
+//                + normalizePath(output)
+//                + OUTPUT_EXTENSION;
+//
+//        return output;
+//    }
+
+    // todo delete this
     public static String normalizePath(String fullFileName) {
         String output = FilenameUtils.normalize(fullFileName);
         if (!fullFileName.endsWith(INPUT_EXTENSION)

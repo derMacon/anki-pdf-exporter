@@ -11,7 +11,7 @@ public class MockExporter extends Exporter {
     private final StringBuilder out;
 
     public MockExporter(Parser parser, String in, StringBuilder out) {
-        super(parser, "path/to/media/");
+        super(parser);
         this.in = in;
         this.out = out;
     }

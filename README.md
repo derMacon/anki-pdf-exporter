@@ -8,6 +8,10 @@ Exports a given anki deck to a tex / pdf file.
     - `.tex-to-pdf-exporter.sh`: Script that generates the actual pdf from the given tex document. Also deletes all unnecessary files from the output directory.
 - `anki-tex-generator`: java project that parses the html content from the anki deck to a tex format.
 
+## Build executable jar - java project
+* `mvn clean compile assembly:single`
+* Further [information](https://stackoverflow.com/questions/574594/how-can-i-create-an-executable-jar-with-dependencies-using-maven)
+
 ### Resources:
 - [Game template](https://www.alexecollins.com/antlr4-and-maven-tutorial/)
 - [antlr-mega-tutorial](https://tomassetti.me/antlr-mega-tutorial/#java-setup)

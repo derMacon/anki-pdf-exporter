@@ -7,25 +7,15 @@ import com.dermacon.model.generate.TXTParser;
 
 public class ExporterFactory {
 
-    private static final String UNIX_DEFAULT_MEDIA_PATH = "todo";
-
-    private enum OS {
-        LINUX, WINDOWS
-    }
-
-    private static String computeMediaPath() {
-        return "todo";
-    }
-
     public static FileExporter create(String[] args) throws IncompleteExportInfo, WrongInputTypeException {
         // todo analyse / validate args...
         String inputPath = args[0];
         String outputPath = args[1];
+        String imgPath = args[2];
         String deckname = "todo extract deck name";
-        Parser parser = new TXTParser(computeMediaPath(), deckname);
+        Parser parser = new TXTParser(imgPath, deckname);
 
         return new FileExporter.ExporterBuilder()
-                .setMediaPath(computeMediaPath())
                 .setInputPath(inputPath)
                 .setOutputDir(outputPath)
                 .setParser(parser)

@@ -40,12 +40,9 @@ public class BuildAstVisitorTest {
         return new OrderedList(Arrays.asList(elems));
     }
 
-
-
     @Test
     public void testVisitStack_simple() {
         String input = "front\tback\n";
-        String mockMediaPath = "path/to/media/";
 
         DocNode expOutput = createStack(
                 new Card(
@@ -57,7 +54,7 @@ public class BuildAstVisitorTest {
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
         CardStackParser.StackContext cst = p.stack();
-        DocNode actOutput = new BuildAstVisitor(mockMediaPath).visitStack(cst);
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
 
         Assert.assertEquals(expOutput, actOutput);
     }
@@ -65,7 +62,6 @@ public class BuildAstVisitorTest {
     @Test
     public void testVisitStack_twoCards() {
         String input = "front\t<b>bold</b>back\n2\t3\n";
-        String mockMediaPath = "path/to/media/";
 
         DocNode expOutput = createStack(
                 new Card(
@@ -86,14 +82,13 @@ public class BuildAstVisitorTest {
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
         CardStackParser.StackContext cst = p.stack();
-        DocNode actOutput = new BuildAstVisitor(mockMediaPath).visitStack(cst);
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
 
         Assert.assertEquals(expOutput, actOutput);
     }
 
     @Test
     public void testVisitStack_recursiveText() {
-        String mockMediaPath = "path/to/media/";
         String input = "front\t<i>rec</i>back\n2\t3\n";
 
         DocNode expOutput = createStack(
@@ -115,14 +110,13 @@ public class BuildAstVisitorTest {
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
         CardStackParser.StackContext cst = p.stack();
-        DocNode actOutput = new BuildAstVisitor(mockMediaPath).visitStack(cst);
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
 
         Assert.assertEquals(expOutput, actOutput);
     }
 
     @Test
     public void testVisitStack_List_ul() {
-        String mockMediaPath = "path/to/media/";
         String input = "front\tback" +
                 "<ul><li>unordered</li><li>list</li></ul>\n";
 
@@ -144,14 +138,13 @@ public class BuildAstVisitorTest {
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
         CardStackParser.StackContext cst = p.stack();
-        DocNode actOutput = new BuildAstVisitor(mockMediaPath).visitStack(cst);
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
 
         Assert.assertEquals(expOutput, actOutput);
     }
 
     @Test
     public void testVisitStack_List_ol() {
-        String mockMediaPath = "path/to/media/";
         String input = "front<ol><li>firstItem</li><li>second</li></ol>\tback" +
                 "\n";
 
@@ -173,14 +166,13 @@ public class BuildAstVisitorTest {
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
         CardStackParser.StackContext cst = p.stack();
-        DocNode actOutput = new BuildAstVisitor(mockMediaPath).visitStack(cst);
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
 
         Assert.assertEquals(expOutput, actOutput);
     }
 
     @Test
     public void testVisitStack_divBlock() {
-        String mockMediaPath = "path/to/media/";
         String input = "<div>front</div>\t<div>back1</div><div>back2</div>\n";
 
         DocNode expOutput = createStack(
@@ -196,14 +188,13 @@ public class BuildAstVisitorTest {
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
         CardStackParser.StackContext cst = p.stack();
-        DocNode actOutput = new BuildAstVisitor(mockMediaPath).visitStack(cst);
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
 
         Assert.assertEquals(expOutput, actOutput);
     }
 
     @Test
     public void testVisitStack_img() {
-        String mockMediaPath = "path/to/media/";
         String input = "front\t<img src=test.png>\n";
 
         DocNode expOutput = createStack(
@@ -218,7 +209,7 @@ public class BuildAstVisitorTest {
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
         CardStackParser.StackContext cst = p.stack();
-        DocNode actOutput = new BuildAstVisitor(mockMediaPath).visitStack(cst);
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
 
         Assert.assertEquals(expOutput, actOutput);
     }

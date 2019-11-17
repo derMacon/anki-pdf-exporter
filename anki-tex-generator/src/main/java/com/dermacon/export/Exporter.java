@@ -14,20 +14,15 @@ import java.io.IOException;
 public abstract class Exporter {
 
     private final Parser parser;
-    private final String mediaPath;
 
     /**
      * Protected constructor can only be accessed via the subclasses.
      * - Sets the parser to interpret the content
-     * - Sets the media path used by anki droid itself. Here are all images
-     * and other media located.
      * @param parser to interpret the content
-     * @param mediaPath used by anki droid itself. Here are all images
      * and other media located.
      */
-    protected Exporter(Parser parser, String mediaPath) {
+    protected Exporter(Parser parser) {
         this.parser = parser;
-        this.mediaPath = mediaPath;
     }
 
     /**
@@ -41,7 +36,7 @@ public abstract class Exporter {
     public void export() throws IOException {
         String content = read();
         Document document = parser.parse(content);
-        FormatVisitor<String> visitor = new TexVisitor(mediaPath);
+        FormatVisitor<String> visitor = new TexVisitor();
         String formated = document.accept(visitor);
         write(formated);
     }
