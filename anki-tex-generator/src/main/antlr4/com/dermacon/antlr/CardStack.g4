@@ -54,14 +54,17 @@ plainText: TEXT;
 
 imageItem: IMG_OPENING_TAG TEXT IMG_CLOSING_TAG;
 
-TEXT: [a-zA-Z0-9.]*;
+I_OPENING_TAG: '<i>';
+I_CLOSING_TAG: '</i>';
+
+TEXT: [ a-zA-Z0-9.,\-äÄöÖüÜ&ß;!?]*;
 
 DELIMITER: '\t' | '\n';
 
-IMG_OPENING_TAG: '<img src=';
-IMG_CLOSING_TAG: '>';
+IMG_OPENING_TAG: '<img src=' (' ')*;
+IMG_CLOSING_TAG: '/>';
 
-DIV_OPENING_TAG: '<div>';
+DIV_OPENING_TAG: '<div' (' class=' TEXT)? '>';
 DIV_CLOSING_TAG: '</div>';
 
 UL_OPENING_TAG: '<ul>';
@@ -76,7 +79,7 @@ LI_CLOSING_TAG: '</li>';
 B_OPENING_TAG: '<b>';
 B_CLOSING_TAG: '</b>';
 
-I_OPENING_TAG: '<i>';
-I_CLOSING_TAG: '</i>';
+
+
 
 //WS  :   [ \t\r\n] -> channel(HIDDEN);

@@ -172,7 +172,7 @@ public class BuildAstVisitorTest {
     }
 
     @Test
-    public void testVisitStack_divBlock() {
+    public void testVisitStack_divBlock_withoutClass() {
         String input = "<div>front</div>\t<div>back1</div><div>back2</div>\n";
 
         DocNode expOutput = createStack(
@@ -194,8 +194,51 @@ public class BuildAstVisitorTest {
     }
 
     @Test
+    public void testVisitStack_divBlock_withClass1() {
+        String input = "<div class=front>front</div>\tback\n";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(new DivBlock(createCon(new PlainText("front")))),
+                        createCon(new PlainText("back"))
+                )
+        );
+
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
+    public void testVisitStack_divBlock_withoutClass2() {
+        String input = "<div class=front>front</div>\t<div>back1</div><div" +
+                ">back2</div>\n";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(new DivBlock(createCon(new PlainText("front")))),
+                        createCon(
+                                new DivBlock(createCon(new PlainText("back1"))),
+                                new DivBlock(createCon(new PlainText("back2")))
+                        )
+                )
+        );
+
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+
+    @Test
     public void testVisitStack_img() {
-        String input = "front\t<img src=test.png>\n";
+        String input = "front\t<img src=test.png/>\n";
 
         DocNode expOutput = createStack(
                 new Card(
@@ -206,6 +249,28 @@ public class BuildAstVisitorTest {
                 )
         );
 
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
+    public void testVisitStack_realWorldExample1() {
+        String input = "\"<div class=\"\"front\"\"> Erläutern Sie die " +
+                "Motivation hinter der Datenbanktheorie.</div>\"\t\"back\"\"\n";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(new DivBlock(createCon(new PlainText(" Erläutern Sie" +
+                                " die Motivation hinter der Datenbanktheorie.")))),
+                        createCon(new PlainText("back"))
+                )
+        );
+
+        input = input.replaceAll("\"", "");
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
         CardStackParser.StackContext cst = p.stack();
