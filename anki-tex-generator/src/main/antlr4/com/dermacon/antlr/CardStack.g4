@@ -54,9 +54,6 @@ plainText: TEXT;
 
 imageItem: IMG_OPENING_TAG TEXT IMG_CLOSING_TAG;
 
-I_OPENING_TAG: '<i>';
-I_CLOSING_TAG: '</i>';
-
 TEXT: [ a-zA-Z0-9.,\-äÄöÖüÜ&ß;!?]*;
 
 DELIMITER: '\t' | '\n';
@@ -79,7 +76,7 @@ LI_CLOSING_TAG: '</li>';
 B_OPENING_TAG: '<b>';
 B_CLOSING_TAG: '</b>';
 
-
-
+I_OPENING_TAG: '<i>';
+I_CLOSING_TAG: '</i>';
 
 //WS  :   [ \t\r\n] -> channel(HIDDEN);

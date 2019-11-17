@@ -27,7 +27,7 @@ public class TexVisitor implements FormatVisitor<String> {
             + "\\usepackage{ragged2e}\n"
             + "\\usepackage[space]{grffile}\n"
             + "\n"
-            + "\\graphicspath{ {%s} }\n"
+            + "\\graphicspath{{\"%s\"}}\n"
 //            + "\\graphicspath{ {./img/} }\n"
             + "\n"
             + "%s\n"
@@ -138,7 +138,7 @@ public class TexVisitor implements FormatVisitor<String> {
 
     @Override
     public String process(ImageItem img) {
-        return String.format(IMG_TEMPLATE, img.getName());
+        return String.format(IMG_TEMPLATE, img.getName().trim());
     }
 
     @Override

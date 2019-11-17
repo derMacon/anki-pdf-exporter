@@ -12,6 +12,7 @@ public class ExporterFactory {
         String inputPath = args[0];
         String outputPath = args[1];
         String imgPath = args[2];
+        System.out.println("imgpath: " + imgPath);
         String deckname = "todo extract deck name";
         Parser parser = new TXTParser(imgPath, deckname);
 

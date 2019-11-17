@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MEDIA_DIR="/home/silasUser/.local/share/Anki2/User 1/collection.media"
+MEDIA_DIR="/home/silasUser/.local/share/Anki2/User 1/collection.media/"
 
 func_usage() {
 (echo "Usage:
@@ -36,7 +36,7 @@ else
 		# rm -rf ${OUTPUT_DIR}
 
 		# generate tex file
-		java -jar ${SCRIPT_DIR}/.txt-to-tex-exporter.jar ${FQ_INPUT} ${OUTPUT_DIR} ${MEDIA_DIR}
+		java -jar ${SCRIPT_DIR}/.txt-to-tex-exporter.jar ${FQ_INPUT} ${OUTPUT_DIR} "${MEDIA_DIR}"
 
 		cd ${OUTPUT_DIR}
 		echo dir:  ${SCRIPT_DIR}

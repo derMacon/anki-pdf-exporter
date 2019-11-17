@@ -67,7 +67,13 @@ public class FileExporter extends Exporter {
 
     @Override
     protected String read() throws IOException {
-        return Filehandler.read(inputPath);
+        // reads actual file content
+        String content = Filehandler.read(inputPath);
+        // prepares the the string for the actual parsing
+        // process declared in the .g4 grammar.
+        // &nbsp; / \" not allowed.
+        return content.replaceAll("\"", "")
+                .replaceAll("&nbsp;", "");
     }
 
     @Override
