@@ -74,7 +74,10 @@ public class TexVisitor implements FormatVisitor<String> {
     private static final String SECTION_DELIMITER = "%%*********************\n";
     private static final String SECTION_TEMPLATE = SECTION_DELIMITER
             + "\\section{%s}\n%s";
-
+    private static final String SUBSECTION_TEMPLATE = "\\subsection{%s}";
+    private static final String SUBSUBSECTION_TEMPLATE = "\\subsubsection{%s}";
+    private static final String PARAGRAPH_TEMPLATE = "\\paragraph{%s}";
+    private static final String SUBPARAGRAPH_TEMPLATE = "\\subparagraph{%s}";
 
     private static final String UL_TEMPLATE = "\\begin{itemize}\n"
             + "%s"
