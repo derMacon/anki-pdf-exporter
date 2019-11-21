@@ -10,6 +10,7 @@ stack
 
 card
     : front=sideContainer DELIMITER back=sideContainer
+    (DELIMITER tags+=IDENTIFIER+)?
     ;
 
 sideContainer

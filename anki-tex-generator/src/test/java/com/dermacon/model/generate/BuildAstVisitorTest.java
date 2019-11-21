@@ -351,34 +351,4 @@ public class BuildAstVisitorTest {
         Assert.assertEquals(expOutput, actOutput);
     }
 
-    @Test
-    public void testVisitStack_realWorldExample2() {
-        String input =
-//                "\"<div class=\"\"front\"\"> Wie lässt sich ein Dropdown Text" +
-//                        " mit HTML implementieren, beschreiben Sie die Syntax" +
-//                        " am folgenden Beispiel:&nbsp;<div><br /></div> " +
-//                        "</div>\"\t\"<img src=\"\"paste-5265629904897.jpg\"\" />\"\n";
-                "\"<div class=\"\"front\"\"> front<div><br /></div> " +
-                        "</div>\"\t\"<img src=\"\"paste-5265629904897.jpg\"\" />\"\n";
-//                "<div><div>asdf</div></div>\tback\n";
-
-        DocNode expOutput = createStack(
-                new Card(
-                        createCon(new DivBlock(createCon(new PlainText(" Erläutern Sie" +
-                                " die Motivation hinter der Datenbanktheorie.")))),
-                        createCon(new PlainText("back"))
-                )
-        );
-
-        input = FileExporter.normalize(input);
-        System.out.println(input);
-        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
-        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
-        CardStackParser.StackContext cst = p.stack();
-        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
-
-        Assert.assertEquals(expOutput, actOutput);
-    }
-
-
 }
