@@ -125,7 +125,7 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
 
     @Override
     public ImageItem visitImageItem(CardStackParser.ImageItemContext ctx) {
-        return new ImageItem(ctx.WORD().getText());
+        return new ImageItem(ctx.IDENTIFIER().getText());
     }
 
 //    @Override

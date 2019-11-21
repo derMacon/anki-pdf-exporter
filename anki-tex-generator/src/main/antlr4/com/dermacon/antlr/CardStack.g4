@@ -51,14 +51,14 @@ listItem
     ;
 
 plainText: paragraph+=word+;
-word: (' ' | '/')* WORD (' ' | '/')*;
+word: ADDITIONAL_CHARS* IDENTIFIER ADDITIONAL_CHARS*;
 
-//ADDITIONAL_c
+ADDITIONAL_CHARS: [ /,()\-äÄöÖüÜ&ß;!?];
 
-imageItem: IMG_OPENING_TAG WORD IMG_CLOSING_TAG;
+imageItem: IMG_OPENING_TAG IDENTIFIER IMG_CLOSING_TAG;
 
 //IDENTIFIER: [a-zA-Z0-9.]*;
-WORD: [a-zA-Z0-9.,()\-äÄöÖüÜ&ß;!?]* ;
+IDENTIFIER: [a-zA-Z0-9.]* ;
 //PLAIN: [a-zA-Z0-9.,()\-äÄöÖüÜ&ß;!?]*;
 
 DELIMITER: '\t' | '\n';
@@ -66,7 +66,7 @@ DELIMITER: '\t' | '\n';
 IMG_OPENING_TAG: '<img src=' (' ')*;
 IMG_CLOSING_TAG: '/>';
 
-DIV_OPENING_TAG: '<div' (' class=' WORD)? '>';
+DIV_OPENING_TAG: '<div' (' class=' IDENTIFIER)? '>';
 DIV_CLOSING_TAG: '</div>';
 
 UL_OPENING_TAG: '<ul>';

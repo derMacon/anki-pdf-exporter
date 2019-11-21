@@ -12,4 +12,4 @@
 "<div class=""front""> Beschreiben Sie grob den Begriff der Speicherzuordnung. Mit welchem Hilfsmittel ist es hierbei möglich die Datenblöcke zu lokalisieren? Müssen die Datenblöcke stets die gleich Länge aufweisen?&nbsp; </div>"	"<img src=""paste-8504035246081.jpg"" />"
 "<div class=""front""> Was sind die Ziele der <b>Pufferverwaltung</b>? </div>"	"<img src=""paste-8598524526593.jpg"" />"
 "<div class=""front""> Wo werden die Pufferdaten zwischengelagert? </div>"	"<div>In sog. <b>Seiten</b>&nbsp;im Hauptspeicher (RAM).&nbsp;</div><div><br /></div><img src=""paste-8594229559297.jpg"" />"
-"<div class=""front"">front</div>"	"<img src=""paste-9783935500289.jpg"" /><div><div>Da eine Datenbank i.d.R. ein eigenes Filesystem anlegt ist es komplett losgelöst von sämtlichen Restriktionen von Festspeicher Betriebssystem.&nbsp;</div></div>"
+"<div class=""front"">front</div>"	"<img src=""paste-9783935500289.jpg"" /><div><div>Da eine Datenbank i.d.R. ein eigenes Filesystem anlegt ist es komplett losgelöst von sämtlichen Restriktionen von Festspeicher / Betriebssystem.&nbsp;</div></div>"
