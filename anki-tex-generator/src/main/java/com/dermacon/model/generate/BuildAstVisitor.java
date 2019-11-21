@@ -34,14 +34,9 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
 
     @Override
     public Card visitCard(CardStackParser.CardContext ctx) {
-        // todo stream
-//        List<String> tags = ctx.tags.stream().map()
-        List<String> tagLst = new LinkedList<>();
-        for (Token tag : ctx.tags) {
-            tagLst.add(tag.getText());
-        }
+        String tags = ctx.tags == null ? "" : ctx.tags.getText();
         return new Card(visitSideContainer(ctx.front),
-                visitSideContainer(ctx.back), tagLst);
+                visitSideContainer(ctx.back), tags);
     }
 
     @Override

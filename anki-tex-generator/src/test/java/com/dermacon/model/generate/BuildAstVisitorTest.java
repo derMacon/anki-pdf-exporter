@@ -378,10 +378,9 @@ public class BuildAstVisitorTest {
 
         DocNode expOutput = createStack(
                 new Card(
-                        createCon(createCon(new PlainText("front"))),
-                        createCon(createCon(new PlainText("back"))),
-                        Arrays.asList(new String[]{"tag1", "tag2"})
-                )
+                        createCon(new PlainText("front")),
+                        createCon(new PlainText("back")),
+                        "tag1 tag2")
         );
 
         input = input.replaceAll("\"", "");

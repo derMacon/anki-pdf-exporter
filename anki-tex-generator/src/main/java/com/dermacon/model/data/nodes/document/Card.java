@@ -16,14 +16,14 @@ public class Card implements DocNode {
     private final List<AnkiTag> tag;
 
     public Card(SideContainer front, SideContainer back) {
-        this(front, back, new LinkedList<>());
+        this(front, back, "");
     }
 
-    public Card(SideContainer front, SideContainer back, List<String> tags) {
+    public Card(SideContainer front, SideContainer back, String tags) {
         this.front = front;
         this.back = back;
         this.tag = new LinkedList<>();
-        for (String tag : tags) {
+        for (String tag : tags.split(" ")) {
             this.tag.add(new AnkiTag(tag));
         }
     }

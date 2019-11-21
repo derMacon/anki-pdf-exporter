@@ -10,7 +10,7 @@ stack
 
 card
     : front=sideContainer DELIMITER back=sideContainer
-    (DELIMITER tags+=IDENTIFIER+)?
+    (DELIMITER tags=IDENTIFIER)?
     ;
 
 sideContainer
@@ -67,7 +67,6 @@ imageItem
     ;
 
 IDENTIFIER: [ ()a-zA-Z0-9.-]* ;
-//IMG_IDENTIFIER: (' ')* IDENTIFIER (' ')*;
 ADDITIONAL_CHARS: [/,:\-äÄöÖüÜ&ß;!?];
 
 DELIMITER: '\t' | '\n';
