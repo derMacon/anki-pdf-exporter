@@ -258,6 +258,26 @@ public class BuildAstVisitorTest {
     }
 
     @Test
+    public void testVisitStack_nonEscapedSpecialToken1() {
+        String input = "front\tback/behindslash\n";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(new PlainText("front")),
+                        createCon(new PlainText("back/behindslash"))
+                )
+        );
+
+        input = input.replaceAll("\"", "");
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
     public void testVisitStack_realWorldExample1() {
         String input = "\"<div class=\"\"front\"\"> Erläutern Sie die " +
                 "Motivation hinter der Datenbanktheorie.</div>\"\t\"back\"\"\n";

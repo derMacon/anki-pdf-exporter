@@ -54,7 +54,7 @@ plainText: TEXT;
 
 imageItem: IMG_OPENING_TAG TEXT IMG_CLOSING_TAG;
 
-TEXT: [ a-zA-Z0-9.,()\-äÄöÖüÜ&ß;!?]*;
+TEXT: [ a-zA-Z0-9.,()/\-äÄöÖüÜ&ß;!?]*;
 
 DELIMITER: '\t' | '\n';
 
