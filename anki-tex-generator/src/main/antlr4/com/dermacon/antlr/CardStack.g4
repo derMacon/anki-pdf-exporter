@@ -50,18 +50,25 @@ listItem
     : LI_OPENING_TAG sideContainer LI_CLOSING_TAG
     ;
 
-plainText: TEXT;
 
-imageItem: IMG_OPENING_TAG TEXT IMG_CLOSING_TAG;
+imageItem: IMG_OPENING_TAG IDENTIFIER IMG_CLOSING_TAG;
 
-TEXT: [ a-zA-Z0-9.,()/\-äÄöÖüÜ&ß;!?]*;
+IMG_CLOSING_TAG: '/>';
+IDENTIFIER: [a-zA-Z0-9.]*;
+IMG_OPENING_TAG: '<img src=' (' ')*;
+WS  :   (' ')+ ;
+WSOPT   :   (' ')* ;
+WORD: [a-zA-Z0-9.,()/\-äÄöÖüÜß;!?]*;
+//imageItem: '<img src=' IDENTIFIER '/>';
+//IDENTIFIER: [a-zA-Z0-9.,()/\-äÄöÖüÜß]*;
+//IDENTIFIER: [a-zA-Z0-9.-äÄöÖüÜß]*;
+
+plainText: WORD+;
 
 DELIMITER: '\t' | '\n';
 
-IMG_OPENING_TAG: '<img src=' (' ')*;
-IMG_CLOSING_TAG: '/>';
 
-DIV_OPENING_TAG: '<div' (' class=' TEXT)? '>';
+DIV_OPENING_TAG: '<div' (' class=' IDENTIFIER)? '>';
 DIV_CLOSING_TAG: '</div>';
 
 UL_OPENING_TAG: '<ul>';
@@ -79,4 +86,5 @@ B_CLOSING_TAG: '</b>';
 I_OPENING_TAG: '<i>';
 I_CLOSING_TAG: '</i>';
 
+WhiteSpace : (' ') -> skip;
 //WS  :   [ \t\r\n] -> channel(HIDDEN);
