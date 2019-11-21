@@ -14,6 +14,7 @@ import com.dermacon.model.data.nodes.sideElem.PlainText;
 import com.dermacon.model.data.nodes.sideElem.RecursiveItem;
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.nodes.sideElem.SideElem;
+import com.dermacon.model.data.nodes.sideElem.UnderlinedItem;
 import com.dermacon.model.data.nodes.sideElem.UnorderedList;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -80,7 +81,7 @@ public class BuildAstVisitorTest {
     }
 
     @Test
-    public void testVisitStack_twoCards() {
+    public void testVisitStack_twoCards_bold() {
         String input = "front\t<b>bold</b>back\n2\t3\n";
 
         DocNode expOutput = createStack(
@@ -88,6 +89,34 @@ public class BuildAstVisitorTest {
                         createCon(new PlainText("front")),
                         createCon(
                                 new BoldItem(
+                                        createCon(new PlainText("bold"))
+                                ),
+                                new PlainText("back")
+                        )
+                ),
+                new Card(
+                        createCon(new PlainText("2")),
+                        createCon(new PlainText("3"))
+                )
+        );
+
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
+    public void testVisitStack_twoCards_underlined() {
+        String input = "front\t<u>bold</u>back\n2\t3\n";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(new PlainText("front")),
+                        createCon(
+                                new UnderlinedItem(
                                         createCon(new PlainText("bold"))
                                 ),
                                 new PlainText("back")

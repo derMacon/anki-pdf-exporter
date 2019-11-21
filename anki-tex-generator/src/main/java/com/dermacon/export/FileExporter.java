@@ -75,6 +75,9 @@ public class FileExporter extends Exporter {
         // todo revise
         return content.replaceAll("\"", "")
                 .replaceAll("&nbsp;", "")
+                .replaceAll("-&gt;", "")
+                // deletes every word containing the char '&'
+//                .replaceAll("[^&\\s]*&[^;\\s]* ", "")
                 .replaceAll("<br />", "\n\n")
                 .replaceAll("<br/>", "\n\n");
     }

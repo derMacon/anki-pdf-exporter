@@ -14,6 +14,7 @@ import com.dermacon.model.data.nodes.sideElem.PlainText;
 import com.dermacon.model.data.nodes.sideElem.RecursiveItem;
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.nodes.sideElem.SideElem;
+import com.dermacon.model.data.nodes.sideElem.UnderlinedItem;
 import com.dermacon.model.data.nodes.sideElem.UnorderedList;
 import org.antlr.v4.runtime.Token;
 
@@ -52,8 +53,10 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
         SideElem out = null;
         if (ctx.boldItem() != null) {
             out = visitBoldItem(ctx.boldItem());
-        } else if (ctx.recursiveItem() != null) {
-            out = visitRecursiveItem(ctx.recursiveItem());
+        } else if (ctx.italicItem() != null) {
+            out = visitItalicItem(ctx.italicItem());
+        } else if (ctx.underlinedItem() != null) {
+            out = visitUnderlinedItem(ctx.underlinedItem());
         } else if (ctx.plainText() != null) {
             out = visitPlainText(ctx.plainText());
         } else if (ctx.unorderedList() != null) {
@@ -81,8 +84,13 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
     }
 
     @Override
-    public SideContainer visitRecursiveItem(CardStackParser.RecursiveItemContext ctx) {
+    public SideContainer visitItalicItem(CardStackParser.ItalicItemContext ctx) {
         return new RecursiveItem(visitSideContainer(ctx.sideContainer()));
+    }
+
+    @Override
+    public SideContainer visitUnderlinedItem(CardStackParser.UnderlinedItemContext ctx) {
+        return new UnderlinedItem(visitSideContainer(ctx.sideContainer()));
     }
 
     @Override

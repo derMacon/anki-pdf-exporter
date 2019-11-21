@@ -21,7 +21,8 @@ sideNode
     | orderedList
     | unorderedList
     | boldItem
-    | recursiveItem
+    | italicItem
+    | underlinedItem
     | plainText
     | imageItem
     ;
@@ -34,8 +35,11 @@ boldItem
     : B_OPENING_TAG sideContainer B_CLOSING_TAG
     ;
 
-recursiveItem
+italicItem
     : I_OPENING_TAG sideContainer I_CLOSING_TAG
+    ;
+underlinedItem
+    : U_OPENING_TAG sideContainer U_CLOSING_TAG
     ;
 
 orderedList
@@ -61,8 +65,8 @@ imageItem
     : IMG_OPENING_TAG IDENTIFIER IMG_CLOSING_TAG
     ;
 
-IDENTIFIER: [a-zA-Z0-9.-]* ;
-ADDITIONAL_CHARS: [ /,():\-äÄöÖüÜ&ß;!?];
+IDENTIFIER: [ ()a-zA-Z0-9.-]* ;
+ADDITIONAL_CHARS: [/,:\-äÄöÖüÜ&ß;!?];
 
 DELIMITER: '\t' | '\n';
 
@@ -86,5 +90,8 @@ B_CLOSING_TAG: '</b>';
 
 I_OPENING_TAG: '<i>';
 I_CLOSING_TAG: '</i>';
+
+U_OPENING_TAG: '<u>';
+U_CLOSING_TAG: '</u>';
 
 //WS  :   [ ] -> channel(HIDDEN);
