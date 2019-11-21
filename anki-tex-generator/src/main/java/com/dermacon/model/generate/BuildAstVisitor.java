@@ -118,9 +118,9 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
 //        return new PlainText(ctx.paragraph);
         StringBuilder content = new StringBuilder();
         for (CardStackParser.WordContext w : ctx.paragraph) {
-            content.append(w.getText() + " ");
+            content.append(w.getText());
         }
-        return new PlainText(content.toString().trim());
+        return new PlainText(content.toString());
     }
 
     @Override

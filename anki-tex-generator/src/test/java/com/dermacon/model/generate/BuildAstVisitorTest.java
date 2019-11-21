@@ -62,7 +62,7 @@ public class BuildAstVisitorTest {
     @Test
     public void testVisitStack_multipleWords() {
 //        String input = "front \tback\n";
-        String input = "front front2\tback\n";
+        String input = "front, front2\tback\n";
 
         DocNode expOutput = createStack(
                 new Card(
@@ -269,6 +269,26 @@ public class BuildAstVisitorTest {
                 )
         );
 
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
+    public void testVisitStack_backslash() {
+        String input = "front\tback/after\n";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(new PlainText("front")),
+                        createCon(new PlainText("back/after"))
+                )
+        );
+
+        input = input.replaceAll("\"", "");
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
         CardStackParser.StackContext cst = p.stack();

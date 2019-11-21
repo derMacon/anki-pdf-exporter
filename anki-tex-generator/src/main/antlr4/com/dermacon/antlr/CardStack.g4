@@ -51,13 +51,13 @@ listItem
     ;
 
 plainText: paragraph+=word+;
-word: WORD | ' ';
+word: (' ')* WORD (' ')*;
 
 
 imageItem: IMG_OPENING_TAG WORD IMG_CLOSING_TAG;
 
 //IDENTIFIER: [a-zA-Z0-9.]*;
-WORD: [a-zA-Z0-9.,()\-äÄöÖüÜ&ß;!?]* ;
+WORD: [a-zA-Z0-9.,()/\-äÄöÖüÜ&ß;!?]* ;
 //PLAIN: [a-zA-Z0-9.,()\-äÄöÖüÜ&ß;!?]*;
 
 DELIMITER: '\t' | '\n';
