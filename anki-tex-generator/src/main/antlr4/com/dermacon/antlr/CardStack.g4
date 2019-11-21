@@ -50,16 +50,19 @@ listItem
     : LI_OPENING_TAG sideContainer LI_CLOSING_TAG
     ;
 
-plainText: paragraph+=word+;
-word: ADDITIONAL_CHARS* IDENTIFIER ADDITIONAL_CHARS*;
+plainText
+    : paragraph+=word+
+    ;
 
-ADDITIONAL_CHARS: [ /,()\-äÄöÖüÜ&ß;!?];
+word: ADDITIONAL_CHARS* IDENTIFIER ADDITIONAL_CHARS*
+    ;
 
-imageItem: IMG_OPENING_TAG IDENTIFIER IMG_CLOSING_TAG;
+imageItem
+    : IMG_OPENING_TAG IDENTIFIER IMG_CLOSING_TAG
+    ;
 
-//IDENTIFIER: [a-zA-Z0-9.]*;
-IDENTIFIER: [a-zA-Z0-9.]* ;
-//PLAIN: [a-zA-Z0-9.,()\-äÄöÖüÜ&ß;!?]*;
+IDENTIFIER: [a-zA-Z0-9.-]* ;
+ADDITIONAL_CHARS: [ /,():\-äÄöÖüÜ&ß;!?];
 
 DELIMITER: '\t' | '\n';
 
