@@ -14,6 +14,9 @@ import com.dermacon.model.data.nodes.sideElem.PlainText;
 import com.dermacon.model.data.nodes.document.Body;
 import com.dermacon.model.data.nodes.document.Document;
 import com.dermacon.model.data.nodes.document.Header;
+import com.dermacon.model.data.nodes.tag.AnkiTag;
+
+import java.util.List;
 
 public interface FormatVisitor<R> {
     R process(Document doc);
@@ -30,4 +33,5 @@ public interface FormatVisitor<R> {
     R process(ListItem lstItem);
     R process(ImageItem img);
     R process(SideContainer cont);
+//    R process(AnkiTag tags);
 }

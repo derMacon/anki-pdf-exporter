@@ -6,6 +6,10 @@ import java.util.List;
 
 public class DivBlock extends SideContainer {
 
+    public DivBlock() {
+        this(new SideContainer());
+    }
+
     public DivBlock(SideContainer container) {
         super(container.getChildren());
     }

@@ -15,6 +15,7 @@ import com.dermacon.model.data.nodes.sideElem.UnorderedList;
 import com.dermacon.model.data.nodes.document.Body;
 import com.dermacon.model.data.nodes.document.Document;
 import com.dermacon.model.data.nodes.document.Header;
+import com.dermacon.model.data.nodes.tag.AnkiTag;
 
 import java.util.List;
 
@@ -142,6 +143,12 @@ public class TexVisitor implements FormatVisitor<String> {
     public String process(SideContainer cont) {
         return iterateChildren(cont.getChildren());
     }
+
+//    @Override
+//    public String process(List<AnkiTag> tags) {
+//         todo
+//        return "test tag";
+//    }
 
     @Override
     public String process(UnderlinedItem item) {

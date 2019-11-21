@@ -287,6 +287,28 @@ public class BuildAstVisitorTest {
 
 
     @Test
+    public void testVisitStack_img_withUnderscore() {
+        String input = "front\t<img src=test_underscore_1.png/>\n";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(new PlainText("front")),
+                        createCon(
+                                new ImageItem("test_underscore_1.png")
+                        )
+                )
+        );
+
+        input = FileExporter.normalize(input);
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
     public void testVisitStack_img_withoutSpace() {
         String input = "front\t<img src=test.png/>\n";
 
@@ -384,6 +406,27 @@ public class BuildAstVisitorTest {
         );
 
         input = input.replaceAll("\"", "");
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
+    public void testVisitStack_doubleDiv() {
+        String input = "<div><br></div>\tback";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(new DivBlock()),
+                        createCon(new PlainText("back")),
+                        "tag1 tag2")
+        );
+
+        input = FileExporter.normalize(input);
+        System.out.println(input);
         CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
         CardStackParser p = new CardStackParser(new CommonTokenStream(l));
         CardStackParser.StackContext cst = p.stack();

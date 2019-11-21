@@ -66,13 +66,13 @@ imageItem
     : IMG_OPENING_TAG IDENTIFIER IMG_CLOSING_TAG
     ;
 
-IDENTIFIER: [ ()a-zA-Z0-9.-]* ;
-ADDITIONAL_CHARS: [/,:\-äÄöÖüÜ&ß;!?];
+IDENTIFIER: [_ ():äÄöÖüÜßa-zA-Z0-9.-]*;
+ADDITIONAL_CHARS: [/,\-&;!?];
 
 DELIMITER: '\t' | '\n';
 
 IMG_OPENING_TAG: '<img src=' (' ')*;
-IMG_CLOSING_TAG: '/>';
+IMG_CLOSING_TAG: ('/')? '>';
 
 DIV_OPENING_TAG: '<div' (' class=' IDENTIFIER)? '>';
 DIV_CLOSING_TAG: '</div>';

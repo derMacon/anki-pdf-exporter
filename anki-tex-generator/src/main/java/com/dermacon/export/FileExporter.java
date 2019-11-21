@@ -83,6 +83,7 @@ public class FileExporter extends Exporter {
                 // deletes every word containing the char '&'
 //                .replaceAll("[^&\\s]*&[^;\\s]* ", "")
                 .replaceAll("<br />", "")
+                .replaceAll("<br>", "")
                 .replaceAll("<br/>", "");
     }
 

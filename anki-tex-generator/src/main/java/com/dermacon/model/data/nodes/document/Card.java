@@ -39,8 +39,8 @@ public class Card implements DocNode {
     @Override
     public String toString() {
         return "Card(front:" + this.front.toString()
-                + ";back:" + this.back.toString() + ");"
-                + "tags:" + this.tag.toString();
+                + ";back:" + this.back.toString() + ");";
+//                + "tags:" + this.tag.toString();
     }
 
     @Override

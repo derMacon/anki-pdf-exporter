@@ -11,4 +11,6 @@ public class AnkiTag {
     public String toString() {
         return "tag:" + this.content + ")";
     }
+
+
 }

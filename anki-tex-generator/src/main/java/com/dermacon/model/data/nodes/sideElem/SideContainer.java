@@ -9,6 +9,10 @@ import java.util.List;
 public class SideContainer extends SideElem {
     protected List<SideElem> elems = new LinkedList<>();
 
+    public SideContainer() {
+        this(new LinkedList<>());
+    }
+
     public SideContainer(List<SideElem> elems) {
         if (elems != null) {
             this.elems = elems;
