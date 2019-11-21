@@ -11,12 +11,11 @@ import com.dermacon.model.data.nodes.sideElem.ImageItem;
 import com.dermacon.model.data.nodes.sideElem.ListItem;
 import com.dermacon.model.data.nodes.sideElem.OrderedList;
 import com.dermacon.model.data.nodes.sideElem.PlainText;
-import com.dermacon.model.data.nodes.sideElem.RecursiveItem;
+import com.dermacon.model.data.nodes.sideElem.ItalicItem;
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.nodes.sideElem.SideElem;
 import com.dermacon.model.data.nodes.sideElem.UnderlinedItem;
 import com.dermacon.model.data.nodes.sideElem.UnorderedList;
-import org.antlr.v4.runtime.Token;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -85,7 +84,7 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
 
     @Override
     public SideContainer visitItalicItem(CardStackParser.ItalicItemContext ctx) {
-        return new RecursiveItem(visitSideContainer(ctx.sideContainer()));
+        return new ItalicItem(visitSideContainer(ctx.sideContainer()));
     }
 
     @Override

@@ -11,7 +11,7 @@ import com.dermacon.model.data.nodes.sideElem.ImageItem;
 import com.dermacon.model.data.nodes.sideElem.ListItem;
 import com.dermacon.model.data.nodes.sideElem.OrderedList;
 import com.dermacon.model.data.nodes.sideElem.PlainText;
-import com.dermacon.model.data.nodes.sideElem.RecursiveItem;
+import com.dermacon.model.data.nodes.sideElem.ItalicItem;
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.nodes.sideElem.SideElem;
 import com.dermacon.model.data.nodes.sideElem.UnderlinedItem;
@@ -144,7 +144,7 @@ public class BuildAstVisitorTest {
                 new Card(
                         createCon(new PlainText("front")),
                         createCon(
-                                new RecursiveItem(
+                                new ItalicItem(
                                         createCon(new PlainText("rec"))
                                 ),
                                 new PlainText("back")
@@ -332,6 +332,29 @@ public class BuildAstVisitorTest {
                 "Motivation hinter der Datenbanktheorie.</div>\"\t\"back\"\"\n";
 //        String input = "\"<div class=\"\"front\"\">hi ho</div>\tback\n";
 //                "Motivation hinter der Datenbanktheorie.</div>\"\t\"back\"\"\n";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(new DivBlock(createCon(new PlainText(" Erläutern Sie" +
+                                " die Motivation hinter der Datenbanktheorie.")))),
+                        createCon(new PlainText("back"))
+                )
+        );
+
+        input = input.replaceAll("\"", "");
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
+    public void testVisitStack_realWorldExample2() {
+        String input =
+                "\"<div class=\"\"front\"\"> Wie lässt sich ein Dropdown Text" +
+                        " mit HTML implementieren, beschreiben Sie die Syntax am folgenden Beispiel:&nbsp;<div><br /><div>problem</div></div> </div>\" \"<img src=\"\"paste-5265629904897.jpg\"\" />\"\n";
 
         DocNode expOutput = createStack(
                 new Card(

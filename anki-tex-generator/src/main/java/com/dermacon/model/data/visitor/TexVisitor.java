@@ -2,13 +2,15 @@ package com.dermacon.model.data.visitor;
 
 import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.nodes.document.Card;
+import com.dermacon.model.data.nodes.sideElem.BoldItem;
 import com.dermacon.model.data.nodes.sideElem.ImageItem;
+import com.dermacon.model.data.nodes.sideElem.ItalicItem;
 import com.dermacon.model.data.nodes.sideElem.ListItem;
 import com.dermacon.model.data.nodes.sideElem.OrderedList;
 import com.dermacon.model.data.nodes.sideElem.PlainText;
 import com.dermacon.model.data.nodes.document.Section;
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
-import com.dermacon.model.data.nodes.sideElem.SideElem;
+import com.dermacon.model.data.nodes.sideElem.UnderlinedItem;
 import com.dermacon.model.data.nodes.sideElem.UnorderedList;
 import com.dermacon.model.data.nodes.document.Body;
 import com.dermacon.model.data.nodes.document.Document;
@@ -74,7 +76,14 @@ public class TexVisitor implements FormatVisitor<String> {
     private static final String SECTION_DELIMITER = "%%*********************\n";
     private static final String SECTION_TEMPLATE = SECTION_DELIMITER
             + "\\section{%s}\n%s";
+    private static final String SUBSECTION_TEMPLATE = "\\subsection{%s}";
+    private static final String SUBSUBSECTION_TEMPLATE = "\\subsubsection{%s}";
+    private static final String PARAGRAPH_TEMPLATE = "\\paragraph{%s}";
+    private static final String SUBPARAGRAPH_TEMPLATE = "\\subparagraph{%s}";
 
+    private static final String BOLD_TEMPLATE = "\\textbf{%s}";
+    private static final String UNDERLINED_TEMPLATE = "\\underline{%s}";
+    private static final String ITALIC_TEMPLATE = "\\textit{%s}";
 
     private static final String UL_TEMPLATE = "\\begin{itemize}\n"
             + "%s"
@@ -88,7 +97,6 @@ public class TexVisitor implements FormatVisitor<String> {
 
     private static final String IMG_TEMPLATE =
             "\\includegraphics[width=.9\\textwidth]{%s}\n";
-
     @Override
     public String process(Document doc) {
         return String.format(DOC_TEMPLATE,
@@ -128,7 +136,28 @@ public class TexVisitor implements FormatVisitor<String> {
         return String.format(CARD_TEMPLATE,
                 iterateChildren(card.getFront().getChildren()),
                 iterateChildren(card.getBack().getChildren()));
-//        return null;
+    }
+
+    @Override
+    public String process(SideContainer cont) {
+        return iterateChildren(cont.getChildren());
+    }
+
+    @Override
+    public String process(UnderlinedItem item) {
+        return String.format(UNDERLINED_TEMPLATE,
+                iterateChildren(item.getChildren()));
+    }
+    @Override
+    public String process(ItalicItem item) {
+        return String.format(ITALIC_TEMPLATE,
+                iterateChildren(item.getChildren()));
+    }
+
+    @Override
+    public String process(BoldItem item) {
+        return String.format(BOLD_TEMPLATE,
+                iterateChildren(item.getChildren()));
     }
 
     @Override
@@ -155,11 +184,6 @@ public class TexVisitor implements FormatVisitor<String> {
     @Override
     public String process(ImageItem img) {
         return String.format(IMG_TEMPLATE, img.getName().trim());
-    }
-
-    @Override
-    public String process(SideContainer cont) {
-        return iterateChildren(cont.getChildren());
     }
 
 

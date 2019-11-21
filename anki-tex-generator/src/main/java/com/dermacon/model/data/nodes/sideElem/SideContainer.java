@@ -18,6 +18,8 @@ public class SideContainer extends SideElem {
 
     @Override
     public <E> E accept(FormatVisitor<E> visitor) {
+        assert false : "double dispatch - sub classes have to implement this " +
+                "themselves";
         return visitor.process(this);
     }
 

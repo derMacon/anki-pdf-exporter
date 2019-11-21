@@ -2,9 +2,9 @@ package com.dermacon.model.data.nodes.sideElem;
 
 import com.dermacon.model.data.visitor.FormatVisitor;
 
-public class BoldItem extends SideContainer {
+public class ItalicItem extends SideContainer {
 
-    public BoldItem(SideContainer elem) {
+    public ItalicItem(SideContainer elem) {
         super(elem.getChildren());
     }
 
@@ -16,9 +16,9 @@ public class BoldItem extends SideContainer {
 
     @Override
     public boolean equals(Object o) {
-        BoldItem other = null;
-        if (o instanceof BoldItem) {
-            other = (BoldItem) o;
+        ItalicItem other = null;
+        if (o instanceof ItalicItem) {
+            other = (ItalicItem) o;
         }
         return other != null
                 && this.elems.equals(other.elems);
@@ -26,7 +26,7 @@ public class BoldItem extends SideContainer {
 
     @Override
     public String toString() {
-        return "bold(" + this.elems.toString() + ")";
+        return "recursive(" + this.elems.toString() + ")";
     }
 
 }

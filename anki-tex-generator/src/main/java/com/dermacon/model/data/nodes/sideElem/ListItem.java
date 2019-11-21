@@ -23,8 +23,7 @@ public class ListItem extends SideElem {
 
     @Override
     public <E> E accept(FormatVisitor<E> visitor) {
-        System.out.println("todo implementation");
-        return null;
+        return visitor.process(this);
     }
 
     @Override
