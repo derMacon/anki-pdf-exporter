@@ -73,13 +73,17 @@ public class FileExporter extends Exporter {
         // process declared in the .g4 grammar.
         // &nbsp; / \" not allowed.
         // todo revise
+        return normalize(content);
+    }
+
+    public static String normalize(String content) {
         return content.replaceAll("\"", "")
                 .replaceAll("&nbsp;", "")
                 .replaceAll("-&gt;", "")
                 // deletes every word containing the char '&'
 //                .replaceAll("[^&\\s]*&[^;\\s]* ", "")
-                .replaceAll("<br />", "\n\n")
-                .replaceAll("<br/>", "\n\n");
+                .replaceAll("<br />", "")
+                .replaceAll("<br/>", "");
     }
 
     @Override

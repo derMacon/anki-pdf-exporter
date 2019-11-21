@@ -40,5 +40,5 @@
 "<div class=""front""> Erläutern Sie das <b>FIFO</b>&nbsp;Ersetzungsverfahren, für welchen Anwendungsfall eigent sich dieses Verfahren am besten?&nbsp; </div>"	"<img src=""paste-15019500634113.png"" />"
 "<div class=""front""> Erläutern Sie das&nbsp;<b>LFU</b>&nbsp;Ersetzungsverfahren. Welchen wesentlichen Nachteil bringt dieses Verfahren mit sich und wie kann man dem entgegenwirken?&nbsp; </div>"	"<img src=""paste-15079630176257.png"" />"
 "<div class=""front""> Erläutern Sie das <b>LRU</b>&nbsp;Verfahren. Welche Spezialisierungen / genauen Ausprägungen dieses Verfahrens gibt es?&nbsp; </div>"	"<img src=""paste-18150531792897.png"" />"
-"<div class=""front""> Wie lässt sich ein Dropdown Text mit HTML implementieren, beschreiben Sie die Syntax am folgenden Beispiel:&nbsp;<div><br /><div>tst</div></div> </div>"	"<img src=""paste-5265629904897.jpg"" />"
+"<div class=""front""> Wie lässt sich ein Dropdown Text mit HTML implementieren, beschreiben Sie die Syntax am folgenden Beispiel:&nbsp;<div><br /><div>problem</div></div> </div>"	"<img src=""paste-5265629904897.jpg"" />"
 "<div class=""front""> Erläutern Sie die <b>CLOCK / Second Chance</b>&nbsp;Ersetzungsstrategie.&nbsp; </div>"	"<img src=""paste-7885559955457.png"" />"

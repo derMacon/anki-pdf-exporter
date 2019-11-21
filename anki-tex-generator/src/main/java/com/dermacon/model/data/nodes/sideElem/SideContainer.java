@@ -3,17 +3,16 @@ package com.dermacon.model.data.nodes.sideElem;
 import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.visitor.FormatVisitor;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class SideContainer extends SideElem {
-    protected List<SideElem> elems;
+    protected List<SideElem> elems = new LinkedList<>();
 
     public SideContainer(List<SideElem> elems) {
-        this.elems = elems;
-    }
-
-    public void setElems(List<SideElem> elems) {
-        this.elems = elems;
+        if (elems != null) {
+            this.elems = elems;
+        }
     }
 
     @Override
