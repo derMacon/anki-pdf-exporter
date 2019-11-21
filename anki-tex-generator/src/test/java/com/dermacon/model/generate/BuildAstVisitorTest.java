@@ -287,7 +287,7 @@ public class BuildAstVisitorTest {
 
 
     @Test
-    public void testVisitStack_img() {
+    public void testVisitStack_img_withoutSpace() {
         String input = "front\t<img src=test.png/>\n";
 
         DocNode expOutput = createStack(
@@ -295,6 +295,27 @@ public class BuildAstVisitorTest {
                         createCon(new PlainText("front")),
                         createCon(
                                 new ImageItem("test.png")
+                        )
+                )
+        );
+
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
+    public void testVisitStack_img_withSpace() {
+        String input = "front\t<img src=test (1).png/>\n";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(new PlainText("front")),
+                        createCon(
+                                new ImageItem("test (1).png")
                         )
                 )
         );
@@ -350,5 +371,27 @@ public class BuildAstVisitorTest {
 
         Assert.assertEquals(expOutput, actOutput);
     }
+
+    @Test
+    public void testVisitStack_tags() {
+        String input = "front\tback\ttag1 tag2\n";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(createCon(new PlainText("front"))),
+                        createCon(createCon(new PlainText("back"))),
+                        Arrays.asList(new String[]{"tag1", "tag2"})
+                )
+        );
+
+        input = input.replaceAll("\"", "");
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
 
 }

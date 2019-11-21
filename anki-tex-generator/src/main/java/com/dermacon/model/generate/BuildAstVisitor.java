@@ -16,6 +16,7 @@ import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.nodes.sideElem.SideElem;
 import com.dermacon.model.data.nodes.sideElem.UnderlinedItem;
 import com.dermacon.model.data.nodes.sideElem.UnorderedList;
+import org.antlr.v4.runtime.Token;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -33,8 +34,14 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
 
     @Override
     public Card visitCard(CardStackParser.CardContext ctx) {
+        // todo stream
+//        List<String> tags = ctx.tags.stream().map()
+        List<String> tagLst = new LinkedList<>();
+        for (Token tag : ctx.tags) {
+            tagLst.add(tag.getText());
+        }
         return new Card(visitSideContainer(ctx.front),
-                visitSideContainer(ctx.back));
+                visitSideContainer(ctx.back), tagLst);
     }
 
     @Override

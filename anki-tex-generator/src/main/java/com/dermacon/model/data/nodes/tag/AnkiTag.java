@@ -6,4 +6,9 @@ public class AnkiTag {
     public AnkiTag(String content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "tag:" + this.content + ")";
+    }
 }

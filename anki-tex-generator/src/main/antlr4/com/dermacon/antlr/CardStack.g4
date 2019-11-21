@@ -67,6 +67,7 @@ imageItem
     ;
 
 IDENTIFIER: [ ()a-zA-Z0-9.-]* ;
+//IMG_IDENTIFIER: (' ')* IDENTIFIER (' ')*;
 ADDITIONAL_CHARS: [/,:\-äÄöÖüÜ&ß;!?];
 
 DELIMITER: '\t' | '\n';

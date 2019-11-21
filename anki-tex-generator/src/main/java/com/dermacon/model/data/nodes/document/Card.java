@@ -1,19 +1,31 @@
 package com.dermacon.model.data.nodes.document;
 
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
+import com.dermacon.model.data.nodes.tag.AnkiTag;
 import com.dermacon.model.data.visitor.FormatVisitor;
 import com.dermacon.model.data.nodes.DocNode;
+import org.antlr.v4.runtime.Token;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Card implements DocNode {
 
     private final SideContainer front;
     private final SideContainer back;
+    private final List<AnkiTag> tag;
 
     public Card(SideContainer front, SideContainer back) {
+        this(front, back, new LinkedList<>());
+    }
+
+    public Card(SideContainer front, SideContainer back, List<String> tags) {
         this.front = front;
         this.back = back;
+        this.tag = new LinkedList<>();
+        for (String tag : tags) {
+            this.tag.add(new AnkiTag(tag));
+        }
     }
 
     public SideContainer getFront() {
@@ -27,7 +39,8 @@ public class Card implements DocNode {
     @Override
     public String toString() {
         return "Card(front:" + this.front.toString()
-                + ";back:" + this.back.toString() + ")";
+                + ";back:" + this.back.toString() + ");"
+                + "tags:" + this.tag.toString();
     }
 
     @Override
