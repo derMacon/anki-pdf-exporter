@@ -15,6 +15,7 @@ import com.dermacon.model.data.nodes.sideElem.RecursiveItem;
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.nodes.sideElem.SideElem;
 import com.dermacon.model.data.nodes.sideElem.UnorderedList;
+import org.antlr.v4.runtime.Token;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -113,12 +114,23 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
     }
 
     @Override
-    public SideElem visitPlainText(CardStackParser.PlainTextContext ctx) {
-        return new PlainText(ctx.getText());
+    public PlainText visitPlainText(CardStackParser.PlainTextContext ctx) {
+//        return new PlainText(ctx.paragraph);
+        StringBuilder content = new StringBuilder();
+        for (CardStackParser.WordContext w : ctx.paragraph) {
+            content.append(w.getText() + " ");
+        }
+        return new PlainText(content.toString().trim());
     }
 
     @Override
     public ImageItem visitImageItem(CardStackParser.ImageItemContext ctx) {
-        return new ImageItem(ctx.TEXT().getText());
+        return new ImageItem(ctx.WORD().getText());
     }
+
+//    @Override
+//    public PlainText visitWord(CardStackParser.WordContext ctx) {
+//        return visitChildren(ctx);
+//        return null;
+//    }
 }

@@ -60,6 +60,26 @@ public class BuildAstVisitorTest {
     }
 
     @Test
+    public void testVisitStack_multipleWords() {
+//        String input = "front \tback\n";
+        String input = "front front2\tback\n";
+
+        DocNode expOutput = createStack(
+                new Card(
+                        createCon(new PlainText("front, front2")),
+                        createCon(new PlainText("back"))
+                )
+        );
+
+        CardStackLexer l = new CardStackLexer(new ANTLRInputStream(input));
+        CardStackParser p = new CardStackParser(new CommonTokenStream(l));
+        CardStackParser.StackContext cst = p.stack();
+        DocNode actOutput = new BuildAstVisitor().visitStack(cst);
+
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
     public void testVisitStack_twoCards() {
         String input = "front\t<b>bold</b>back\n2\t3\n";
 
@@ -261,6 +281,8 @@ public class BuildAstVisitorTest {
     public void testVisitStack_realWorldExample1() {
         String input = "\"<div class=\"\"front\"\"> Erläutern Sie die " +
                 "Motivation hinter der Datenbanktheorie.</div>\"\t\"back\"\"\n";
+//        String input = "\"<div class=\"\"front\"\">hi ho</div>\tback\n";
+//                "Motivation hinter der Datenbanktheorie.</div>\"\t\"back\"\"\n";
 
         DocNode expOutput = createStack(
                 new Card(

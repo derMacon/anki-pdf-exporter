@@ -50,18 +50,22 @@ listItem
     : LI_OPENING_TAG sideContainer LI_CLOSING_TAG
     ;
 
-plainText: TEXT;
+plainText: paragraph+=word+;
+word: WORD | ' ';
 
-imageItem: IMG_OPENING_TAG TEXT IMG_CLOSING_TAG;
 
-TEXT: [ a-zA-Z0-9.,()\-äÄöÖüÜ&ß;!?]*;
+imageItem: IMG_OPENING_TAG WORD IMG_CLOSING_TAG;
+
+//IDENTIFIER: [a-zA-Z0-9.]*;
+WORD: [a-zA-Z0-9.,()\-äÄöÖüÜ&ß;!?]* ;
+//PLAIN: [a-zA-Z0-9.,()\-äÄöÖüÜ&ß;!?]*;
 
 DELIMITER: '\t' | '\n';
 
 IMG_OPENING_TAG: '<img src=' (' ')*;
 IMG_CLOSING_TAG: '/>';
 
-DIV_OPENING_TAG: '<div' (' class=' TEXT)? '>';
+DIV_OPENING_TAG: '<div' (' class=' WORD)? '>';
 DIV_CLOSING_TAG: '</div>';
 
 UL_OPENING_TAG: '<ul>';
@@ -79,4 +83,4 @@ B_CLOSING_TAG: '</b>';
 I_OPENING_TAG: '<i>';
 I_CLOSING_TAG: '</i>';
 
-//WS  :   [ \t\r\n] -> channel(HIDDEN);
+//WS  :   [ ] -> channel(HIDDEN);
