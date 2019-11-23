@@ -50,6 +50,9 @@ public class TXTParserTest {
     @Test
     public void testRemoveFstElem() {
         List<String> l = new LinkedList<>();
+        Assert.assertNull(TXTParser.removeFstElem(l));
+        Assert.assertEquals(new LinkedList<String>(), l);
+
         l.add("fst");
         l.add("snd");
         l.add("thrd");
@@ -61,11 +64,11 @@ public class TXTParserTest {
         List<String> l3 = new LinkedList<>();
         l3.add("thrd");
 
-        Assert.assertEquals("fst", TXTParser.removeLastElem(l));
+        Assert.assertEquals("fst", TXTParser.removeFstElem(l));
         Assert.assertEquals(l2, l);
-        Assert.assertEquals("snd", TXTParser.removeLastElem(l));
+        Assert.assertEquals("snd", TXTParser.removeFstElem(l));
         Assert.assertEquals(l3, l);
-        Assert.assertEquals("thrd", TXTParser.removeLastElem(l));
+        Assert.assertEquals("thrd", TXTParser.removeFstElem(l));
     }
 
     @Test

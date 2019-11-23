@@ -8,15 +8,11 @@ import com.dermacon.model.data.nodes.document.Body;
 import com.dermacon.model.data.nodes.document.Card;
 import com.dermacon.model.data.nodes.document.Document;
 import com.dermacon.model.data.nodes.document.DocumentBuilder;
-import com.dermacon.model.data.nodes.document.headings.Paragraph;
 import com.dermacon.model.data.nodes.document.headings.Section;
-import com.dermacon.model.data.nodes.document.headings.SubParagraph;
 import com.dermacon.model.data.nodes.document.headings.SubSection;
-import com.dermacon.model.data.nodes.document.headings.SubSubSection;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -110,17 +106,18 @@ public class TXTParser implements Parser {
 
     private static Section createSection(List<String> tags, DocNode node) {
         assert !tags.isEmpty();
-        String heading = removeLastElem(tags);
+        String heading = removeFstElem(tags);
         return new Section(heading, wrapSubSection(tags, node));
     }
 
     private static DocNode wrapSubSection(List<String> tags, DocNode node) {
-        String heading = removeLastElem(tags);
-        DocNode content = node;
+        DocNode output = node;
         if (!tags.isEmpty()) {
-            content = wrapSubSubSection(tags, node);
+            String heading = removeFstElem(tags);
+            DocNode innerContent = wrapSubSubSection(tags, node);
+            output = new SubSection(heading, innerContent);
         }
-        return new SubSection(heading, content);
+        return output;
     }
 
     private static DocNode wrapSubSubSection(List<String> tags, DocNode node) {
@@ -132,13 +129,13 @@ public class TXTParser implements Parser {
     }
 
 
-    static <E> E removeLastElem(List<E> lst) {
+    static <E> E removeFstElem(List<E> lst) {
 //        E out = lst.isEmpty() ? null : lst.get(lst.size() - 1);
 //        int newLastIdx = lst.isEmpty() ? 0 : lst.size() - 1;
 //        lst.subList(0, newLastIdx).clear();
 //        return out;
 
-        return lst.remove(0);
+        return lst.isEmpty() ? null : lst.remove(0);
 
     }
 }
