@@ -109,35 +109,36 @@ public class TXTParser implements Parser {
 
 
     private static Section createSection(List<String> tags, DocNode node) {
-        // only 5 possible types of headings
-        String tag;
-        switch (tags.size()) {
-            case 1:
-                return new Section(tags.get(0), node);
-            case 2:
-                tag = removeLastElem(tags);
-                return new SubSection(tag, createSection(tags, node));
-            case 3:
-                tag = removeLastElem(tags);
-                return new SubSubSection(tag, createSection(tags, node));
-            case 4:
-                tag = removeLastElem(tags);
-                return new Paragraph(tag, createSection(tags, node));
-            case 5:
-                tag = removeLastElem(tags);
-                return new SubParagraph(tag, createSection(tags, node));
-            default:
-                removeLastElem(tags);
-                return createSection(tags, node);
-        }
-
+        assert !tags.isEmpty();
+        String heading = removeLastElem(tags);
+        return new Section(heading, wrapSubSection(tags, node));
     }
 
+    private static DocNode wrapSubSection(List<String> tags, DocNode node) {
+        String heading = removeLastElem(tags);
+        DocNode content = node;
+        if (!tags.isEmpty()) {
+            content = wrapSubSubSection(tags, node);
+        }
+        return new SubSection(heading, content);
+    }
+
+    private static DocNode wrapSubSubSection(List<String> tags, DocNode node) {
+        DocNode content = node;
+        if (!tags.isEmpty()) {
+            content = null;
+        }
+        return null;
+    }
+
+
     static <E> E removeLastElem(List<E> lst) {
-        E out = lst.isEmpty() ? null : lst.get(lst.size() - 1);
+//        E out = lst.isEmpty() ? null : lst.get(lst.size() - 1);
 //        int newLastIdx = lst.isEmpty() ? 0 : lst.size() - 1;
 //        lst.subList(0, newLastIdx).clear();
-        lst.remove(lst.isEmpty() ? 0 : lst.size() - 1);
-        return out;
+//        return out;
+
+        return lst.remove(0);
+
     }
 }
