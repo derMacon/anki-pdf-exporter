@@ -4,11 +4,12 @@ import com.dermacon.model.data.visitor.FormatVisitor;
 import com.dermacon.model.data.nodes.DocNode;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Body implements DocNode {
 
-    private final List<DocNode> elements;
+    private List<DocNode> elements = new LinkedList<>();
 
     public Body(DocNode... elements) {
         this(Arrays.asList(elements));
@@ -21,6 +22,10 @@ public class Body implements DocNode {
     @Override
     public List<DocNode> getChildren() {
         return elements;
+    }
+
+    public void addNode(DocNode node) {
+        this.elements.add(node);
     }
 
     @Override

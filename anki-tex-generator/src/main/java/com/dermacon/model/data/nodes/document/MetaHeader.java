@@ -8,11 +8,11 @@ import java.util.List;
 /**
  * Header containing infos for the title page of the document.
  */
-public class Header implements DocNode {
+public class MetaHeader implements DocNode {
 
     private final String title;
 
-    public Header(String title) {
+    public MetaHeader(String title) {
         this.title = title;
     }
 
@@ -37,9 +37,9 @@ public class Header implements DocNode {
 
     @Override
     public boolean equals(Object o) {
-        Header other = null;
-        if (o instanceof Header) {
-            other = (Header)o;
+        MetaHeader other = null;
+        if (o instanceof MetaHeader) {
+            other = (MetaHeader)o;
         }
         return other != null
                 && this.title.equals(other.title);

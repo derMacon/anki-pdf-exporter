@@ -1,13 +1,12 @@
 package com.dermacon.model.generate;
 
 import com.dermacon.model.data.nodes.DocNode;
+import com.dermacon.model.data.nodes.document.Body;
 import com.dermacon.model.data.nodes.document.Card;
 import com.dermacon.model.data.nodes.document.DocumentBuilder;
 import com.dermacon.model.data.nodes.sideElem.PlainText;
-import com.dermacon.model.data.nodes.document.Section;
-import com.dermacon.model.data.nodes.document.Body;
+import com.dermacon.model.data.nodes.document.headings.Section;
 import com.dermacon.model.data.nodes.document.Document;
-import com.dermacon.model.data.nodes.document.Header;
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.nodes.sideElem.SideElem;
 import org.junit.Assert;
@@ -37,7 +36,7 @@ public class ParserTest {
         Document expOutput = new DocumentBuilder()
                 .setDeckname(title)
                 .setMediaPath(mediaPath)
-                .setNodes(Arrays.asList(nodes))
+                .setBody(new Body(nodes))
                 .build();
 
         Parser parser = new TXTParser(mediaPath, title);

@@ -13,7 +13,7 @@ public class Card implements DocNode {
 
     private final SideContainer front;
     private final SideContainer back;
-    private final List<AnkiTag> tag;
+    private final List<String> tag;
 
     public Card(SideContainer front, SideContainer back) {
         this(front, back, "");
@@ -24,7 +24,7 @@ public class Card implements DocNode {
         this.back = back;
         this.tag = new LinkedList<>();
         for (String tag : tags.split(" ")) {
-            this.tag.add(new AnkiTag(tag));
+            this.tag.add(tag);
         }
     }
 
@@ -34,6 +34,10 @@ public class Card implements DocNode {
 
     public SideContainer getBack() {
         return back;
+    }
+
+    public List<String> getTag() {
+        return tag;
     }
 
     @Override

@@ -1,15 +1,10 @@
 package com.dermacon.model.data.nodes.document;
 
-import com.dermacon.model.data.nodes.DocNode;
-
-import java.util.LinkedList;
-import java.util.List;
-
 public class DocumentBuilder {
 
     private String deckname = "Anki deck";
     private String mediaPath = "todo set path";
-    private List<DocNode> ast = new LinkedList<>();
+    private Body body = null;
 
     public DocumentBuilder setDeckname(String name) {
         this.deckname = name;
@@ -21,13 +16,13 @@ public class DocumentBuilder {
         return this;
     }
 
-    public DocumentBuilder setNodes(List<DocNode> ast) {
-        this.ast = ast;
+    public DocumentBuilder setBody(Body body) {
+        this.body = body;
         return this;
     }
 
     public Document build() {
-        return new Document(new Header(deckname), new Body(ast), mediaPath);
+        return new Document(new MetaHeader(deckname), new Body(body), mediaPath);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.dermacon.model.data.nodes.tag;
 
+// todo delete this
 public class AnkiTag {
     private String content;
 

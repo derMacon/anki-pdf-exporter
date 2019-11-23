@@ -1,4 +1,4 @@
-package com.dermacon.model.data.nodes.document;
+package com.dermacon.model.data.nodes.document.headings;
 
 import com.dermacon.model.data.visitor.FormatVisitor;
 import com.dermacon.model.data.nodes.DocNode;
@@ -6,12 +6,20 @@ import com.dermacon.model.data.nodes.DocNode;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Heading priority:
+ * - section
+ * - subsection
+ * - subsubsection
+ * - paragraph
+ * - subparagraph
+ */
 public class Section implements DocNode {
 
-    private static final String DEFAULT_TITLE = "Generelles";
+    protected static final String DEFAULT_TITLE = "Generelles";
 
-    private final String value;
-    private final List<DocNode> children;
+    protected final String value;
+    protected final List<DocNode> children;
 
     public Section(DocNode... children) {
         this(DEFAULT_TITLE, children);
@@ -49,7 +57,7 @@ public class Section implements DocNode {
         return "section:" + value + ";" + "{" + iterate(children) + "}";
     }
 
-    private static String iterate(List<?> lst) {
+    protected static String iterate(List<?> lst) {
         String out = "";
         for (Object o : lst) {
             out += o.toString();

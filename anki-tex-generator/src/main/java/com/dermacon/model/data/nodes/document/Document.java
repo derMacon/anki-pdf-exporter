@@ -6,18 +6,18 @@ import com.dermacon.model.data.visitor.FormatVisitor;
 import java.util.List;
 
 public class Document implements DocNode {
-    private final Header header;
+    private final MetaHeader metaHeader;
     private final Body body;
     private final String mediaPath;
 
-    public Document(Header header, Body body, String mediaPath) {
-        this.header = header;
+    public Document(MetaHeader metaHeader, Body body, String mediaPath) {
+        this.metaHeader = metaHeader;
         this.body = body;
         this.mediaPath = mediaPath;
     }
 
-    public Header getHeader() {
-        return header;
+    public MetaHeader getMetaHeader() {
+        return metaHeader;
     }
 
     public Body getBody() {
@@ -41,7 +41,7 @@ public class Document implements DocNode {
     @Override
     public String toString() {
         return "Document{"
-                + header.toString()
+                + metaHeader.toString()
                 + body.toString()
                 + "}";
     }
@@ -53,7 +53,7 @@ public class Document implements DocNode {
             other = (Document)o;
         }
         return other != null
-                && this.header.equals(other.header)
+                && this.metaHeader.equals(other.metaHeader)
                 && this.body.equals(other.body);
     }
 

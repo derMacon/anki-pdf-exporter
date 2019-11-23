@@ -2,20 +2,20 @@ package com.dermacon.model.data.visitor;
 
 import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.nodes.document.Card;
+import com.dermacon.model.data.nodes.document.SubSection;
 import com.dermacon.model.data.nodes.sideElem.BoldItem;
 import com.dermacon.model.data.nodes.sideElem.ImageItem;
 import com.dermacon.model.data.nodes.sideElem.ItalicItem;
 import com.dermacon.model.data.nodes.sideElem.ListItem;
 import com.dermacon.model.data.nodes.sideElem.OrderedList;
 import com.dermacon.model.data.nodes.sideElem.PlainText;
-import com.dermacon.model.data.nodes.document.Section;
+import com.dermacon.model.data.nodes.document.headings.Section;
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
 import com.dermacon.model.data.nodes.sideElem.UnderlinedItem;
 import com.dermacon.model.data.nodes.sideElem.UnorderedList;
 import com.dermacon.model.data.nodes.document.Body;
 import com.dermacon.model.data.nodes.document.Document;
-import com.dermacon.model.data.nodes.document.Header;
-import com.dermacon.model.data.nodes.tag.AnkiTag;
+import com.dermacon.model.data.nodes.document.MetaHeader;
 
 import java.util.List;
 
@@ -102,13 +102,13 @@ public class TexVisitor implements FormatVisitor<String> {
     public String process(Document doc) {
         return String.format(DOC_TEMPLATE,
                 doc.getMediaPath(),
-                doc.getHeader().accept(this),
+                doc.getMetaHeader().accept(this),
                 doc.getBody().accept(this));
     }
 
     @Override
-    public String process(Header header) {
-        return String.format(HEADER_TEMPLATE, header.getTitle());
+    public String process(MetaHeader metaHeader) {
+        return String.format(HEADER_TEMPLATE, metaHeader.getTitle());
     }
 
     @Override
@@ -127,6 +127,13 @@ public class TexVisitor implements FormatVisitor<String> {
 
     @Override
     public String process(Section section) {
+        return String.format(SECTION_TEMPLATE,
+                section.getValue(),
+                iterateChildren(section.getChildren()));
+    }
+
+    @Override
+    public String process(SubSection section) {
         return String.format(SECTION_TEMPLATE,
                 section.getValue(),
                 iterateChildren(section.getChildren()));

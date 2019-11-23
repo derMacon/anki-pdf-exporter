@@ -1,6 +1,6 @@
 grammar CardStack;
 
-//@header {
+//@metaHeader {
 //package com.dermacon.antlr;
 //}
 

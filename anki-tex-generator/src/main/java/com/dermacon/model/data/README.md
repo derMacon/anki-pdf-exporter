@@ -1,8 +1,8 @@
 ## Structure
 ```
-type document = header body
+type document = metaHeader body
 
-type header        = title 
+type metaHeader        = title 
 type title         = String 
 
 type body          = [element]
