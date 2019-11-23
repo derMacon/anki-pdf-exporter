@@ -29,13 +29,13 @@ public class SubParagraph extends Paragraph {
 
     @Override
     public boolean equals(Object o) {
-        SubSection other = null;
-        if (o instanceof SubSection) {
-            other = (SubSection) o;
+        SubParagraph other = null;
+        if (o instanceof SubParagraph) {
+            other = (SubParagraph) o;
         }
         return other != null
-                && this.value.equals(other.value)
-                && this.children.equals(other.children);
+                // only cares for the section heading, not for its content
+                && this.value.equals(other.value);
     }
 
 }

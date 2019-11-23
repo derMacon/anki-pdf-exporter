@@ -37,8 +37,8 @@ public class SubSection extends Section {
             other = (SubSection) o;
         }
         return other != null
-                && this.value.equals(other.value)
-                && this.children.equals(other.children);
+                // only cares for the section heading, not for its content
+                && this.value.equals(other.value);
     }
 
 }

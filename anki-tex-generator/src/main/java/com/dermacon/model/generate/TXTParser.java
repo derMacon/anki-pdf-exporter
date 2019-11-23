@@ -17,6 +17,7 @@ import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class TXTParser implements Parser {
@@ -77,7 +78,7 @@ public class TXTParser implements Parser {
             newSection = createSection((Card)node);
             idxSection = output.getChildren().indexOf(newSection);
 
-            if (idxSection == -1) {
+            if (idxSection < 0) {
                 output.addNode(newSection);
             } else {
                 DocNode oldSection = output.getChildren().get(idxSection);
@@ -91,9 +92,21 @@ public class TXTParser implements Parser {
     }
 
     private static Section createSection(Card card) {
-        List<String> tags = Arrays.asList(card.getTag().get(0).split("::"));
+//        List<String> tags = Arrays.asList(card.getTag().get(0).split("::"));
+        List<String> tags = cp(card.getTag().get(0).split("::"));
         return createSection(tags, card);
     }
+
+    // need in txt parser, when using Arrays.asList(...)
+    // removeLastElem won't work
+    private static <E> List<E> cp(E... arr) {
+        List<E> out = new LinkedList<>();
+        for (E e : arr) {
+            out.add(e);
+        }
+        return out;
+    }
+
 
     private static Section createSection(List<String> tags, DocNode node) {
         if (tags.size() == 1) {
@@ -122,10 +135,11 @@ public class TXTParser implements Parser {
 
     }
 
-    private static <E> E removeLastElem(List<E> lst) {
+    static <E> E removeLastElem(List<E> lst) {
         E out = lst.isEmpty() ? null : lst.get(lst.size() - 1);
-        int newLastIdx = lst.isEmpty() ? 0 : lst.size() - 2;
-        lst.subList(0, newLastIdx);
+//        int newLastIdx = lst.isEmpty() ? 0 : lst.size() - 1;
+//        lst.subList(0, newLastIdx).clear();
+        lst.remove(lst.isEmpty() ? 0 : lst.size() - 1);
         return out;
     }
 }

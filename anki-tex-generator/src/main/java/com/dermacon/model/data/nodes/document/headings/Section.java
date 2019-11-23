@@ -4,6 +4,7 @@ import com.dermacon.model.data.visitor.FormatVisitor;
 import com.dermacon.model.data.nodes.DocNode;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -22,11 +23,11 @@ public class Section implements DocNode {
     protected final List<DocNode> children;
 
     public Section(DocNode... children) {
-        this(DEFAULT_TITLE, children);
+        this(DEFAULT_TITLE, cp(children));
     }
 
     public Section(String value, DocNode... children) {
-        this(value, Arrays.asList(children));
+        this(value, cp(children));
     }
 
     public Section(List<DocNode> children) {
@@ -34,8 +35,18 @@ public class Section implements DocNode {
     }
 
     public Section(String value, List<DocNode> children) {
-        this.value = value;
         this.children = children;
+        this.value = value.isEmpty() ? DEFAULT_TITLE : value;
+    }
+
+    // need in txt parser, when using Arrays.asList(...)
+    // removeLastElem won't work
+    private static <E> List<E> cp(E... arr) {
+        List<E> out = new LinkedList<>();
+        for (E e : arr) {
+            out.add(e);
+        }
+        return out;
     }
 
     public String getValue() {
@@ -75,9 +86,9 @@ public class Section implements DocNode {
         if (o instanceof Section) {
             other = (Section) o;
         }
+        // only cares for the section heading, not for its content
         return other != null
-                && this.value.equals(other.value)
-                && this.children.equals(other.children);
+                && this.value.equals(other.value);
     }
 
 }

@@ -9,14 +9,14 @@ import java.util.List;
 
 public class Body implements DocNode {
 
-    private List<DocNode> elements = new LinkedList<>();
+    private List<DocNode> elements;
 
     public Body(DocNode... elements) {
         this(Arrays.asList(elements));
     }
 
     public Body(List<DocNode> elements) {
-        this.elements = elements;
+        this.elements = elements.isEmpty() ?  new LinkedList<>() : elements;
     }
 
     @Override
