@@ -43,6 +43,11 @@ public class TexVisitor implements FormatVisitor<String> {
 
     private static final String BODY_TEMPLATE =
             "\\begin{document}\n"
+                    + "\\maketitle\n"
+                    + "\\clearpage\n"
+                    + "\\tableofcontents\n"
+                    + "\\clearpage\n"
+                    + "\n"
                     + "%s\n"
                     + "\\end{document}\n";
 
@@ -62,21 +67,14 @@ public class TexVisitor implements FormatVisitor<String> {
             + "%s\n"
             + "\\end{tcolorbox}\n";
 
-    /*
-    todo
-    \title{todo extract deck name}
-    \author{Silas Hoffmann, inf103088}
-    \date{\today}
 
-    \begin{document}
-    \maketitle
-    \tableofcontents
-    \clearpage
+    //    private static final String HEADER_TEMPLATE = "\\title{%s}";
+    private static final String HEADER_TEMPLATE =
+            "\\title{%s}\n"
+                    + "\\author{Silas Hoffmann, inf103088}\n"
+                    + "\\date{\\today}\n"
+                    + "\n";
 
-     */
-
-
-    private static final String HEADER_TEMPLATE = "\\title{%s}";
     private static final String SECTION_DELIMITER = "%%*********************\n";
     private static final String SECTION_TEMPLATE = SECTION_DELIMITER
             + "\\section{%s}\n%s";
@@ -101,6 +99,7 @@ public class TexVisitor implements FormatVisitor<String> {
 
     private static final String IMG_TEMPLATE =
             "\\includegraphics[width=.9\\textwidth]{%s}\n";
+
     @Override
     public String process(Document doc) {
         return String.format(DOC_TEMPLATE,
@@ -180,6 +179,7 @@ public class TexVisitor implements FormatVisitor<String> {
         return String.format(UNDERLINED_TEMPLATE,
                 iterateChildren(item.getChildren()));
     }
+
     @Override
     public String process(ItalicItem item) {
         return String.format(ITALIC_TEMPLATE,
@@ -209,7 +209,7 @@ public class TexVisitor implements FormatVisitor<String> {
 
     @Override
     public String process(ListItem lstItem) {
-       return String.format(LST_ITEM_TEMPLATE,
+        return String.format(LST_ITEM_TEMPLATE,
                 iterateChildren(lstItem.getChildren()));
     }
 
@@ -217,6 +217,5 @@ public class TexVisitor implements FormatVisitor<String> {
     public String process(ImageItem img) {
         return String.format(IMG_TEMPLATE, img.getName().trim());
     }
-
 
 }

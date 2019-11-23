@@ -14,6 +14,13 @@ public class TXTParser implements Parser {
     private final String mediaPath;
     private final String deckName;
 
+    /**
+     * Constructor setting the media path and deckname of the deck that
+     * should be parsed.
+     *
+     * @param mediaPath path where anki stores all images.
+     * @param deckName  name of the deck that should be parsed.
+     */
     public TXTParser(String mediaPath, String deckName) {
         this.mediaPath = mediaPath;
         this.deckName = deckName;
@@ -38,8 +45,10 @@ public class TXTParser implements Parser {
      * <p>
      * IMPORTANT: ELEMENTS ARE NOT GROUPED BY TAG
      *
-     * @param input
-     * @return
+     * @param input String input (anki format) that should be parsed to an
+     *              abstract syntax tree
+     * @return abstract syntax tree containing all relevant nodes. See .g4
+     * grammar file for more information.
      */
     private ASTStack createAST(String input) {
         System.out.println("content to parse: " + input);

@@ -22,7 +22,7 @@ public class DocumentBuilder {
     }
 
     public Document build() {
-        return new Document(new MetaHeader(deckname), new Body(body), mediaPath);
+        return new Document(new MetaHeader(deckname), body, mediaPath);
     }
 
 }

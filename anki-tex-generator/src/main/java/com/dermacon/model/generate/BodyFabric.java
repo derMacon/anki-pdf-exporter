@@ -36,7 +36,7 @@ public class BodyFabric {
             } else {
                 DocNode oldSection = output.getChildren().get(idxSection);
                 assert oldSection instanceof Section;
-                ((Section)oldSection).addNode(newSection);
+                ((Section)oldSection).addNode(node);
             }
 
         }
