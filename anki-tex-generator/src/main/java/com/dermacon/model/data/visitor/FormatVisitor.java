@@ -2,6 +2,10 @@ package com.dermacon.model.data.visitor;
 
 import com.dermacon.model.data.nodes.document.Card;
 import com.dermacon.model.data.nodes.document.MetaHeader;
+import com.dermacon.model.data.nodes.document.headings.Paragraph;
+import com.dermacon.model.data.nodes.document.headings.SubParagraph;
+import com.dermacon.model.data.nodes.document.headings.SubSection;
+import com.dermacon.model.data.nodes.document.headings.SubSubSection;
 import com.dermacon.model.data.nodes.sideElem.BoldItem;
 import com.dermacon.model.data.nodes.sideElem.ImageItem;
 import com.dermacon.model.data.nodes.sideElem.ItalicItem;
@@ -21,8 +25,9 @@ public interface FormatVisitor<R> {
     R process(Body body);
     R process(Section section);
     R process(SubSection section);
-    R process(Section section);
-    R process(Section section);
+    R process(SubSubSection section);
+    R process(Paragraph section);
+    R process(SubParagraph section);
     R process(Card card);
     R process(BoldItem card);
     R process(ItalicItem card);

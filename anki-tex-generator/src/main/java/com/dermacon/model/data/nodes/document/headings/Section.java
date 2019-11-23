@@ -47,6 +47,10 @@ public class Section implements DocNode {
         return children;
     }
 
+    public void addNode(DocNode node) {
+        this.children.add(node);
+    }
+
     @Override
     public <E> E accept(FormatVisitor<E> visitor) {
         return visitor.process(this);

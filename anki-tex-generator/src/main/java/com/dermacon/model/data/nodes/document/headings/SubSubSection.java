@@ -1,5 +1,6 @@
 package com.dermacon.model.data.nodes.document.headings;
 
+import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.visitor.FormatVisitor;
 
 /**
@@ -11,6 +12,10 @@ import com.dermacon.model.data.visitor.FormatVisitor;
  * - subparagraph
  */
 public class SubSubSection extends SubSection {
+
+    public SubSubSection(String value, DocNode... children) {
+        super(value, children);
+    }
 
     @Override
     public <E> E accept(FormatVisitor<E> visitor) {

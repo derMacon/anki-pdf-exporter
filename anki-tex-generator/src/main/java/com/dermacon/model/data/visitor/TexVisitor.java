@@ -2,7 +2,10 @@ package com.dermacon.model.data.visitor;
 
 import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.nodes.document.Card;
-import com.dermacon.model.data.nodes.document.SubSection;
+import com.dermacon.model.data.nodes.document.headings.Paragraph;
+import com.dermacon.model.data.nodes.document.headings.SubParagraph;
+import com.dermacon.model.data.nodes.document.headings.SubSection;
+import com.dermacon.model.data.nodes.document.headings.SubSubSection;
 import com.dermacon.model.data.nodes.sideElem.BoldItem;
 import com.dermacon.model.data.nodes.sideElem.ImageItem;
 import com.dermacon.model.data.nodes.sideElem.ItalicItem;
@@ -137,6 +140,21 @@ public class TexVisitor implements FormatVisitor<String> {
         return String.format(SECTION_TEMPLATE,
                 section.getValue(),
                 iterateChildren(section.getChildren()));
+    }
+
+    @Override
+    public String process(SubSubSection section) {
+        return null;
+    }
+
+    @Override
+    public String process(Paragraph section) {
+        return null;
+    }
+
+    @Override
+    public String process(SubParagraph section) {
+        return null;
     }
 
     @Override

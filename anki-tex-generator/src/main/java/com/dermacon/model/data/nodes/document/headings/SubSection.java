@@ -16,6 +16,10 @@ import java.util.List;
  */
 public class SubSection extends Section {
 
+    public SubSection(String value, DocNode... children) {
+        super(value, children);
+    }
+
     @Override
     public <E> E accept(FormatVisitor<E> visitor) {
         return visitor.process(this);
