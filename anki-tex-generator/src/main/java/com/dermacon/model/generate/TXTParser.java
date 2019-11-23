@@ -109,13 +109,11 @@ public class TXTParser implements Parser {
 
 
     private static Section createSection(List<String> tags, DocNode node) {
-        if (tags.size() == 1) {
-            return new Section(tags.get(0), node);
-        }
-
         // only 5 possible types of headings
         String tag;
         switch (tags.size()) {
+            case 1:
+                return new Section(tags.get(0), node);
             case 2:
                 tag = removeLastElem(tags);
                 return new SubSection(tag, createSection(tags, node));
