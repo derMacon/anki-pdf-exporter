@@ -67,7 +67,7 @@ public class TexVisitor implements FormatVisitor<String> {
             + "\\begin{tcolorbox}"
             + "[colback=white!10!white,colframe=lightgray!75!black,\n"
             + "  savelowerto=\\jobname_ex.tex,breakable,enhanced,"
-            + "lines before break=10]\n"
+            + "lines before break=40]\n"
 //            + "height fixed for=first and middle]\n"
 //            "segmentation at break=false]\n"
             + "\n"
