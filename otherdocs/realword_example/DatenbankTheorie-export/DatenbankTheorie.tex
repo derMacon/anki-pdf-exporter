@@ -8,6 +8,13 @@
 \usepackage[space]{grffile}
 \usepackage[utf8]{inputenc}
 
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\rightmark}
+\chead{\thepart}
+\lhead{\nouppercase{\leftmark}}
+\cfoot{\thepage}
 \graphicspath{{"/home/silasUser/.local/share/Anki2/User 1/collection.media/"}}
 
 \title{todo extract deck name}
@@ -26,7 +33,7 @@
 \section{Generelles}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie die Motivation hinter der Datenbanktheorie. Gehen Sie insbesondere auf die 
@@ -45,7 +52,7 @@
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie das 
@@ -62,7 +69,7 @@
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Wie werden Daten auf einer Magnetplatte 
@@ -79,7 +86,7 @@
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Wägen Sie ab warum es sinnvoll sein kann bei der Speicherung von Daten auf einer Magnetplatte auf größere Datenblöcke zu setzen. 
@@ -95,7 +102,7 @@ Bei zu großen Datenblöcken kann es vorkommen, dass eine kleines Datum (z.B. ei
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie grob wie ein Raid-System funktioniert. Was versteht man unter dem sog. 
@@ -114,7 +121,7 @@ Bei zu großen Datenblöcken kann es vorkommen, dass eine kleines Datum (z.B. ei
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie was man unter einem 
@@ -132,7 +139,7 @@ Bei zu großen Datenblöcken kann es vorkommen, dass eine kleines Datum (z.B. ei
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  
@@ -150,7 +157,7 @@ Bei zu großen Datenblöcken kann es vorkommen, dass eine kleines Datum (z.B. ei
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Warum erhöht ein Raid 4 die Ausfallsicherheit, ersetzt aber kein Backup? 
@@ -165,7 +172,7 @@ Manuelles Löschen führt weiterhin zum Datenverlust.
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Weswegen wird in der Datenbanktheorie eine möglichst effiziente Pufferverwaltung angestrebt? Beschreiben Sie grob wie so eine aussehen könnte. 
@@ -180,7 +187,7 @@ Manuelles Löschen führt weiterhin zum Datenverlust.
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Was versteht man unter dem 
@@ -198,7 +205,7 @@ Zuordnung von Speicheradressen auf Scheiben, Spuren und Sektoren.
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Beschreiben Sie generell den Begriff der Speicherverwaltung. 
@@ -213,7 +220,7 @@ Zuordnung von Speicheradressen auf Scheiben, Spuren und Sektoren.
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Beschreiben Sie grob den Begriff der Speicherzuordnung. Mit welchem Hilfsmittel ist es hierbei möglich die Datenblöcke zu lokalisieren? Müssen die Datenblöcke stets die gleich Länge aufweisen? 
@@ -228,7 +235,7 @@ Zuordnung von Speicheradressen auf Scheiben, Spuren und Sektoren.
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Was sind die Ziele der 
@@ -245,7 +252,7 @@ Zuordnung von Speicheradressen auf Scheiben, Spuren und Sektoren.
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Wo werden die Pufferdaten zwischengelagert? 
@@ -263,7 +270,7 @@ In sog.
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Beschreiben Sie anhand der Datenbanken vom Hersteller 
@@ -287,7 +294,7 @@ Da eine Datenbank i.d.R. ein eigenes Filesystem anlegt ist es komplett losgelös
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Was ermöglicht das Konzept eines 
@@ -304,7 +311,7 @@ Da eine Datenbank i.d.R. ein eigenes Filesystem anlegt ist es komplett losgelös
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Beschreiben Sie das Prinzip der 
@@ -321,7 +328,7 @@ Da eine Datenbank i.d.R. ein eigenes Filesystem anlegt ist es komplett losgelös
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Beschreiben Sie das Prinzip der 
@@ -338,7 +345,7 @@ Da eine Datenbank i.d.R. ein eigenes Filesystem anlegt ist es komplett losgelös
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Beschreiben Sie das Prinzip der 
@@ -357,7 +364,7 @@ WAL-Prinzip: Man schreibt einen Log über die Dinge die als nächstes getan werd
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=10]
 
 \begin{center}
  Beschreiben Sie den Begriff der
@@ -378,7 +385,7 @@ WAL-Prinzip: Man schreibt einen Log über die Dinge die als nächstes getan werd
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie das Konzept des 
@@ -396,7 +403,7 @@ WAL-Prinzip: Man schreibt einen Log über die Dinge die als nächstes getan werd
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie wie die Verwaltung des Puffers funktioniert? Gehen Sie insbesondere auf die Funktion des Pufferrahmens sowie des Pufferkontrollblocks ein. 
@@ -411,7 +418,7 @@ WAL-Prinzip: Man schreibt einen Log über die Dinge die als nächstes getan werd
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Welche Kontroll- und Zuteilungsaufgaben besitzt die Speicherverwaltung einer Datenbank? 
@@ -426,7 +433,7 @@ WAL-Prinzip: Man schreibt einen Log über die Dinge die als nächstes getan werd
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Gehen Sie auf die verschieden Szenarien ein welche beim Arbeiten mit einem Puffer auftreten können. 
@@ -441,7 +448,7 @@ WAL-Prinzip: Man schreibt einen Log über die Dinge die als nächstes getan werd
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Geben Sie eine grobe Übersicht über die verschiedenen Suchstrategien der Pufferverwaltung. 
@@ -456,7 +463,7 @@ WAL-Prinzip: Man schreibt einen Log über die Dinge die als nächstes getan werd
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie nun noch kurz, wozu bei einem Router (oder einer Arbeitsstation) eine Wegwahl- bzw. Routingtabelle eigentlich dient. Was ist das bzw. was wird hier prinzipielle gespeichert? 
@@ -473,7 +480,7 @@ Routingtabellen werden von den Routing-Protokollen für die Pfadermittlung erste
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Was versteht man unter einem 
@@ -491,7 +498,7 @@ Routingtabellen werden von den Routing-Protokollen für die Pfadermittlung erste
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Geben Sie eine kurze Aufschlüsselung über die möglichen Suchstrategien bei der 
@@ -507,7 +514,7 @@ Routingtabellen werden von den Routing-Protokollen für die Pfadermittlung erste
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie die 
@@ -524,7 +531,7 @@ Routingtabellen werden von den Routing-Protokollen für die Pfadermittlung erste
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie wie eine indirekten Suche mittels einer Hashfunktion funktioniert. Gehen Sie hierbei insbesondere auf eine sog. Überlaufkette ein. 
@@ -540,7 +547,7 @@ Routingtabellen werden von den Routing-Protokollen für die Pfadermittlung erste
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Wie funktioniert die Suche nach den im Puffer über eine 
@@ -558,7 +565,7 @@ Routingtabellen werden von den Routing-Protokollen für die Pfadermittlung erste
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Wie funktioniert die indirekte Suche nach einer Seite im Pufferrahmen mittels einer 
@@ -575,7 +582,7 @@ Routingtabellen werden von den Routing-Protokollen für die Pfadermittlung erste
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Wie funktioniert die indirekte Suche nach einer Seite im Pufferrahmen mittels einer
@@ -592,7 +599,7 @@ Routingtabellen werden von den Routing-Protokollen für die Pfadermittlung erste
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Wie funktioniert die indirekte Suche nach einer Seite im Pufferrahmen mittels einer
@@ -613,7 +620,7 @@ Wenn ein neues Element eigefügt / gelöscht wird muss man nicht die komplette R
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Welche wesentlichen Aufrufe einer Datenbank muss eine Pufferverwaltung bewerkstelligen können? 
@@ -628,7 +635,7 @@ Wenn ein neues Element eigefügt / gelöscht wird muss man nicht die komplette R
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Welches Problem wird mit der Speicherzuteilung im Puffer gelöst. Welche Strategie wird hierbei mit welchen Eigenschaften verwendet? 
@@ -643,7 +650,7 @@ Wenn ein neues Element eigefügt / gelöscht wird muss man nicht die komplette R
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Geben Sie eine grobe Klassifikation der 
@@ -660,7 +667,7 @@ Wenn ein neues Element eigefügt / gelöscht wird muss man nicht die komplette R
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Was versteht man unter einer 
@@ -677,7 +684,7 @@ Wenn ein neues Element eigefügt / gelöscht wird muss man nicht die komplette R
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Grenzen Sie das 
@@ -697,7 +704,7 @@ Wenn ein neues Element eigefügt / gelöscht wird muss man nicht die komplette R
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie das 
@@ -714,7 +721,7 @@ Wenn ein neues Element eigefügt / gelöscht wird muss man nicht die komplette R
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie das
@@ -731,7 +738,7 @@ Wenn ein neues Element eigefügt / gelöscht wird muss man nicht die komplette R
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie das 
@@ -748,7 +755,7 @@ Wenn ein neues Element eigefügt / gelöscht wird muss man nicht die komplette R
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Wie lässt sich ein Dropdown Text mit HTML implementieren, beschreiben Sie die Syntax am folgenden Beispiel:
@@ -765,7 +772,7 @@ Wenn ein neues Element eigefügt / gelöscht wird muss man nicht die komplette R
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie die 
@@ -782,7 +789,7 @@ Wenn ein neues Element eigefügt / gelöscht wird muss man nicht die komplette R
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  
@@ -799,7 +806,7 @@ Wenn ein neues Element eigefügt / gelöscht wird muss man nicht die komplette R
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Was versteht man unter einem 
@@ -817,7 +824,7 @@ Ein Seitenfehler (engl. page fault) tritt bei Betriebssystemen mit Virtueller Sp
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie den 
@@ -834,7 +841,7 @@ Ein Seitenfehler (engl. page fault) tritt bei Betriebssystemen mit Virtueller Sp
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex]
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=50]
 
 \begin{center}
  Erläutern Sie was man unter einem 

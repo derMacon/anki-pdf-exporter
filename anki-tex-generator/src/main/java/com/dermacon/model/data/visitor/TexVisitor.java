@@ -34,6 +34,14 @@ public class TexVisitor implements FormatVisitor<String> {
             + "\\usepackage[space]{grffile}\n"
             + "\\usepackage[utf8]{inputenc}\n"
             + "\n"
+            + "\\usepackage{fancyhdr}\n"
+            + "\\pagestyle{fancy}\n"
+            + "\\fancyhf{}\n"
+            + "\\rhead{\\rightmark}\n"
+            + "\\chead{\\thepart}\n"
+            + "\\lhead{\\nouppercase{\\leftmark}}\n"
+            + "\\cfoot{\\thepage}"
+            + "\n"
             + "\\graphicspath{{\"%s\"}}\n"
             + "\n"
             + "%s\n"
@@ -52,10 +60,16 @@ public class TexVisitor implements FormatVisitor<String> {
                     + "\\end{document}\n";
 
     private static final String CARD_DELIMITER = "%%---------------------\n";
+
+    // resource: http://texdoc.net/texmf-dist/doc/latex/tcolorbox/tcolorbox.pdf
+    // page: 366
     private static final String CARD_TEMPLATE = CARD_DELIMITER
             + "\\begin{tcolorbox}"
             + "[colback=white!10!white,colframe=lightgray!75!black,\n"
-            + "  savelowerto=\\jobname_ex.tex]\n"
+            + "  savelowerto=\\jobname_ex.tex,breakable,enhanced,"
+            + "lines before break=10]\n"
+//            + "height fixed for=first and middle]\n"
+//            "segmentation at break=false]\n"
             + "\n"
             + "\\begin{center}\n"
             + "%s\n"

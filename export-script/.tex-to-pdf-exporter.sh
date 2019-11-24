@@ -1,9 +1,11 @@
 #!/bin/bash
 
-echo hier
-echo $(pwd)
+# echo $(pwd)
 
 # generate pdf from tex file
+pdflatex "$1"
+
+# generate it again for table of contents
 pdflatex "$1"
 
 # remove extension

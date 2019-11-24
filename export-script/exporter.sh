@@ -18,30 +18,30 @@ echo "  " ${MEDIA_DIR}
 # Checks if there is only one arg and if the help is desired or not
 if [ "$#" -ne 1 ] || [ "X$1" = "X-h" ] || [ "X$1" = "X--help" ]
 then
-		func_usage
+	func_usage
 else
-		# generate the fully qualified input path
-		FQ_INPUT="$(realpath $1)"
+	# generate the fully qualified input path
+	FQ_INPUT="$(realpath $1)"
 
-		# remove extension, but keep fully qualified input path
-		FQ_FILE=$(basename ${FQ_INPUT} .txt)
+	# remove extension, but keep fully qualified input path
+	FQ_FILE=$(basename ${FQ_INPUT} .txt)
 
-		# generate output directory
-		OUTPUT_DIR="${FQ_FILE}-export/"
+	# generate output directory
+	OUTPUT_DIR="${FQ_FILE}-export/"
 
-		# get the script directory
-		SCRIPT_DIR="$(realpath $(dirname $0))"
+	# get the script directory
+	SCRIPT_DIR="$(realpath $(dirname $0))"
 
-		# delete last generated output
-		#rm -rf ${OUTPUT_DIR}
+	# delete last generated output
+	#rm -rf ${OUTPUT_DIR}
 
-		# generate tex file
-		java -jar ${SCRIPT_DIR}/.txt-to-tex-exporter.jar ${FQ_INPUT} ${OUTPUT_DIR} "${MEDIA_DIR}"
+	# generate tex file
+	java -jar ${SCRIPT_DIR}/.txt-to-tex-exporter.jar ${FQ_INPUT} ${OUTPUT_DIR} "${MEDIA_DIR}"
 
-		cd ${OUTPUT_DIR}
-		echo dir:  ${SCRIPT_DIR}
-		bash ${SCRIPT_DIR}/.tex-to-pdf-exporter.sh $FQ_FILE.tex
+	cd ${OUTPUT_DIR}
+	# echo dir:  ${SCRIPT_DIR}
+	bash ${SCRIPT_DIR}/.tex-to-pdf-exporter.sh $FQ_FILE.tex
 
-		#>/dev/null 
+	#>/dev/null 
 fi
 
