@@ -33,6 +33,7 @@ public class TexVisitor implements FormatVisitor<String> {
             + "\\usepackage{ragged2e}\n"
             + "\\usepackage[space]{grffile}\n"
             + "\\usepackage[utf8]{inputenc}\n"
+            + "\\usepackage[export]{adjustbox}\n" // https://tex.stackexchange.com/questions/86350/includegraphics-maximum-width
             + "\n"
             + "\\usepackage{fancyhdr}\n"
             + "\\pagestyle{fancy}\n"
@@ -112,7 +113,10 @@ public class TexVisitor implements FormatVisitor<String> {
     private static final String LST_ITEM_TEMPLATE = "\\item %s";
 
     private static final String IMG_TEMPLATE =
-            "\\includegraphics[width=.9\\textwidth]{%s}\n";
+//            "\\begin{figure}\n"
+//                    + "\\centering"
+                    "\\includegraphics[max width=.9\\textwidth]{%s}\n";
+//                    + "\\end{figure}";
 
     @Override
     public String process(Document doc) {
