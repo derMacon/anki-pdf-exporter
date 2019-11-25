@@ -53,7 +53,7 @@ public class TexVisitor implements FormatVisitor<String> {
     private static final String BODY_TEMPLATE =
             "\\begin{document}\n"
                     + "\\maketitle\n"
-                    + "\\clearpage\n"
+                    + "\\vspace{0.5cm}\n"
                     + "\\tableofcontents\n"
                     + "\\clearpage\n"
                     + "\n"
@@ -113,10 +113,9 @@ public class TexVisitor implements FormatVisitor<String> {
     private static final String LST_ITEM_TEMPLATE = "\\item %s";
 
     private static final String IMG_TEMPLATE =
-//            "\\begin{figure}\n"
-//                    + "\\centering"
-                    "\\includegraphics[max width=.9\\textwidth]{%s}\n";
-//                    + "\\end{figure}";
+            "\\begin{center}\n"
+                    + "\\includegraphics[max width=.9\\textwidth]{%s}\n"
+                    + "\\end{center}\n";
 
     @Override
     public String process(Document doc) {
@@ -154,24 +153,30 @@ public class TexVisitor implements FormatVisitor<String> {
 
     @Override
     public String process(SubSection section) {
-        return String.format(SECTION_TEMPLATE,
+        return String.format(SUBSECTION_TEMPLATE,
                 section.getValue(),
                 iterateChildren(section.getChildren()));
     }
 
     @Override
     public String process(SubSubSection section) {
-        return null;
+        return String.format(SUBSUBSECTION_TEMPLATE,
+                section.getValue(),
+                iterateChildren(section.getChildren()));
     }
 
     @Override
     public String process(Paragraph section) {
-        return null;
+        return String.format(PARAGRAPH_TEMPLATE,
+                section.getValue(),
+                iterateChildren(section.getChildren()));
     }
 
     @Override
     public String process(SubParagraph section) {
-        return null;
+        return String.format(SUBPARAGRAPH_TEMPLATE,
+                section.getValue(),
+                iterateChildren(section.getChildren()));
     }
 
     @Override

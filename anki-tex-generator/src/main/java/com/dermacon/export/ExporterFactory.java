@@ -4,6 +4,7 @@ import com.dermacon.fileIO.IncompleteExportInfo;
 import com.dermacon.fileIO.WrongInputTypeException;
 import com.dermacon.model.generate.Parser;
 import com.dermacon.model.generate.TXTParser;
+import org.apache.commons.io.FilenameUtils;
 
 public class ExporterFactory {
 
@@ -12,8 +13,7 @@ public class ExporterFactory {
         String inputPath = args[0];
         String outputPath = args[1];
         String imgPath = args[2];
-        System.out.println("imgpath: " + imgPath);
-        String deckname = "todo extract deck name";
+        String deckname = FilenameUtils.getBaseName(inputPath);
         Parser parser = new TXTParser(imgPath, deckname);
 
         return new FileExporter.ExporterBuilder()

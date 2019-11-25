@@ -14,8 +14,8 @@ public class App {
             System.out.println("Anki-Pdf-Parser v1.0");
             ExporterFactory.create(args).export();
         } catch (IncompleteExportInfo
-                | WrongInputTypeException
-                | WrongFilePathException e) {
+                | WrongFilePathException
+                | WrongInputTypeException e) {
             System.err.println(e.getMessage());
         } catch (IOException e) {
             System.err.println(e.getMessage());

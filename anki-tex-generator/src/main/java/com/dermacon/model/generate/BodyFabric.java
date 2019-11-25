@@ -8,6 +8,7 @@ import com.dermacon.model.data.nodes.document.headings.Paragraph;
 import com.dermacon.model.data.nodes.document.headings.Section;
 import com.dermacon.model.data.nodes.document.headings.SubSection;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -25,24 +26,121 @@ public class BodyFabric {
         assert ast.getChildren().stream().allMatch(e -> e instanceof Card);
         Body output = new Body();
 
-        Section newSection;
-        int idxSection;
-        for (DocNode node : ast.getChildren()) {
-            newSection = createSection((Card)node);
-            idxSection = output.getChildren().indexOf(newSection);
+        for (DocNode astCard : ast.getChildren()) {
+            Card card = (Card)astCard;
+            Section parentNode = findHeading(card.getTag(), output);
 
-            if (idxSection < 0) {
-                output.addNode(newSection);
+            if (parentNode == null) {
+                output.addNode(createSection(card));
             } else {
-                DocNode oldSection = output.getChildren().get(idxSection);
-                assert oldSection instanceof Section;
-                ((Section)oldSection).addNode(node);
+                parentNode.addNode(card);
             }
+
+//            newSection = createSection((Card) node);
+//            idxSection = output.getChildren().indexOf(newSection);
+//
+//            if (idxSection < 0) {
+//                output.addNode(newSection);
+//            } else {
+//                DocNode oldSection = output.getChildren().get(idxSection);
+//                assert oldSection instanceof Section;
+//                ((Section) oldSection).addNode(node);
+//            }
 
         }
 
         return output;
     }
+
+    static Section findHeading(List<String> tagHierarchy,
+                               DocNode treeNode) {
+        if (!((treeNode instanceof Section) || (treeNode instanceof Body))
+                || !headingsMatch(treeNode, tagHierarchy.get(0))) {
+            return null;
+        }
+
+        String inputHeading = tagHierarchy.remove(0);
+        Section treeNodeSec = ((Section) treeNode);
+        String nodeHeading = treeNodeSec.getValue();
+        if (tagHierarchy.size() == 0
+                && inputHeading.equals(nodeHeading)) {
+            return treeNodeSec;
+        }
+
+        Section out = null;
+        Iterator<? extends DocNode> it = treeNode.getChildren().iterator();
+        while (out == null && it.hasNext()) {
+            out = findHeading(deepCopy(tagHierarchy), it.next());
+        }
+        return out;
+    }
+
+    // todo rewrite
+    private static boolean headingsMatch(DocNode node, String heading) {
+        if (node == null || heading == null || !(node instanceof Section)) {
+            return false;
+        }
+        Section nodeSection = (Section) node;
+        return nodeSection.getValue().equals(heading);
+    }
+
+    private static List<String> deepCopy(List<String> in) {
+        List<String> out = new LinkedList<>();
+        for (String s : in) {
+            out.add(s);
+        }
+        return out;
+    }
+
+//    private static boolean appendBody(Card inputCard, DocNode treeNode) {
+//        if (inputCard.getTag().isEmpty()) {
+//            treeNode.getChildren().add(inputCard);
+//            return true;
+//        }
+//        String toplevelHeading = inputCard.getTag().remove(0);
+//        if (toplevelHeading == null
+//                || !(treeNode instanceof Section)
+//                || !toplevelHeading.equals(((Section) treeNode).getValue())
+//
+//        ) {
+//            return false;
+//        }
+//
+//        List<? extends DocNode> children = treeNode.getChildren();
+//        int i = 0;
+//        boolean nodeHasBeenPlaced = false;
+//        while (i < children.size() && !nodeHasBeenPlaced) {
+//            nodeHasBeenPlaced = appendBody(inputCard, children.get(i));
+//            i++;
+//        }
+//
+//    }
+
+    private static boolean isParent(Section inputSection, Body body) {
+        List<DocNode> sections = body.getChildren();
+        for (DocNode treeSection : sections) {
+
+        }
+        return false;
+    }
+
+    private static DocNode findParent(Section section, DocNode node) {
+        DocNode parentSection = null;
+
+        if (node instanceof Section) {
+            Section treeSection = (Section) node;
+            // section title conform
+            if (section.getValue().equals(treeSection.getValue())) {
+                parentSection = treeSection;
+                // check children
+                for (DocNode subNode : treeSection.getChildren()) {
+//                    DocNode temp = findParent()
+                }
+            }
+        }
+        return parentSection;
+    }
+
 
     private static Section createSection(Card card) {
         List<String> tags = cp(card.getTag().get(0).split("::"));

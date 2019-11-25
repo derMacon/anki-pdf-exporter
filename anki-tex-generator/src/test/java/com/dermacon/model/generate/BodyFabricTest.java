@@ -165,6 +165,81 @@ public class BodyFabricTest {
     }
 
     @Test
+    public void testCreateDocBody_sectionContainsOtherSection() {
+        Card card1 = createCard(
+                "fstTag",
+                createCon(
+                        new PlainText("front1")
+                ),
+                createCon(
+                        new PlainText("back1")
+                )
+        );
+
+        Card card2 = createCard(
+                "fstTag::sndTag",
+                createCon(
+                        new PlainText("front2")
+                ),
+                createCon(
+                        new PlainText("back2")
+                )
+        );
+    }
+
+    @Test
+    public void testCreateDocBody_sameParent() {
+        Card card1 = createCard(
+                "fstTag",
+                createCon(
+                        new PlainText("front1")
+                ),
+                createCon(
+                        new PlainText("back1")
+                )
+        );
+
+        Card card2 = createCard(
+                "fstTag::sndTag",
+                createCon(
+                        new PlainText("front2")
+                ),
+                createCon(
+                        new PlainText("back2")
+                )
+        );
+
+        Card card3 = createCard(
+                "fstTag::thrdTag",
+                createCon(
+                        new PlainText("front3")
+                ),
+                createCon(
+                        new PlainText("back3")
+                )
+        );
+
+        Card card4 = createCard(
+                "fstTag::thrdTag",
+                createCon(
+                        new PlainText("front4")
+                ),
+                createCon(
+                        new PlainText("back4")
+                )
+        );
+
+        ASTStack ast = createStack(card1, card2, card3, card4);
+        Body expOutput = new Body(new Section("fstTag", card1,
+                new SubSection("sndTag", card2),
+                new SubSection("sndTag", card3, card4)
+        ));
+
+        Body actOutput = BodyFabric.createDocBody(ast);
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
     public void testCreateDocBody_twoCardsNotSameTag() {
         Card card1 = createCard(
                 "fstTag::sndTag::thrdTag::frthTag::ffthTag::sxtag",
@@ -199,6 +274,35 @@ public class BodyFabricTest {
 
         Body actOutput = BodyFabric.createDocBody(ast);
         Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
+    public void testHeadingExists_true() {
+        List<String> hierarchy = new LinkedList<>();
+        hierarchy.add("fst");
+        Section sec = new Section("fst", new PlainText("hi"));
+        assertEquals(sec, BodyFabric.findHeading(hierarchy, sec));
+    }
+
+    @Test
+    public void testHeadingExists_isChild1() {
+        List<String> hierarchy = new LinkedList<>();
+        hierarchy.add("fst");
+        hierarchy.add("snd");
+        Section sec = new Section("fst", new PlainText("hi"));
+        assertNull(BodyFabric.findHeading(hierarchy, sec));
+    }
+
+    @Test
+    public void testHeadingExists_isChild2() {
+        List<String> hierarchy = new LinkedList<>();
+        hierarchy.add("fst");
+        hierarchy.add("snd");
+        SubSection subSec = new SubSection("snd", new PlainText("hi"));
+        Section sec = new Section("fst",
+                subSec
+        );
+        assertEquals(subSec, BodyFabric.findHeading(hierarchy, sec));
     }
 
 }

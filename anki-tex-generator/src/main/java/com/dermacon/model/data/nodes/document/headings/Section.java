@@ -4,6 +4,7 @@ import com.dermacon.model.data.visitor.FormatVisitor;
 import com.dermacon.model.data.nodes.DocNode;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -80,15 +81,47 @@ public class Section implements DocNode {
         return out;
     }
 
+
+//    /**
+//     * Only check if sub sections match, all other classes irrelevant
+//     * @param o
+//     * @return
+//     */
+//    public boolean headingsMatch(Object o) {
+//        if (!(o instanceof Section)) {
+//            return false;
+//        }
+//
+//        Section other = (Section) o;
+//        boolean matchingSubHeadings = true;
+//        int i = 0;
+//        Iterator<DocNode> it = other.children.iterator();
+//        while(matchingSubHeadings && it.hasNext()) {
+//            matchingSubHeadings = headingsMatch(it.next());
+//            i++;
+//        }
+//
+//        return other != null
+//                && this.value.equals(other.value)
+//                && this.children.equals(other.children);
+//
+//    }
+
     @Override
     public boolean equals(Object o) {
         Section other = null;
         if (o instanceof Section) {
             other = (Section) o;
         }
-        // only cares for the section heading, not for its content
+
+        // only check if sub sections match, all other classes irrelevant
+
+
+
+
         return other != null
-                && this.value.equals(other.value);
+                && this.value.equals(other.value)
+                && this.children.equals(other.children);
     }
 
 }
