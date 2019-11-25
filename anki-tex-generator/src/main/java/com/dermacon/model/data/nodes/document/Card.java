@@ -13,7 +13,7 @@ public class Card implements DocNode {
 
     private final SideContainer front;
     private final SideContainer back;
-    private final List<String> tag;
+    private final List<List<String>> tag;
 
     public Card(SideContainer front, SideContainer back) {
         this(front, back, "");
@@ -24,7 +24,11 @@ public class Card implements DocNode {
         this.back = back;
         this.tag = new LinkedList<>();
         for (String tag : tags.split(" ")) {
-            this.tag.add(tag);
+            List<String> hierarchy = new LinkedList<>();
+            for (String subTag : tag.split("::")) {
+                hierarchy.add(subTag);
+            }
+            this.tag.add(hierarchy);
         }
     }
 
@@ -36,7 +40,7 @@ public class Card implements DocNode {
         return back;
     }
 
-    public List<String> getTag() {
+    public List<List<String>> getTag() {
         return tag;
     }
 

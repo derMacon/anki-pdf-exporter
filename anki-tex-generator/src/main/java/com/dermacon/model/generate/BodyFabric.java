@@ -27,8 +27,8 @@ public class BodyFabric {
         Body output = new Body();
 
         for (DocNode astCard : ast.getChildren()) {
-            Card card = (Card)astCard;
-            Section parentNode = findHeading(card.getTag(), output);
+            Card card = (Card) astCard;
+            Section parentNode = findHeading(card.getTag().get(0), output);
 
             if (parentNode == null) {
                 output.addNode(createSection(card));
@@ -77,7 +77,12 @@ public class BodyFabric {
 
     // todo rewrite
     private static boolean headingsMatch(DocNode node, String heading) {
-        if (node == null || heading == null || !(node instanceof Section)) {
+        if (node != null && node instanceof Body) {
+            return true;
+        }
+
+        if (node == null || heading == null
+                || !(node instanceof Section)) {
             return false;
         }
         Section nodeSection = (Section) node;
@@ -143,13 +148,13 @@ public class BodyFabric {
 
 
     private static Section createSection(Card card) {
-        List<String> tags = cp(card.getTag().get(0).split("::"));
+        List<String> tags = cp(card.getTag().get(0));
         return createSection(tags, card);
     }
 
     // needed in txt parser, when using Arrays.asList(...)
     // removeLastElem won't work
-    private static <E> List<E> cp(E... arr) {
+    private static <E> List<E> cp(List<E> arr) {
         List<E> out = new LinkedList<>();
         for (E e : arr) {
             out.add(e);
