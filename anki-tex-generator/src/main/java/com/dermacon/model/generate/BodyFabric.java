@@ -59,12 +59,14 @@ public class BodyFabric {
             return null;
         }
 
-        String inputHeading = tagHierarchy.remove(0);
-        Section treeNodeSec = ((Section) treeNode);
-        String nodeHeading = treeNodeSec.getValue();
-        if (tagHierarchy.size() == 0
-                && inputHeading.equals(nodeHeading)) {
-            return treeNodeSec;
+        if (!(treeNode instanceof Body)) {
+            String inputHeading = tagHierarchy.remove(0);
+            Section treeNodeSec = ((Section) treeNode);
+            String nodeHeading = treeNodeSec.getValue();
+            if (tagHierarchy.size() == 0
+                    && inputHeading.equals(nodeHeading)) {
+                return treeNodeSec;
+            }
         }
 
         Section out = null;
