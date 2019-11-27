@@ -1,11 +1,15 @@
 package com.dermacon.model.data.nodes.document;
 
+import com.dermacon.model.data.nodes.document.headings.Section;
 import com.dermacon.model.data.visitor.FormatVisitor;
 import com.dermacon.model.data.nodes.DocNode;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Body implements DocNode {
 
@@ -51,5 +55,4 @@ public class Body implements DocNode {
         return other != null
                 && this.elements.equals(other.elements);
     }
-
 }

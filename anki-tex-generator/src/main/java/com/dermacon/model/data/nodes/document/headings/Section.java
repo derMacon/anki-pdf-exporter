@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Heading priority:
@@ -16,7 +17,7 @@ import java.util.List;
  * - paragraph
  * - subparagraph
  */
-public class Section implements DocNode {
+public class Section implements DocNode  {
 
     protected static final String DEFAULT_TITLE = "Generelles";
 
@@ -133,4 +134,28 @@ public class Section implements DocNode {
                 && this.children.equals(other.children);
     }
 
+    public Iterable<Section> headingIterator() {
+        return new Iterable<Section>() {
+            @Override
+            public Iterator<Section> iterator() {
+                return new Iterator<Section>() {
+                    private Iterator<Section> directSubSections =
+                            children.stream()
+                                    .filter(e -> e instanceof Section)
+                                    .map(e -> (Section)e)
+                                    .collect(Collectors.toList()).iterator();
+
+                    @Override
+                    public boolean hasNext() {
+                        return directSubSections.hasNext();
+                    }
+
+                    @Override
+                    public Section next() {
+                        return directSubSections.next();
+                    }
+                };
+            }
+        };
+    }
 }
