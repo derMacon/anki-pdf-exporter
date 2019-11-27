@@ -135,7 +135,7 @@ public class BodyFabricTest {
     }
 
     @Test
-    public void testCreateDocBody_twoCardsSameTag() {
+    public void testCreateDocBody_twoCardsSameTag1() {
         Card card1 = createCard(
                 "fstTag::sndTag",
                 createCon(
@@ -160,6 +160,34 @@ public class BodyFabricTest {
         Body expOutput = new Body(new Section("fstTag",
                 new SubSection("sndTag", card1, card2)));
 
+        Body actOutput = BodyFabric.createDocBody(ast);
+        Assert.assertEquals(expOutput, actOutput);
+    }
+
+    @Test
+    public void testCreateDocBody_twoCardsSameTag2() {
+        Card card1 = createCard(
+                "fstTag",
+                createCon(
+                        new PlainText("front1")
+                ),
+                createCon(
+                        new PlainText("back1")
+                )
+        );
+
+        Card card2 = createCard(
+                "fstTag",
+                createCon(
+                        new PlainText("front2")
+                ),
+                createCon(
+                        new PlainText("back2")
+                )
+        );
+
+        Body expOutput = new Body(new Section("fstTag", card1, card2));
+        ASTStack ast = createStack(card1, card2);
         Body actOutput = BodyFabric.createDocBody(ast);
         Assert.assertEquals(expOutput, actOutput);
     }
@@ -290,7 +318,7 @@ public class BodyFabricTest {
         hierarchy.add("fst");
         hierarchy.add("snd");
         Section sec = new Section("fst", new PlainText("hi"));
-        assertNull(BodyFabric.findHeading(hierarchy, sec));
+        assertEquals(sec, BodyFabric.findHeading(hierarchy, sec));
     }
 
     @Test

@@ -36,17 +36,6 @@ public class BodyFabric {
                 parentNode.addNode(card);
             }
 
-//            newSection = createSection((Card) node);
-//            idxSection = output.getChildren().indexOf(newSection);
-//
-//            if (idxSection < 0) {
-//                output.addNode(newSection);
-//            } else {
-//                DocNode oldSection = output.getChildren().get(idxSection);
-//                assert oldSection instanceof Section;
-//                ((Section) oldSection).addNode(node);
-//            }
-
         }
 
         return output;
@@ -54,31 +43,33 @@ public class BodyFabric {
 
     static Section findHeading(List<String> tagHierarchy,
                                DocNode treeNode) {
-        if (!((treeNode instanceof Section) || (treeNode instanceof Body))
-                || !headingsMatch(treeNode, tagHierarchy.get(0))) {
+        List<String> tagCopy = deepCopy(tagHierarchy);
+
+        if (tagCopy.isEmpty() || !headingMatches(treeNode, tagCopy.get(0))) {
             return null;
         }
 
-        if (!(treeNode instanceof Body)) {
-            String inputHeading = tagHierarchy.remove(0);
-            Section treeNodeSec = ((Section) treeNode);
-            String nodeHeading = treeNodeSec.getValue();
-            if (tagHierarchy.size() == 0
-                    && inputHeading.equals(nodeHeading)) {
-                return treeNodeSec;
-            }
+        Section out = null;
+        if (treeNode instanceof Section) {
+            out = (Section) treeNode;
+            tagCopy.remove(0);
         }
 
-        Section out = null;
-        Iterator<? extends DocNode> it = treeNode.getChildren().iterator();
-        while (out == null && it.hasNext()) {
-            out = findHeading(deepCopy(tagHierarchy), it.next());
+//        if (tagCopy.isEmpty() && treeNode instanceof Section) {
+//            return ((Section) treeNode);
+//        }
+
+        Iterator<? extends DocNode> childIterator = treeNode.getChildren().iterator();
+        Section childSectionMatch = null;
+        while (childSectionMatch == null && childIterator.hasNext()) {
+            childSectionMatch = findHeading(tagCopy, childIterator.next());
         }
-        return out;
+        // if anything was found return result
+        return childSectionMatch == null ? out : childSectionMatch;
     }
 
     // todo rewrite
-    private static boolean headingsMatch(DocNode node, String heading) {
+    private static boolean headingMatches(DocNode node, String heading) {
         if (node != null && node instanceof Body) {
             return true;
         }
