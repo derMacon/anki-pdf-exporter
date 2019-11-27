@@ -260,7 +260,7 @@ public class BodyFabricTest {
         ASTStack ast = createStack(card1, card2, card3, card4);
         Body expOutput = new Body(new Section("fstTag", card1,
                 new SubSection("sndTag", card2),
-                new SubSection("sndTag", card3, card4)
+                new SubSection("thrdTag", card3, card4)
         ));
 
         Body actOutput = BodyFabric.createDocBody(ast);
@@ -306,10 +306,9 @@ public class BodyFabricTest {
 
     @Test
     public void testHeadingExists_true() {
-        List<String> hierarchy = new LinkedList<>();
-        hierarchy.add("fst");
-        Section sec = new Section("fst", new PlainText("hi"));
-        assertEquals(sec, BodyFabric.findHeading(hierarchy, sec));
+        Section sec1 = new Section("fst", new PlainText("hello"));
+        Section sec2 = new Section("snd", new PlainText("world"));
+        Assert.assertFalse(BodyFabric.append(sec1, sec2));
     }
 
     @Test
@@ -317,8 +316,11 @@ public class BodyFabricTest {
         List<String> hierarchy = new LinkedList<>();
         hierarchy.add("fst");
         hierarchy.add("snd");
-        Section sec = new Section("fst", new PlainText("hi"));
-        assertEquals(sec, BodyFabric.findHeading(hierarchy, sec));
+        Section sec1 = new Section("fst",
+                new SubSection("snd", new PlainText("hello"))
+        );
+        Section sec2 = new Section("snd", new PlainText("world"));
+        Assert.assertFalse(BodyFabric.append(sec1, sec2));
     }
 
     @Test
@@ -330,7 +332,7 @@ public class BodyFabricTest {
         Section sec = new Section("fst",
                 subSec
         );
-        assertEquals(subSec, BodyFabric.findHeading(hierarchy, sec));
+//        assertEquals(subSec, BodyFabric.findHeading(hierarchy, sec));
     }
 
 }

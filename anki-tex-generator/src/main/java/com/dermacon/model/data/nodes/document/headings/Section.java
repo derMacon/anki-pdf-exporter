@@ -3,7 +3,6 @@ package com.dermacon.model.data.nodes.document.headings;
 import com.dermacon.model.data.visitor.FormatVisitor;
 import com.dermacon.model.data.nodes.DocNode;
 
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -17,7 +16,7 @@ import java.util.stream.Collectors;
  * - paragraph
  * - subparagraph
  */
-public class Section implements DocNode  {
+public class Section implements DocNode {
 
     protected static final String DEFAULT_TITLE = "Generelles";
 
@@ -30,6 +29,19 @@ public class Section implements DocNode  {
 
     public Section(String value, DocNode... children) {
         this(value, cp(children));
+    }
+
+
+    public Section deepCopy() {
+        return new Section(value, deepCopy(children));
+    }
+
+    public static <T> List<T> deepCopy(List<T> lst) {
+        List<T> out = new LinkedList<>();
+        for (T e : lst) {
+            out.add(e);
+        }
+        return out;
     }
 
     public Section(List<DocNode> children) {
@@ -83,12 +95,12 @@ public class Section implements DocNode  {
     }
 
     public Section getFstSubSection() {
-       for (DocNode curr : children) {
-           if (curr instanceof Section) {
-               return (Section) curr;
-           }
-       }
-       return null;
+        for (DocNode curr : children) {
+            if (curr instanceof Section) {
+                return (Section) curr;
+            }
+        }
+        return null;
     }
 
 
@@ -127,35 +139,27 @@ public class Section implements DocNode  {
         // only check if sub sections match, all other classes irrelevant
 
 
-
-
         return other != null
                 && this.value.equals(other.value)
                 && this.children.equals(other.children);
     }
 
-    public Iterable<Section> headingIterator() {
-        return new Iterable<Section>() {
-            @Override
-            public Iterator<Section> iterator() {
-                return new Iterator<Section>() {
-                    private Iterator<Section> directSubSections =
-                            children.stream()
-                                    .filter(e -> e instanceof Section)
-                                    .map(e -> (Section)e)
-                                    .collect(Collectors.toList()).iterator();
+    public Iterator<Section> headingIterator() {
+//        List<Section> lst = children.stream()
+//                .filter(e -> e instanceof Section)
+//                .map(e -> (Section) e)
+//                .collect(Collectors.toList());
+//
+//        for (Section sec : lst) {
+//
+//        }
 
-                    @Override
-                    public boolean hasNext() {
-                        return directSubSections.hasNext();
-                    }
+        return children.stream()
+                .filter(e -> e instanceof Section)
+                .map(e -> (Section) e)
+                .collect(Collectors.toList())
+                .iterator();
 
-                    @Override
-                    public Section next() {
-                        return directSubSections.next();
-                    }
-                };
-            }
-        };
+//        return null;
     }
 }

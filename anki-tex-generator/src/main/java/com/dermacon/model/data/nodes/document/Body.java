@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class Body implements DocNode {
@@ -31,6 +30,29 @@ public class Body implements DocNode {
     public void addNode(DocNode node) {
         this.elements.add(node);
     }
+
+    public Iterator<Section> headingIterator() {
+        return new Iterator<Section>() {
+            private Iterator<Section> directSubSections =
+                    elements.stream()
+                            .filter(e -> e instanceof Section)
+                            .map(e -> (Section)e)
+                            .collect(Collectors.toList()).iterator();
+
+            @Override
+            public boolean hasNext() {
+                return directSubSections.hasNext();
+            }
+
+            @Override
+            public Section next() {
+                return directSubSections.next();
+            }
+        };
+    }
+
+
+
 
     @Override
     public <E> E accept(FormatVisitor<E> visitor) {

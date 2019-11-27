@@ -26,90 +26,115 @@ public class BodyFabric {
         assert ast.getChildren().stream().allMatch(e -> e instanceof Card);
         Body output = new Body();
 
-        // todo section iterator
-        for (DocNode astCard : ast.getChildren()) {
-            Card card = (Card) astCard;
-            for (DocNode elem : output.getChildren()) {
-                if (elem instanceof Section) {
-                    appendSection((Section)elem, createSection(card));
-                }
-            }
-//            appendSection(output, card);
-        }
+        ast.getChildren().stream()
+                .filter(e -> e instanceof Card)
+                .map(e -> (Card) e)
+                .forEach(c -> appendBody(output, c));
 
         return output;
     }
 
-    static Section appendSection(Section treeSection, Section sec) {
-        Section match = null;
-        if (treeSection.equals(sec)) {
-            Iterator<? extends DocNode> childIterator = treeSection.getChildren().iterator();
-            DocNode curr;
-            while (match == null && childIterator.hasNext()) {
-                curr = childIterator.next();
-                if (headingMatches(curr, sec.getValue())) {
-                   match = (Section)curr;
-                }
-            }
 
-            if (match == null) {
-                treeSection.addNode(sec);
-            } else {
-                appendSection(match, sec.getFstSubSection());
-            }
-        }
-        return match;
-    }
-
-//    private static void append
-
-//    static void appendCard(Body body, Card card) {
-//        Section parentNode = findHeading(card.getTag().get(0), body);
+//    static Section appendSection(Section treeSection, Section sec) {
+//        Section match = null;
+//        if (treeSection.equals(sec)) {
+//            Iterator<? extends DocNode> childIterator = treeSection.getChildren().iterator();
+//            DocNode curr;
+//            while (match == null && childIterator.hasNext()) {
+//                curr = childIterator.next();
+//                if (headingMatches(curr, sec.getValue())) {
+//                    match = (Section) curr;
+//                }
+//            }
 //
-//        if (parentNode == null) {
-//            body.addNode(createSection(card));
-//        } else {
-//            parentNode.addNode(card);
+//            if (match == null) {
+//                treeSection.addNode(sec);
+//            } else {
+//                appendSection(match, sec.getFstSubSection());
+//            }
 //        }
+//        return match;
 //    }
 
-    static Section findHeading(List<String> tagHierarchy,
-                               DocNode treeNode) {
-        List<String> tagCopy = deepCopy(tagHierarchy);
 
-        if (tagCopy.isEmpty() || !headingMatches(treeNode, tagCopy.get(0))) {
-            return null;
+    static void appendBody(Body body, Card card) {
+        Section appendingSection = createSection(card);
+
+        Iterator<Section> it = body.headingIterator();
+
+        boolean foundMatch = false;
+
+        while (!foundMatch && it.hasNext()) {
+            foundMatch = append(appendingSection, it.next());
         }
 
-        Section out = null;
-        if (treeNode instanceof Section) {
-            out = (Section) treeNode;
-            tagCopy.remove(0);
+        if (!foundMatch) {
+            body.addNode(appendingSection);
+        }
+    }
+
+    /**
+     * -
+     *
+     * @param appendingSection
+     * @param treeNodeSection
+     * @return
+     */
+    static boolean append(Section appendingSection,
+                          Section treeNodeSection) {
+        if (appendingSection == null
+                || !headingMatches(treeNodeSection, appendingSection)) {
+            return false;
         }
 
-        Iterator<? extends DocNode> childIterator = treeNode.getChildren().iterator();
-        Section childSectionMatch = null;
-        while (childSectionMatch == null && childIterator.hasNext()) {
-            childSectionMatch = findHeading(tagCopy, childIterator.next());
+        Section sectionCopy = appendingSection.deepCopy();
+        Iterator<Section> it = treeNodeSection.headingIterator();
+        boolean appendedNode = false;
+        Section nextSection = sectionCopy.getFstSubSection();
+
+        while (!appendedNode && it.hasNext()) {
+            appendedNode = append(nextSection, it.next());
         }
-        // if anything was found return result
-        return childSectionMatch == null ? out : childSectionMatch;
+
+        if (!appendedNode) {
+            DocNode temp = nextSection == null ?
+                    sectionCopy.getChildren().get(0) :
+                    nextSection;
+            treeNodeSection.addNode(temp);
+            appendedNode = true;
+        }
+
+        return appendedNode;
+    }
+
+    private static boolean headingMatches(Section fst, Section snd) {
+        return !(fst == null && snd == null)
+                && fst.getValue().equals(snd.getValue());
     }
 
     // todo rewrite
-    private static boolean headingMatches(DocNode node, String heading) {
-        if (node != null && node instanceof Body) {
-            return true;
-        }
+//    private static boolean headingMatches(DocNode node, String heading) {
+//        if (node != null && node instanceof Body) {
+//            return true;
+//        }
+//
+//        if (node == null || heading == null
+//                || !(node instanceof Section)) {
+//            return false;
+//        }
+//        Section nodeSection = (Section) node;
+//        return nodeSection.getValue().equals(heading);
+//    }
 
-        if (node == null || heading == null
-                || !(node instanceof Section)) {
-            return false;
-        }
-        Section nodeSection = (Section) node;
-        return nodeSection.getValue().equals(heading);
-    }
-
+//    private static Section getNextSection(Section in) {
+//        Iterator<Section> it = in.headingIterator().iterator();
+//        if (it.hasNext()) {
+//            return it.next();
+//        } else {
+//            return null;
+//        }
+//    }
+//
     private static List<String> deepCopy(List<String> in) {
         List<String> out = new LinkedList<>();
         for (String s : in) {
