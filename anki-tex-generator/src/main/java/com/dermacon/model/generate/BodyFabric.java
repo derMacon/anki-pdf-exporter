@@ -26,25 +26,36 @@ public class BodyFabric {
         assert ast.getChildren().stream().allMatch(e -> e instanceof Card);
         Body output = new Body();
 
+        // todo section iterator
         for (DocNode astCard : ast.getChildren()) {
             Card card = (Card) astCard;
-            appendSection(output, createSection(card));
+            for (DocNode elem : output.getChildren()) {
+                if (elem instanceof Section) {
+                    appendSection((Section)elem, createSection(card));
+                }
+            }
 //            appendSection(output, card);
         }
 
         return output;
     }
 
-    static DocNode appendSection(DocNode treeElem, Section sec) {
-        DocNode match = null;
-        if (treeElem.equals(sec)) {
-            Iterator<? extends DocNode> childIterator = treeElem.getChildren().iterator();
+    static Section appendSection(Section treeSection, Section sec) {
+        Section match = null;
+        if (treeSection.equals(sec)) {
+            Iterator<? extends DocNode> childIterator = treeSection.getChildren().iterator();
+            DocNode curr;
             while (match == null && childIterator.hasNext()) {
-                match = appendSection(childIterator.next(), sec);
+                curr = childIterator.next();
+                if (headingMatches(curr, sec.getValue())) {
+                   match = (Section)curr;
+                }
             }
 
             if (match == null) {
-//                treeElem.add
+                treeSection.addNode(sec);
+            } else {
+                appendSection(match, sec.getFstSubSection());
             }
         }
         return match;

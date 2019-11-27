@@ -81,6 +81,15 @@ public class Section implements DocNode {
         return out;
     }
 
+    public Section getFstSubSection() {
+       for (DocNode curr : children) {
+           if (curr instanceof Section) {
+               return (Section) curr;
+           }
+       }
+       return null;
+    }
+
 
 //    /**
 //     * Only check if sub sections match, all other classes irrelevant
