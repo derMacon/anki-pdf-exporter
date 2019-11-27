@@ -28,18 +28,39 @@ public class BodyFabric {
 
         for (DocNode astCard : ast.getChildren()) {
             Card card = (Card) astCard;
-            Section parentNode = findHeading(card.getTag().get(0), output);
-
-            if (parentNode == null) {
-                output.addNode(createSection(card));
-            } else {
-                parentNode.addNode(card);
-            }
-
+            appendSection(output, createSection(card));
+//            appendSection(output, card);
         }
 
         return output;
     }
+
+    static DocNode appendSection(DocNode treeElem, Section sec) {
+        DocNode match = null;
+        if (treeElem.equals(sec)) {
+            Iterator<? extends DocNode> childIterator = treeElem.getChildren().iterator();
+            while (match == null && childIterator.hasNext()) {
+                match = appendSection(childIterator.next(), sec);
+            }
+
+            if (match == null) {
+//                treeElem.add
+            }
+        }
+        return match;
+    }
+
+//    private static void append
+
+//    static void appendCard(Body body, Card card) {
+//        Section parentNode = findHeading(card.getTag().get(0), body);
+//
+//        if (parentNode == null) {
+//            body.addNode(createSection(card));
+//        } else {
+//            parentNode.addNode(card);
+//        }
+//    }
 
     static Section findHeading(List<String> tagHierarchy,
                                DocNode treeNode) {
@@ -54,10 +75,6 @@ public class BodyFabric {
             out = (Section) treeNode;
             tagCopy.remove(0);
         }
-
-//        if (tagCopy.isEmpty() && treeNode instanceof Section) {
-//            return ((Section) treeNode);
-//        }
 
         Iterator<? extends DocNode> childIterator = treeNode.getChildren().iterator();
         Section childSectionMatch = null;
