@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{tikz,lipsum,lmodern}
+\usepackage[ngerman]{babel}
 \usepackage[most]{tcolorbox}
 \usepackage[paperheight=10.75in,paperwidth=7.25in,margin=1in,heightrounded]{geometry}
 \usepackage{graphicx}
@@ -8,7 +9,14 @@
 \usepackage[space]{grffile}
 \usepackage[utf8]{inputenc}
 \usepackage[export]{adjustbox}
-
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -32,20 +40,33 @@
 
 %*********************
 \section{Betriebssysteme}
-\subsection{Einführung}%---------------------
+\subsection{Einführung}
+%---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Richtig oder falsch: Ältere Betriebssysteme wie MS-DOS benutzten Basisfunktionen des BIOS auch nach dem Laden des eigentlichen BS.
-
-\end{center}
+\justifying
+Charakterisieren Sie das BIOS und nennen Sie die wichtigsten Aufgaben. Wofuer steht die Abkuerzung ueberhaupt?
 
 \tcblower
 
 \justifying
-Richtig. Neuere Varianten tun dies nicht mehr, sodass man gar den Chip des BIOS während des laufenden Betriebs entfernen kann.
 \begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_12.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Richtig oder falsch: Ältere Betriebssysteme wie MS-DOS benutzten Basisfunktionen des BIOS auch nach dem Laden des eigentlichen BS.
+
+\tcblower
+
+\justifying
+Richtig. Neuere Varianten tun dies nicht mehr, sodass man gar den Chip des BIOS während des laufenden Betriebs entfernen kann.\begin{center}
 \includegraphics[max width=.9\textwidth]{paste-17304423235585.png}
 \end{center}
 
@@ -54,16 +75,8 @@ Richtig. Neuere Varianten tun dies nicht mehr, sodass man gar den Chip des BIOS 
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie den Begriff des 
-\textbf{UEFI
-}wofür steht diese Abkürzung, woher kommt es und welche Vorteile bietet es im Gegensatz zum BIOS?
-Erläutern Sie ebenfalls kurz was man unter dem Begriff 
-\textit{Firmware 
-}versteht.
-Welche Nachteile bietet das Booten mittels UEFI?
-
-\end{center}
+\justifying
+Erläutern Sie den Begriff des \textbf{UEFI}wofür steht diese Abkürzung, woher kommt es und welche Vorteile bietet es im Gegensatz zum BIOS?Erläutern Sie ebenfalls kurz was man unter dem Begriff \textit{Firmware }versteht.Welche Nachteile bietet das Booten mittels UEFI?
 
 \tcblower
 
@@ -77,12 +90,8 @@ Welche Nachteile bietet das Booten mittels UEFI?
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Skizzieren Sie den 
-\textbf{Bootvorgang
-} mittels UEFI und grenzen Sie diesen von dem mittels des klassischen BIOS ab.
-
-\end{center}
+\justifying
+Skizzieren Sie den \textbf{Bootvorgang} mittels UEFI und grenzen Sie diesen von dem mittels des klassischen BIOS ab.
 
 \tcblower
 
@@ -96,14 +105,8 @@ Skizzieren Sie den
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie die BS
-\textit{Dienstleistung
-}der 
-\textbf{Abstraktion
-}von konkreter Hardware. Wieso ist so etwas sinnvoll und gibt es hierbei Ausnahmen?
-
-\end{center}
+\justifying
+Erläutern Sie die BS\textit{Dienstleistung}der \textbf{Abstraktion}von konkreter Hardware. Wieso ist so etwas sinnvoll und gibt es hierbei Ausnahmen?
 
 \tcblower
 
@@ -117,12 +120,8 @@ Erläutern Sie die BS
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Welche Dienstleistungen stellt ein Betriebssystem im Bereich der 
-\textbf{Speichermedien
-} bereit?
-
-\end{center}
+\justifying
+Welche Dienstleistungen stellt ein Betriebssystem im Bereich der \textbf{Speichermedien} bereit?
 
 \tcblower
 
@@ -136,12 +135,8 @@ Welche Dienstleistungen stellt ein Betriebssystem im Bereich der
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Welche Dienstleistungen stellt ein BS im Bereich der 
-\textbf{Prozessverwaltung
-}bereit? Erläutern Sie ebenfalls diesen Begriff.
-
-\end{center}
+\justifying
+Welche Dienstleistungen stellt ein BS im Bereich der \textbf{Prozessverwaltung}bereit? Erläutern Sie ebenfalls diesen Begriff.
 
 \tcblower
 
@@ -155,10 +150,8 @@ Welche Dienstleistungen stellt ein BS im Bereich der
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
+\justifying
 Nennen und beschreiben Sie alle wesentlichen Dienstleistungen die ein Betriebssystem zur Verfügung stellt.
-
-\end{center}
 
 \tcblower
 
@@ -181,10 +174,8 @@ Nennen und beschreiben Sie alle wesentlichen Dienstleistungen die ein Betriebssy
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
+\justifying
 Beschreiben Sie grob die Marktanteile der PC-Betriebssysteme.
-
-\end{center}
 
 \tcblower
 
@@ -204,12 +195,8 @@ Beschreiben Sie grob die Marktanteile der PC-Betriebssysteme.
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Beschreiben Sie grob die Marktanteile der 
-\textbf{mobilen-Betriebssysteme
-}.
-
-\end{center}
+\justifying
+Beschreiben Sie grob die Marktanteile der \textbf{mobilen-Betriebssysteme}.
 
 \tcblower
 
@@ -226,12 +213,8 @@ Beschreiben Sie grob die Marktanteile der
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Nennen Sie die Besonderheiten von 
-\textbf{Server-Betriebssystemen
-}.
-
-\end{center}
+\justifying
+Nennen Sie die Besonderheiten von \textbf{Server-Betriebssystemen}.
 
 \tcblower
 
@@ -245,12 +228,8 @@ Nennen Sie die Besonderheiten von
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Nennen Sie die Besonderheiten von 
-\textbf{Echtzeitbetriebssystemen
-}. Und nennen Sie einige Beispiele.
-
-\end{center}
+\justifying
+Nennen Sie die Besonderheiten von \textbf{Echtzeitbetriebssystemen}. Und nennen Sie einige Beispiele.
 
 \tcblower
 
@@ -267,10 +246,8 @@ Nennen Sie die Besonderheiten von
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
+\justifying
 Fassen Sie die verschiedenen Arten von Betriebssystemen zusammen.
-
-\end{center}
 
 \tcblower
 
@@ -287,19 +264,13 @@ Fassen Sie die verschiedenen Arten von Betriebssystemen zusammen.
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Was ist ein 
-\textbf{Kernel
-}und woraus bestehen seine wesentlichen Aufgaben?
-
-\end{center}
+\justifying
+Was ist ein \textbf{Kernel}und woraus bestehen seine wesentlichen Aufgaben?
 
 \tcblower
 
 \justifying
-\textbf{Zusammenfassung - Kernel:
-}Software Kern des Betriebssystems, ist selbst ein Programm welches Dienste bereitstellt.
-\begin{center}
+\textbf{Zusammenfassung - Kernel:}Software Kern des Betriebssystems, ist selbst ein Programm welches Dienste bereitstellt.\begin{center}
 \includegraphics[max width=.9\textwidth]{paste-24313809862657.png}
 \end{center}
 
@@ -308,10 +279,8 @@ Was ist ein
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
+\justifying
 Nennen Sie die Hauptarten von BS-Kernel.
-
-\end{center}
 
 \tcblower
 
@@ -325,16 +294,8 @@ Nennen Sie die Hauptarten von BS-Kernel.
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Beschreiben Sie die 
-\textit{Philosophie, Nachteile
-}und die 
-\textit{Vorteile
-}eines 
-\textbf{monolithischen Kernel BS
-}.
-
-\end{center}
+\justifying
+Beschreiben Sie die \textit{Philosophie, Nachteile}und die \textit{Vorteile}eines \textbf{monolithischen Kernel BS}.
 
 \tcblower
 
@@ -348,16 +309,8 @@ Beschreiben Sie die
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Beschreiben Sie die
-\textit{Philosophie, Nachteile
-}und die
-\textit{Vorteile
-}eines
-\textbf{Mikrokernel BS
-}.
-
-\end{center}
+\justifying
+Beschreiben Sie die\textit{Philosophie, Nachteile}und die\textit{Vorteile}eines\textbf{Mikrokernel BS}.
 
 \tcblower
 
@@ -371,16 +324,8 @@ Beschreiben Sie die
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Beschreiben Sie die
-\textit{Philosophie, Nachteile
-}und die
-\textit{Vorteile
-}eines 
-\textbf{hybridenBS Kernels
-}.
-
-\end{center}
+\justifying
+Beschreiben Sie die\textit{Philosophie, Nachteile}und die\textit{Vorteile}eines \textbf{hybridenBS Kernels}.
 
 \tcblower
 
@@ -394,10 +339,8 @@ Beschreiben Sie die
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
+\justifying
 Fassen Sie noch einmal die verschiedenen Klassen von Kernels zusammen und grenzen Sie diese voneinander ab.
-
-\end{center}
 
 \tcblower
 
@@ -420,14 +363,8 @@ Fassen Sie noch einmal die verschiedenen Klassen von Kernels zusammen und grenze
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Nennen Sie die wesentlichen Vorteile von 
-\textbf{UEFI
-} gegenüber 
-\textbf{BIOS
-}!<missing IDENTIFIER>
-
-\end{center}
+\justifying
+Nennen Sie die wesentlichen Vorteile von \textbf{UEFI} gegenüber \textbf{BIOS}!<missing IDENTIFIER>
 
 \tcblower
 
@@ -441,11 +378,9 @@ Nennen Sie die wesentlichen Vorteile von
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
+\justifying
 Nennen Sie die wesentlichen Dienstleistungen eines Betriebssystems
 
-\end{center}
-
 \tcblower
 
 \justifying
@@ -458,12 +393,8 @@ Nennen Sie die wesentlichen Dienstleistungen eines Betriebssystems
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Welche der Kernel Aufgaben gehört 
-\textbf{NICHT
-} zu den Aufgaben eines BS-Kerns?
-
-\end{center}
+\justifying
+Welche der Kernel Aufgaben gehört \textbf{NICHT} zu den Aufgaben eines BS-Kerns?
 
 \tcblower
 
@@ -477,11 +408,9 @@ Welche der Kernel Aufgaben gehört
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
+\justifying
 Beschreiben Sie die drei Hauptarten von BS-Kernel und gehen Sie dabei auf die Vor- und Nachteile ein!
 
-\end{center}
-
 \tcblower
 
 \justifying
@@ -490,19 +419,13 @@ Beschreiben Sie die drei Hauptarten von BS-Kernel und gehen Sie dabei auf die Vo
 \end{center}
 
 \end{tcolorbox}
+\subsection{ProzesseUndThreads}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Definieren Sie den Begriff des 
-\textbf{Prozesses
-}. 
-Was versteht man in diesem Zusammenhang unter der der 
-\textit{Quasiparallelität
-}?<missing IDENTIFIER>
-
-\end{center}
+\justifying
+Definieren Sie den Begriff des \textbf{Prozesses}. Was versteht man in diesem Zusammenhang unter der der \textit{Quasiparallelität}?<missing IDENTIFIER>
 
 \tcblower
 
@@ -519,15 +442,8 @@ Was versteht man in diesem Zusammenhang unter der der
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Was versteht man unter dem sog. 
-\textbf{Prozessmodell
-}?<missing IDENTIFIER>
-Erläutern Sie in diesem Zusammenhang grob, was man unter einer 
-\textit{Schedulingstrategie
-} versteht.
-
-\end{center}
+\justifying
+Was versteht man unter dem sog. \textbf{Prozessmodell}?<missing IDENTIFIER>Erläutern Sie in diesem Zusammenhang grob, was man unter einer \textit{Schedulingstrategie} versteht.
 
 \tcblower
 
@@ -544,13 +460,8 @@ Erläutern Sie in diesem Zusammenhang grob, was man unter einer
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Beschreiben Sie den Begriff der 
-\textbf{Prozesstabelle
-}.
-Welche Daten werden hierbei festgehalten?
-
-\end{center}
+\justifying
+Beschreiben Sie den Begriff der \textbf{Prozesstabelle}.Welche Daten werden hierbei festgehalten?
 
 \tcblower
 
@@ -564,12 +475,8 @@ Welche Daten werden hierbei festgehalten?
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Was versteht man unter einem 
-\textit{Prozesskontrollblock
-}?<missing IDENTIFIER>
-
-\end{center}
+\justifying
+Was versteht man unter einem \textit{Prozesskontrollblock}?<missing IDENTIFIER>
 
 \tcblower
 
@@ -586,13 +493,8 @@ Was versteht man unter einem
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie den Begriff der 
-\textbf{Prozesserzeugung
-}. 
-Wann ist so etwas sinnvoll, welche Möglichkeiten der Erzeugung gibt es, welche Befehle werden verwendet?
-
-\end{center}
+\justifying
+Erläutern Sie den Begriff der \textbf{Prozesserzeugung}. Wann ist so etwas sinnvoll, welche Möglichkeiten der Erzeugung gibt es, welche Befehle werden verwendet?
 
 \tcblower
 
@@ -606,11 +508,8 @@ Wann ist so etwas sinnvoll, welche Möglichkeiten der Erzeugung gibt es, welche 
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Wie kann ein Prozess beendet werden?
-Welche unterschiedlichen Arten gibt es, erläutern Sie dies am Beispiel vom BS Linux.
-
-\end{center}
+\justifying
+Wie kann ein Prozess beendet werden?Welche unterschiedlichen Arten gibt es, erläutern Sie dies am Beispiel vom BS Linux.
 
 \tcblower
 
@@ -624,11 +523,8 @@ Welche unterschiedlichen Arten gibt es, erläutern Sie dies am Beispiel vom BS L
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie die unterschiedlichen Prozesshierarchien von Windows und Unix-Maschinen.
-Wie können solche Prozesse erzeugt werden und wie sieht deren Beziehung untereinander aus.
-
-\end{center}
+\justifying
+Erläutern Sie die unterschiedlichen Prozesshierarchien von Windows und Unix-Maschinen.Wie können solche Prozesse erzeugt werden und wie sieht deren Beziehung untereinander aus.
 
 \tcblower
 
@@ -642,10 +538,8 @@ Wie können solche Prozesse erzeugt werden und wie sieht deren Beziehung unterei
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
+\justifying
 Erläutern Sie das grundsätzliche Zustandsmodell der möglichen Prozesszustände anhand einer Skizze.
-
-\end{center}
 
 \tcblower
 
@@ -659,10 +553,8 @@ Erläutern Sie das grundsätzliche Zustandsmodell der möglichen Prozesszuständ
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
+\justifying
 Erläutern Sie anhand eines einfachen Beispiels die Sinnhaftigkeit von Threads.
-
-\end{center}
 
 \tcblower
 
@@ -676,14 +568,8 @@ Erläutern Sie anhand eines einfachen Beispiels die Sinnhaftigkeit von Threads.
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Worin genau liegt der Unterschied zwischen 
-\textit{Prozessen
-} und 
-\textit{Threads
-}?<missing IDENTIFIER>
-
-\end{center}
+\justifying
+Worin genau liegt der Unterschied zwischen \textit{Prozessen} und \textit{Threads}?<missing IDENTIFIER>
 
 \tcblower
 
@@ -700,11 +586,8 @@ Worin genau liegt der Unterschied zwischen
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Nennen Sie die beiden Möglichkeiten der Thread-erzeugung unter Linux. 
-Worin liegt der Unterschied zur Erzeugung von Prozessen?
-
-\end{center}
+\justifying
+Nennen Sie die beiden Möglichkeiten der Thread-erzeugung unter Linux. Worin liegt der Unterschied zur Erzeugung von Prozessen?
 
 \tcblower
 
@@ -730,12 +613,8 @@ Worin liegt der Unterschied zur Erzeugung von Prozessen?
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Was versteht man unter einem sog. 
-\textbf{Scheduler
-}?<missing IDENTIFIER>
-
-\end{center}
+\justifying
+Was versteht man unter einem sog. \textbf{Scheduler}?<missing IDENTIFIER>
 
 \tcblower
 
@@ -743,22 +622,14 @@ Was versteht man unter einem sog.
 \begin{center}
 \includegraphics[max width=.9\textwidth]{betriebssysteme_skript_72.png}
 \end{center}
-Das 
-\textit{Kleingedruckte
-}: 
-Permanent am Arbeiten, muss selber bei der CPU rechnend aktiv werden um anderen Prozessen ihre Zuteilung bereitzustellen.
-
+Das \textit{Kleingedruckte}: Permanent am Arbeiten, muss selber bei der CPU rechnend aktiv werden um anderen Prozessen ihre Zuteilung bereitzustellen.
 \end{tcolorbox}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Auf welchen Systemen ist ein 
-\textbf{Scheduler
-} von besonderer Bedeutung? Gehen Sie hierbei insbesondere auf die Gründe ein.
-
-\end{center}
+\justifying
+Auf welchen Systemen ist ein \textbf{Scheduler} von besonderer Bedeutung? Gehen Sie hierbei insbesondere auf die Gründe ein.
 
 \tcblower
 
@@ -772,14 +643,8 @@ Auf welchen Systemen ist ein
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie den Begriff des 
-\textbf{Prozessverhaltens
-} im Zusammenhang mit dem 
-\textit{Scheduler
-}.
-
-\end{center}
+\justifying
+Erläutern Sie den Begriff des \textbf{Prozessverhaltens} im Zusammenhang mit dem \textit{Scheduler}.
 
 \tcblower
 
@@ -793,12 +658,8 @@ Erläutern Sie den Begriff des
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Welche Möglichkeiten gibt es 
-\textit{wann
-} das Scheduling beginnen sollte?
-
-\end{center}
+\justifying
+Welche Möglichkeiten gibt es \textit{wann} das Scheduling beginnen sollte?
 
 \tcblower
 
@@ -815,14 +676,8 @@ Welche Möglichkeiten gibt es
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Grenzen Sie die 
-\textit{unterbrechbaren
-} von den 
-\textit{nicht-unterbrechbaren
-} Strategien ab.
-
-\end{center}
+\justifying
+Grenzen Sie die \textit{unterbrechbaren} von den \textit{nicht-unterbrechbaren} Strategien ab.
 
 \tcblower
 
@@ -836,11 +691,8 @@ Grenzen Sie die
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Nennen Sie die beiden Möglichkeiten der Thread-Erzeugung unter Linux. 
-Worin liegt der Unterschied zur Erzeugung von Prozessen?
-
-\end{center}
+\justifying
+Nennen Sie die beiden Möglichkeiten der Thread-Erzeugung unter Linux. Worin liegt der Unterschied zur Erzeugung von Prozessen?
 
 \tcblower
 
@@ -866,14 +718,8 @@ Worin liegt der Unterschied zur Erzeugung von Prozessen?
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie die möglichen Kriterien für ein gutes 
-\textbf{präemtives
-} Scheduling. Grenzen Sie dabei noch einmal die beiden wesentlichen 
-\textit{Scheduling-Strategien
-} voneinander ab.
-
-\end{center}
+\justifying
+Erläutern Sie die möglichen Kriterien für ein gutes \textbf{präemtives} Scheduling. Grenzen Sie dabei noch einmal die beiden wesentlichen \textit{Scheduling-Strategien} voneinander ab.
 
 \tcblower
 
@@ -893,12 +739,8 @@ Erläutern Sie die möglichen Kriterien für ein gutes
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Welche der Kriterien für ein gutes 
-\textbf{präemtives
-} Scheduling schliessen sich gegenseitig aus? Nennen Sie zwei Beispiele.
-
-\end{center}
+\justifying
+Welche der Kriterien für ein gutes \textbf{präemtives} Scheduling schliessen sich gegenseitig aus? Nennen Sie zwei Beispiele.
 
 \tcblower
 
@@ -912,15 +754,8 @@ Welche der Kriterien für ein gutes
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie die Grundidee sowie die Vor- / Nachteile der 
-\textbf{FCFS
-} Scheduling-Strategie. In welche Kategorie lässt sich diese einordnen? Wofür steht die 
-\textit{Abkürzung
-}?<missing IDENTIFIER>
-Nennen Sie eine Situation aus dem realen Leben die mit dieser Strategie gut verglichen werden kann.
-
-\end{center}
+\justifying
+Erläutern Sie die Grundidee sowie die Vor- / Nachteile der \textbf{FCFS} Scheduling-Strategie. In welche Kategorie lässt sich diese einordnen? Wofür steht die \textit{Abkürzung}?<missing IDENTIFIER>Nennen Sie eine Situation aus dem realen Leben die mit dieser Strategie gut verglichen werden kann.
 
 \tcblower
 
@@ -934,15 +769,8 @@ Nennen Sie eine Situation aus dem realen Leben die mit dieser Strategie gut verg
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie die Grundidee sowie die Vor- / Nachteile der 
-\textbf{SJF
-} Scheduling-Strategie. In welche Kategorie lässt sich diese einordnen? Wofür steht die 
-\textit{Abkürzung
-}?<missing IDENTIFIER>
-Nennen Sie eine Situation aus dem realen Leben die mit dieser Strategie gut verglichen werden kann.
-
-\end{center}
+\justifying
+Erläutern Sie die Grundidee sowie die Vor- / Nachteile der \textbf{SJF} Scheduling-Strategie. In welche Kategorie lässt sich diese einordnen? Wofür steht die \textit{Abkürzung}?<missing IDENTIFIER>Nennen Sie eine Situation aus dem realen Leben die mit dieser Strategie gut verglichen werden kann.
 
 \tcblower
 
@@ -956,19 +784,8 @@ Nennen Sie eine Situation aus dem realen Leben die mit dieser Strategie gut verg
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie die Grundidee sowie die Vor- / Nachteile des 
-\textbf{Zeitschreibeverfahrens
-}. In welche Kategorie lässt sich diese Strategie einordnen?
-Nennen Sie eine Situation aus dem realen Leben die mit dieser Strategie gut verglichen werden kann.
-Unter welchem 
-\textit{Namen
-} ist diese Strategie allgemeinhin noch bekannt?
-Nennen Sie ein Beispiel einer 
-\textbf{Variation
-} dieses Verfahrens.
-
-\end{center}
+\justifying
+Erläutern Sie die Grundidee sowie die Vor- / Nachteile des \textbf{Zeitschreibeverfahrens}. In welche Kategorie lässt sich diese Strategie einordnen?Nennen Sie eine Situation aus dem realen Leben die mit dieser Strategie gut verglichen werden kann.Unter welchem \textit{Namen} ist diese Strategie allgemeinhin noch bekannt?Nennen Sie ein Beispiel einer \textbf{Variation} dieses Verfahrens.
 
 \tcblower
 
@@ -982,14 +799,8 @@ Nennen Sie ein Beispiel einer
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Was versteht man im Zusammenhang des 
-\textbf{Zeitschreibeverfahrens
-} unter einem 
-\textit{Quantum
-}?<missing IDENTIFIER>
-
-\end{center}
+\justifying
+Was versteht man im Zusammenhang des \textbf{Zeitschreibeverfahrens} unter einem \textit{Quantum}?<missing IDENTIFIER>
 
 \tcblower
 
@@ -1009,16 +820,8 @@ Was versteht man im Zusammenhang des
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie den Begriff sowie die 
-\textbf{Grundidee
-} des 
-\textbf{MQS
-}, wofür steht diese 
-\textit{Abkürzung
-}?<missing IDENTIFIER>
-
-\end{center}
+\justifying
+Erläutern Sie den Begriff sowie die \textbf{Grundidee} des \textbf{MQS}, wofür steht diese \textit{Abkürzung}?<missing IDENTIFIER>
 
 \tcblower
 
@@ -1032,16 +835,8 @@ Erläutern Sie den Begriff sowie die
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Welche Rolle spielt der Begriff 
-\textbf{Feedback
-} in der 
-\textbf{Multilevel 
-\textit{Feedback
-} Queue Scheduling
-} Strategie?
-
-\end{center}
+\justifying
+Welche Rolle spielt der Begriff \textbf{Feedback} in der \textbf{Multilevel \textit{Feedback} Queue Scheduling} Strategie?
 
 \tcblower
 
@@ -1064,16 +859,8 @@ Welche Rolle spielt der Begriff
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie die 
-\textbf{MLFQ
-}-Strategie anhand von 
-\textit{3 Queues
-} und dem 
-\textit{Zeitscheibeverfahren
-}.
-
-\end{center}
+\justifying
+Erläutern Sie die \textbf{MLFQ}-Strategie anhand von \textit{3 Queues} und dem \textit{Zeitscheibeverfahren}.
 
 \tcblower
 
@@ -1087,14 +874,8 @@ Erläutern Sie die
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Nennen Sie die 
-\textit{wichtigsten
-} Parameter der 
-\textbf{MLFQ
-}-Strategie.
-
-\end{center}
+\justifying
+Nennen Sie die \textit{wichtigsten} Parameter der \textbf{MLFQ}-Strategie.
 
 \tcblower
 
@@ -1108,17 +889,8 @@ Nennen Sie die
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Beschreiben Sie die 
-\textbf{Ausgangssituation
-} sowie die 
-\textit{Kernidee
-} eines 
-\textbf{CFS
-}. Wofür steht die 
-\textit{Abkürzung?
-}
-\end{center}
+\justifying
+Beschreiben Sie die \textbf{Ausgangssituation} sowie die \textit{Kernidee} eines \textbf{CFS}. Wofür steht die \textit{Abkürzung?}
 
 \tcblower
 
@@ -1132,16 +904,8 @@ Beschreiben Sie die
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Wie berechnet sich die 
-\textit{virtuelle
-} Laufzeit eines 
-\textbf{CFS
-} und wo liegt der Zusammenhang zur 
-\textit{Priorität
-} eines Prozesses?
-
-\end{center}
+\justifying
+Wie berechnet sich die \textit{virtuelle} Laufzeit eines \textbf{CFS} und wo liegt der Zusammenhang zur \textit{Priorität} eines Prozesses?
 
 \tcblower
 
@@ -1155,14 +919,8 @@ Wie berechnet sich die
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Welche 
-\textbf{Datenstruktur
-} verwendet ein 
-\textbf{CFS
-} um seine Daten zu speichern?
-
-\end{center}
+\justifying
+Welche \textbf{Datenstruktur} verwendet ein \textbf{CFS} um seine Daten zu speichern?
 
 \tcblower
 
@@ -1176,14 +934,8 @@ Welche
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie das Konzept einer 
-\textbf{Task Group
-} im Zusammenhang mit dem 
-\textbf{CFS
-}.
-
-\end{center}
+\justifying
+Erläutern Sie das Konzept einer \textbf{Task Group} im Zusammenhang mit dem \textbf{CFS}.
 
 \tcblower
 
@@ -1197,14 +949,8 @@ Erläutern Sie das Konzept einer
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Geben Sie einen 
-\textit{kurzen
-} Überblick über den 
-\textbf{BFS
-}.
-
-\end{center}
+\justifying
+Geben Sie einen \textit{kurzen} Überblick über den \textbf{BFS}.
 
 \tcblower
 
@@ -1218,12 +964,8 @@ Geben Sie einen
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Beschreiben Sie grob was man unter dem sog. 
-\textbf{Nebenläufigkeitsproblem
-} versteht. Erläutern Sie dies anhand eines Beispiels.
-
-\end{center}
+\justifying
+Beschreiben Sie grob was man unter dem sog. \textbf{Nebenläufigkeitsproblem} versteht. Erläutern Sie dies anhand eines Beispiels.
 
 \tcblower
 
@@ -1246,11 +988,8 @@ Beschreiben Sie grob was man unter dem sog.
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Nennen Sie die beiden Möglichkeiten der Thread-Erzeugung und Linux. 
-Worin liegt der Unterschied zur Erzeugung von Prozessen?
-
-\end{center}
+\justifying
+Nennen Sie die beiden Möglichkeiten der Thread-Erzeugung und Linux. Worin liegt der Unterschied zur Erzeugung von Prozessen?
 
 \tcblower
 
@@ -1272,16 +1011,13 @@ Worin liegt der Unterschied zur Erzeugung von Prozessen?
 \end{center}
 
 \end{tcolorbox}
+\subsection{Interprozesskommunikation}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Charakterisieren Sie die drei wesentlichen Probleme der 
-\textbf{Nebenläufigkeit
-}.
-
-\end{center}
+\justifying
+Charakterisieren Sie die drei wesentlichen Probleme der \textbf{Nebenläufigkeit}.
 
 \tcblower
 
@@ -1304,18 +1040,8 @@ Charakterisieren Sie die drei wesentlichen Probleme der
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie was man unter einem sog. 
-\textit{kritischem Abschnitt
-} versteht. Nennen Sie den 
-\textit{Fachbegriff
-} des Lösungsansatzes und beschreiben Sie die 4 
-\textbf{Bedingungen
-} für eine 
-\textit{gute
-} Lösung.
-
-\end{center}
+\justifying
+Erläutern Sie was man unter einem sog. \textit{kritischem Abschnitt} versteht. Nennen Sie den \textit{Fachbegriff} des Lösungsansatzes und beschreiben Sie die 4 \textbf{Bedingungen} für eine \textit{gute} Lösung.
 
 \tcblower
 
@@ -1329,14 +1055,8 @@ Erläutern Sie was man unter einem sog.
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie wieso es das 
-\textbf{abschalten
-} von Interrupts zum Steueren eines 
-\textit{kritischen Abschnitts
-} nicht als optimaler Lösungsansatz angesehen wird. Wo kann dieser Ansatz jedoch sinnvoll sein?
-
-\end{center}
+\justifying
+Erläutern Sie wieso es das \textbf{abschalten} von Interrupts zum Steueren eines \textit{kritischen Abschnitts} nicht als optimaler Lösungsansatz angesehen wird. Wo kann dieser Ansatz jedoch sinnvoll sein?
 
 \tcblower
 
@@ -1350,14 +1070,8 @@ Erläutern Sie wieso es das
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie die 
-\textit{Strategie
-} des 
-\textit{Sperrens von Variablen
-} zum regeln des Zugriffs auf einen kritischen Abschnitt.
-
-\end{center}
+\justifying
+Erläutern Sie die \textit{Strategie} des \textit{Sperrens von Variablen} zum regeln des Zugriffs auf einen kritischen Abschnitt.
 
 \tcblower
 
@@ -1371,10 +1085,7 @@ Erläutern Sie die
 \begin{center}
 \includegraphics[max width=.9\textwidth]{betriebssysteme_skript_122.png}
 \end{center}
-Das 
-\textit{Kleingedruckte
-}: Scheduler könnte im falschen Moment unterbrechen.
-\begin{center}
+Das \textit{Kleingedruckte}: Scheduler könnte im falschen Moment unterbrechen.\begin{center}
 \includegraphics[max width=.9\textwidth]{betriebssysteme_skript_122.png}
 \end{center}
 
@@ -1383,14 +1094,8 @@ Das
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Beschreiben Sie die 
-\textit{Lösung von Peterson
-} zum regeln des Zugriffs auf einen kritischen Abschnitt. Auf wie viele 
-\textit{Threads
-} kann dieser Ansatz angewendet werden? Beschreiben Sie neben den Vorteilen auch die Nachteile dieses Ansatzes.
-
-\end{center}
+\justifying
+Beschreiben Sie die \textit{Lösung von Peterson} zum regeln des Zugriffs auf einen kritischen Abschnitt. Auf wie viele \textit{Threads} kann dieser Ansatz angewendet werden? Beschreiben Sie neben den Vorteilen auch die Nachteile dieses Ansatzes.
 
 \tcblower
 
@@ -1416,101 +1121,8 @@ Beschreiben Sie die
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Richtig oder Falsch: Die Abfolge von 
-\textit{Programmabläufen
-} unterschiedlicher Prozesse kann immer durch deren Reihenfolge im Source-Code 
-\textit{reproduzierbar
-} festgelegt werden?
-
-\end{center}
-
-\tcblower
-
 \justifying
-Falsch: Durch die Zuordnung der Prozesse zur CPU und Prozesse mit höherer Priorität sind zeitliche Programmabläufe selten repduzierbar.
-
-\end{tcolorbox}
-%---------------------
-\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
-
-\begin{center}
-Beschreiben Sie die Aufgaben eines 
-\textbf{Prozesskontrollblocks
-} (PCB) und geben sie an 
-\textit{wo
-} dieser abgespeichert wird.
-
-\end{center}
-
-\tcblower
-
-\justifying
-PCB ist eine Datenstruktur, die genutzt wird, um assoziierte dAten für einen Prozess zu speichern.
-PCBs werden in der Prozesstabelle des BS gespeichert.
-
-\end{tcolorbox}
-%---------------------
-\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
-
-\begin{center}
-Nennen und beschreiben Sie die drei Zustände eines Prozesses gemäss dem Standardschema für das Zustandsmodell.
-
-\end{center}
-
-\tcblower
-
-\justifying
-- Bereit
-- Rechnend
-- Blockiert
-
-\end{tcolorbox}
-%---------------------
-\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
-
-\begin{center}
-Richtig oder Falsch: Ein Thread hat einen eigenen Stack und eingene CPU Register, Threads eines Prozesses teilen sich aber den gleichen Speicher innerhalb dieses Prozesses.
-
-\end{center}
-
-\tcblower
-
-\justifying
-Richtig!
-
-\end{tcolorbox}
-%---------------------
-\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
-
-\begin{center}
-Was wird mit dem UNIX-Befehl 
-\textit{fork
-} erzeugt?
-
-\end{center}
-
-\tcblower
-
-\justifying
-Eine exakte Kopie des Elternprozesses.
-
-\end{tcolorbox}
-%---------------------
-\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
-  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
-
-\begin{center}
-Was versteht man im Zusammenhang mit der Verarbeitung eines 
-\textbf{kritischen Abschnitts
-} unter 
-\textit{TSL-Operationen?
-}
-\end{center}
+Was versteht man im Zusammenhang mit der Verarbeitung eines \textbf{kritischen Abschnitts} unter \textit{TSL-Operationen?}
 
 \tcblower
 
@@ -1530,16 +1142,8 @@ Was versteht man im Zusammenhang mit der Verarbeitung eines
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie die Lösungsmöglichkeit für den 
-\textit{wechselseitigen Ausschluss
-} mittels einer 
-\textbf{Semaphore
-}. Welche 
-\textit{Operationen
-} stellt dieses Verfahren zur Verfügung?
-
-\end{center}
+\justifying
+Erläutern Sie die Lösungsmöglichkeit für den \textit{wechselseitigen Ausschluss} mittels einer \textbf{Semaphore}. Welche \textit{Operationen} stellt dieses Verfahren zur Verfügung?
 
 \tcblower
 
@@ -1562,21 +1166,8 @@ Erläutern Sie die Lösungsmöglichkeit für den
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Erläutern Sie die 
-\textit{verschiedenen
-} Möglichkeiten zur Realisierung von 
-\textbf{atomaren
-} Operationen.
-Beschreiben Sie in diesem Zusammenhang noch kurz den 
-\textit{Unterschied
-} zwischen der sog. 
-\textit{Quasi-Paralleltiät
-} sowie der 
-\textit{echten Paralleltität
-}.
-
-\end{center}
+\justifying
+Erläutern Sie die \textit{verschiedenen} Möglichkeiten zur Realisierung von \textbf{atomaren} Operationen.Beschreiben Sie in diesem Zusammenhang noch kurz den \textit{Unterschied} zwischen der sog. \textit{Quasi-Paralleltiät} sowie der \textit{echten Paralleltität}.
 
 \tcblower
 
@@ -1590,14 +1181,8 @@ Beschreiben Sie in diesem Zusammenhang noch kurz den
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Beschreiben Sie den zeitlichen Ablauf des 
-\textit{wechselseiten Ausschlusses
-} unter verwendung einer 
-\textbf{Semaphore
-} anhand eines Beispiels.
-
-\end{center}
+\justifying
+Beschreiben Sie den zeitlichen Ablauf des \textit{wechselseiten Ausschlusses} unter verwendung einer \textbf{Semaphore} anhand eines Beispiels.
 
 \tcblower
 
@@ -1623,13 +1208,8 @@ Beschreiben Sie den zeitlichen Ablauf des
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
-Beschreiben Sie das Konzept des sog. 
-\textbf{Monitors
-}. Wofür ist es geeignet und welches bekannte Verfahren soll es ersetzen?
-Gehen Sie auch auf die Nachteile von Monitoren ein.
-
-\end{center}
+\justifying
+Beschreiben Sie das Konzept des sog. \textbf{Monitors}. Wofür ist es geeignet und welches bekannte Verfahren soll es ersetzen?Gehen Sie auch auf die Nachteile von Monitoren ein.
 
 \tcblower
 
@@ -1642,16 +1222,75 @@ Gehen Sie auch auf die Nachteile von Monitoren ein.
 \end{center}
 
 \end{tcolorbox}
+\subsection{Lernkontrolle}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Richtig oder Falsch: Die Abfolge von \textit{Programmabläufen} unterschiedlicher Prozesse kann immer durch deren Reihenfolge im Source-Code \textit{reproduzierbar} festgelegt werden?
+
+\tcblower
+
+\justifying
+Falsch: Durch die Zuordnung der Prozesse zur CPU und Prozesse mit höherer Priorität sind zeitliche Programmabläufe selten repduzierbar.
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie die Aufgaben eines \textbf{Prozesskontrollblocks} (PCB) und geben sie an \textit{wo} dieser abgespeichert wird.
+
+\tcblower
+
+\justifying
+PCB ist eine Datenstruktur, die genutzt wird, um assoziierte dAten für einen Prozess zu speichern.PCBs werden in der Prozesstabelle des BS gespeichert.
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Nennen und beschreiben Sie die drei Zustände eines Prozesses gemäss dem Standardschema für das Zustandsmodell.
+
+\tcblower
+
+\justifying
+- Bereit- Rechnend- Blockiert
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Richtig oder Falsch: Ein Thread hat einen eigenen Stack und eingene CPU Register, Threads eines Prozesses teilen sich aber den gleichen Speicher innerhalb dieses Prozesses.
+
+\tcblower
+
+\justifying
+Richtig!
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was wird mit dem UNIX-Befehl \textit{fork} erzeugt?
+
+\tcblower
+
+\justifying
+Eine exakte Kopie des Elternprozesses.
+\end{tcolorbox}
 %*********************
 \section{Generelles}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
   savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
 
-\begin{center}
+\justifying
 Betriebssysteme::Lernkontrolle
-
-\end{center}
 
 \tcblower
 

@@ -34,29 +34,6 @@ public class BodyFabric {
         return output;
     }
 
-
-//    static Section appendSection(Section treeSection, Section sec) {
-//        Section match = null;
-//        if (treeSection.equals(sec)) {
-//            Iterator<? extends DocNode> childIterator = treeSection.getChildren().iterator();
-//            DocNode curr;
-//            while (match == null && childIterator.hasNext()) {
-//                curr = childIterator.next();
-//                if (headingMatches(curr, sec.getValue())) {
-//                    match = (Section) curr;
-//                }
-//            }
-//
-//            if (match == null) {
-//                treeSection.addNode(sec);
-//            } else {
-//                appendSection(match, sec.getFstSubSection());
-//            }
-//        }
-//        return match;
-//    }
-
-
     static void appendBody(Body body, Card card) {
         Section appendingSection = createSection(card);
 
@@ -112,29 +89,7 @@ public class BodyFabric {
                 && fst.getValue().equals(snd.getValue());
     }
 
-    // todo rewrite
-//    private static boolean headingMatches(DocNode node, String heading) {
-//        if (node != null && node instanceof Body) {
-//            return true;
-//        }
-//
-//        if (node == null || heading == null
-//                || !(node instanceof Section)) {
-//            return false;
-//        }
-//        Section nodeSection = (Section) node;
-//        return nodeSection.getValue().equals(heading);
-//    }
 
-//    private static Section getNextSection(Section in) {
-//        Iterator<Section> it = in.headingIterator().iterator();
-//        if (it.hasNext()) {
-//            return it.next();
-//        } else {
-//            return null;
-//        }
-//    }
-//
     private static List<String> deepCopy(List<String> in) {
         List<String> out = new LinkedList<>();
         for (String s : in) {
@@ -142,56 +97,6 @@ public class BodyFabric {
         }
         return out;
     }
-
-//    private static boolean appendBody(Card inputCard, DocNode treeNode) {
-//        if (inputCard.getTag().isEmpty()) {
-//            treeNode.getChildren().add(inputCard);
-//            return true;
-//        }
-//        String toplevelHeading = inputCard.getTag().remove(0);
-//        if (toplevelHeading == null
-//                || !(treeNode instanceof Section)
-//                || !toplevelHeading.equals(((Section) treeNode).getValue())
-//
-//        ) {
-//            return false;
-//        }
-//
-//        List<? extends DocNode> children = treeNode.getChildren();
-//        int i = 0;
-//        boolean nodeHasBeenPlaced = false;
-//        while (i < children.size() && !nodeHasBeenPlaced) {
-//            nodeHasBeenPlaced = appendBody(inputCard, children.get(i));
-//            i++;
-//        }
-//
-//    }
-
-    private static boolean isParent(Section inputSection, Body body) {
-        List<DocNode> sections = body.getChildren();
-        for (DocNode treeSection : sections) {
-
-        }
-        return false;
-    }
-
-    private static DocNode findParent(Section section, DocNode node) {
-        DocNode parentSection = null;
-
-        if (node instanceof Section) {
-            Section treeSection = (Section) node;
-            // section title conform
-            if (section.getValue().equals(treeSection.getValue())) {
-                parentSection = treeSection;
-                // check children
-                for (DocNode subNode : treeSection.getChildren()) {
-//                    DocNode temp = findParent()
-                }
-            }
-        }
-        return parentSection;
-    }
-
 
     private static Section createSection(Card card) {
         List<String> tags = cp(card.getTag().get(0));
@@ -255,13 +160,6 @@ public class BodyFabric {
 
 
     static <E> E removeFstElem(List<E> lst) {
-        // todo
-//        E out = lst.isEmpty() ? null : lst.get(lst.size() - 1);
-//        int newLastIdx = lst.isEmpty() ? 0 : lst.size() - 1;
-//        lst.subList(0, newLastIdx).clear();
-//        return out;
-
         return lst.isEmpty() ? null : lst.remove(0);
-
     }
 }

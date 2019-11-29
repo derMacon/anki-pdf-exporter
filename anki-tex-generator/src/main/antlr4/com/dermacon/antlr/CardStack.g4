@@ -66,7 +66,7 @@ imageItem
     : IMG_OPENING_TAG IDENTIFIER IMG_CLOSING_TAG
     ;
 
-IDENTIFIER: [_ ():äÄöÖüÜßa-zA-Z0-9.-]*;
+IDENTIFIER: [„“/[\]_ ():äÄöÖüÜßa-zA-Z0-9.-]*;
 ADDITIONAL_CHARS: [/,\-&;!?];
 
 DELIMITER: '\t' | '\n';

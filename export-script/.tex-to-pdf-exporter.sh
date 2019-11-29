@@ -4,9 +4,11 @@
 
 # generate pdf from tex file
 pdflatex "$1"
+# pdflatex --interaction=nonstopmode "$1"
 
 # generate it again for table of contents
 pdflatex "$1"
+# pdflatex --interaction=nonstopmode "$1"
 
 # remove extension
 NAME=$(basename $1 .tex)

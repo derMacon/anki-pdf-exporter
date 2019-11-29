@@ -26,6 +26,8 @@ public class TexVisitor implements FormatVisitor<String> {
 
     private static final String DOC_TEMPLATE = "\\documentclass{article}\n"
             + "\\usepackage{tikz,lipsum,lmodern}\n"
+            // german captions in table of contents
+            + "\\usepackage[ngerman]{babel}\n"
             + "\\usepackage[most]{tcolorbox}\n"
             + "\\usepackage[paperheight=10.75in,paperwidth=7.25in,margin=1in,heightrounded]{geometry}\n"
             + "\\usepackage{graphicx}\n"
@@ -34,6 +36,14 @@ public class TexVisitor implements FormatVisitor<String> {
             + "\\usepackage[space]{grffile}\n"
             + "\\usepackage[utf8]{inputenc}\n"
             + "\\usepackage[export]{adjustbox}\n" // https://tex.stackexchange.com/questions/86350/includegraphics-maximum-width
+            + "\\usepackage{hyperref}\n"
+            + "\\hypersetup{\n" // make table of contents clickable
+            + "    colorlinks,\n"
+            + "    citecolor=black,\n"
+            + "    filecolor=black,\n"
+            + "    linkcolor=black,\n"
+            + "    urlcolor=black\n"
+            + "}"
             + "\n"
             + "\\usepackage{fancyhdr}\n"
             + "\\pagestyle{fancy}\n"
@@ -72,9 +82,10 @@ public class TexVisitor implements FormatVisitor<String> {
 //            + "height fixed for=first and middle]\n"
 //            "segmentation at break=false]\n"
             + "\n"
-            + "\\begin{center}\n"
+//            + "\\begin{center}\n"
+            + "\\justifying\n"
             + "%s\n"
-            + "\\end{center}\n"
+//            + "\\end{center}\n"
             + "\n"
             + "\\tcblower\n"
             + "\n"
@@ -93,10 +104,14 @@ public class TexVisitor implements FormatVisitor<String> {
     private static final String SECTION_DELIMITER = "%%*********************\n";
     private static final String SECTION_TEMPLATE = SECTION_DELIMITER
             + "\\section{%s}\n%s";
-    private static final String SUBSECTION_TEMPLATE = "\\subsection{%s}";
-    private static final String SUBSUBSECTION_TEMPLATE = "\\subsubsection{%s}";
-    private static final String PARAGRAPH_TEMPLATE = "\\paragraph{%s}";
-    private static final String SUBPARAGRAPH_TEMPLATE = "\\subparagraph{%s}";
+    private static final String SUBSECTION_TEMPLATE =
+            "\\subsection{%s}\n%s";
+    private static final String SUBSUBSECTION_TEMPLATE =
+            "\\subsubsection{%s}\n%s";
+    private static final String PARAGRAPH_TEMPLATE =
+            "\\paragraph{%s}\n%s";
+    private static final String SUBPARAGRAPH_TEMPLATE =
+            "\\subparagraph{%s}\n%s";
 
     private static final String BOLD_TEMPLATE = "\\textbf{%s}";
     private static final String UNDERLINED_TEMPLATE = "\\underline{%s}";
@@ -217,7 +232,7 @@ public class TexVisitor implements FormatVisitor<String> {
 
     @Override
     public String process(PlainText text) {
-        return text.getValue() + "\n";
+        return text.getValue();
     }
 
     @Override
