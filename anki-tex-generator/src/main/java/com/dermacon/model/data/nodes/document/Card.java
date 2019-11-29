@@ -23,7 +23,7 @@ public class Card implements DocNode {
         this.front = front;
         this.back = back;
         this.tag = new LinkedList<>();
-        for (String tag : tags.split(" ")) {
+        for (String tag : tags.replaceAll("_", "").split(" ")) {
             List<String> hierarchy = new LinkedList<>();
             for (String subTag : tag.split("::")) {
                 hierarchy.add(subTag);

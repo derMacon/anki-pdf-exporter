@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 \usepackage{blindtext}
 \usepackage{ragged2e}
+\usepackage{needspace}
 \usepackage[space]{grffile}
 \usepackage[utf8]{inputenc}
 \usepackage[export]{adjustbox}
@@ -39,6 +40,7 @@
 \clearpage
 
 %*********************
+\Needspace{20\baselineskip}
 \section{marked}
 %---------------------
 \begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
@@ -50,7 +52,7 @@ Erläutern Sie ganz allgemein den Begriff Lokales Netz bzw. LAN. Welche grundleg
 \tcblower
 
 \justifying
-LAN-Technologien realisieren den direkten physikalischen Datentransportzwischen einzelnen Netzinterfaces über ein sie verbindendes Medium.Ein LAN stellt die technische Infrastruktur zur Punkt-zu-Punkt Kommunikation über ein gemeinsames Medium direkt verbundene Systeme (Interfaces) dar.Die LAN-Technologien umfassen die OSI-Funktionsschichten -1 und -2.\begin{center}
+„LAN-Technologien realisieren den direkten physikalischen Datentransportzwischen einzelnen Netzinterfaces über ein sie verbindendes Medium.“Ein LAN stellt die technische Infrastruktur zur Punkt-zu-Punkt Kommunikation über ein gemeinsames Medium direkt verbundene Systeme (Interfaces) dar.Die LAN-Technologien umfassen die OSI-Funktionsschichten -1 und -2.\begin{center}
 \includegraphics[max width=.9\textwidth]{paste-14710262988801.jpg}
 \end{center}
 \begin{center}
@@ -61,6 +63,64 @@ LAN-Technologien realisieren den direkten physikalischen Datentransportzwischen 
 \end{center}
 \begin{center}
 \includegraphics[max width=.9\textwidth]{paste-58999965745153.png}
+\end{center}
+
+\end{tcolorbox}
+%*********************
+\Needspace{20\baselineskip}
+\section{RechnernetzeKlausuren}
+\Needspace{20\baselineskip}
+\subsection{SS16}
+\Needspace{20\baselineskip}
+\paragraph{Aufg1}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche der OSI-Funktionsschichten umfasst dabei die LAN-Technik prinzipiell und was ist deren jeweilige Bezeichung und deren Aufgabe (Kurzform)?
+
+\tcblower
+
+\justifying
+LAN-Technik realisiert den Layer-1 (Bitübertragung) und Layer-2 (Punkt-zu-Punkt/Mehrpunkt-Kommunikation).\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-16655883173889.jpg}
+\end{center}
+Wiederholung: OSI-Schichtenmodell\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-16999480557569.jpg}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche Aufgabe hat in der IEEE 802 LAN-Architektur speziell der sog. MAC-Layer?
+
+\tcblower
+
+\justifying
+Die MAC ist die zweitunterste Schicht und umfasst Netzwerkprotokolle und Bauteile, die regeln, wie sich mehrere Rechner das gemeinsam genutzte physische Übertragungsmedium teilen. Sie wird benötigt, weil ein gemeinsames Medium nicht gleichzeitig von mehreren Rechnern verwendet werden kann, ohne dass es zu Datenkollisionen und damit zu Kommunikationsstörungen oder Datenverlust kommt. [Wikipedia]\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-18008797872129 (1).jpg}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-19752554594305.jpg}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wozu genau dient beim MAC-Layer eine MAC-Adresse und wie sieht diese strukturell aus (mit Notation!)?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-20216411062273.jpg}
 \end{center}
 
 \end{tcolorbox}

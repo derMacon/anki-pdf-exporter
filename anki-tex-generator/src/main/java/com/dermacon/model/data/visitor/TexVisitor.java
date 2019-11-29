@@ -33,6 +33,8 @@ public class TexVisitor implements FormatVisitor<String> {
             + "\\usepackage{graphicx}\n"
             + "\\usepackage{blindtext}\n"
             + "\\usepackage{ragged2e}\n"
+            // headings always in first half of page
+            + "\\usepackage{needspace}\n"
             + "\\usepackage[space]{grffile}\n"
             + "\\usepackage[utf8]{inputenc}\n"
             + "\\usepackage[export]{adjustbox}\n" // https://tex.stackexchange.com/questions/86350/includegraphics-maximum-width
@@ -102,16 +104,24 @@ public class TexVisitor implements FormatVisitor<String> {
                     + "\n";
 
     private static final String SECTION_DELIMITER = "%%*********************\n";
+    private static final String NEEDSPACE_COMMAND =
+            "\\Needspace{20\\baselineskip}\n";
+
     private static final String SECTION_TEMPLATE = SECTION_DELIMITER
+            + NEEDSPACE_COMMAND
             + "\\section{%s}\n%s";
     private static final String SUBSECTION_TEMPLATE =
-            "\\subsection{%s}\n%s";
+            NEEDSPACE_COMMAND
+            + "\\subsection{%s}\n%s";
     private static final String SUBSUBSECTION_TEMPLATE =
-            "\\subsubsection{%s}\n%s";
+            NEEDSPACE_COMMAND
+            + "\\subsubsection{%s}\n%s";
     private static final String PARAGRAPH_TEMPLATE =
-            "\\paragraph{%s}\n%s";
+            NEEDSPACE_COMMAND
+            + "\\paragraph{%s}\n%s";
     private static final String SUBPARAGRAPH_TEMPLATE =
-            "\\subparagraph{%s}\n%s";
+            NEEDSPACE_COMMAND
+            + "\\subparagraph{%s}\n%s";
 
     private static final String BOLD_TEMPLATE = "\\textbf{%s}";
     private static final String UNDERLINED_TEMPLATE = "\\underline{%s}";
