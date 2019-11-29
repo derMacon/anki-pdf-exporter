@@ -93,7 +93,8 @@ B_CLOSING_TAG: '</b>';
 I_OPENING_TAG: '<i>';
 I_CLOSING_TAG: '</i>';
 
-U_OPENING_TAG: '<u>';
+U_OPENING_TAG: '<u style=' .*?'>'
+                | '<u>';
 U_CLOSING_TAG: '</u>';
 
 //WS  :   [ ] -> channel(HIDDEN);

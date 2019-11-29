@@ -1,0 +1,307 @@
+\documentclass{article}
+\usepackage{tikz,lipsum,lmodern}
+\usepackage[ngerman]{babel}
+\usepackage[most]{tcolorbox}
+\usepackage[paperheight=10.75in,paperwidth=7.25in,margin=1in,heightrounded]{geometry}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{ragged2e}
+\usepackage{needspace}
+\usepackage[space]{grffile}
+\usepackage[utf8]{inputenc}
+\usepackage[export]{adjustbox}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\rightmark}
+\chead{\thepart}
+\lhead{\nouppercase{\leftmark}}
+\cfoot{\thepage}
+\graphicspath{{"/home/silasUser/.local/share/Anki2/User 1/collection.media/"}}
+
+\title{snipping}
+\author{Silas Hoffmann, inf103088}
+\date{\today}
+
+
+
+\begin{document}
+\maketitle
+\vspace{0.5cm}
+\tableofcontents
+\clearpage
+
+%*********************
+\Needspace{20\baselineskip}
+\section{marked}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie ganz allgemein den Begriff Lokales Netz bzw. LAN. Welche grundlegende Funktionen bzw. Aufgabe erfüllt so ein LAN?
+
+\tcblower
+
+\justifying
+„LAN-Technologien realisieren den direkten physikalischen Datentransportzwischen einzelnen Netzinterfaces über ein sie verbindendes Medium.“Ein LAN stellt die technische Infrastruktur zur Punkt-zu-Punkt Kommunikation über ein gemeinsames Medium direkt verbundene Systeme (Interfaces) dar.Die LAN-Technologien umfassen die OSI-Funktionsschichten -1 und -2.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-14710262988801.jpg}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-14731737825281.jpg}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-58579058950145.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-58999965745153.png}
+\end{center}
+
+\end{tcolorbox}
+%*********************
+\Needspace{20\baselineskip}
+\section{RechnernetzeKlausuren}
+\Needspace{20\baselineskip}
+\subsection{SS16}
+\Needspace{20\baselineskip}
+\paragraph{Aufg1}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche der OSI-Funktionsschichten umfasst dabei die LAN-Technik prinzipiell und was ist deren jeweilige Bezeichung und deren Aufgabe (Kurzform)?
+
+\tcblower
+
+\justifying
+LAN-Technik realisiert den Layer-1 (Bitübertragung) und Layer-2 (Punkt-zu-Punkt/Mehrpunkt-Kommunikation).\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-16655883173889.jpg}
+\end{center}
+Wiederholung: OSI-Schichtenmodell\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-16999480557569.jpg}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche Aufgabe hat in der IEEE 802 LAN-Architektur speziell der sog. MAC-Layer?
+
+\tcblower
+
+\justifying
+Die MAC ist die zweitunterste Schicht und umfasst Netzwerkprotokolle und Bauteile, die regeln, wie sich mehrere Rechner das gemeinsam genutzte physische Übertragungsmedium teilen. Sie wird benötigt, weil ein gemeinsames Medium nicht gleichzeitig von mehreren Rechnern verwendet werden kann, ohne dass es zu Datenkollisionen und damit zu Kommunikationsstörungen oder Datenverlust kommt. [Wikipedia]\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-18008797872129 (1).jpg}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-19752554594305.jpg}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wozu genau dient beim MAC-Layer eine MAC-Adresse und wie sieht diese strukturell aus (mit Notation!)?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-20216411062273.jpg}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-8881992368129.png}
+\end{center}
+
+
+\tcblower
+
+\justifying
+Wikipedia:Es wird eine ARP-Anforderung (ARP Request) mit der MAC-Adresse und der IP-Adresse des anfragenden Computers als Senderadresse und der IP-Adresse des gesuchten Computers als Empfänger-IP-Adresse an alle Computer des lokalen Netzwerkes gesendet. Als Empfänger-MAC-Adresse wird dazu die Broadcast-Adresse ff-ff-ff-ff-ff-ff16 verwendet. Empfängt ein Computer ein solches Paket, sieht er nach, ob dieses Paket seine IP-Adresse als Empfänger-IP-Adresse enthält. Wenn dies der Fall ist, antwortet er mit dem Zurücksenden seiner MAC-Adresse und IP-Adresse (ARP-Antwort oder ARP-Reply) an die MAC-Quelladresse des Anforderers. Dieser trägt nach Empfang der Antwort die empfangene Kombination von IP- und MAC-Adresse in seine ARP-Tabelle, den sogenannten ARP-Cache, ein. Für ARP-Request und ARP-Reply wird das gleiche Paket-Format verwendet.In eigenen Worten:Zwei Computer möchten mittels der LAN-Technologie miteinander kommunizieren. Der anfragende PC schickt eine ARP-Request. Diese besteht aus folgenden Feldern:- Mac und IP-Adresse des Senders- Mac und IP-Adresse des EmpfängersBeim Request füllt der Sender seine Felder entsprechend aus, setzt die gewünschte IP-Adresse des Empfängers und gibt als Mac-Adresse die Broadcast Adresse an. Nun wird dieses Paket an alle Interfaces des Netzwerks weitergeleitet und der entsprechende PC antwortet mit einem ähnlich ausgefüllten Paket, dieses Mal nur mit ausgefüllter Mac-Adresse des Senders.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-10071698309121.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-10058813407233 (1).png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wozu dient speziell das ARP-Dienstprogramm auf z.B. einem Windows-/Linux-System?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-27513560498177.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wie kann der Empfänger eines Datenpaketes (Frames) in einem LAN prinzipiell feststellen ob ein Paket bei ihm wirklich fehlerfrei angekommen ist?
+
+\tcblower
+
+\justifying
+Da im LAN IPv4 Pakete übertragen werden ist es möglich anhand der Pakete selbst mittels der Prüfsumme zu überprüfen, ob die empfangenen Daten auch genauso abgeschickt wurden, da diese Teil des Paketes sind.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-3062311682049.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Zusatz: Beschreiben Sie die obere der beiden Layer-2 Sub-Schichten.
+
+\tcblower
+
+\justifying
+In eigenen Worten: Die obere Sub-Schicht der beiden Layer 2 Schichten stellt vier mögliche Dienstprotokolle zur Übertragung von Datenpaketen im LAN bereit.LLC (Logical Link Control):- Typ-1: verbindungsloser / ungesicherter Datagrammdienst- Typ-2: verbindungsorientierter Dienst- Typ-3: verbindungsloser Datagrammdienst mit Bestätigung- Typ-4: Punkt-zu-Punkt-VerbindungITWissen:Logical Link Control (LLC) ist ein OSI-Protokoll, das von der IEEE-Arbeitsgruppe 802 entwickelt wurde und für alle LAN-Subsysteme im Rahmen des Standards IEEE 802 gleich ist. Es handelt sich um die Steuerung der Datenübertragung auf der oberen Teilschicht der Sicherungsschicht, die im Ethernet-Schichtenmodell in die Sublayers Logical Link Control und Medium Access Control (MAC) unterteilt wurde.Logical Link Control kennt vier Dienstformen: Typ 1 kennzeichnet einen verbindungslosen, ungesicherten Datagrammdienst. Typ 2 kennzeichnet einen verbindungsorientierten Dienst. Typ 3 bezeichnet einen verbindungslosen Datagrammdienst mit Bestätigung und Typ 4 für Punkt-zu-Punkt-Verbindungen.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-3062311682049.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie nun ganz allgemein den Begriff Hub-System zum technischen Aufbau eines Netzes. Welche physikalische Topologie ergibt sich dadurch und wo liegen hier Vorteile/Nachteile?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-8143257993217.png}
+\end{center}
+Ein Hub-System besitzt einen primären Zugriffspunkt in Form eines Hubs/Routers an den alle Interfaces eines Netzwerks angeschlossen sind. Wenn nun ein Gerät ausfällt ist dies für das gesamte Netzwerk nicht von Bedeutung, es sei denn der Router selbst fällt aus. Da dies allerdings abzusehen ist kann man diesen gesondert schützen (z.B. in Form eines Backupgerätes).Mit einem Hub-System wird eine physikalische Stern-Topologie erzeugt bei welcher der primäre Zugriffspunkts mittig angeordnet ist und alle Geräte an diesen angeschlossen sind.
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Skizzieren Sie nun aussagekräftig den Aufbau eines Ethernet-LANs mit so einem Hub-System und zwei PC-Arbeitsstationen nach dem klassischen 10Base-T.Welches bekannte Zugriffsverfahren kommt in diesem Netz zum Einsatz?Was bedeutet dabei der Begriff Kollisionsdomäne? (Zeichnen)
+
+\tcblower
+
+\justifying
+\textbf{1.}Wichtig, pro Arbeitsstation werden zwei Twisted-Pair-Adern-Kabel verwendet um die Ausfallsicherheit zu erhöhen. Wichtig zu erwähnen, der Switch ist sehr langsam... läuft nur im half-Duplex-Mode. Die Zahl, hier die 10 gibt die Datenübertragung in MBits und T steht für das Twisted Pair Kabel mit dem sämtliche Komponenten verbunden sind.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-8658654068737.png}
+\end{center}
+\textbf{2.}Es wird das CSMA/CD-Verfahren verwendet.ITWissen:CSMA/CD (Carrier Sense Multiple Access with Collision Detection) ist ein Zugangsverfahren mit Leitungsabfrage und Kollisionserkennung (Listen While Talking) nach einer Random-Access-Methode, das bei lokalen Netzen (LAN) in Bustopologie mit mehreren Netzwerkstationen den Zugriff auf das Übertragungsmedium regelt.Ist der Kanal frei, wird die Übertragung begonnen, jedoch frühestens nach dem Interframe Gap (IFG) nach Freiwerden des Mediums. Ist der Kanal belegt, wird der Kanal weiter überwacht, bis er als nichtbelegt erkannt wird. Die Zustände des Belegtseins bzw. Nichtbelegtseins werden durch Trägererkennung aus den Pegeländerungen auf dem Übertragungsmedium ermittelt. Tritt nach einer festgelegten Bitzeit eine Pegeländerung auf, so ist ein Trägersignal auf dem Kabel; in allen anderen Fällen gilt das Übertragungsmedium als nicht belegt.Während der Übertragung wird der Kanal weiter abgehört (Listen While Talking). Beginnt gleichzeitig eine zweite Station mit der Übertragung, dann werden die Daten beider Stationen an einer Stelle des Netzwerks kollidieren, der Signalpegel auf dem Übertragungsmedium steigt an; man spricht vom Kollisionspegel. Da alle sendenden Stationen den Übertragungspegel auf dem Medium ständig überwachen, brechen diese Stationen bei Erkennen einer Kollision die Übertragung sofort ab und schicken ein spezielles Störsignal, das Jam-Signal, auf den Kanal. Nach Aussenden des Störsignals warten die Stationen eine bestimmte Zeit ( Backoff) und beginnen danach erneut die CSMA-Übertragung, beginnend mit dem ersten Schritt, dem Abhören des Mediums (Carrier Sensing).\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-9663676416001.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-9607841841153.png}
+\end{center}
+\textbf{3.}Im klassischen Ethernet sind alle Endgeräte an dem gleichen physikalischen Ethernet-Segment angeschlossen und erhalten über das Kollisionsverfahren Zugang auf das Übertragungsmedium. Ein solches Netzsegment mit eigenem Kollisionsverfahren bildet eine Kollisionsdomäne.Eine Kollisionsdomäne ist ein in sich geschlossenes LAN-Segment, das mit autarkem Kollisionsverfahren arbeitet. Der Hintergrund einer autarken Kollisionsdomäne ist in der steigenden Verzögerungszeit zu sehen, die mit der Anzahl der angeschlossenen Stationen und der erhöhten Anzahl an Zugriffen auf das Übertragungsmedium rapide ansteigt.\textbf{Kollisionsdomäne:}Im klassischen Ethernet sind alle Endgeräte an dem gleichen physikalischen Ethernet-Segment angeschlossen und erhalten über das Kollisionsverfahren Zugang auf das Übertragungsmedium. Ein solches Netzsegment mit eigenem Kollisionsverfahren bildet eine Kollisionsdomäne.
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+In heutigen LANs wird nun aber fast ausschließlich die Switching-Technologie eingesetzt. Erläutern Sie den Begriff Ethernet-Switch. Wie arbeitet so ein Gerät prinzipiell?
+
+\tcblower
+
+\justifying
+Ein Switch erlaubt die direkte Kopplung von N-Teilnetzen auf Layer-2 mittels N-Port Switch. Hierbei gibt es zwei wesentliche Verfahren. Einmal die cut-through Variante bei der die Weiterleitung direkt bei Erkennung der Ziel MAC Adresse erfolgt und einmal die klassisch genutzte store-and-forward Technik bei der bereits im Switch selbst überprüft wird ob die Pakete soweit in Ordnung sind oder ob sie defekt sind.Falls sie strukturelle Fehler aufweisen oder die Prüfsumme inkorrekt ist werden sie gelöscht. Anschließend wird geprüft ob die MAC Adresse bereits in der FDB gegeben ist oder nicht, falls nein wird das Paket auf allen Port ausgegeben falls ja wird das Paket an diese weitergeleitet.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-9294309228545.jpg}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-10269266804737 (1).jpg}
+\end{center}
+Wiederholung: Definition Switch\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-9010841387009.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche konkrete Aufgabe hat in einem Ethernet-Switch die interne Forwarding Database (FDB) Tabelle? Skizzieren Sie dazu grob deren prinzipiellen Aufbau. Was wird wozu gespeichert?Woher stammt hier ein Eintrag in dieser Tabelle und wer löscht diesen ggf. wieder? Wann wird in einem Switch ggf. ein MAC-Frame auch mal nicht weitergeleitet.
+
+\tcblower
+
+\justifying
+Einträge werden per \textit{Self-Learning Algorithmus}ermittelt. Funktionsweise: Wenn ein Endgerät ein Paket aussendet und der Switch die Sender Adresse nicht kennt wird ein neuer Eintrag angelegt. Wenn die Empfänger Adresse ebenfalls nicht in der FDB steht wird das Paket an alle Ports (bis auf den des Senders) weitergeleitet, ansonsten natürlich nur an die Zieladresse. Dieser Vorgang wird auch als Flooding bezeichnet.Diese Tabelle verbindet die Portnummern mit allen an dem jeweiligen Port angeschloßenen Endgeräten. Wichtig hierbei, falls weitere Hub-Systeme an einem Port angeschlossen sein sollten wird die Adresse des Switches, etc. nicht in die FDB der Parent-Instanz eingetragen.Diese Tabelle wird vom Switch selbst genutzt um Datenpaketen den Empfänger / Absender mit den MAC-Adressen der Pakete in Verbindung zu bringen.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-14521284427777.jpg}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-14551349198849.jpg}
+\end{center}
+\textbf{Todo: Besprechen}Wenn mittels Store-and-Forward gearbeitet wird und die Struktur des Frames oder die Prüfsumme inkorrekt ist wird der Frame verworfen. Außerdem muss das TTL größer Null sein.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-30305289240577.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche beiden grundlegenden Switching-Verfahren (Prinzipien) kennen Sie? Erläutern Sie ganz kurz (stichwortartig) deren jeweiliges Arbeitsprinzip und auch wo hier die jeweiligen Vor- bzw. ggf. auch Nachteile liegen?
+
+\tcblower
+
+\justifying
+Store-and-forward Technik:Vollständige Zwischenspeicherung der Pakete um diese einer Prüfung zu unterziehen. (Defekte Pakete werden nicht weitergeleitet, ist allerdings rel. langsam)Cut-Through Verfahren:Weiterleitung bereits nach Erkennung der Ziel MAC Adresse (Schnelles Weiterleiten, im Zweifelsfall werden aber auch defekte Paktete zugestellt)\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-9294309228545.jpg}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-163281771692033.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie nun kurz bzw. stichwortartig die wesentlichen Eigenschaften der in der Internet-Architektur zur Verfügung stehenden beiden Transportprotokolle TCP und UDP.
+
+\tcblower
+
+\justifying
+( Schnelle Übertragung  da keine Verbindung aufgebaut werden muss;  ungesichert  Pakete können verändern TCP:\textit{Transmission Control Protocol}Das TCP realisiert eine verbindungsorientierte, gesicherte Übertragungvon Datenströmen zwischen jeweils (genau) zwei Prozessen.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-18803366821889.jpg}
+\end{center}
+
+\end{tcolorbox}
+
+\end{document}
+
+
