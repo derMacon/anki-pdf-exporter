@@ -23,7 +23,7 @@ public class TXTParser implements Parser {
      */
     public TXTParser(String mediaPath, String deckName) {
         this.mediaPath = mediaPath;
-        this.deckName = deckName;
+        this.deckName = deckName.replaceAll("_", " ");
     }
 
     @Override

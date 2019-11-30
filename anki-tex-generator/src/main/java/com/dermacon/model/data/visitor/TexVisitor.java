@@ -78,9 +78,10 @@ public class TexVisitor implements FormatVisitor<String> {
     // page: 366
     private static final String CARD_TEMPLATE = CARD_DELIMITER
             + "\\begin{tcolorbox}"
+//            + "[colback=white!10!white,colframe=lightgray!75!black,\n"
             + "[colback=white!10!white,colframe=lightgray!75!black,\n"
-            + "  savelowerto=\\jobname_ex.tex,breakable,enhanced,"
-            + "lines before break=40]\n"
+            + "  savelowerto=\\jobname_ex.texri,breakable,enhanced,"
+            + "lines before break=40,arc=2pt,outer arc=2pt]\n"
 //            + "height fixed for=first and middle]\n"
 //            "segmentation at break=false]\n"
             + "\n"
@@ -105,7 +106,7 @@ public class TexVisitor implements FormatVisitor<String> {
 
     private static final String SECTION_DELIMITER = "%%*********************\n";
     private static final String NEEDSPACE_COMMAND =
-            "\\Needspace{50\\baselineskip}\n";
+            "\\Needspace{35\\baselineskip}\n";
 
     private static final String SECTION_TEMPLATE = SECTION_DELIMITER
             + NEEDSPACE_COMMAND
@@ -118,7 +119,7 @@ public class TexVisitor implements FormatVisitor<String> {
             + "\\subsubsection{%s}\n%s";
     private static final String PARAGRAPH_TEMPLATE =
             NEEDSPACE_COMMAND
-            + "\\paragraph{%s}\n%s";
+            + "\\paragraph{%s}\n\\vspace{3px}\n%s";
     private static final String SUBPARAGRAPH_TEMPLATE =
             NEEDSPACE_COMMAND
             + "\\subparagraph{%s}\n%s";
