@@ -15,4 +15,10 @@ public class FileExporterTest {
                 FileExporter.normalizePath("./input.txt"));
     }
 
+    @Test
+    public void testNormalize() {
+        String input = "<span style=asdf sadf sdf>text</span>";
+        Assert.assertEquals("test", FileExporter.normalize(input));
+    }
+
 }

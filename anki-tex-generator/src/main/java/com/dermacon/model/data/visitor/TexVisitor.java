@@ -105,7 +105,7 @@ public class TexVisitor implements FormatVisitor<String> {
 
     private static final String SECTION_DELIMITER = "%%*********************\n";
     private static final String NEEDSPACE_COMMAND =
-            "\\Needspace{20\\baselineskip}\n";
+            "\\Needspace{50\\baselineskip}\n";
 
     private static final String SECTION_TEMPLATE = SECTION_DELIMITER
             + NEEDSPACE_COMMAND

@@ -1,0 +1,1180 @@
+\documentclass{article}
+\usepackage{tikz,lipsum,lmodern}
+\usepackage[ngerman]{babel}
+\usepackage[most]{tcolorbox}
+\usepackage[paperheight=10.75in,paperwidth=7.25in,margin=1in,heightrounded]{geometry}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{ragged2e}
+\usepackage{needspace}
+\usepackage[space]{grffile}
+\usepackage[utf8]{inputenc}
+\usepackage[export]{adjustbox}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\rightmark}
+\chead{\thepart}
+\lhead{\nouppercase{\leftmark}}
+\cfoot{\thepage}
+\graphicspath{{"/home/silasUser/.local/share/Anki2/User 1/collection.media/"}}
+
+\title{Rechnernetze_Klausuren}
+\author{Silas Hoffmann, inf103088}
+\date{\today}
+
+
+
+\begin{document}
+\maketitle
+\vspace{0.5cm}
+\tableofcontents
+\clearpage
+
+%*********************
+\Needspace{50\baselineskip}
+\section{marked}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie ganz allgemein den Begriff Lokales Netz bzw. LAN. Welche grundlegende Funktionen bzw. Aufgabe erfüllt so ein LAN?
+
+\tcblower
+
+\justifying
+„LAN-Technologien realisieren den direkten physikalischen Datentransportzwischen einzelnen Netzinterfaces über ein sie verbindendes Medium.“Ein LAN stellt die technische Infrastruktur zur Punkt-zu-Punkt Kommunikation über ein gemeinsames Medium direkt verbundene Systeme (Interfaces) dar.Die LAN-Technologien umfassen die OSI-Funktionsschichten -1 und -2.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-14710262988801.jpg}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-14731737825281.jpg}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-58579058950145.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-58999965745153.png}
+\end{center}
+
+\end{tcolorbox}
+%*********************
+\Needspace{50\baselineskip}
+\section{RechnernetzeKlausuren}
+\Needspace{50\baselineskip}
+\subsection{SS16}
+\Needspace{50\baselineskip}
+\paragraph{Aufg1}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche der OSI-Funktionsschichten umfasst dabei die LAN-Technik prinzipiell und was ist deren jeweilige Bezeichung und deren Aufgabe (Kurzform)?
+
+\tcblower
+
+\justifying
+LAN-Technik realisiert den Layer-1 (Bitübertragung) und Layer-2 (Punkt-zu-Punkt/Mehrpunkt-Kommunikation).\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-16655883173889.jpg}
+\end{center}
+Wiederholung: OSI-Schichtenmodell\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-16999480557569.jpg}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche Aufgabe hat in der IEEE 802 LAN-Architektur speziell der sog. MAC-Layer?
+
+\tcblower
+
+\justifying
+Die MAC ist die zweitunterste Schicht und umfasst Netzwerkprotokolle und Bauteile, die regeln, wie sich mehrere Rechner das gemeinsam genutzte physische Übertragungsmedium teilen. Sie wird benötigt, weil ein gemeinsames Medium nicht gleichzeitig von mehreren Rechnern verwendet werden kann, ohne dass es zu Datenkollisionen und damit zu Kommunikationsstörungen oder Datenverlust kommt. [Wikipedia]\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-18008797872129 (1).jpg}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-19752554594305.jpg}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wozu genau dient beim MAC-Layer eine MAC-Adresse und wie sieht diese strukturell aus (mit Notation!)?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-20216411062273.jpg}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-8881992368129.png}
+\end{center}
+
+
+\tcblower
+
+\justifying
+Wikipedia:Es wird eine ARP-Anforderung (ARP Request) mit der MAC-Adresse und der IP-Adresse des anfragenden Computers als Senderadresse und der IP-Adresse des gesuchten Computers als Empfänger-IP-Adresse an alle Computer des lokalen Netzwerkes gesendet. Als Empfänger-MAC-Adresse wird dazu die Broadcast-Adresse ff-ff-ff-ff-ff-ff16 verwendet. Empfängt ein Computer ein solches Paket, sieht er nach, ob dieses Paket seine IP-Adresse als Empfänger-IP-Adresse enthält. Wenn dies der Fall ist, antwortet er mit dem Zurücksenden seiner MAC-Adresse und IP-Adresse (ARP-Antwort oder ARP-Reply) an die MAC-Quelladresse des Anforderers. Dieser trägt nach Empfang der Antwort die empfangene Kombination von IP- und MAC-Adresse in seine ARP-Tabelle, den sogenannten ARP-Cache, ein. Für ARP-Request und ARP-Reply wird das gleiche Paket-Format verwendet.In eigenen Worten:Zwei Computer möchten mittels der LAN-Technologie miteinander kommunizieren. Der anfragende PC schickt eine ARP-Request. Diese besteht aus folgenden Feldern:- Mac und IP-Adresse des Senders- Mac und IP-Adresse des EmpfängersBeim Request füllt der Sender seine Felder entsprechend aus, setzt die gewünschte IP-Adresse des Empfängers und gibt als Mac-Adresse die Broadcast Adresse an. Nun wird dieses Paket an alle Interfaces des Netzwerks weitergeleitet und der entsprechende PC antwortet mit einem ähnlich ausgefüllten Paket, dieses Mal nur mit ausgefüllter Mac-Adresse des Senders.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-10071698309121.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-10058813407233 (1).png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wozu dient speziell das ARP-Dienstprogramm auf z.B. einem Windows-/Linux-System?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-27513560498177.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wie kann der Empfänger eines Datenpaketes (Frames) in einem LAN prinzipiell feststellen ob ein Paket bei ihm wirklich fehlerfrei angekommen ist?
+
+\tcblower
+
+\justifying
+Da im LAN IPv4 Pakete übertragen werden ist es möglich anhand der Pakete selbst mittels der Prüfsumme zu überprüfen, ob die empfangenen Daten auch genauso abgeschickt wurden, da diese Teil des Paketes sind.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-3062311682049.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Zusatz: Beschreiben Sie die obere der beiden Layer-2 Sub-Schichten.
+
+\tcblower
+
+\justifying
+In eigenen Worten: Die obere Sub-Schicht der beiden Layer 2 Schichten stellt vier mögliche Dienstprotokolle zur Übertragung von Datenpaketen im LAN bereit.LLC (Logical Link Control):- Typ-1: verbindungsloser / ungesicherter Datagrammdienst- Typ-2: verbindungsorientierter Dienst- Typ-3: verbindungsloser Datagrammdienst mit Bestätigung- Typ-4: Punkt-zu-Punkt-VerbindungITWissen:Logical Link Control (LLC) ist ein OSI-Protokoll, das von der IEEE-Arbeitsgruppe 802 entwickelt wurde und für alle LAN-Subsysteme im Rahmen des Standards IEEE 802 gleich ist. Es handelt sich um die Steuerung der Datenübertragung auf der oberen Teilschicht der Sicherungsschicht, die im Ethernet-Schichtenmodell in die Sublayers Logical Link Control und Medium Access Control (MAC) unterteilt wurde.Logical Link Control kennt vier Dienstformen: Typ 1 kennzeichnet einen verbindungslosen, ungesicherten Datagrammdienst. Typ 2 kennzeichnet einen verbindungsorientierten Dienst. Typ 3 bezeichnet einen verbindungslosen Datagrammdienst mit Bestätigung und Typ 4 für Punkt-zu-Punkt-Verbindungen.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-3062311682049.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie nun ganz allgemein den Begriff Hub-System zum technischen Aufbau eines Netzes. Welche physikalische Topologie ergibt sich dadurch und wo liegen hier Vorteile/Nachteile?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-8143257993217.png}
+\end{center}
+Ein Hub-System besitzt einen primären Zugriffspunkt in Form eines Hubs/Routers an den alle Interfaces eines Netzwerks angeschlossen sind. Wenn nun ein Gerät ausfällt ist dies für das gesamte Netzwerk nicht von Bedeutung, es sei denn der Router selbst fällt aus. Da dies allerdings abzusehen ist kann man diesen gesondert schützen (z.B. in Form eines Backupgerätes).Mit einem Hub-System wird eine physikalische Stern-Topologie erzeugt bei welcher der primäre Zugriffspunkts mittig angeordnet ist und alle Geräte an diesen angeschlossen sind.
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Skizzieren Sie nun aussagekräftig den Aufbau eines Ethernet-LANs mit so einem Hub-System und zwei PC-Arbeitsstationen nach dem klassischen 10Base-T.Welches bekannte Zugriffsverfahren kommt in diesem Netz zum Einsatz?Was bedeutet dabei der Begriff Kollisionsdomäne? (Zeichnen)
+
+\tcblower
+
+\justifying
+\textbf{1.}Wichtig, pro Arbeitsstation werden zwei Twisted-Pair-Adern-Kabel verwendet um die Ausfallsicherheit zu erhöhen. Wichtig zu erwähnen, der Switch ist sehr langsam... läuft nur im half-Duplex-Mode. Die Zahl, hier die 10 gibt die Datenübertragung in MBits und T steht für das Twisted Pair Kabel mit dem sämtliche Komponenten verbunden sind.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-8658654068737.png}
+\end{center}
+\textbf{2.}Es wird das CSMA/CD-Verfahren verwendet.ITWissen:CSMA/CD (Carrier Sense Multiple Access with Collision Detection) ist ein Zugangsverfahren mit Leitungsabfrage und Kollisionserkennung (Listen While Talking) nach einer Random-Access-Methode, das bei lokalen Netzen (LAN) in Bustopologie mit mehreren Netzwerkstationen den Zugriff auf das Übertragungsmedium regelt.Ist der Kanal frei, wird die Übertragung begonnen, jedoch frühestens nach dem Interframe Gap (IFG) nach Freiwerden des Mediums. Ist der Kanal belegt, wird der Kanal weiter überwacht, bis er als nichtbelegt erkannt wird. Die Zustände des Belegtseins bzw. Nichtbelegtseins werden durch Trägererkennung aus den Pegeländerungen auf dem Übertragungsmedium ermittelt. Tritt nach einer festgelegten Bitzeit eine Pegeländerung auf, so ist ein Trägersignal auf dem Kabel; in allen anderen Fällen gilt das Übertragungsmedium als nicht belegt.Während der Übertragung wird der Kanal weiter abgehört (Listen While Talking). Beginnt gleichzeitig eine zweite Station mit der Übertragung, dann werden die Daten beider Stationen an einer Stelle des Netzwerks kollidieren, der Signalpegel auf dem Übertragungsmedium steigt an; man spricht vom Kollisionspegel. Da alle sendenden Stationen den Übertragungspegel auf dem Medium ständig überwachen, brechen diese Stationen bei Erkennen einer Kollision die Übertragung sofort ab und schicken ein spezielles Störsignal, das Jam-Signal, auf den Kanal. Nach Aussenden des Störsignals warten die Stationen eine bestimmte Zeit ( Backoff) und beginnen danach erneut die CSMA-Übertragung, beginnend mit dem ersten Schritt, dem Abhören des Mediums (Carrier Sensing).\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-9663676416001.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-9607841841153.png}
+\end{center}
+\textbf{3.}Im klassischen Ethernet sind alle Endgeräte an dem gleichen physikalischen Ethernet-Segment angeschlossen und erhalten über das Kollisionsverfahren Zugang auf das Übertragungsmedium. Ein solches Netzsegment mit eigenem Kollisionsverfahren bildet eine Kollisionsdomäne.Eine Kollisionsdomäne ist ein in sich geschlossenes LAN-Segment, das mit autarkem Kollisionsverfahren arbeitet. Der Hintergrund einer autarken Kollisionsdomäne ist in der steigenden Verzögerungszeit zu sehen, die mit der Anzahl der angeschlossenen Stationen und der erhöhten Anzahl an Zugriffen auf das Übertragungsmedium rapide ansteigt.\textbf{Kollisionsdomäne:}Im klassischen Ethernet sind alle Endgeräte an dem gleichen physikalischen Ethernet-Segment angeschlossen und erhalten über das Kollisionsverfahren Zugang auf das Übertragungsmedium. Ein solches Netzsegment mit eigenem Kollisionsverfahren bildet eine Kollisionsdomäne.
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+In heutigen LANs wird nun aber fast ausschließlich die Switching-Technologie eingesetzt. Erläutern Sie den Begriff Ethernet-Switch. Wie arbeitet so ein Gerät prinzipiell?
+
+\tcblower
+
+\justifying
+Ein Switch erlaubt die direkte Kopplung von N-Teilnetzen auf Layer-2 mittels N-Port Switch. Hierbei gibt es zwei wesentliche Verfahren. Einmal die cut-through Variante bei der die Weiterleitung direkt bei Erkennung der Ziel MAC Adresse erfolgt und einmal die klassisch genutzte store-and-forward Technik bei der bereits im Switch selbst überprüft wird ob die Pakete soweit in Ordnung sind oder ob sie defekt sind.Falls sie strukturelle Fehler aufweisen oder die Prüfsumme inkorrekt ist werden sie gelöscht. Anschließend wird geprüft ob die MAC Adresse bereits in der FDB gegeben ist oder nicht, falls nein wird das Paket auf allen Port ausgegeben falls ja wird das Paket an diese weitergeleitet.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-9294309228545.jpg}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-10269266804737 (1).jpg}
+\end{center}
+Wiederholung: Definition Switch\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-9010841387009.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche konkrete Aufgabe hat in einem Ethernet-Switch die interne Forwarding Database (FDB) Tabelle? Skizzieren Sie dazu grob deren prinzipiellen Aufbau. Was wird wozu gespeichert?Woher stammt hier ein Eintrag in dieser Tabelle und wer löscht diesen ggf. wieder? Wann wird in einem Switch ggf. ein MAC-Frame auch mal nicht weitergeleitet.
+
+\tcblower
+
+\justifying
+Einträge werden per \textit{Self-Learning Algorithmus}ermittelt. Funktionsweise: Wenn ein Endgerät ein Paket aussendet und der Switch die Sender Adresse nicht kennt wird ein neuer Eintrag angelegt. Wenn die Empfänger Adresse ebenfalls nicht in der FDB steht wird das Paket an alle Ports (bis auf den des Senders) weitergeleitet, ansonsten natürlich nur an die Zieladresse. Dieser Vorgang wird auch als Flooding bezeichnet.Diese Tabelle verbindet die Portnummern mit allen an dem jeweiligen Port angeschloßenen Endgeräten. Wichtig hierbei, falls weitere Hub-Systeme an einem Port angeschlossen sein sollten wird die Adresse des Switches, etc. nicht in die FDB der Parent-Instanz eingetragen.Diese Tabelle wird vom Switch selbst genutzt um Datenpaketen den Empfänger / Absender mit den MAC-Adressen der Pakete in Verbindung zu bringen.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-14521284427777.jpg}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-14551349198849.jpg}
+\end{center}
+\textbf{Todo: Besprechen}Wenn mittels Store-and-Forward gearbeitet wird und die Struktur des Frames oder die Prüfsumme inkorrekt ist wird der Frame verworfen. Außerdem muss das TTL größer Null sein.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-30305289240577.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche beiden grundlegenden Switching-Verfahren (Prinzipien) kennen Sie? Erläutern Sie ganz kurz (stichwortartig) deren jeweiliges Arbeitsprinzip und auch wo hier die jeweiligen Vor- bzw. ggf. auch Nachteile liegen?
+
+\tcblower
+
+\justifying
+Store-and-forward Technik:Vollständige Zwischenspeicherung der Pakete um diese einer Prüfung zu unterziehen. (Defekte Pakete werden nicht weitergeleitet, ist allerdings rel. langsam)Cut-Through Verfahren:Weiterleitung bereits nach Erkennung der Ziel MAC Adresse (Schnelles Weiterleiten, im Zweifelsfall werden aber auch defekte Paktete zugestellt)\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-9294309228545.jpg}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-163281771692033.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie nun kurz bzw. stichwortartig die wesentlichen Eigenschaften der in der Internet-Architektur zur Verfügung stehenden beiden Transportprotokolle TCP und UDP.
+
+\tcblower
+
+\justifying
+\textbf{UDP:}\textit{User Datagram Protocol}Das UDP stellt eine sehr einfach, verbindungslose und ungesicherte Datenübertragung zwischen Anwendungsprozessen bereit.(+ Schnelle Übertragung - da keine Verbindung aufgebaut werden muss; - ungesichert - Pakete können verändern / verloren gehen)TCP:\textit{Transmission Control Protocol}Das TCP realisiert eine verbindungsorientierte, gesicherte Übertragungvon Datenströmen zwischen jeweils (genau) zwei Prozessen.(+ Gesicherte Übertragung - Was gesendet wurde kommt sicher an; - Zeit-/Ressourcenaufwendig)\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-18803366821889.jpg}
+\end{center}
+
+\end{tcolorbox}
+\Needspace{50\baselineskip}
+\paragraph{Aufg2}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern sie kurz an einem Anwendungsbeispiel den Begriff des \textbf{IP-Multicasting.}Wozu dient diese Technik und welche Art von IPv4-Adressen wird dabei verwendet? Geben sie auch ein konkretes Adressbeispiel mit an.Warum ist diese Technik der traditionellen Broadcast-Adressierung ggf. vorzuziehen (Vorteile)?Wie kann im IPv4 die Reichweite (Verteilungsbereich) einer Multicast-Übertragung im gesamten Netz geregelt werden (z.B. beim\textit{IP-TV)?}
+
+\tcblower
+
+\justifying
+In eigenen Worten: Mit IP-Multicast ist es möglich z.B. einen Videostream nur einer Gruppe von Rechnern aus dem eigenen Teilnetz zu zeigen. Hierzu wird eine Class D Adresse verwendet. Die Rechner der Gruppe können sich über das IGMP in die Gruppe \textit{einschreiben}bzw. aus ihr \textit{austreten}.<missing IDENTIFIER>Beispieladresse: 227.0.0.3:1234ITWissen: IP-Multicast ist eine Routing-Technik, bei der der IP-Verkehr von einer oder von mehreren Datenquellen an mehrere Zielstationen gesendet wird. Es kann sich also um eine Punkt-zu-Mehrpunkt-Verbindung (P2MP) handeln oder um eine Mehrpunkt-zu-Mehrpunkt-Verbindung.Vorteil: Verwendung Multicast gegenüber BroadcastDa per Multicast nur ausgewählte Gruppen mit Informationen versorgt werden schont dies die Traffic-Auslastung des Netzwerks. Es werden keine bzw. wenig unnötige Pakete versendet was beim Broadcast unvermeidbar ist.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-32177894981633.png}
+\end{center}
+Wiederholung: Aufschlüsselung der einzelnen Adressklassen\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-28995324215297.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welches der oben genannten Transportprotokolle (UDP / TCP) kann bei der Multicast-Technik zum Einsatz kommen und warum (Begründung)?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-33281701576705.png}
+\end{center}
+Beim TCP kommt es sogar schon beim Verbindungsaufbau zu Problemen wenn die Kommunikationspartner nicht genau feststehen.
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche Bedeutung hat im Rahmen der Kommunikation zwischen Programmen (Prozessen) dabei der Begriff (UDP-/TCP) Socket?Was genau stellen in diesem Zusammenhang sog. Ports (bzw. Portnummern) dar und wie sehen diese hier konkret aus?
+
+\tcblower
+
+\justifying
+Unterschied zwischen Port und Socket:Ein Port ist der physikalische und ein Socket der logische Endpunkt einer Kommunikation (definiert durch eine IP-Adresse und einen Port im Kontext einer bestimmten Verbindung).\textbf{}ITWissen:Als Socket wird die Adressenkombination aus IP-Adresse und Portnummer bezeichnet mit der eine bestimmte Anwendung auf einem bestimmten Rechner angesprochen werden kann. Mit der IP-Adresse wird das Netzwerk und der Rechner bestimmt und mit der die Portnummer die Anwendung auswählt.An einem geg. Port hängt aber nicht nur ein Prozess der so angesteuert werden kann, sondern auch ein Transportprotokoll welches die Daten \textit{in Empfang nimmt.}\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-36232344109057.png}
+\end{center}
+Bedeutung von Ports:Werden benötigt um einen Prozess eindeutig identifizieren zu können.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-38332583116801.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-38053410242561.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was genau ist eine sog. Socket-Adresse (mit typischer Notation) und wozu ist diese notwendig?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-37563783970817.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was genau stellen in diesem Zusammenhang eigentlich Ports (bzw. Portnummern) dar und warum benötigt man so etwas zwingend?
+
+\tcblower
+
+\justifying
+IT-Wissen:Ein Port ist ein Ein- oder Ausgang einer Einheit. Es kann sich um einen Verbindungspunkt für ein Peripheriegerät, für periphere Einheiten oder ein Anwendungsprogramm handeln. Ein Port kann logisch, physikalisch oder beides seinUm einen Prozess eindeutig identifizieren zu können.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-38332583116801.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-38053410242561.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche drei grundlegenden Bereiche von Ports (bzw. Portnummern) kennen Sie und wozu dienen diese jeweils bzw. was ist ihre jeweilige Bedeutung?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-39058432589825.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wie bzw. mit welchem bekannten Dienstprogramm kann man (per Kommandozeile) abprüfen, ob auf dem eigenen System im Hintergrund z.B. ein TELNET-Server oder auch andere Anwendungen (Prozesse) auf einkommende Verbindungen warten? Wie lautet dazu der typische Aufruf (z.B. unter Windows)?
+
+\tcblower
+
+\justifying
+(C://) netstat -nErklärung -n: Zeigt Adressen und Portnummern numerisch an.
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Kann man mit dem bekannten PING-Dienstprogramm interaktiv (per Kommandozeile) abprüfen ob auf einem entfernten System ein HTTP-Serverdienst tatsächlich aktiv bzw. erreichbar ist? Erläutern Sie dazu kurz aber hinreichend detailiert diesen Sachverhalt bzw. die Arbeitsweise dieses Dienstprogramms. Wie lautet (z.B. unter Windows) der Aufruf eines dafür geeigneten Dienstprogramms?
+
+\tcblower
+
+\justifying
+Das Dienstprogramm PING fordert mit der ICMP-Funktion ECHO-Request einen zugehörigen ECHO-Reply an. Dazu sendet es mehrere Pakete und misst dabei jeweils die Zeit bis zur Ankuft der Antwort. Falls ein Paket unterwegs verloren gegangen sein soll kann dies mehrere Gründe haben (siehe Screenshot).\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-10604274253825.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-10093173145601.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Skizzieren Sie abschließend ganz grob den strukturellen Aufbau eines vollständigen IPv4-Paktes, welches SSH-Anwendungsdaten in einem Netz transportiert. Stellen Sie auch dar, woran der Empfänger des IPv4-Paketes in der Struktur erkennen kann, welche Anteile (z.B. welches Transportprotokoll) hier jeweils nacheinander folgen?
+
+\tcblower
+
+\justifying
+\textit{Ähnliche Frage aus der WS15 Klausur: Skizzieren Sie grob den Aufbau eines Paketes welches SMTP-Daten transportiert... \textbf{eigentlich müssten die übertragenden Daten irrelevant sein.}}\textbf{}\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-11510512353281.png}
+\end{center}
+Da das SSH-Verfahren eine verschlüsselte Verbindung aufbaut wird hier das TCP im Protokoll-Feld angegeben.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-12270721564673.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Warum kreist ein IPv4-Paket nicht endlos im Netz herum, falls die Zieladresse (-netz) nie gefunden werden kann (weil z.B. gar nicht vergeben)?
+
+\tcblower
+
+\justifying
+Im Paket selbst gibt es ein Feld um festzulegen wie viele Interfaces das Paket eigentlich bei seiner Reise durchs Netz passieren darf. Jedes Interface (Router) dekrementiert dieses und verwirft es falls der Wert 0 erreichen sollte.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-14959371091969.png}
+\end{center}
+Wiederholung: Aufbau eines IPv4-Datenpaketes\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-11510512353281.png}
+\end{center}
+
+\end{tcolorbox}
+\Needspace{50\baselineskip}
+\paragraph{Aufg3}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie allgemein den Begriff Domain Name System (DNS) in der Internet-Architektur. Was ist das bzw. wozu dient es genau?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-15758235009025.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was genau verstehen Sie unter einer so genannten Domäne (engl. Domain) und wie wird diese im globalen DNS gekennzeichnet?
+
+\tcblower
+
+\justifying
+Eine Domäne ist ein eigenständiger Verwaltungsbereich mit einem eindeutigen Domänennamen und einem eigenen DNS-Server zur Verwaltung.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-16784732192769.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was ist bzw. wozu dient im Rahmen des DNS ein sog. Resource Record (RR)? Nennen Sie dazu wenigstens zwei konkrete Beispiele (inkl. der jeweiligen Bedeutung).
+
+\tcblower
+
+\justifying
+Als Resource Records (RR) werden Informationseinträge im Domain Name System (DNS) und in einer Zonendatei für die Verwaltung einer Domain bezeichnet. Resource Records haben eine feste Struktur: Domain (NAME) - Klasse (CLASS) - Typ (TYPE) - Eintrag (RDATA).\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-17768279703553 (1).png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-22819161243649.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was stellt in diesem Zusammenhand eigentlich eine DNS-Zone dar? Wo liegt hier ein Unterschied zu einer DNS-Domäne?
+
+\tcblower
+
+\justifying
+Ein DNS-Server ist zum Auflösen eines Namensraums zuständig. Wenn er nun auf einem höheren Level des DNS-Namensbaumes rangiert wird er in der Regel die Anfragen an diverse Subdomains weiterleiten. Dazu wird er die entsprechenden DNS-Server kontaktieren. Wenn die Anfrage bei einem Server ankommt welche in der Lage ist den Namen in eine IP-Adresse zu übersetzen wird er auf seine Zonendatei zugreifen. Eine Zone beschreibt also den eigenständigen Verwaltungsbereich seiner Domäne.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-18726057410561.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was genau versteht man unter einem Full Qualified Domain Name (FQDN)?
+
+\tcblower
+
+\justifying
+Ein Fully Qualified Domain Name (FQDN) ist ein vollständiger Domainname mit Dienstangabe, der für jeden Domain-Level einen Eintrag hat, von der Third Level Domain oder Subdomain, über die Second Level Domain bis zur Top Level Domain (TLD).
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche konkrete Aufgabe hat im DNS also ein DNS-Server (Dienst)?
+
+\tcblower
+
+\justifying
+Ein DNS-Server besitzt die Aufgabe einen FQDN in ein IP-Adresse (Forward Lookup) oder eine Adresse in einen FQDN (Reverse Lookup) aufzulösen.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-21139829030913.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wozu dient auf einem System, welches per IP kommuniziert (z.B. ein Windows-PC), auch heute noch die klassiche Hosts-Datei und wann kommt diese jeweils zum Einsatz? Wozu könnte sie missbraucht werden bzw. wo liegt hier ggf. eine Gefahr?
+
+\tcblower
+
+\justifying
+Diese Datei kann eine Übersetzungstabelle verwalten, ähnlich wie es ein DNS-Server tut. Es wird beim auflösen eines Namens stets erst diese Datei durchsucht bevor die Suche per DNS-Server startet. Falls hier jedoch eine falsche Zuordnung zu finden sein sollte, ist es für den User nicht mehr möglich diese Seite auf seinem System anzusteuern (DNS-Spoofing).\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-21878563405825.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beim Abruf einer Webseite per http (z.B. von www.lidl.de) wird von der Anwendung (Browser) die zugehörige IP-Zieladresse benötigt, auf der dieser http-Dienst läuft. Wo genau und wie (in welcher Form) wird diese Information im DNS gespeichert?
+
+\tcblower
+
+\justifying
+Ein DNS-Server besitzt eine sog. Forward-Zonendatei. In dieser sind sind sämtliche Ressource Records zum Auflösen eines FQDN zu einer IP-Adresse gespeichert. Außerdem ist ein DNS-Server in der Lage verschiedene RR-Typen zu speichern. Die Toplevel Domains werden stets auf einen NS-Record zugreifen um den Namen aufzulösen, dieser Record-Typ legt weitere Namensserver für die Domäne fest, sie leiten die Anfrage also einfach an eine Subdomain weiter. Beim DNS-Server welcher für die Domain \textit{lidl}zuständig ist wird auf einen A-Record zugegriffen bei welchem die Information (IP-Adresse) enthalten ist und so direkt übersetzt werden kann.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-30816390348801.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-33530809679873.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-34540126994433.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-27178553049089.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was stellt im Zusammenhang der Auflösung von Domainnamen zu IP-Adressen im DNS-Namensraum eigentlich ein sog. ALIAS genau dar und wozu ist so was gut? Wo genau und wie wird diese Angabe im DNS hinterlegt?
+
+\tcblower
+
+\justifying
+Ein ALIAS wird in der Forward-Zonendatei festgelegt. Der RR-Typ \textit{CNAME} wird dafür verwendet. Ein ALIAS macht nichts anderes als einen ursprünglichen FQDN mit einem anderen FQDN zu ersetzen.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-36150739730433.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-39569533698049.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Skizzieren Sie nun für www.lidl.de den Ablauf der eigenständigen Namensauflösung in die zugehörige IP-Adresse durch einen unserer DNS-Server (hier im Rechenzentrum). Unser DNS-Server hat die öffentliche IP-Adresse 213.39.232.222 und freien Zugang zum Internet. Stellen Sie dar, was hier jeweils genau von wo nach wo übertragen wird (Typ, Inhalt).\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-37284611096577.png}
+\end{center}
+
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-37323265802241.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie abschließend, was Sie in diesem Zusammenhang unter einer Pointer-Query (PTR-Abfrage) verstehen. Was wird hierbei ermittelt und wie wird es notiert (Beispiel!)?
+
+\tcblower
+
+\justifying
+Unter einer Pointer-Query wird eine Rückwärtsauflösung (also IP - FQDN) verstanden. Hierbei wird die Adresse mit dem Postfix in-addr.arpa versehen und an die entsprechenden DNS-Server geschickt. Es wird als Pointer Query bezeichnet, da die Reverse-Zonedatei mit Zeigern (PTR-Records) gefüllt ist welche auf den jeweiligen FQDN zeigen.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-37782827302913.png}
+\end{center}
+
+\end{tcolorbox}
+\Needspace{50\baselineskip}
+\paragraph{Aufg4}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie kurz bzw. stichwortartig den Begriff SMTP. Wozu dient es und welche wesentlichen Eigenschaften weist es auf? Welches Transportprotokoll wird dabei benutzt.
+
+\tcblower
+
+\justifying
+Transportprotokoll:Abruf der Nachrichten über POP3 oder IMAPv4.Nachrichten unverschlüsselt per TCP übermitteltServerdienst nutzt den well-known-Service Port 25\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-38968238276609.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-38989713113089.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Das SMTP konnte erst später in seiner Entwicklung quasi beliebige Informationen übertragen, wie z.B. eine ausführbare (Binär-) Datei. Wie genau wurde das nachträglich gelöst? Kennen Sie dazu ein konkretes Verfahren bzw. eine dabei genutzte Technik?
+
+\tcblower
+
+\justifying
+\textbf{???</b> todo eventuell im RFC 3030, nochmal nachschauen. extended smtp, \textit{ich finde nichts zum verschicken von executables nur über erweiterten Zeichensatz, etc..}}
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche Möglichkeiten kennen Sie, um die Nutzung eines SMTP-Servers (Dienstes) in einem Netz gegen einen unbefugten Versand von E-Mails zu beschränken?
+
+\tcblower
+
+\justifying
+SPF: Prüfung von Mail-Adressen durch Hinterlegung gültiger Adressen.\textbf{}\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-6511170420737.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-7494717931521.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wozu dient beim SMTP das Greylisting Verfahren?
+
+\tcblower
+
+\justifying
+Beschränkung von \textit{Massen-Emails.}\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-8985071583233.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-8091718385665.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Bei der Übertragung von Nachrichten zu einem Ziel (z.B. service@lidl.de) muss ein SMTP-Server zunächst herausfinden, wohin er die Daten übermitteln soll. Wo und wie wird die dazu notwendige Information ganz konkret gespeichert?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-27608049778689.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-27028229193729.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-10136122818561 (1).png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-10647223926785.png}
+\end{center}
+
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-11020886081537.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-11523397255169.png}
+\end{center}
+Welche bekannten Einschränkungen gibt es bei der Nutzung privater IPv4-Adressen im Rahmen der Kommunikation zwischen Anwendungen in/über Netze, wie z.B. dem Internet?
+
+\tcblower
+
+\justifying
+Pakete mit privaten IP-Adressen werden im Internet nicht weitergeleitet (geroutet), da dort keine Eindeutigkeit mehr gegeben ist.\textbf{Richtig verstanden?:}Werden nicht direkt im Router herausgefiltert, sondern erst beim ISP.\textbf{}\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-11841224835073.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-12704513261569 (1).png}
+\end{center}
+Erläutern Sie, wie E-Mails über diesen SMTP-Server (Dienst) auch an Ziele im öffentlichen Internet gesendet werden können und welche Technik dazu hier nötig ist. welcher konkrete Ablauf in der IP-Kommunikation ergibt sich hierbei?
+
+\tcblower
+
+\justifying
+Router des Netzwerks ist in der Lage per NAT-Technik die privaten mit der eigenen öffentlichen weiterzuleiten.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-12923556593665.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-16419659972609.png}
+\end{center}
+Der in e) skizzierte interne SMTP-Server soll auch selbst (direkt) aus dem öffentlichen Netz einkommende E-Mails empfangen können. Was ist dazu wiederum wo nötig und wie gestaltet sich hierbei dann die Übertragung bzw. der Kommunikationsablauf? Erläutern Sie ganz kurz.
+
+\tcblower
+
+\justifying
+Nicht sicher, aber wahrscheinlich möchte er hier hören, dass der Server nicht direkt aus dem öffentlichen Netz addressiert werden kann. Hierbei müsste man sich einem Proxy- oder NAT-Dienst bedienen.
+\end{tcolorbox}
+\Needspace{50\baselineskip}
+\paragraph{Aufg5}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wozu genau dient in einer Routingtabelle speziell ein Default-Router (bzw. -Gateway) Eintrag?
+
+\tcblower
+
+\justifying
+Ein Default-Router bestimmt den Router an welchen ein gegebenes Datenpaket weitergeleitet wird falls eine direkte Übermittlung des Pakets zum Zielinterface nicht möglich ist. (Default-Router - Eintrag als Platzhalter \textit{Wildcard} für unbekannte Zielnetze)\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-4913442586625.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-4032974290945 (1).png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wozu wird bei Einträgen in einer Routing-Tabelle oftmals auch eine Metrik-Information hinterlegt?
+
+\tcblower
+
+\justifying
+Ein Metrik-Wert wird in Hops angegeben. Dieser Wert sagt lediglich aus über wie viele Netzwerk-Abschnitte ein Datenpaket übertragen werden muss um an das gegebene Interface zu gelagen. Dieser Eintrag ist wichtig, damit Datenpakete nicht endlos im Netz herumgeschickt werden. \textbf{(- nicht ganz sicher)}\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-5746666242049.png}
+\end{center}
+
+\end{tcolorbox}
+\Needspace{50\baselineskip}
+\subsection{SS17}
+\Needspace{50\baselineskip}
+\paragraph{Aufg1}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche spezifische Aufgabe hat in der IEEE 802 LAN-Architektur der sog. MAC-Layer und ist dieser in allen aktuellen LAN-Technologien einheitlich (mit Begründung)? Wofür genau steht hier der Begriff MAC?
+
+\tcblower
+
+\justifying
+\textbf{\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-10943576670209 (2).png}
+\end{center}
+}Die MAC ist die zweitunterste Schicht und umfasst Netzwerkprotokolle und Bauteile, die regeln, wie sich mehrere Rechner das gemeinsam genutzte physische Übertragungsmedium teilen. Sie wird benötigt, weil ein gemeinsames Medium nicht gleichzeitig von mehreren Rechnern verwendet werden kann, ohne dass es zu Datenkollisionen und damit zu Kommunikationsstörungen oder Datenverlust kommt.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-21122649161729.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wozu wird eine MAC-Adresse denn überhaupt benötigt, wenn ein System (Interface) im LAN doch bereits über eine IPv4-Adresse verfügt?Wofür steht hier der Begriff \textbf{MAC}?<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+Die MAC-Adresse spezifiziert die Kommunikation auf Layer-2 eine IP-Adresse arbeitet auf Layer-3 (und aufwärts)\textbf{}\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-23141283790849.png}
+\end{center}
+MAC: Media Access Control
+\end{tcolorbox}
+\Needspace{50\baselineskip}
+\paragraph{Aufg2}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was verstehen Sie in der Internet-Architektur unter dem Begriff \textbf{Socket}bzw. Socket-Schnittstelle?
+
+\tcblower
+
+\justifying
+Unterschied zwischen Port und Socket:Ein Port der physikalische und ein Socket der logische Endpunkt einer Kommunikation (definiert durch eine IP-Adresse und einen Port im Kontext einer bestimmten Verbindung).\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-34939558952961.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-35046933135361.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-35059818037249.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche bekannten Transportprotokolle könnten die Multicast-Technik überhaupt nutzen und warum (Begründung)?
+
+\tcblower
+
+\justifying
+Nur mittels UDP möglich, da dieses Verfahren auch an eine Gruppe von unbekannten Empfängern Pakete verschicken kann. Bei TCP wird zum Verbindungsaufbau stets die Identität des Kommunikationspartners benötigt.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-47231755354113.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-48949742272513.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-47790101102593.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-44757854191617.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie das in der Vorlesung gezeigt Prinzip einer Videoübertragung in einem Netz \textit{(IP-TV)}unter Einsatz der Multicasting-Technik. Skizzieren Sie dazu grob den prinzipiellen Aufbau.Welche Art bzw. Klasse von IPv4-Adressen kommen dabei zum Einsatz und wie sehen diese Adressen strukturell aus? Nennen Sie auch ein konkretes Adressbeispiel.Wie kann im IPv4 die Reichweite (Verteilungsbereich) einer Multicast Übertragung in einem Netz gesteuert werden?
+
+\tcblower
+
+\justifying
+In eigenen Worten: Mit IP-Multicast ist es möglich z.B. einen Videostream nur einer Gruppe von Rechnern aus dem eigenen Teilnetz zu zeigen. Hierzu wird eine Class D Adresse verwendet. Die Rechner der Gruppe können sich über das IGMP in die Gruppe\textit{einschreiben}bzw. aus ihr\textit{austreten}.<missing IDENTIFIER>Beispieladresse: 227.0.0.3:1234ITWissen: IP-Multicast ist eine Routing-Technik, bei der der IP-Verkehr von einer oder von mehreren Datenquellen an mehrere Zielstationen gesendet wird. Es kann sich also um eine Punkt-zu-Mehrpunkt-Verbindung (P2MP) handeln oder um eine Mehrpunkt-zu-Mehrpunkt-Verbindung.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-45513768435713.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-27818503176193.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-12206297055233.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wozu dient im Zusammenhang mit Interprozesskommunikation in der Internet-Architektur das Dienstprogramm \textbf{netstat}. Was kann damit prinzipiell ermittelt werden?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-51853140164609.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-51904679772161.png}
+\end{center}
+
+\end{tcolorbox}
+\Needspace{50\baselineskip}
+\subsection{WS15}
+\Needspace{50\baselineskip}
+\paragraph{Aufg1}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Skizzieren Sie grob die Struktur bzw. Aufteilung des IEEE-802 LAN Schichtenmodells. Welche der OSI-Funktionsschichten umfasst diese Struktur?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-62255550955521.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Skizzieren Sie einen Ethernet-MAC Frame und zeigen Sie, wieso in LANs auf einem Kabel unterschiedliche Netzwerkprotokolle (IPv4, IPv6, etc.) ihre Daten austauschen können.Wie wird hier prinzipiell sichergestellt, dass nur korrekt übertragene Pakete vom Empfänger weiterverarbeitet werden?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-82209969012737.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-83240761163777.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+In heutigen LANs wird heute praktisch ausschließlich Switching-Technologie eingesetzt. Erläutern Sie daher kurz und präzise den Begriff \textbf{Ethernet-Switch}. Was macht bzw. wie arbeitet so ein Gerät prinzipiell?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-84812719194113.png}
+\end{center}
+
+\end{tcolorbox}
+\Needspace{50\baselineskip}
+\subsection{WS16}
+\Needspace{50\baselineskip}
+\paragraph{Aufg1}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche konkrete Aufgabe hat in den IEEE 802 LANs speziell der MAC-Layer? Ist dieser generell einheitlich?
+
+\tcblower
+
+\justifying
+\textbf{In eigenen Worten:}-Zweit unterste Schicht vom OSI-Modell (unterste Schicht der aufgeteilten Sicherungsschicht)- Umfasst Netzwerkprotokolle, regelt wie sich mehrere Rechner das gemeinsam genutzte physische Übertragungsmedium teilen.- Je nachdem ob Zugriff \textit{kontrolliert }oder \textit{konkurrierend} stattfinden soll wird ein entsprechendes Verfahren genutzt (kontrolliert  Beispiel Schule - Siehe nächster Absatz; konkurrierend  z.B. CSMA/CD)\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-79766132621313.png}
+\end{center}
+\textbf{Wikipedia:}Media Access Control [midja kses kntl] oder Medium Access Control [midjm] (MAC, engl. „Medienzugriffssteuerung“) ist eine vom Institute of Electrical and Electronics Engineers (IEEE) entworfene Erweiterung des OSI-Modells. Das IEEE unterteilte die Sicherungsschicht (Schicht 2) des OSI-Modells in die Unterschichten Media Access Control (2a) und Logical Link Control (2b), wobei die MAC die untere der beiden ist.Das OSI-Modell ordnet die in einem Rechnernetz benötigten Hardware- und Softwareteile in insgesamt sieben Schichten ansteigender Komplexität an. Je höher eine Schicht liegt, desto weniger interessant ist sie für den technischen Ablauf der Datenübertragung und umso mehr ist sie mit dem eigentlichen Inhalt der Daten beschäftigt. Die MAC ist die zweitunterste Schicht und umfasst Netzwerkprotokolle und Bauteile, die regeln, wie sich mehrere Rechner das gemeinsam genutzte physische Übertragungsmedium teilen. Sie wird benötigt, weil ein gemeinsames Medium nicht gleichzeitig von mehreren Rechnern verwendet werden kann, ohne dass es zu Datenkollisionen und damit zu Kommunikationsstörungen oder Datenverlust kommt. Im ursprünglichen OSI-Modell war eine solche Konkurrenz um das Kommunikationsmedium nicht vorgesehen, weshalb die MAC dort nicht enthalten ist.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-80058190397441.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-80071075299329.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wofür steht in der Internet-Architektur der Begriff \textbf{ARP}und welche wichtigen Aufgaben im Rahmen der IPv4-Kommunikation in einem LAN hat es? Wann kommt es zum Einsatz?
+
+\tcblower
+
+\justifying
+\textbf{ARP:}\textbf{A}ddress \textbf{R}esolution \textbf{P}rotocol\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-84039625080833.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wofür steht in der Internet-Architektur der Begriff \textbf{ARP}und welche wichtige Aufgabe im Rahmen der IPv4-Kommunikation im LAN hat es?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-153626685210625 (1).png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wo und wann kommt auch bei einem Ethernet-Switch ggf. das CSMA/CD Zugriffsverfahren zum Einsatz? Skizzieren Sie dazu aussagekräftig ein Netz mit einem 10Base-T-Switch und zwei angeschlossenen Arbeitsstationen.
+
+\tcblower
+
+\justifying
+\textbf{10Base-T-Switch}ist egal, stink normaler Switch mit anderem Kabel.Wichtig zu erwähnen:Wenn der Switch nicht im Vollduplex-Betrieb ist, dann teilen sich ja immer noch 2 Teilnehmer das gleiche Medium und es kann zu Kollisionen kommen.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-166047730630657.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-165957536317441.png}
+\end{center}
+
+\end{tcolorbox}
+\Needspace{50\baselineskip}
+\paragraph{Aufg2}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie kurz aber verständlich die wesentlichen Eigenschaften des Transmission Control Protocols (TCP) in der Internet-Architektur. Wozu dient es?Welcher Ebene im OSI-Referenzmodell entspricht seine Funktionalität?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-27887222652929 (1).png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wozu dienen dabei sog. \textbf{Flags}im TCP-Header? Nennen Sie dazu zwei konkrete Beispiele und deren jeweilige Bedeutung.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-30167850287105.png}
+\end{center}
+Generelle Bedeutung der Flags: Sind zweiwertige Variablen mit den möglichen Zuständen gesetzt nicht gesetzt, die zur Kennzeichnung bestimmter für die Kommunikation und Weiterverarbeitung der Daten wichtiger Zustände benötigt werden.\textit{Sie dienen zur Weiterverarbeitung der Daten und zum Auf- und Abbau der Kommunikation zwischen den beteiligten Endgeräten.}Erläuterung der Control Bit Flags:\textbf{URG}: Urgent Flag. Herkömmliche Verarbeitung des aktuellen TCP-Segements wird unterbrochen und es werden die Nutzdaten bis zu dem Byte ausgelesen, auf dass das Urgen-Pointer-Feld zeigt.\textbf{ACK}: In Kombination mit der Acknowledgement-Number wird der Empfang von TCP-Segmenten während der Datenübertragung bestätigt.\textbf{PSH}:Werden Daten über das Transmission Control Protocol verschickt, gibt es auf Seiten des Senders und des Empfängers jeweils einen Puffer. Beim Sender werden die zu übertragenden Daten in einem Puffer abgelegt. Hier werden kleinere Übertragungen zu einer Größeren gebündelt und dann erst an den Empfänger verschickt. Das ist deutlich effizienter.Sind die Daten beim Empfänger angekommen, landen Sie dort ebenfalls in einem Puffer. Auch hier werden die Daten gesammelt und gebündelt an die Applikation weitergereicht.Wenn nun das Push-Flag gesetzt ist, dann werden beide Puffer übergangen. Hilfreich ist dies z.B. bei einer Telnet-Sitzung. Würde dein abgeschickter Befehl zuerst im Puffer landen, dann würde dieser mit einer starken Verzögerung ausgeführt werden.RSTWenn eine Verbindung abgebrochen werden soll, dann wird das Reset-Flag verwendet. Dies kann bei technischen Problemen oder unerwünschten Verbindungen geschehen.SYNIst das SYN-Flag in einem TCP-Segment gesetzt, wird versucht eine Verbindung zu initiieren. Dabei dient es der Synchronisation der Sequence Number beim Verbindungsaufbau.FINÜber das FIN-Flag signalisiert der Sender dem Empfänger, das keine weiteren Daten folgen und die Verbindung freigegeben werden kann.Weitere wichtige Header-Informationen:\textbf{Source Port}(Quellport, 2 Byte): Gibt die Portnummer der Senderseite an.\textbf{Destination Port}(Zielport, 2 Byte): Gibt die Portnummer der Empfängerseite an.
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie auch hinreichend präzise, wie im TCP prinzipiell sichergestellt wird, dass letztendlich keine Inhalte verloren gehen können.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-31941671780353.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wie lautet der typische Aufruf (z.B. unter Windows) um auf dem eigenen System zu prüfen, ob bestimmte Anwendungen (Prozesse) auf einkommende TCP-Verbindungen warten?
+
+\tcblower
+
+\justifying
+-q:Zeigt alle Verbindungen, lauschenden Ports und gebundenenicht lauschende TCP-Ports an. Gebundene nicht lauschende Ports könneneiner aktiven Verbindung zugeordnet sein oder nicht.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-9096740732929.png}
+\end{center}
+
+\end{tcolorbox}
+%*********************
+\Needspace{50\baselineskip}
+\section{Generelles}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Kann man mit dem PING-Dienstprogramm interaktiv (per Kommandozeile) abprüfen, ob auf einem entfernten System ein SMTP-Serverdienst gerade aktiv bzw. erreichbar ist?Erläutern Sie diesen Sachverhalt kurz aber präzise anhand der Arbeitsweise dieses sehr wichtigen Dienstprogramms.Wie lautet (z.B. unter Windows) dann der Aufruf eines geeigneten Dienstprogramms?
+
+\tcblower
+
+\justifying
+\textbf{Frage: Ein SMTP-Server ist doch zumindest was das Pingen angeht dasselbe wie ein normaler Webserver, warum sollte da irgendwas anders laufen?}Ping-Funktionalität:\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-10857677324289.png}
+\end{center}
+Aufruf:pre classmyCodeClassping [IP-Adresse]/pre
+\end{tcolorbox}
+
+\end{document}
+
+

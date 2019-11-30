@@ -68,14 +68,14 @@ imageItem
 
 IMG_TYPE: '.png' | '.jpg';
 IDENTIFIER: [„“/[\]_ ():äÄöÖüÜßa-zA-Z0-9-]*;
-ADDITIONAL_CHARS: [/,\-&;!?+.];
+ADDITIONAL_CHARS: [/,\-&;!?+.@];
 
 DELIMITER: '\t' | '\n';
 
 IMG_OPENING_TAG: '<img src=' (' ')*;
 IMG_CLOSING_TAG: (' ')? ('/')? '>';
 
-DIV_OPENING_TAG: '<div' (' class=' IDENTIFIER)? '>';
+DIV_OPENING_TAG: '<div' .*? '>';
 DIV_CLOSING_TAG: '</div>';
 
 UL_OPENING_TAG: '<ul>';
@@ -96,4 +96,5 @@ I_CLOSING_TAG: '</i>';
 U_OPENING_TAG: '<u' .*?'>';
 U_CLOSING_TAG: '</u>';
 
+REST : .+? -> skip; // ignores all mismatches
 //WS  :   [ ] -> channel(HIDDEN);

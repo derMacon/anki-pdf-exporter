@@ -9,6 +9,9 @@
 *.toc
 *.vrb
 
+# test output dir
+*/otherDocs/
+
 # IDE
 */.idea/
 *.iml

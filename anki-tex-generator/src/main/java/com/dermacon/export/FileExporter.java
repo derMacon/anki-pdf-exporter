@@ -78,13 +78,17 @@ public class FileExporter extends Exporter {
 
     public static String normalize(String content) {
         return content.replaceAll("\"", "")
-                .replaceAll("&nbsp;", "")
-                .replaceAll("-&gt;", "")
+//                .replaceAll("&nbsp;", "")
+//                .replaceAll("-&gt;", "")
+//                .replaceAll("&gt;", "")
+                .replaceAll("\\\\", "//")
+                .replaceAll("&.*?;", "")
                 // deletes every word containing the char '&'
 //                .replaceAll("[^&\\s]*&[^;\\s]* ", "")
-                .replaceAll("<br />", "")
-                .replaceAll("<br>", "")
-                .replaceAll("<br/>", "");
+                .replaceAll("<br.*?>", "")
+                .replaceAll("<br.*?/>", "")
+                .replaceAll("<span.*?>", "")
+                .replaceAll("</span>", "");
     }
 
     @Override

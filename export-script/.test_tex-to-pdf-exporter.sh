@@ -17,5 +17,5 @@ rm ${NAME}.!(txt|pdf|tex) >/dev/null
 rm *_ex.tex >/dev/null >/dev/null
 
 # preview pdf doc
-xdg-open ${NAME}.pdf
+# xdg-open ${NAME}.pdf
 
