@@ -5,6 +5,13 @@ import com.dermacon.model.data.visitor.FormatVisitor;
 
 import java.util.List;
 
+/**
+ * Document that will be parsed by the Visitor.
+ * Holds the information for the header / title page as well as the body
+ * element with all cards and the media path to specify where the actual
+ * images lay that will be displayed on the cards.
+ *
+ */
 public class Document implements DocNode {
     private final MetaHeader metaHeader;
     private final Body body;

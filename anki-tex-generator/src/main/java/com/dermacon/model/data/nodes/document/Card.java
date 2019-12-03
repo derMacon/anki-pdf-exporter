@@ -1,14 +1,16 @@
 package com.dermacon.model.data.nodes.document;
 
 import com.dermacon.model.data.nodes.sideElem.SideContainer;
-import com.dermacon.model.data.nodes.tag.AnkiTag;
 import com.dermacon.model.data.visitor.FormatVisitor;
 import com.dermacon.model.data.nodes.DocNode;
-import org.antlr.v4.runtime.Token;
 
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Card object that contains a front and backside full of Side elements.
+ * Also holds a list for all specified tags
+ */
 public class Card implements DocNode {
 
     private final SideContainer front;
@@ -47,12 +49,13 @@ public class Card implements DocNode {
     @Override
     public String toString() {
         return "Card(front:" + this.front.toString()
-                + ";back:" + this.back.toString() + ");";
-//                + "tags:" + this.tag.toString();
+                + ";back:" + this.back.toString() + ");"
+                + "tags:" + this.tag.toString();
     }
 
     @Override
     public List<DocNode> getChildren() {
+        // todo
         return null;
     }
 

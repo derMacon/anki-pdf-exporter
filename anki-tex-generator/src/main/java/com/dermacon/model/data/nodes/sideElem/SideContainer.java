@@ -1,11 +1,13 @@
 package com.dermacon.model.data.nodes.sideElem;
 
-import com.dermacon.model.data.nodes.DocNode;
 import com.dermacon.model.data.visitor.FormatVisitor;
 
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Contains a list of side elements provided of to this side of a card.
+ */
 public class SideContainer extends SideElem {
     protected List<SideElem> elems = new LinkedList<>();
 

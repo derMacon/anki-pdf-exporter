@@ -1,7 +1,9 @@
 package com.dermacon.model.data.nodes.document;
 
+/**
+ * Builder for the document object.
+ */
 public class DocumentBuilder {
-
     private String deckname = "Anki deck";
     private String mediaPath = "todo set path";
     private Body body = null;

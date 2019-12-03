@@ -38,5 +38,4 @@ public interface FormatVisitor<R> {
     R process(ListItem lstItem);
     R process(ImageItem img);
     R process(SideContainer cont);
-//    R process(AnkiTag tags);
 }

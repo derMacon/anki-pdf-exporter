@@ -103,32 +103,6 @@ public class Section implements DocNode {
         return null;
     }
 
-
-//    /**
-//     * Only check if sub sections match, all other classes irrelevant
-//     * @param o
-//     * @return
-//     */
-//    public boolean headingsMatch(Object o) {
-//        if (!(o instanceof Section)) {
-//            return false;
-//        }
-//
-//        Section other = (Section) o;
-//        boolean matchingSubHeadings = true;
-//        int i = 0;
-//        Iterator<DocNode> it = other.children.iterator();
-//        while(matchingSubHeadings && it.hasNext()) {
-//            matchingSubHeadings = headingsMatch(it.next());
-//            i++;
-//        }
-//
-//        return other != null
-//                && this.value.equals(other.value)
-//                && this.children.equals(other.children);
-//
-//    }
-
     @Override
     public boolean equals(Object o) {
         Section other = null;
@@ -138,28 +112,16 @@ public class Section implements DocNode {
 
         // only check if sub sections match, all other classes irrelevant
 
-
         return other != null
                 && this.value.equals(other.value)
                 && this.children.equals(other.children);
     }
 
     public Iterator<Section> headingIterator() {
-//        List<Section> lst = children.stream()
-//                .filter(e -> e instanceof Section)
-//                .map(e -> (Section) e)
-//                .collect(Collectors.toList());
-//
-//        for (Section sec : lst) {
-//
-//        }
-
         return children.stream()
                 .filter(e -> e instanceof Section)
                 .map(e -> (Section) e)
                 .collect(Collectors.toList())
                 .iterator();
-
-//        return null;
     }
 }

@@ -10,6 +10,9 @@ import java.util.List;
  */
 public class MetaHeader implements DocNode {
 
+    /**
+     * Title of the whole deck / document.
+     */
     private final String title;
 
     public MetaHeader(String title) {

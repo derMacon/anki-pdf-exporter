@@ -5,6 +5,11 @@ import com.dermacon.model.data.visitor.FormatVisitor;
 
 import java.util.List;
 
+/**
+ * Image instance. Only contains the name of the image to display. The fully
+ * qualified path to the media directory is contained in the document
+ * instance at must not be copied to each image object.
+ */
 public class ImageItem extends SideElem {
 
     private final String name;

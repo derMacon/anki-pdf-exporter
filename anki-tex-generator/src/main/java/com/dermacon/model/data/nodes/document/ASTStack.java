@@ -6,6 +6,9 @@ import com.dermacon.model.data.visitor.FormatVisitor;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Stack of nodes provided by the antlr parser.
+ */
 public class ASTStack implements DocNode {
     private List<DocNode> nodes;
 

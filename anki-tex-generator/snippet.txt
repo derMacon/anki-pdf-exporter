@@ -1,1 +1,0 @@
-<div>Charakterisieren Sie das BIOS und nennen Sie die wichtigsten Aufgaben. Wofuer steht die Abkuerzung ueberhaupt?</div>	<div><img src=betriebssysteme_skript_12.png></div>	Betriebssysteme::Einführung

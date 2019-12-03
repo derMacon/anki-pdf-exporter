@@ -9,10 +9,15 @@ import java.io.IOException;
 
 /**
  * Supertype for the Exporter:
- * -
+ * - reads an input
+ * - takes in a parser that generates a fully qualified document tree
+ * - writes output
  */
 public abstract class Exporter {
 
+    /**
+     * Generates a fully qualified document
+     */
     private final Parser parser;
 
     /**

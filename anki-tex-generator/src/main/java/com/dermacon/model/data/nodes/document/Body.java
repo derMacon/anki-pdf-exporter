@@ -10,6 +10,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Body element of the document object. Contains all relevant card
+ * information / card stack.
+ */
 public class Body implements DocNode {
 
     private List<DocNode> elements;

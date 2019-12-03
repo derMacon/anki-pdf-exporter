@@ -11,6 +11,9 @@ import org.apache.commons.io.FilenameUtils;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Exporter implementation used for file input.
+ */
 public class FileExporter extends Exporter {
 
     private static final String OUTPUT_EXTENSION = ".tex";
@@ -19,7 +22,9 @@ public class FileExporter extends Exporter {
     private final String inputPath;
     private final String outputDir;
 
-
+    /**
+     * Builder object used to create an actual File exporter instance.
+     */
     public static class ExporterBuilder {
 
         private String inputPath;
