@@ -1,0 +1,1310 @@
+\documentclass{article}
+\usepackage{tikz,lipsum,lmodern}
+\usepackage[ngerman]{babel}
+\usepackage[most]{tcolorbox}
+\usepackage[paperheight=10.75in,paperwidth=7.25in,margin=1in,heightrounded]{geometry}
+\usepackage{graphicx}
+\usepackage{blindtext}
+\usepackage{ragged2e}
+\usepackage{needspace}
+\usepackage[space]{grffile}
+\usepackage[utf8]{inputenc}
+\usepackage[export]{adjustbox}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\rightmark}
+\chead{\thepart}
+\lhead{\nouppercase{\leftmark}}
+\cfoot{\thepage}
+\graphicspath{{"/home/silasUser/.local/share/Anki2/User 1/collection.media/"}}
+
+\title{Betriebssysteme}
+\author{Silas Hoffmann, inf103088}
+\date{\today}
+
+
+
+\begin{document}
+\maketitle
+\vspace{0.5cm}
+\tableofcontents
+\clearpage
+
+%*********************
+\Needspace{20\baselineskip}
+\section{Betriebssysteme}
+\Needspace{20\baselineskip}
+\subsection{Einführung}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Charakterisieren Sie das BIOS und nennen Sie die wichtigsten Aufgaben. Wofuer steht die Abkuerzung ueberhaupt?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_12.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Richtig oder falsch: Ältere Betriebssysteme wie MS-DOS benutzten Basisfunktionen des BIOS auch nach dem Laden des eigentlichen BS.
+
+\tcblower
+
+\justifying
+Richtig. Neuere Varianten tun dies nicht mehr, sodass man gar den Chip des BIOS während des laufenden Betriebs entfernen kann.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-17304423235585.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie den Begriff des \textbf{UEFI}wofür steht diese Abkürzung, woher kommt es und welche Vorteile bietet es im Gegensatz zum BIOS?Erläutern Sie ebenfalls kurz was man unter dem Begriff \textit{Firmware }versteht.Welche Nachteile bietet das Booten mittels UEFI?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-17836999180289 (1).png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Skizzieren Sie den \textbf{Bootvorgang} mittels UEFI und grenzen Sie diesen von dem mittels des klassischen BIOS ab.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-21775484190721.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie die BS\textit{Dienstleistung}der \textbf{Abstraktion}von konkreter Hardware. Wieso ist so etwas sinnvoll und gibt es hierbei Ausnahmen?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-22213570854913.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche Dienstleistungen stellt ein Betriebssystem im Bereich der \textbf{Speichermedien} bereit?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-22617297780737.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche Dienstleistungen stellt ein BS im Bereich der \textbf{Prozessverwaltung}bereit? Erläutern Sie ebenfalls diesen Begriff.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-22965190131713.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Nennen und beschreiben Sie alle wesentlichen Dienstleistungen die ein Betriebssystem zur Verfügung stellt.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-23287312678913.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-23300197580801.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-23313082482689.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-22960895164417.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie grob die Marktanteile der PC-Betriebssysteme.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-23476291239937.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-23489176141825 (1).png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-23510650978305 (1).png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie grob die Marktanteile der \textbf{mobilen-Betriebssysteme}.<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-23708219473921.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-23721104375809.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Nennen Sie die Besonderheiten von \textbf{Server-Betriebssystemen}.<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-23794118819841.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Nennen Sie die Besonderheiten von \textbf{Echtzeitbetriebssystemen}. Und nennen Sie einige Beispiele.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-23935852740609.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-23948737642497.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Fassen Sie die verschiedenen Arten von Betriebssystemen zusammen.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-24163486007297.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-24146306138113.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was ist ein \textbf{Kernel}und woraus bestehen seine wesentlichen Aufgaben?
+
+\tcblower
+
+\justifying
+\textbf{Zusammenfassung - Kernel:}Software Kern des Betriebssystems, ist selbst ein Programm welches Dienste bereitstellt.\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-24313809862657.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Nennen Sie die Hauptarten von BS-Kernel.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-24902220382209 (1).png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie die \textit{Philosophie, Nachteile}und die \textit{Vorteile}eines \textbf{monolithischen Kernel BS}.<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-25082609008641 (1).png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie die\textit{Philosophie, Nachteile}und die\textit{Vorteile}eines\textbf{Mikrokernel BS}.<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-25232932864001.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie die\textit{Philosophie, Nachteile}und die\textit{Vorteile}eines \textbf{hybridenBS Kernels}.<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-25701084299265 (1).png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Fassen Sie noch einmal die verschiedenen Klassen von Kernels zusammen und grenzen Sie diese voneinander ab.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-25756918874113.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-25769803776001.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-25786983645185.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{paste-25799868547073.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Nennen Sie die wesentlichen Vorteile von \textbf{UEFI} gegenüber \textbf{BIOS}!<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_49.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Nennen Sie die wesentlichen Dienstleistungen eines Betriebssystems
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_49.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche der Kernel Aufgaben gehört \textbf{NICHT} zu den Aufgaben eines BS-Kerns?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_50.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie die drei Hauptarten von BS-Kernel und gehen Sie dabei auf die Vor- und Nachteile ein!
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_50.png}
+\end{center}
+
+\end{tcolorbox}
+\Needspace{20\baselineskip}
+\subsection{ProzesseUndThreads}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Definieren Sie den Begriff des \textbf{Prozesses}. Was versteht man in diesem Zusammenhang unter der der \textit{Quasiparallelität}?<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_55.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_54.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was versteht man unter dem sog. \textbf{Prozessmodell}?<missing IDENTIFIER>Erläutern Sie in diesem Zusammenhang grob, was man unter einer \textit{Schedulingstrategie} versteht.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_55.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_54.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie den Begriff der \textbf{Prozesstabelle}.<missing IDENTIFIER>Welche Daten werden hierbei festgehalten?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_55.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was versteht man unter einem \textit{Prozesskontrollblock}?<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_55.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_56.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie den Begriff der \textbf{Prozesserzeugung}. Wann ist so etwas sinnvoll, welche Möglichkeiten der Erzeugung gibt es, welche Befehle werden verwendet?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_57.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wie kann ein Prozess beendet werden?Welche unterschiedlichen Arten gibt es, erläutern Sie dies am Beispiel vom BS Linux.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_58.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie die unterschiedlichen Prozesshierarchien von Windows und Unix-Maschinen.Wie können solche Prozesse erzeugt werden und wie sieht deren Beziehung untereinander aus.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_59.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie das grundsätzliche Zustandsmodell der möglichen Prozesszustände anhand einer Skizze.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_60.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie anhand eines einfachen Beispiels die Sinnhaftigkeit von Threads.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_63.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Worin genau liegt der Unterschied zwischen \textit{Prozessen} und \textit{Threads}?<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_64.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_65.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Nennen Sie die beiden Möglichkeiten der Thread-erzeugung unter Linux. Worin liegt der Unterschied zur Erzeugung von Prozessen?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_66.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_67.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_68.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_69.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_70.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was versteht man unter einem sog. \textbf{Scheduler}?<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_72.png}
+\end{center}
+Das \textit{Kleingedruckte}: Permanent am Arbeiten, muss selber bei der CPU rechnend aktiv werden um anderen Prozessen ihre Zuteilung bereitzustellen.
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Auf welchen Systemen ist ein \textbf{Scheduler} von besonderer Bedeutung? Gehen Sie hierbei insbesondere auf die Gründe ein.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_73.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie den Begriff des \textbf{Prozessverhaltens} im Zusammenhang mit dem \textit{Scheduler}.<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_74.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche Möglichkeiten gibt es \textit{wann} das Scheduling beginnen sollte?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_74.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_75.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Grenzen Sie die \textit{unterbrechbaren} von den \textit{nicht-unterbrechbaren} Strategien ab.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_75.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Nennen Sie die beiden Möglichkeiten der Thread-Erzeugung unter Linux. Worin liegt der Unterschied zur Erzeugung von Prozessen?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_66.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_67.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_68.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_69.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_70.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie die möglichen Kriterien für ein gutes \textbf{präemtives} Scheduling. Grenzen Sie dabei noch einmal die beiden wesentlichen \textit{Scheduling-Strategien} voneinander ab.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_77.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_78.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_79.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche der Kriterien für ein gutes \textbf{präemtives} Scheduling schliessen sich gegenseitig aus? Nennen Sie zwei Beispiele.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_79.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie die Grundidee sowie die Vor- / Nachteile der \textbf{FCFS} Scheduling-Strategie. In welche Kategorie lässt sich diese einordnen? Wofür steht die \textit{Abkürzung}?<missing IDENTIFIER>Nennen Sie eine Situation aus dem realen Leben die mit dieser Strategie gut verglichen werden kann.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_80.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie die Grundidee sowie die Vor- / Nachteile der \textbf{SJF} Scheduling-Strategie. In welche Kategorie lässt sich diese einordnen? Wofür steht die \textit{Abkürzung}?<missing IDENTIFIER>Nennen Sie eine Situation aus dem realen Leben die mit dieser Strategie gut verglichen werden kann.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_81.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie die Grundidee sowie die Vor- / Nachteile des \textbf{Zeitschreibeverfahrens}. In welche Kategorie lässt sich diese Strategie einordnen?Nennen Sie eine Situation aus dem realen Leben die mit dieser Strategie gut verglichen werden kann.Unter welchem \textit{Namen} ist diese Strategie allgemeinhin noch bekannt?Nennen Sie ein Beispiel einer \textbf{Variation} dieses Verfahrens.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_82.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was versteht man im Zusammenhang des \textbf{Zeitschreibeverfahrens} unter einem \textit{Quantum}?<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_82.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_83.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_84.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie den Begriff sowie die \textbf{Grundidee} des \textbf{MQS}, wofür steht diese \textit{Abkürzung}?<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_86.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche Rolle spielt der Begriff \textbf{Feedback} in der \textbf{Multilevel \textit{Feedback} Queue Scheduling} Strategie?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_86.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_87.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_88.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_89.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie die \textbf{MLFQ}-Strategie anhand von \textit{3 Queues} und dem \textit{Zeitscheibeverfahren}.<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_89.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Nennen Sie die \textit{wichtigsten} Parameter der \textbf{MLFQ}-Strategie.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_90.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie die \textbf{Ausgangssituation} sowie die \textit{Kernidee} eines \textbf{CFS}. Wofür steht die \textit{Abkürzung?}
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_93.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Wie berechnet sich die \textit{virtuelle} Laufzeit eines \textbf{CFS} und wo liegt der Zusammenhang zur \textit{Priorität} eines Prozesses?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_93.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Welche \textbf{Datenstruktur} verwendet ein \textbf{CFS} um seine Daten zu speichern?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_94.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie das Konzept einer \textbf{Task Group} im Zusammenhang mit dem \textbf{CFS}.<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_95.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Geben Sie einen \textit{kurzen} Überblick über den \textbf{BFS}.<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_97.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie grob was man unter dem sog. \textbf{Nebenläufigkeitsproblem} versteht. Erläutern Sie dies anhand eines Beispiels.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_99.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_103.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_104.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_108.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Nennen Sie die beiden Möglichkeiten der Thread-Erzeugung und Linux. Worin liegt der Unterschied zur Erzeugung von Prozessen?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_66.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_67.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_68.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_69.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_70.png}
+\end{center}
+
+\end{tcolorbox}
+\Needspace{20\baselineskip}
+\subsection{Interprozesskommunikation}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Charakterisieren Sie die drei wesentlichen Probleme der \textbf{Nebenläufigkeit}.<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_112.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_113.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_114.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_115.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie was man unter einem sog. \textit{kritischem Abschnitt} versteht. Nennen Sie den \textit{Fachbegriff} des Lösungsansatzes und beschreiben Sie die 4 \textbf{Bedingungen} für eine \textit{gute} Lösung.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_118.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie wieso es das \textbf{abschalten} von Interrupts zum Steueren eines \textit{kritischen Abschnitts} nicht als optimaler Lösungsansatz angesehen wird. Wo kann dieser Ansatz jedoch sinnvoll sein?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_120.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie die \textit{Strategie} des \textit{Sperrens von Variablen} zum regeln des Zugriffs auf einen kritischen Abschnitt.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_120.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_121.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_122.png}
+\end{center}
+Das \textit{Kleingedruckte}: Scheduler könnte im falschen Moment unterbrechen.\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_122.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie die \textit{Lösung von Peterson} zum regeln des Zugriffs auf einen kritischen Abschnitt. Auf wie viele \textit{Threads} kann dieser Ansatz angewendet werden? Beschreiben Sie neben den Vorteilen auch die Nachteile dieses Ansatzes.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_126.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_127.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_128.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_129.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_130.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was versteht man im Zusammenhang mit der Verarbeitung eines \textbf{kritischen Abschnitts} unter \textit{TSL-Operationen?}
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_132.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_133.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_134.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie die Lösungsmöglichkeit für den \textit{wechselseitigen Ausschluss} mittels einer \textbf{Semaphore}. Welche \textit{Operationen} stellt dieses Verfahren zur Verfügung?
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_136.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_137.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_138.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_140.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Erläutern Sie die \textit{verschiedenen} Möglichkeiten zur Realisierung von \textbf{atomaren} Operationen.Beschreiben Sie in diesem Zusammenhang noch kurz den \textit{Unterschied} zwischen der sog. \textit{Quasi-Paralleltiät} sowie der \textit{echten Paralleltität}.<missing IDENTIFIER>
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_141.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie den zeitlichen Ablauf des \textit{wechselseiten Ausschlusses} unter verwendung einer \textbf{Semaphore} anhand eines Beispiels.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_136.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_142.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_145.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_146.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_147.png}
+\end{center}
+
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie das Konzept des sog. \textbf{Monitors}. Wofür ist es geeignet und welches bekannte Verfahren soll es ersetzen?Gehen Sie auch auf die Nachteile von Monitoren ein.
+
+\tcblower
+
+\justifying
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_149.png}
+\end{center}
+\begin{center}
+\includegraphics[max width=.9\textwidth]{betriebssysteme_skript_150.png}
+\end{center}
+
+\end{tcolorbox}
+\Needspace{20\baselineskip}
+\subsection{Lernkontrolle}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Richtig oder Falsch: Die Abfolge von \textit{Programmabläufen} unterschiedlicher Prozesse kann immer durch deren Reihenfolge im Source-Code \textit{reproduzierbar} festgelegt werden?
+
+\tcblower
+
+\justifying
+Falsch: Durch die Zuordnung der Prozesse zur CPU und Prozesse mit höherer Priorität sind zeitliche Programmabläufe selten repduzierbar.
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Beschreiben Sie die Aufgaben eines \textbf{Prozesskontrollblocks} (PCB) und geben sie an \textit{wo} dieser abgespeichert wird.
+
+\tcblower
+
+\justifying
+PCB ist eine Datenstruktur, die genutzt wird, um assoziierte dAten für einen Prozess zu speichern.PCBs werden in der Prozesstabelle des BS gespeichert.
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Nennen und beschreiben Sie die drei Zustände eines Prozesses gemäss dem Standardschema für das Zustandsmodell.
+
+\tcblower
+
+\justifying
+- Bereit- Rechnend- Blockiert
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Richtig oder Falsch: Ein Thread hat einen eigenen Stack und eingene CPU Register, Threads eines Prozesses teilen sich aber den gleichen Speicher innerhalb dieses Prozesses.
+
+\tcblower
+
+\justifying
+Richtig!
+\end{tcolorbox}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Was wird mit dem UNIX-Befehl \textit{fork} erzeugt?
+
+\tcblower
+
+\justifying
+Eine exakte Kopie des Elternprozesses.
+\end{tcolorbox}
+%*********************
+\Needspace{20\baselineskip}
+\section{Generelles}
+%---------------------
+\begin{tcolorbox}[colback=white!10!white,colframe=lightgray!75!black,
+  savelowerto=\jobname_ex.tex,breakable,enhanced,lines before break=40]
+
+\justifying
+Betriebssysteme::Lernkontrolle
+
+\tcblower
+
+\justifying
+
+\end{tcolorbox}
+
+\end{document}
+
+
