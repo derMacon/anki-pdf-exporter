@@ -9,9 +9,18 @@ import com.dermacon.model.data.nodes.document.DocumentBuilder;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 
+/**
+ * Implementation of the parser interface. Generates a .txt representation
+ * for the document.
+ */
 public class TXTParser implements Parser {
 
+    /**
+     * Media path used by anki. Directory where all the images used in the
+     * cards are stored in the system.
+     */
     private final String mediaPath;
+
     private final String deckName;
 
     /**

@@ -22,6 +22,16 @@ import com.dermacon.model.data.nodes.document.MetaHeader;
 
 import java.util.List;
 
+/**
+ * Visitor implementation for generating a latex document.
+ *
+ * Why the visitor pattern:
+ * The visitor will be passed to the top level node of a data structure that
+ * should be converted. This structure will internally call the accept method
+ * of the visitor. Since java is a single dispach language it must be handled
+ * this way and the visitor cannot process / accept the node directly because
+ * the jvm always assumes the static type when dealing with overloaded methods.
+ */
 public class TexVisitor implements FormatVisitor<String> {
 
     private static final String DOC_TEMPLATE = "\\documentclass{article}\n"
@@ -78,17 +88,12 @@ public class TexVisitor implements FormatVisitor<String> {
     // page: 366
     private static final String CARD_TEMPLATE = CARD_DELIMITER
             + "\\begin{tcolorbox}"
-//            + "[colback=white!10!white,colframe=lightgray!75!black,\n"
             + "[colback=white!10!white,colframe=lightgray!75!black,\n"
             + "  savelowerto=\\jobname_ex.texri,breakable,enhanced,"
             + "lines before break=40,arc=2pt,outer arc=2pt]\n"
-//            + "height fixed for=first and middle]\n"
-//            "segmentation at break=false]\n"
             + "\n"
-//            + "\\begin{center}\n"
             + "\\justifying\n"
             + "%s\n"
-//            + "\\end{center}\n"
             + "\n"
             + "\\tcblower\n"
             + "\n"
@@ -96,8 +101,6 @@ public class TexVisitor implements FormatVisitor<String> {
             + "%s\n"
             + "\\end{tcolorbox}\n";
 
-
-    //    private static final String HEADER_TEMPLATE = "\\title{%s}";
     private static final String HEADER_TEMPLATE =
             "\\title{%s}\n"
                     + "\\author{Silas Hoffmann, inf103088}\n"
@@ -162,6 +165,15 @@ public class TexVisitor implements FormatVisitor<String> {
                 iterateChildren(body.getChildren()));
     }
 
+    /**
+     * Iterates over a given list of elements extending the most top level
+     * DocNode class and appends the generated output when accepting the
+     * visitor object to a StringBuilder instance.
+     * @param children list of elements extending the most top level DocNode
+     *                 class
+     * @return String containing the latex representation of the children of
+     * the current node.
+     */
     private String iterateChildren(List<? extends DocNode> children) {
         StringBuilder out = new StringBuilder();
         for (DocNode elem : children) {

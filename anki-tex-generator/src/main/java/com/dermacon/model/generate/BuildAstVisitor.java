@@ -21,6 +21,11 @@ import org.antlr.v4.runtime.Token;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Generates an AstStack node hierarchy. This tree will later on be processed
+ * by the corresponding visitor instance (depending on what output format
+ * will be used).
+ */
 public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
 
     @Override
@@ -103,10 +108,6 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
         return new OrderedList(elems);
     }
 
-//    private <T> List<ListItem> iterateChildren() {
-//
-//    }
-
     @Override
     public UnorderedList visitUnorderedList(CardStackParser.UnorderedListContext ctx) {
         // todo implement using helper
@@ -137,9 +138,4 @@ public class BuildAstVisitor extends CardStackBaseVisitor<DocNode> {
         return new ImageItem(ctx.IDENTIFIER().getText() + ctx.IMG_TYPE().getText());
     }
 
-//    @Override
-//    public PlainText visitWord(CardStackParser.WordContext ctx) {
-//        return visitChildren(ctx);
-//        return null;
-//    }
 }

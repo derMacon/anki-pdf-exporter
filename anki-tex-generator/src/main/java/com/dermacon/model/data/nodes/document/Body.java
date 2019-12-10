@@ -35,6 +35,11 @@ public class Body implements DocNode {
         this.elements.add(node);
     }
 
+    /**
+     * Generates an iterator which in turn iterate over the different Section
+     * elements in the elements children.
+     * @return
+     */
     public Iterator<Section> headingIterator() {
         return new Iterator<Section>() {
             private Iterator<Section> directSubSections =
@@ -54,9 +59,6 @@ public class Body implements DocNode {
             }
         };
     }
-
-
-
 
     @Override
     public <E> E accept(FormatVisitor<E> visitor) {
@@ -81,4 +83,5 @@ public class Body implements DocNode {
         return other != null
                 && this.elements.equals(other.elements);
     }
+
 }

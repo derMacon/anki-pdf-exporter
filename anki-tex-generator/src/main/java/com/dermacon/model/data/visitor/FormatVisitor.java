@@ -19,6 +19,12 @@ import com.dermacon.model.data.nodes.sideElem.PlainText;
 import com.dermacon.model.data.nodes.document.Body;
 import com.dermacon.model.data.nodes.document.Document;
 
+/**
+ * Visitor interface that internally generates an output of the specified
+ * generic type.
+ * @param <R> Type of the output (mostly String when generating stuff like a
+ *          latex or html representation).
+ */
 public interface FormatVisitor<R> {
     R process(Document doc);
     R process(MetaHeader metaHeader);
